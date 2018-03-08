@@ -12,7 +12,8 @@ Building the image is as easy as cloning the repo and building using the Dockerf
 ```
 $ git clone https://github.com/Mirrdhyn/chatscript-in-docker.git
 $ cd chatscript-in-docker
-$ docker build -t dleclercq/chatscript-in-docker:latest .```
+$ docker build -t dleclercq/chatscript-in-docker:latest .
+```
 
 # Kick-start
 
