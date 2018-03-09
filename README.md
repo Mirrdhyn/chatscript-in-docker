@@ -20,9 +20,13 @@ $ docker build -t dleclercq/chatscript-in-docker:latest .
 To launch your bot, you have to mount your folder where you have all your top files and filesBuild to the bot data inside this image.
 Better an example than a long speech :
 
-```$ docker run -t -i -p 1024:1024 -v C:\cs\MyBot\:/data/ChatScriptNLP/RAWDATA -v C:\cs\BOTS\BNPCIBECH\USERS\:/data/ChatScriptNLP/USERS -v C:\cs\BOTS\BNPCIBECH\LOGS\:/data/ChatScriptNLP/LOGS dleclercq/chatscript-in-docker:latest```
+```
+$ docker run -t -i --name chatscript -p 1024:1024 -v C:\cs\MyBot\:/data/ChatScriptNLP/RAWDATA -v X:\MyBot\USERS\:/data/ChatScriptNLP/USERS -v X:\MyBot\LOGS\:/data/ChatScriptNLP/LOGS dleclercq/chatscript-in-docker:latest
+```
 
 You can do this on Windows Docker as well. _Mine is working on my Windows laptop._
+
+The option `name` is particulary useful to link your engine to another Docker like database or frontend.
 
 The option `p` is to plug my localhost port 1024 to the internal 1024 port of ChatScript server.
 
