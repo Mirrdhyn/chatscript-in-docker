@@ -1,3 +1,51 @@
+ # texting interjections
+   bfn ~emogoodbye
+ lol ~emolaugh
+ lolz ~emolaugh
+wth ~emomisunderstand
+bbfn ~emogoodbye
+ <omg ~emosurprise
+ <rofl ~emolaugh
+ <roflmao ~emolaugh
+ <roflol ~emolaugh
+ <rotfl ~emolaugh
+ <rotflmao ~emolaugh
+ <rotflol ~emolaugh
+ <ta-ta-for-now ~emogoodbye
+ <ta ~emothanks
+ <ta_ta ~emogoodbye
+ <ta_very_much ~emothanks
+ <tnt ~emogoodbye
+ <tnx ~emothanks
+ <ttfn ~emogoodbye
+ <ttyl ~emogoodbye
+ <ty ~emothanks
+ <tyvm ~emothanks
+ <lmao ~emolaugh
+ <lmfao ~emolaugh
+ <logoff ~emogoodbye
+ <logout ~emogoodbye
+ <lolwut ~emosurprise
+ <lulz> ~emolaugh
+ <gtg ~emogoodbye
+  <gn ~emogoodbye
+ <gnstdltbbb ~emogoodbye
+ <l8r ~emogoodbye
+ <l8r_l8r ~emogoodbye
+ <wtf ~emosurprise
+ <zz ~emobored
+  <ack ~yes
+<cu ~emogoodbye
+ <cya ~emogoodbye
+ <cyal8r ~emogoodbye
+:( ~emosad
+ :)   ~emohappy
+ :@ ~emosurprise
+ :[ ~emosad
+ :]  ~emohappy
+ :{ ~emosad
+ :}   ~emohappy
+ # normal interjections
  <not_a_prayer> ~no 
  <top_of_the_morning ~emohello
  <top_of_the_morning_to_you ~emohello
@@ -8,7 +56,7 @@
  wtf ~emomisunderstand
  bla_bla_bla ~emobored
  bla ~emobored
- <oh? why?
+ <oh? why+?
  <never> ~no 
  <no_, ~no 
  <no> ~no 
@@ -586,6 +634,7 @@
  <thank_you_,_goodnight ~emothanks
  <thank_you_for_the_flowers ~emothanks
  <thank_you_goodnight ~emothanks
+ <thank_you_much ~emothanks
  <thank_you_so_much ~emothanks
  <thank_you_very_much ~emothanks
  <thank_you_very_much_indeed ~emothanks
@@ -597,6 +646,7 @@
  <thanks_man ~emothanks
  <thanks_mate ~emothanks
  <thanks_my_friend ~emothanks
+ <thanks_so_much ~emothanks
  <thanks_to_everybody ~emothanks
  <thanks_to_you_all ~emothanks
  <thanks_very_much ~emothanks

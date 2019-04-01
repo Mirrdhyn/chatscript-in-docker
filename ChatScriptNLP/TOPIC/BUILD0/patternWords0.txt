@@ -5,6 +5,8 @@ thick-headed
 fun-loving
 eggheaded
 tingly
+dessicated
+stat
 hinkey
 fraudster
 greenwash
@@ -12,6 +14,7 @@ ashame
 n00b
 manners
 multi
+childrens
 asshat
 clusterfuck
 cockfucker
@@ -35,6 +38,7 @@ blueray
 bluray
 battledress
 kevlar
+bro
 vehiclewrecker
 foxhawk
 polar-bear
@@ -48,6 +52,7 @@ muenster
 bitter-clinger
 hoosier
 hoser
+shant
 teabagger
 dropped-shoulder
 one-shoulder
@@ -60,6 +65,7 @@ swingsquare
 bomb-disposal
 stuntperson
 bool
+int
 ex-partner
 fri
 fr
@@ -68,12 +74,14 @@ sa
 su
 thu
 thur
+th
 tue
 tues
 tu
 mong
 sperg
 ob/gyn
+opthamologist
 barbituate
 ludes
 mesc
@@ -177,6 +185,8 @@ chinc
 deggo
 guido
 heeb
+jap
+jews
 junglebunny
 kraut
 mick
@@ -195,8 +205,6 @@ sandnigger
 w0p
 abs
 folks
-step-father
-step-sister
 grandkid
 nephling
 pappy
@@ -313,6 +321,7 @@ phoeniceous
 ponceau
 puniceous
 vermeil
+surroundings
 clamhead
 hebro
 higger
@@ -321,8 +330,11 @@ proddywhoddy
 proddywoddy
 suitemate
 sensei
-spokespersonstick-in-the-mud
+councilor
 vice-president
+fiancé
+fiancée
+pharoh
 moonbow
 supercell
 fisure
@@ -408,6 +420,7 @@ coleopter
 paraglider
 roflcopter
 quadcycle
+sportscar
 tobaggan
 cogship
 longship

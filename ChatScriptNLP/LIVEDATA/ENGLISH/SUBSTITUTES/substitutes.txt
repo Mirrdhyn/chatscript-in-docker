@@ -162,8 +162,8 @@ prof. professor
  ,_okay_? %QUESTIONMARK
  ,_yes_? %QUESTIONMARK
  <am_I_not am+i
-  <because? why?
- <becos? why?
+  <because? why+?
+ <becos? why+?
  <but_how how
  <but_what what
  <but_when when
@@ -247,6 +247,10 @@ prof. professor
  '16 2016
  '17 2017
  '18 2018
+ '19 2019
+ '20 2020
+ '21 2021
+ '22 2022
  '70 1970
  '71 1971
  '72 1972
