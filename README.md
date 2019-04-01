@@ -3,7 +3,7 @@ Minimal ChatScript Engine ready to launch your bot
 
 You can also pull directly the Docker image from this [Docker Hub](https://hub.docker.com/r/dleclercq/chatscript-in-docker/) repo.
 
-Based [ChatScript 8.6](https://github.com/ChatScript/ChatScript), this image has all core files to run your bot in English.
+Based [ChatScript 9.2](https://github.com/ChatScript/ChatScript), this image has all core files to run your bot in English.
 
 # Build
 
