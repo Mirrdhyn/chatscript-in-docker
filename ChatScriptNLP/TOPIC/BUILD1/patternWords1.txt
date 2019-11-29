@@ -12,7 +12,6 @@ do_you_watch
 do_you_see
 do_you_view
 friends
-I_do
 how_do_you_spell
 how_would_you_spell
 not_sure
@@ -37,6 +36,7 @@ does_that_make_sense
 does_it_make_sense_that
 a_little_bird
 a_little_birdie
+Coast_Guard
 any_sense
 kind_of
 you_be_an

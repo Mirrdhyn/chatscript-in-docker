@@ -4020,7 +4020,7 @@
 + under_the_heel_of 
 + with_the_exception_of 
 + looks_like 
-+ becomes VERB_PRESENT_3PS VERB KINDERGARTEN 
++ becomes 
 + go_to 
 + be_you_aware_of 
 + be_you_familiar_with 
@@ -4311,7 +4311,7 @@
 + Southern_Ocean NOUN NOUN_PROPER_SINGULAR ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Brunei_Abode_of_Peace NOUN NOUN_PROPER_SINGULAR ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Gulf_of_Adan NOUN NOUN_PROPER_SINGULAR ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
-+ Country_of_the_Blind NOUN NOUN_PROPER_SINGULAR ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
++ Country_of_the_Blind NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Shangri-La NOUN NOUN_PROPER_SINGULAR ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Basildon NOUN NOUN_PROPER_SINGULAR ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Bournemouth NOUN NOUN_PROPER_SINGULAR ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
@@ -9288,8 +9288,7 @@
 + The_Face_On_The_Cutting_Room_Floor NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
 + The_Great_Monkey_Trial NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
 + The_Dunwich_Horror NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
-+ The_Country_Of_The_Blind NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
-+ Country_Of_The_Blind NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
++ The_Country_of_the_Blind NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
 + The_Confessions_Of_Nat_Turner1967 NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
 + Another_Country NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
 + Humboldts_Gift NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
@@ -45549,19 +45548,6 @@
 + improve_personal_appearance 
 + smooth_clothes 
 + dry_hair 
-+ criminals 
-+ protect_society 
-+ catch_criminals 
-+ make_people_well 
-+ heal_sick 
-+ domesticate_people 
-+ channel_god 
-+ have_children 
-+ provide_reproduction 
-+ supply_sex 
-+ provide_sex 
-+ raise_a_child 
-+ provide_protection 
 + keep_upper_torso_warm 
 + cover_chest 
 + legs 
