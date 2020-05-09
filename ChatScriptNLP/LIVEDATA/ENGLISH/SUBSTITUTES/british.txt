@@ -6,6 +6,7 @@
  acclimatisation acclimatization
  acclimatise acclimatize
  acclimatised acclimatized
+ annexe	annex
  acclimatises acclimatizes
  acclimatising acclimatizing
  accoutrements accouterments
@@ -393,6 +394,10 @@
  depersonalised depersonalized
  depersonalises depersonalizes
  depersonalising depersonalizing
+ despatch dispatch
+ despatches dispatches
+ despatching dispatching
+ despatched dispatched
  deputise deputize
  deputised deputized
  deputises deputizes
