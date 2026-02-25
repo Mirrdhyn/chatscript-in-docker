@@ -1,0 +1,11 @@
+# Build artifacts
+*.o
+engine/TMP/
+
+# All binaries (users compile for their platform)
+engine/BINARIES/
+
+# Runtime data
+data/
+engine/LOGS/
+engine/USERS/
