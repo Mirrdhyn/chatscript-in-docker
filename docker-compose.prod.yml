@@ -4,6 +4,13 @@ services:
     volumes:
       - ./data/users:/opt/ChatScript/USERS
       - ./data/logs:/opt/ChatScript/LOGS
+    mem_limit: 256m
+    cpus: 0.50
+    pids_limit: 64
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
     healthcheck:
       test: ["CMD-SHELL", "printf 'healthcheck\\0\\0ping\\0' | nc -w 2 localhost 1024"]
       interval: 10s
@@ -21,6 +28,14 @@ services:
       CS_HOST: chatscript
       CS_PORT: "1024"
       PORT: "8000"
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 32
+    read_only: true
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
     depends_on:
       chatscript:
         condition: service_healthy
@@ -34,6 +49,18 @@ services:
       - ./nginx.conf:/etc/nginx/templates/default.conf.template:ro
     environment:
       VALID_API_KEY: ${VALID_API_KEY:-changeme}
+    mem_limit: 64m
+    cpus: 0.25
+    pids_limit: 32
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/cache/nginx
+      - /run
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
     depends_on:
       - middleware
     restart: unless-stopped

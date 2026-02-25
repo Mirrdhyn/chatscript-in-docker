@@ -6,4 +6,11 @@ services:
     volumes:
       - ./data/users:/opt/ChatScript/USERS
       - ./data/logs:/opt/ChatScript/LOGS
+    mem_limit: 256m
+    cpus: 0.50
+    pids_limit: 64
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
