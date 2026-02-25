@@ -10,181 +10,193 @@
 "rule" : "0.0",
 "kind" : "u:",
 "line" : 11,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
 "line" : 16,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
 "line" : 21,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
 "line" : 26,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
 "line" : 35,
-"complexity" : 1
+"complexity" : 2
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 40,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~k8s_secret",
-"line" : 47,
+"line" : 52,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 50,
-"complexity" : 1
+"line" : 55,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 55,
-"complexity" : 1
+"line" : 60,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 67,
-"complexity" : 1
+"line" : 72,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 72,
-"complexity" : 1
+"line" : 77,
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 77,
-"complexity" : 1
+"line" : 89,
+"complexity" : 2
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 94,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~hpa",
-"line" : 90,
+"line" : 107,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 93,
-"complexity" : 1
+"line" : 110,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 98,
-"complexity" : 1
+"line" : 115,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 103,
-"complexity" : 1
+"line" : 120,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 113,
-"complexity" : 1
+"line" : 130,
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 118,
-"complexity" : 1
+"line" : 135,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~limitrange",
-"line" : 131,
+"line" : 148,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 134,
-"complexity" : 1
+"line" : 151,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 139,
-"complexity" : 1
+"line" : 156,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 147,
-"complexity" : 1
+"line" : 164,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~resourcequota",
-"line" : 160,
+"line" : 177,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 163,
-"complexity" : 1
+"line" : 180,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 168,
-"complexity" : 1
+"line" : 185,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 180,
-"complexity" : 1
+"line" : 197,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 191,
-"complexity" : 1
+"line" : 208,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~pdb",
-"line" : 203,
+"line" : 220,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 206,
-"complexity" : 1
+"line" : 223,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 211,
-"complexity" : 1
+"line" : 228,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 219,
-"complexity" : 1
+"line" : 236,
+"complexity" : 2
 }]
 }
 
@@ -201,295 +213,379 @@
 "rule" : "0.0",
 "kind" : "u:",
 "line" : 11,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
 "line" : 16,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
 "line" : 21,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
 "line" : 26,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
 "line" : 31,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
 "line" : 36,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "6.0",
 "kind" : "u:",
 "line" : 41,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "7.0",
 "kind" : "u:",
 "line" : 46,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "8.0",
 "kind" : "u:",
 "line" : 51,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "9.0",
 "kind" : "u:",
 "line" : 56,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "10.0",
 "kind" : "u:",
 "line" : 61,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "11.0",
 "kind" : "u:",
 "line" : 66,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "12.0",
 "kind" : "u:",
 "line" : 71,
-"complexity" : 1
+"complexity" : 2
+},
+{
+"rule" : "13.0",
+"kind" : "u:",
+"line" : 76,
+"complexity" : 2
+},
+{
+"rule" : "14.0",
+"kind" : "u:",
+"line" : 81,
+"complexity" : 2
+},
+{
+"rule" : "15.0",
+"kind" : "u:",
+"line" : 86,
+"complexity" : 2
+},
+{
+"rule" : "16.0",
+"kind" : "u:",
+"line" : 91,
+"complexity" : 2
+},
+{
+"rule" : "17.0",
+"kind" : "u:",
+"line" : 100,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~deployment",
-"line" : 79,
+"line" : 108,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 82,
-"complexity" : 1
+"line" : 111,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 87,
-"complexity" : 1
+"line" : 116,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 92,
-"complexity" : 1
+"line" : 121,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 97,
-"complexity" : 1
+"line" : 126,
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 102,
-"complexity" : 1
+"line" : 131,
+"complexity" : 2
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
-"line" : 107,
-"complexity" : 1
+"line" : 136,
+"complexity" : 2
 },
 {
 "rule" : "6.0",
 "kind" : "u:",
-"line" : 112,
-"complexity" : 1
+"line" : 141,
+"complexity" : 2
 },
 {
 "rule" : "7.0",
 "kind" : "u:",
-"line" : 117,
-"complexity" : 1
+"line" : 146,
+"complexity" : 2
+},
+{
+"rule" : "8.0",
+"kind" : "u:",
+"line" : 151,
+"complexity" : 2
+},
+{
+"rule" : "9.0",
+"kind" : "u:",
+"line" : 156,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~statefulset",
-"line" : 125,
+"line" : 164,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 128,
-"complexity" : 1
+"line" : 167,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 133,
-"complexity" : 1
+"line" : 172,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 138,
-"complexity" : 1
+"line" : 177,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 143,
-"complexity" : 1
+"line" : 182,
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 148,
-"complexity" : 1
+"line" : 187,
+"complexity" : 2
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
-"line" : 153,
-"complexity" : 1
+"line" : 192,
+"complexity" : 2
+},
+{
+"rule" : "6.0",
+"kind" : "u:",
+"line" : 200,
+"complexity" : 2
+},
+{
+"rule" : "7.0",
+"kind" : "u:",
+"line" : 205,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~daemonset",
-"line" : 161,
+"line" : 213,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 164,
-"complexity" : 1
+"line" : 216,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 169,
-"complexity" : 1
+"line" : 221,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 174,
-"complexity" : 1
+"line" : 226,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 179,
-"complexity" : 1
+"line" : 231,
+"complexity" : 2
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 236,
+"complexity" : 2
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 241,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~replicaset",
-"line" : 187,
+"line" : 249,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 190,
-"complexity" : 1
+"line" : 252,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 195,
-"complexity" : 1
+"line" : 257,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 200,
-"complexity" : 1
+"line" : 262,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~k8s_job",
-"line" : 208,
+"line" : 270,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 211,
-"complexity" : 1
+"line" : 273,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 216,
-"complexity" : 1
+"line" : 278,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 221,
-"complexity" : 1
+"line" : 283,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 226,
-"complexity" : 1
+"line" : 288,
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 231,
-"complexity" : 1
+"line" : 293,
+"complexity" : 2
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 298,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~cronjob",
-"line" : 239,
+"line" : 306,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 242,
-"complexity" : 1
+"line" : 309,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 247,
-"complexity" : 1
+"line" : 314,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 252,
-"complexity" : 1
+"line" : 319,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 257,
-"complexity" : 1
+"line" : 324,
+"complexity" : 2
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 329,
+"complexity" : 2
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 337,
+"complexity" : 2
 }]
 }
 
@@ -506,223 +602,265 @@
 "rule" : "0.0",
 "kind" : "u:",
 "line" : 11,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
 "line" : 16,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
 "line" : 25,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
 "line" : 30,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
 "line" : 35,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
 "line" : 40,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "6.0",
 "kind" : "u:",
 "line" : 45,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "7.0",
 "kind" : "u:",
 "line" : 50,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "8.0",
 "kind" : "u:",
 "line" : 55,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "9.0",
 "kind" : "u:",
 "line" : 60,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "10.0",
 "kind" : "u:",
 "line" : 69,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "11.0",
 "kind" : "u:",
 "line" : 74,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "12.0",
 "kind" : "u:",
 "line" : 81,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "13.0",
 "kind" : "u:",
 "line" : 88,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "14.0",
 "kind" : "u:",
 "line" : 95,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "15.0",
 "kind" : "u:",
 "line" : 100,
-"complexity" : 1
+"complexity" : 2
+},
+{
+"rule" : "16.0",
+"kind" : "u:",
+"line" : 105,
+"complexity" : 2
+},
+{
+"rule" : "17.0",
+"kind" : "u:",
+"line" : 113,
+"complexity" : 2
+},
+{
+"rule" : "18.0",
+"kind" : "u:",
+"line" : 118,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~k8s_ingress",
-"line" : 109,
+"line" : 127,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 112,
-"complexity" : 1
+"line" : 130,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 117,
-"complexity" : 1
+"line" : 135,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 125,
-"complexity" : 1
+"line" : 143,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 133,
-"complexity" : 1
+"line" : 151,
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 141,
-"complexity" : 1
+"line" : 159,
+"complexity" : 2
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
-"line" : 149,
-"complexity" : 1
+"line" : 167,
+"complexity" : 2
 },
 {
 "rule" : "6.0",
 "kind" : "u:",
-"line" : 154,
-"complexity" : 1
+"line" : 172,
+"complexity" : 2
+},
+{
+"rule" : "7.0",
+"kind" : "u:",
+"line" : 177,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~k8s_ingressclass",
-"line" : 165,
+"line" : 188,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 168,
-"complexity" : 1
+"line" : 191,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 173,
-"complexity" : 1
+"line" : 196,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~k8s_networkpolicy",
-"line" : 182,
+"line" : 205,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 185,
-"complexity" : 1
+"line" : 208,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 190,
-"complexity" : 1
+"line" : 213,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 195,
-"complexity" : 1
+"line" : 218,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 203,
-"complexity" : 1
+"line" : 226,
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 211,
-"complexity" : 1
+"line" : 234,
+"complexity" : 2
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
-"line" : 226,
-"complexity" : 1
+"line" : 249,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~k8s_endpointslice",
-"line" : 246,
+"line" : 269,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 249,
-"complexity" : 1
+"line" : 272,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 254,
-"complexity" : 1
+"line" : 277,
+"complexity" : 2
+},
+{
+"rule" : "2.0",
+"kind" : "u:",
+"line" : 284,
+"complexity" : 2
+},
+{
+"rule" : "3.0",
+"kind" : "u:",
+"line" : 293,
+"complexity" : 2
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 306,
+"complexity" : 2
 }]
 }
 
@@ -739,19 +877,19 @@
 "rule" : "0.0",
 "kind" : "u:",
 "line" : 11,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
 "line" : 16,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
 "line" : 21,
-"complexity" : 1
+"complexity" : 2
 }]
 }
 ,
@@ -763,85 +901,91 @@
 "rule" : "0.0",
 "kind" : "u:",
 "line" : 37,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
 "line" : 42,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
 "line" : 47,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
 "line" : 55,
-"complexity" : 1
+"complexity" : 2
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 66,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~k8s_rolebinding",
-"line" : 69,
+"line" : 81,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 72,
-"complexity" : 1
+"line" : 84,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 77,
-"complexity" : 1
+"line" : 89,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 82,
-"complexity" : 1
+"line" : 94,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 91,
-"complexity" : 1
+"line" : 103,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~k8s_serviceaccount",
-"line" : 104,
+"line" : 116,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 107,
-"complexity" : 1
+"line" : 119,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 112,
-"complexity" : 1
+"line" : 124,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 120,
-"complexity" : 1
+"line" : 132,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 125,
-"complexity" : 1
+"line" : 137,
+"complexity" : 2
 }]
 }
 
@@ -858,115 +1002,163 @@
 "rule" : "0.0",
 "kind" : "u:",
 "line" : 12,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
 "line" : 17,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
 "line" : 25,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
 "line" : 36,
-"complexity" : 1
+"complexity" : 2
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 45,
+"complexity" : 2
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 50,
+"complexity" : 2
+},
+{
+"rule" : "6.0",
+"kind" : "u:",
+"line" : 55,
+"complexity" : 2
+},
+{
+"rule" : "7.0",
+"kind" : "u:",
+"line" : 63,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~mutatingwebhook",
-"line" : 48,
+"line" : 71,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 51,
-"complexity" : 1
+"line" : 74,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 56,
-"complexity" : 1
+"line" : 79,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 65,
-"complexity" : 1
+"line" : 88,
+"complexity" : 2
+},
+{
+"rule" : "3.0",
+"kind" : "u:",
+"line" : 93,
+"complexity" : 2
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 98,
+"complexity" : 2
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 106,
+"complexity" : 2
+},
+{
+"rule" : "6.0",
+"kind" : "u:",
+"line" : 111,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~validatingadmissionpolicy",
-"line" : 77,
+"line" : 123,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 80,
-"complexity" : 1
+"line" : 126,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 85,
-"complexity" : 1
+"line" : 131,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 96,
-"complexity" : 1
+"line" : 142,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~priorityclass",
-"line" : 110,
+"line" : 156,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 113,
-"complexity" : 1
+"line" : 159,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 118,
-"complexity" : 1
+"line" : 164,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 126,
-"complexity" : 1
+"line" : 172,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~runtimeclass",
-"line" : 138,
+"line" : 184,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 141,
-"complexity" : 1
+"line" : 187,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 146,
-"complexity" : 1
+"line" : 192,
+"complexity" : 2
 }]
 }
 
@@ -983,73 +1175,85 @@
 "rule" : "0.0",
 "kind" : "u:",
 "line" : 11,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
 "line" : 16,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 25,
-"complexity" : 1
+"line" : 21,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 30,
-"complexity" : 1
+"line" : 26,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~node",
-"line" : 41,
+"line" : 35,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 44,
-"complexity" : 1
+"line" : 38,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 49,
-"complexity" : 1
+"line" : 43,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 59,
-"complexity" : 1
+"line" : 48,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 68,
-"complexity" : 1
+"line" : 53,
+"complexity" : 2
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 59,
+"complexity" : 2
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 64,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~k8s_event",
-"line" : 80,
+"line" : 72,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 83,
-"complexity" : 1
+"line" : 75,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 88,
-"complexity" : 1
+"line" : 80,
+"complexity" : 2
 }]
 }
 
@@ -1186,7 +1390,7 @@
 "rule" : "1.0",
 "kind" : "u:",
 "line" : 42,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "2.0",
@@ -1317,181 +1521,181 @@
 "rule" : "0.0",
 "kind" : "u:",
 "line" : 11,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
 "line" : 16,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
 "line" : 21,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
 "line" : 26,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 35,
-"complexity" : 1
+"line" : 31,
+"complexity" : 2
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
-"line" : 40,
-"complexity" : 1
+"line" : 36,
+"complexity" : 2
 },
 {
 "rule" : "6.0",
 "kind" : "u:",
-"line" : 45,
-"complexity" : 1
+"line" : 41,
+"complexity" : 2
 },
 {
 "rule" : "7.0",
 "kind" : "u:",
-"line" : 50,
-"complexity" : 1
+"line" : 46,
+"complexity" : 2
 },
 {
 "rule" : "8.0",
 "kind" : "u:",
-"line" : 58,
-"complexity" : 1
+"line" : 51,
+"complexity" : 2
 },
 {
 "rule" : "9.0",
 "kind" : "u:",
-"line" : 65,
-"complexity" : 1
+"line" : 56,
+"complexity" : 2
 },
 {
 "rule" : "10.0",
 "kind" : "u:",
-"line" : 70,
-"complexity" : 1
+"line" : 61,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~persistentvolumeclaim",
-"line" : 84,
+"line" : 70,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 87,
-"complexity" : 1
+"line" : 73,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 92,
-"complexity" : 1
+"line" : 78,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 97,
-"complexity" : 1
+"line" : 83,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 102,
-"complexity" : 1
+"line" : 88,
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 107,
-"complexity" : 1
+"line" : 93,
+"complexity" : 2
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
-"line" : 112,
-"complexity" : 1
+"line" : 98,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~storageclass",
-"line" : 124,
+"line" : 107,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 127,
-"complexity" : 1
+"line" : 110,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 132,
-"complexity" : 1
+"line" : 115,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 137,
-"complexity" : 1
+"line" : 120,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 147,
-"complexity" : 1
+"line" : 125,
+"complexity" : 2
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 154,
-"complexity" : 1
+"line" : 130,
+"complexity" : 2
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
-"line" : 161,
-"complexity" : 1
+"line" : 135,
+"complexity" : 2
 }]
 }
 ,
 {
 "topic" : "~csidriver",
-"line" : 170,
+"line" : 144,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 173,
-"complexity" : 1
+"line" : 147,
+"complexity" : 2
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 178,
-"complexity" : 1
+"line" : 152,
+"complexity" : 2
 },
 {
 "rule" : "2.0",
 "kind" : "u:",
-"line" : 183,
-"complexity" : 1
+"line" : 157,
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 190,
-"complexity" : 1
+"line" : 162,
+"complexity" : 2
 }]
 }
 
@@ -1506,20 +1710,24 @@
 "complexity" : 1
 },
 {
+"concept" : "~fr_markers",
+"line" : 18
+},
+{
 "topic" : "~control",
-"line" : 18,
+"line" : 27,
 "rules" : [
 {
 "rule" : "0.0",
 "kind" : "u:",
-"line" : 21,
+"line" : 30,
 "complexity" : 1
 },
 {
 "rule" : "1.0",
 "kind" : "u:",
-"line" : 24,
-"complexity" : 17
+"line" : 33,
+"complexity" : 19
 }]
 }
 
@@ -1548,25 +1756,25 @@
 "rule" : "2.0",
 "kind" : "u:",
 "line" : 11,
-"complexity" : 1
+"complexity" : 2
 },
 {
 "rule" : "3.0",
 "kind" : "u:",
-"line" : 22,
+"line" : 30,
 "complexity" : 1
 },
 {
 "rule" : "4.0",
 "kind" : "u:",
-"line" : 27,
+"line" : 35,
 "complexity" : 1
 },
 {
 "rule" : "5.0",
 "kind" : "u:",
-"line" : 30,
-"complexity" : 1
+"line" : 38,
+"complexity" : 2
 }]
 }
 

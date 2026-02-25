@@ -1,0 +1,39 @@
+services:
+  chatscript:
+    build: .
+    volumes:
+      - ./data/users:/opt/ChatScript/USERS
+      - ./data/logs:/opt/ChatScript/LOGS
+    healthcheck:
+      test: ["CMD-SHELL", "printf 'healthcheck\\0\\0ping\\0' | nc -w 2 localhost 1024"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  middleware:
+    image: python:3.12-slim
+    command: ["python", "/app/middleware.py"]
+    volumes:
+      - ./middleware.py:/app/middleware.py:ro
+    environment:
+      CS_HOST: chatscript
+      CS_PORT: "1024"
+      PORT: "8000"
+    depends_on:
+      chatscript:
+        condition: service_healthy
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/templates/default.conf.template:ro
+    environment:
+      VALID_API_KEY: ${VALID_API_KEY:-changeme}
+    depends_on:
+      - middleware
+    restart: unless-stopped

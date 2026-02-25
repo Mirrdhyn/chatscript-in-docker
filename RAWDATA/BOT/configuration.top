@@ -9,35 +9,40 @@ topic: ~configmap (configmap configmaps configuration config donnees cle valeur 
 
 #! what is a configmap
 u: (<< [what que "qu est-ce"] [is est] [a un une] configmap >>)
-	^keep() A ConfigMap is a Kubernetes API object used to store non-confidential configuration data as key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume. ConfigMaps decouple configuration from container images, making applications more portable. \n
-	Un ConfigMap est un objet API Kubernetes utilise pour stocker des donnees de configuration non confidentielles sous forme de paires cle-valeur. Les Pods peuvent consommer les ConfigMaps comme variables d'environnement, arguments de ligne de commande ou fichiers de configuration dans un volume. Les ConfigMaps decouplent la configuration des images de conteneurs.
+	^keep() if ($$lang == fr) { Un ConfigMap est un objet API Kubernetes utilise pour stocker des donnees de configuration non confidentielles sous forme de paires cle-valeur. Les Pods peuvent consommer les ConfigMaps comme variables d'environnement, arguments de ligne de commande ou fichiers de configuration dans un volume. Les ConfigMaps decouplent la configuration des images de conteneurs. }
+	else { A ConfigMap is a Kubernetes API object used to store non-confidential configuration data as key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume. ConfigMaps decouple configuration from container images, making applications more portable. }
 
 #! configmap data and binaryData fields
 u: (<< configmap [data donnees champ champs field fields binaryData] >>)
-	^keep() A ConfigMap has two main data fields: 'data' holds UTF-8 string key-value pairs (e.g. configuration files, properties). 'binaryData' holds base64-encoded binary content (e.g. images, certificates, compressed archives). Keys must be unique across both fields and must consist of alphanumeric characters, '-', '_', or '.'. \n
-	Un ConfigMap a deux champs de donnees : 'data' contient des paires cle-valeur en chaines UTF-8 (ex : fichiers de configuration, proprietes). 'binaryData' contient du contenu binaire encode en base64 (ex : images, certificats, archives). Les cles doivent etre uniques entre les deux champs.
+	^keep() if ($$lang == fr) { Un ConfigMap a deux champs de donnees : 'data' contient des paires cle-valeur en chaines UTF-8 (ex : fichiers de configuration, proprietes). 'binaryData' contient du contenu binaire encode en base64 (ex : images, certificats, archives). Les cles doivent etre uniques entre les deux champs. }
+	else { A ConfigMap has two main data fields: 'data' holds UTF-8 string key-value pairs (e.g. configuration files, properties). 'binaryData' holds base64-encoded binary content (e.g. images, certificates, compressed archives). Keys must be unique across both fields and must consist of alphanumeric characters, '-', '_', or '.'. }
 
 #! immutable configmap
 u: (<< [immutable immuable] configmap >>)
-	^keep() Setting the 'immutable' field to true on a ConfigMap prevents any further changes to its data or binaryData fields. Immutable ConfigMaps provide performance benefits because the kubelet does not need to watch for updates, significantly reducing API server load in clusters with many ConfigMaps. To change an immutable ConfigMap, you must delete and recreate it. \n
-	Definir le champ 'immutable' a true sur un ConfigMap empeche toute modification ulterieure de ses champs data ou binaryData. Les ConfigMaps immuables offrent de meilleures performances car le kubelet n'a pas besoin de surveiller les mises a jour, reduisant la charge du serveur API. Pour modifier un ConfigMap immuable, il faut le supprimer et le recreer.
+	^keep() if ($$lang == fr) { Definir le champ 'immutable' a true sur un ConfigMap empeche toute modification ulterieure de ses champs data ou binaryData. Les ConfigMaps immuables offrent de meilleures performances car le kubelet n'a pas besoin de surveiller les mises a jour, reduisant la charge du serveur API. Pour modifier un ConfigMap immuable, il faut le supprimer et le recreer. }
+	else { Setting the 'immutable' field to true on a ConfigMap prevents any further changes to its data or binaryData fields. Immutable ConfigMaps provide performance benefits because the kubelet does not need to watch for updates, significantly reducing API server load in clusters with many ConfigMaps. To change an immutable ConfigMap, you must delete and recreate it. }
 
 #! how to use configmap in a pod
 u: (<< [use utiliser consommer mount monter] configmap [pod pods conteneur container] >>)
-	^keep() There are several ways to use a ConfigMap in a Pod: \n
+	^keep() if ($$lang == fr) { Plusieurs facons d'utiliser un ConfigMap dans un Pod : variables d'environnement (envFrom ou valueFrom.configMapKeyRef), montage en volume (chaque cle devient un fichier), ou arguments de commande. Les volumes sont mis a jour automatiquement ; les variables d'environnement ne le sont PAS. }
+	else { There are several ways to use a ConfigMap in a Pod: \n
 	1. Environment variables: use envFrom to load all keys, or env with valueFrom.configMapKeyRef for individual keys. \n
 	2. Volume mount: mount the ConfigMap as a volume. Each key becomes a file whose content is the value. Use subPath to mount a single key without hiding existing directory contents. \n
 	3. Command arguments: reference environment variables populated from ConfigMaps in the container command or args fields. \n
-	ConfigMaps mounted as volumes are updated automatically (with a delay up to the kubelet sync period). Environment variables are NOT updated after Pod creation. \n
-	Plusieurs facons d'utiliser un ConfigMap dans un Pod : variables d'environnement (envFrom ou valueFrom.configMapKeyRef), montage en volume (chaque cle devient un fichier), ou arguments de commande. Les volumes sont mis a jour automatiquement ; les variables d'environnement ne le sont PAS.
+	ConfigMaps mounted as volumes are updated automatically (with a delay up to the kubelet sync period). Environment variables are NOT updated after Pod creation. }
+
+#! configmap size limit 1 MiB
+u: (<< configmap [size taille limit limite "1 MiB" megabyte megaoctet capacity capacite] >>)
+	^keep() if ($$lang == fr) { Un ConfigMap est limite a 1 Mio (1 048 576 octets) de donnees combinees dans ses champs 'data' et 'binaryData'. Cette limite est appliquee par le serveur API et ne peut pas etre modifiee. Pour stocker des donnees de configuration plus volumineuses, divisez-les en plusieurs ConfigMaps ou utilisez un stockage externe. Cette limite de 1 Mio s'applique aussi aux Secrets. }
+	else { A single ConfigMap is limited to 1 MiB (1,048,576 bytes) of combined data in its 'data' and 'binaryData' fields. This limit is enforced by the API server and cannot be changed. If you need to store larger configuration data, consider splitting it across multiple ConfigMaps, using a volume mount with an init container to download from external storage, or using a dedicated configuration management system. The 1 MiB limit also applies to Secrets. }
 
 #! configmap vs secret difference
 u: (<< configmap [vs versus contre ou difference comparer] secret >>)
-	^keep() ConfigMap and Secret are both key-value stores, but they serve different purposes: \n
+	^keep() if ($$lang == fr) { ConfigMap et Secret sont tous deux des stockages cle-valeur, mais : ConfigMap stocke des donnees non confidentielles en texte clair. Secret stocke des donnees sensibles encodees en base64, avec possibilite de chiffrement au repos et controle d'acces RBAC. }
+	else { ConfigMap and Secret are both key-value stores, but they serve different purposes: \n
 	- ConfigMap: stores non-confidential configuration data in plain text. No encryption at rest by default. No size limit enforcement beyond etcd's 1.5 MiB object size limit. \n
 	- Secret: stores sensitive data (passwords, tokens, keys). Values are base64-encoded. Can be encrypted at rest with EncryptionConfiguration. Access can be restricted via RBAC. Kubernetes treats Secrets with additional care (e.g. not written to disk in certain configurations). \n
-	Use ConfigMaps for application configuration and Secrets for sensitive data. \n
-	ConfigMap et Secret sont tous deux des stockages cle-valeur, mais : ConfigMap stocke des donnees non confidentielles en texte clair. Secret stocke des donnees sensibles encodees en base64, avec possibilite de chiffrement au repos et controle d'acces RBAC.
+	Use ConfigMaps for application configuration and Secrets for sensitive data. }
 
 
 # =============================================================================
@@ -48,39 +53,51 @@ topic: ~k8s_secret (secret secrets mot_de_passe password token tokens credential
 
 #! what is a secret
 u: (<< [what que "qu est-ce"] [is est] [a un une] secret >>)
-	^keep() A Kubernetes Secret is an object that stores sensitive data such as passwords, OAuth tokens, SSH keys, and TLS certificates. Secrets are similar to ConfigMaps but are intended for confidential data. Values are stored as base64-encoded strings and can be encrypted at rest using EncryptionConfiguration. Pods consume Secrets as environment variables or mounted files. \n
-	Un Secret Kubernetes est un objet qui stocke des donnees sensibles comme des mots de passe, des tokens OAuth, des cles SSH et des certificats TLS. Les Secrets sont similaires aux ConfigMaps mais destines aux donnees confidentielles. Les valeurs sont stockees en base64 et peuvent etre chiffrees au repos via EncryptionConfiguration. Les Pods consomment les Secrets comme variables d'environnement ou fichiers montes.
+	^keep() if ($$lang == fr) { Un Secret Kubernetes est un objet qui stocke des donnees sensibles comme des mots de passe, des tokens OAuth, des cles SSH et des certificats TLS. Les Secrets sont similaires aux ConfigMaps mais destines aux donnees confidentielles. Les valeurs sont stockees en base64 et peuvent etre chiffrees au repos via EncryptionConfiguration. Les Pods consomment les Secrets comme variables d'environnement ou fichiers montes. }
+	else { A Kubernetes Secret is an object that stores sensitive data such as passwords, OAuth tokens, SSH keys, and TLS certificates. Secrets are similar to ConfigMaps but are intended for confidential data. Values are stored as base64-encoded strings and can be encrypted at rest using EncryptionConfiguration. Pods consume Secrets as environment variables or mounted files. }
 
 #! secret types opaque tls dockerconfigjson
 u: (<< secret [type types kind sorte] >>)
-	^keep() Kubernetes provides several built-in Secret types: \n
+	^keep() if ($$lang == fr) { Kubernetes fournit plusieurs types de Secrets : Opaque (defaut, donnees arbitraires), kubernetes.io/tls (certificat et cle TLS), kubernetes.io/dockerconfigjson (credentials de registre Docker), kubernetes.io/basic-auth, kubernetes.io/ssh-auth, kubernetes.io/service-account-token et bootstrap.kubernetes.io/token. }
+	else { Kubernetes provides several built-in Secret types: \n
 	- Opaque (default): arbitrary user-defined data. \n
 	- kubernetes.io/tls: stores a TLS certificate (tls.crt) and private key (tls.key). Used by Ingress resources. \n
 	- kubernetes.io/dockerconfigjson: stores Docker registry credentials for image pulling (imagePullSecrets). \n
 	- kubernetes.io/basic-auth: stores username and password fields. \n
 	- kubernetes.io/ssh-auth: stores an ssh-privatekey field. \n
 	- kubernetes.io/service-account-token: stores a ServiceAccount token (legacy, auto-generated). \n
-	- bootstrap.kubernetes.io/token: stores bootstrap token data for node joining. \n
-	Kubernetes fournit plusieurs types de Secrets : Opaque (defaut, donnees arbitraires), kubernetes.io/tls (certificat et cle TLS), kubernetes.io/dockerconfigjson (credentials de registre Docker), kubernetes.io/basic-auth, kubernetes.io/ssh-auth, kubernetes.io/service-account-token et bootstrap.kubernetes.io/token.
+	- bootstrap.kubernetes.io/token: stores bootstrap token data for node joining. }
 
 #! secret data vs stringData
 u: (<< secret [data stringData "string data"] >>)
-	^keep() A Secret has two data fields: 'data' expects values to be base64-encoded. 'stringData' accepts plain text values for convenience during creation; Kubernetes automatically base64-encodes them and merges them into the 'data' field. stringData is write-only and never output when reading the Secret back. If a key appears in both data and stringData, the stringData value takes precedence. \n
-	Un Secret a deux champs : 'data' attend des valeurs encodees en base64. 'stringData' accepte des valeurs en texte clair pour plus de commodite ; Kubernetes les encode automatiquement en base64. stringData est en ecriture seule et n'apparait jamais en lecture. Si une cle existe dans les deux champs, stringData est prioritaire.
+	^keep() if ($$lang == fr) { Un Secret a deux champs : 'data' attend des valeurs encodees en base64. 'stringData' accepte des valeurs en texte clair pour plus de commodite ; Kubernetes les encode automatiquement en base64. stringData est en ecriture seule et n'apparait jamais en lecture. Si une cle existe dans les deux champs, stringData est prioritaire. }
+	else { A Secret has two data fields: 'data' expects values to be base64-encoded. 'stringData' accepts plain text values for convenience during creation; Kubernetes automatically base64-encodes them and merges them into the 'data' field. stringData is write-only and never output when reading the Secret back. If a key appears in both data and stringData, the stringData value takes precedence. }
+
+#! secret required data fields per type tls dockerconfigjson
+u: (<< secret ["required field" "champ obligatoire" "data field" required requis obligatoire "tls.crt" "tls.key" ".dockerconfigjson" "ssh-privatekey"] >>)
+	^keep() if ($$lang == fr) { Chaque type de Secret a des cles de donnees obligatoires : Opaque [aucune cle requise], kubernetes.io/tls [tls.crt et tls.key], kubernetes.io/dockerconfigjson [.dockerconfigjson], kubernetes.io/basic-auth [username et password], kubernetes.io/ssh-auth [ssh-privatekey], kubernetes.io/service-account-token [token, ca.crt, namespace, auto-genere]. Creer un Secret type sans les cles requises provoque une erreur de validation API. }
+	else { Each Secret type has specific required data keys that the API server validates: \n
+	* Opaque: no required keys, any data is accepted. \n
+	* kubernetes.io/tls: requires 'tls.crt' (the PEM certificate) and 'tls.key' (the PEM private key). Used by Ingress for HTTPS termination. \n
+	* kubernetes.io/dockerconfigjson: requires '.dockerconfigjson' containing Docker registry auth in JSON format. Used by imagePullSecrets. \n
+	* kubernetes.io/basic-auth: expects 'username' and 'password' keys. \n
+	* kubernetes.io/ssh-auth: requires 'ssh-privatekey'. \n
+	* kubernetes.io/service-account-token: requires 'token', 'ca.crt', and 'namespace' keys [auto-generated by Kubernetes]. \n
+	Creating a typed Secret without the required keys results in an API validation error. }
 
 #! immutable secret
 u: (<< [immutable immuable] secret >>)
-	^keep() Setting the 'immutable' field to true on a Secret prevents any modifications to its data or stringData fields. Like immutable ConfigMaps, immutable Secrets improve cluster performance by eliminating kubelet watch overhead. This is recommended for Secrets that should never change, such as TLS certificates managed by an external system. To update, you must delete and recreate the Secret. \n
-	Definir le champ 'immutable' a true sur un Secret empeche toute modification de ses champs data ou stringData. Comme les ConfigMaps immuables, les Secrets immuables ameliorent les performances du cluster en eliminant la surveillance par le kubelet. Pour mettre a jour, il faut supprimer et recreer le Secret.
+	^keep() if ($$lang == fr) { Definir le champ 'immutable' a true sur un Secret empeche toute modification de ses champs data ou stringData. Comme les ConfigMaps immuables, les Secrets immuables ameliorent les performances du cluster en eliminant la surveillance par le kubelet. Pour mettre a jour, il faut supprimer et recreer le Secret. }
+	else { Setting the 'immutable' field to true on a Secret prevents any modifications to its data or stringData fields. Like immutable ConfigMaps, immutable Secrets improve cluster performance by eliminating kubelet watch overhead. This is recommended for Secrets that should never change, such as TLS certificates managed by an external system. To update, you must delete and recreate the Secret. }
 
 #! how to use secret in a pod
 u: (<< [use utiliser consommer mount monter] secret [pod pods conteneur container] >>)
-	^keep() Secrets can be consumed in a Pod in several ways: \n
+	^keep() if ($$lang == fr) { Les Secrets peuvent etre consommes de plusieurs facons : variables d'environnement (envFrom ou secretKeyRef), montage en volume (chaque cle devient un fichier, permissions 0644 par defaut), et imagePullSecrets pour l'authentification aux registres prives. Les volumes sont mis a jour automatiquement ; les variables d'environnement ne le sont PAS. }
+	else { Secrets can be consumed in a Pod in several ways: \n
 	1. Environment variables: use envFrom with secretRef to load all keys, or env with valueFrom.secretKeyRef for individual keys. \n
 	2. Volume mount: mount the Secret as a volume. Each key becomes a file. Files are created with permissions 0644 by default (configurable via defaultMode). Use subPath for individual keys. \n
 	3. imagePullSecrets: reference a dockerconfigjson Secret to authenticate with a private container registry. \n
-	Secrets mounted as volumes are updated automatically. Environment variables are NOT updated after Pod creation. Avoid logging Secret values in application code. \n
-	Les Secrets peuvent etre consommes de plusieurs facons : variables d'environnement (envFrom ou secretKeyRef), montage en volume (chaque cle devient un fichier, permissions 0644 par defaut), et imagePullSecrets pour l'authentification aux registres prives. Les volumes sont mis a jour automatiquement ; les variables d'environnement ne le sont PAS.
+	Secrets mounted as volumes are updated automatically. Environment variables are NOT updated after Pod creation. Avoid logging Secret values in application code. }
 
 
 # =============================================================================
@@ -91,37 +108,37 @@ topic: ~hpa (hpa horizontalpodautoscaler autoscaler autoscaling "auto scaling" "
 
 #! what is an hpa
 u: (<< [what que "qu est-ce"] [is est] [a un une] [hpa horizontalpodautoscaler "horizontal pod autoscaler"] >>)
-	^keep() A HorizontalPodAutoscaler (HPA) automatically scales the number of Pod replicas in a Deployment, StatefulSet, or ReplicaSet based on observed metrics. It periodically queries metrics (default every 15 seconds), computes the desired replica count, and adjusts the target resource. HPA uses the autoscaling/v2 API which supports multiple and custom metrics. \n
-	Un HorizontalPodAutoscaler (HPA) ajuste automatiquement le nombre de replicas de Pods dans un Deployment, StatefulSet ou ReplicaSet en fonction des metriques observees. Il interroge periodiquement les metriques (toutes les 15 secondes par defaut), calcule le nombre de replicas souhaite et ajuste la ressource cible. Le HPA utilise l'API autoscaling/v2 qui supporte les metriques multiples et personnalisees.
+	^keep() if ($$lang == fr) { Un HorizontalPodAutoscaler (HPA) ajuste automatiquement le nombre de replicas de Pods dans un Deployment, StatefulSet ou ReplicaSet en fonction des metriques observees. Il interroge periodiquement les metriques (toutes les 15 secondes par defaut), calcule le nombre de replicas souhaite et ajuste la ressource cible. Le HPA utilise l'API autoscaling/v2 qui supporte les metriques multiples et personnalisees. }
+	else { A HorizontalPodAutoscaler (HPA) automatically scales the number of Pod replicas in a Deployment, StatefulSet, or ReplicaSet based on observed metrics. It periodically queries metrics (default every 15 seconds), computes the desired replica count, and adjusts the target resource. HPA uses the autoscaling/v2 API which supports multiple and custom metrics. }
 
 #! hpa minReplicas maxReplicas
 u: (<< [hpa horizontalpodautoscaler autoscaler autoscaling] [minReplicas maxReplicas min max replicas replica minimum maximum] >>)
-	^keep() minReplicas sets the lower bound for the number of replicas the HPA can scale down to (default 1). It can be set to 0 if an alpha feature gate (HPAScaleToZero) is enabled and at least one Object or External metric is configured. maxReplicas is required and sets the upper bound. The HPA will never scale below minReplicas or above maxReplicas regardless of metric values. \n
-	minReplicas definit le nombre minimum de replicas (defaut 1). Il peut etre mis a 0 si le feature gate HPAScaleToZero est active avec au moins une metrique Object ou External. maxReplicas est obligatoire et definit le nombre maximum. Le HPA ne descendra jamais en dessous de minReplicas ni au-dessus de maxReplicas.
+	^keep() if ($$lang == fr) { minReplicas definit le nombre minimum de replicas (defaut 1). Il peut etre mis a 0 si le feature gate HPAScaleToZero est active avec au moins une metrique Object ou External. maxReplicas est obligatoire et definit le nombre maximum. Le HPA ne descendra jamais en dessous de minReplicas ni au-dessus de maxReplicas. }
+	else { minReplicas sets the lower bound for the number of replicas the HPA can scale down to (default 1). It can be set to 0 if an alpha feature gate (HPAScaleToZero) is enabled and at least one Object or External metric is configured. maxReplicas is required and sets the upper bound. The HPA will never scale below minReplicas or above maxReplicas regardless of metric values. }
 
 #! hpa metrics types resource pods object external
 u: (<< [hpa horizontalpodautoscaler autoscaler autoscaling] [metric metrics metrique metriques type types] >>)
-	^keep() HPA supports four metric source types: \n
+	^keep() if ($$lang == fr) { Le HPA supporte quatre types de metriques : Resource (CPU/memoire via l'API Metrics), Pods (metriques personnalisees par Pod, moyennees), Object (metrique d'un objet Kubernetes unique), External (metriques de systemes externes). Chaque metrique peut cibler un pourcentage (Utilization), une valeur absolue (Value) ou une moyenne par Pod (AverageValue). }
+	else { HPA supports four metric source types: \n
 	1. Resource: built-in metrics for CPU and memory utilization from the Metrics API (e.g. target 80% CPU utilization). \n
 	2. Pods: custom metrics that describe each Pod (e.g. requests-per-second). Values are averaged across all Pods. \n
 	3. Object: metrics from a single Kubernetes object (e.g. requests-per-second on an Ingress). \n
 	4. External: metrics from systems outside the cluster (e.g. queue length from a message broker). \n
-	Each metric can use a target type of Utilization (percentage), Value (absolute), or AverageValue (per-Pod average). \n
-	Le HPA supporte quatre types de metriques : Resource (CPU/memoire via l'API Metrics), Pods (metriques personnalisees par Pod, moyennees), Object (metrique d'un objet Kubernetes unique), External (metriques de systemes externes). Chaque metrique peut cibler un pourcentage (Utilization), une valeur absolue (Value) ou une moyenne par Pod (AverageValue).
+	Each metric can use a target type of Utilization (percentage), Value (absolute), or AverageValue (per-Pod average). }
 
 #! hpa scaleTargetRef
 u: (<< [hpa horizontalpodautoscaler autoscaler autoscaling] [scaleTargetRef target cible reference] >>)
-	^keep() The scaleTargetRef field specifies which resource the HPA controls. It requires three subfields: apiVersion (e.g. apps/v1), kind (Deployment, StatefulSet, or ReplicaSet), and name (the resource name). The HPA adjusts the replicas field of the target resource. The target must exist in the same namespace as the HPA. \n
-	Le champ scaleTargetRef specifie la ressource que le HPA controle. Il necessite trois sous-champs : apiVersion (ex : apps/v1), kind (Deployment, StatefulSet ou ReplicaSet) et name (le nom de la ressource). Le HPA ajuste le champ replicas de la ressource cible, qui doit exister dans le meme namespace.
+	^keep() if ($$lang == fr) { Le champ scaleTargetRef specifie la ressource que le HPA controle. Il necessite trois sous-champs : apiVersion (ex : apps/v1), kind (Deployment, StatefulSet ou ReplicaSet) et name (le nom de la ressource). Le HPA ajuste le champ replicas de la ressource cible, qui doit exister dans le meme namespace. }
+	else { The scaleTargetRef field specifies which resource the HPA controls. It requires three subfields: apiVersion (e.g. apps/v1), kind (Deployment, StatefulSet, or ReplicaSet), and name (the resource name). The HPA adjusts the replicas field of the target resource. The target must exist in the same namespace as the HPA. }
 
 #! hpa behavior scaleUp scaleDown stabilization
 u: (<< [hpa horizontalpodautoscaler autoscaler autoscaling] [behavior comportement scaleUp scaleDown stabilization stabilisation policy politique] >>)
-	^keep() The behavior field provides fine-grained control over scaling: \n
+	^keep() if ($$lang == fr) { Le champ behavior controle finement le scaling : scaleUp et scaleDown definissent les politiques de vitesse d'ajustement. stabilizationWindowSeconds (defaut 300s pour scale-down, 0 pour scale-up) est une fenetre de stabilisation qui empeche les oscillations. selectPolicy choisit parmi plusieurs politiques : Min, Max (defaut) ou Disabled. }
+	else { The behavior field provides fine-grained control over scaling: \n
 	- scaleUp: policies controlling how fast replicas are added. You can define rules like 'add at most 4 Pods per 60 seconds' or 'increase by at most 100% per 60 seconds'. \n
 	- scaleDown: policies controlling how fast replicas are removed. \n
 	- stabilizationWindowSeconds: a lookback window (default 300s for scale-down, 0 for scale-up) during which the HPA considers all recommendations and picks the safest one. This prevents flapping by avoiding rapid scale-down after a brief spike. \n
-	- selectPolicy: Min, Max (default), or Disabled to choose among multiple policies. \n
-	Le champ behavior controle finement le scaling : scaleUp et scaleDown definissent les politiques de vitesse d'ajustement. stabilizationWindowSeconds (defaut 300s pour scale-down, 0 pour scale-up) est une fenetre de stabilisation qui empeche les oscillations. selectPolicy choisit parmi plusieurs politiques : Min, Max (defaut) ou Disabled.
+	- selectPolicy: Min, Max (default), or Disabled to choose among multiple policies. }
 
 
 # =============================================================================
@@ -132,25 +149,25 @@ topic: ~limitrange (limitrange "limit range" limite limites defaut default resso
 
 #! what is a limitrange
 u: (<< [what que "qu est-ce"] [is est] [a un une] [limitrange "limit range"] >>)
-	^keep() A LimitRange is a policy that constrains resource allocations (CPU, memory, storage) for Pods, containers, and PersistentVolumeClaims in a namespace. It sets default values for containers that do not specify resource requests or limits, and enforces minimum and maximum boundaries. The LimitRange admission controller rejects any Pod or PVC that violates the defined constraints. \n
-	Un LimitRange est une politique qui contraint les allocations de ressources (CPU, memoire, stockage) pour les Pods, conteneurs et PersistentVolumeClaims dans un namespace. Il definit des valeurs par defaut pour les conteneurs sans requests ni limits specifiees, et applique des bornes minimales et maximales. Le controleur d'admission LimitRange rejette tout Pod ou PVC violant les contraintes.
+	^keep() if ($$lang == fr) { Un LimitRange est une politique qui contraint les allocations de ressources (CPU, memoire, stockage) pour les Pods, conteneurs et PersistentVolumeClaims dans un namespace. Il definit des valeurs par defaut pour les conteneurs sans requests ni limits specifiees, et applique des bornes minimales et maximales. Le controleur d'admission LimitRange rejette tout Pod ou PVC violant les contraintes. }
+	else { A LimitRange is a policy that constrains resource allocations (CPU, memory, storage) for Pods, containers, and PersistentVolumeClaims in a namespace. It sets default values for containers that do not specify resource requests or limits, and enforces minimum and maximum boundaries. The LimitRange admission controller rejects any Pod or PVC that violates the defined constraints. }
 
 #! limitrange default and defaultRequest
 u: (<< [limitrange "limit range"] [default defaut defaultRequest request] >>)
-	^keep() In a LimitRange spec for containers: \n
+	^keep() if ($$lang == fr) { Dans un LimitRange pour les conteneurs : 'default' definit les limits par defaut (ex : default cpu: 500m). 'defaultRequest' definit les requests par defaut (ex : defaultRequest memory: 128Mi). Si seul 'default' est defini, 'defaultRequest' est automatiquement egal a 'default'. Ces valeurs s'appliquent uniquement au type Container. }
+	else { In a LimitRange spec for containers: \n
 	- 'default' sets the default resource limits for containers that do not specify their own limits. For example, default cpu: 500m means any container without a CPU limit gets 500m. \n
 	- 'defaultRequest' sets the default resource requests for containers that do not specify their own requests. For example, defaultRequest memory: 128Mi. \n
-	If only 'default' is set without 'defaultRequest', the defaultRequest is automatically set equal to 'default'. These only apply to the Container type, not to Pod or PersistentVolumeClaim limit types. \n
-	Dans un LimitRange pour les conteneurs : 'default' definit les limits par defaut (ex : default cpu: 500m). 'defaultRequest' definit les requests par defaut (ex : defaultRequest memory: 128Mi). Si seul 'default' est defini, 'defaultRequest' est automatiquement egal a 'default'. Ces valeurs s'appliquent uniquement au type Container.
+	If only 'default' is set without 'defaultRequest', the defaultRequest is automatically set equal to 'default'. These only apply to the Container type, not to Pod or PersistentVolumeClaim limit types. }
 
 #! limitrange min max resource limits
 u: (<< [limitrange "limit range"] [min max minimum maximum borne boundary] >>)
-	^keep() A LimitRange can enforce minimum and maximum resource boundaries: \n
+	^keep() if ($$lang == fr) { Un LimitRange peut imposer des bornes min et max : 'min' definit le minimum autorise (toute demande inferieure est rejetee). 'max' definit le maximum autorise. 'maxLimitRequestRatio' impose un ratio maximal entre limit et request (ex : ratio 2 signifie que la limit ne peut depasser le double de la request). Ces bornes s'appliquent aux types Container, Pod ou PersistentVolumeClaim. }
+	else { A LimitRange can enforce minimum and maximum resource boundaries: \n
 	- 'min' sets the minimum resource request or limit allowed. Any container requesting less will be rejected. \n
 	- 'max' sets the maximum resource limit allowed. Any container requesting more will be rejected. \n
 	- 'maxLimitRequestRatio' enforces a maximum ratio between limit and request (e.g. a ratio of 2 means the limit cannot exceed twice the request). \n
-	These can be applied to types: Container, Pod, or PersistentVolumeClaim. For PVCs, min and max apply to storage requests. \n
-	Un LimitRange peut imposer des bornes min et max : 'min' definit le minimum autorise (toute demande inferieure est rejetee). 'max' definit le maximum autorise. 'maxLimitRequestRatio' impose un ratio maximal entre limit et request (ex : ratio 2 signifie que la limit ne peut depasser le double de la request). Ces bornes s'appliquent aux types Container, Pod ou PersistentVolumeClaim.
+	These can be applied to types: Container, Pod, or PersistentVolumeClaim. For PVCs, min and max apply to storage requests. }
 
 
 # =============================================================================
@@ -161,39 +178,39 @@ topic: ~resourcequota (resourcequota quota quotas "resource quota" limitation li
 
 #! what is a resourcequota
 u: (<< [what que "qu est-ce"] [is est] [a un une] [resourcequota "resource quota"] >>)
-	^keep() A ResourceQuota is a Kubernetes resource that limits aggregate resource consumption in a namespace. It sets hard limits on the total amount of compute resources (CPU, memory), the number of objects (Pods, Services, ConfigMaps), and storage that can be created. When a ResourceQuota is active, users must specify resource requests and limits for their Pods, or a LimitRange with defaults must exist. \n
-	Un ResourceQuota est une ressource Kubernetes qui limite la consommation agregee de ressources dans un namespace. Il fixe des limites strictes sur le total des ressources de calcul (CPU, memoire), le nombre d'objets (Pods, Services, ConfigMaps) et le stockage pouvant etre crees. Quand un ResourceQuota est actif, les utilisateurs doivent specifier requests et limits, ou un LimitRange avec des valeurs par defaut doit exister.
+	^keep() if ($$lang == fr) { Un ResourceQuota est une ressource Kubernetes qui limite la consommation agregee de ressources dans un namespace. Il fixe des limites strictes sur le total des ressources de calcul (CPU, memoire), le nombre d'objets (Pods, Services, ConfigMaps) et le stockage pouvant etre crees. Quand un ResourceQuota est actif, les utilisateurs doivent specifier requests et limits, ou un LimitRange avec des valeurs par defaut doit exister. }
+	else { A ResourceQuota is a Kubernetes resource that limits aggregate resource consumption in a namespace. It sets hard limits on the total amount of compute resources (CPU, memory), the number of objects (Pods, Services, ConfigMaps), and storage that can be created. When a ResourceQuota is active, users must specify resource requests and limits for their Pods, or a LimitRange with defaults must exist. }
 
 #! resourcequota hard limits pods cpu memory
 u: (<< [resourcequota "resource quota" quota] [hard limit limite pods cpu memory memoire request requests] >>)
-	^keep() The 'hard' field in a ResourceQuota defines the maximum allowed quantities. Common hard limits include: \n
+	^keep() if ($$lang == fr) { Le champ 'hard' definit les quantites maximales autorisees : pods (nombre max de Pods), requests.cpu et requests.memory (total des requests), limits.cpu et limits.memory (total des limits), configmaps, secrets, services, persistentvolumeclaims (nombre max de chaque type), requests.storage (stockage total des PVCs). }
+	else { The 'hard' field in a ResourceQuota defines the maximum allowed quantities. Common hard limits include: \n
 	- pods: maximum number of Pods in the namespace. \n
 	- requests.cpu: total CPU requests across all Pods (e.g. "4" for 4 cores). \n
 	- requests.memory: total memory requests (e.g. "8Gi"). \n
 	- limits.cpu: total CPU limits across all Pods. \n
 	- limits.memory: total memory limits. \n
 	- configmaps, secrets, services, persistentvolumeclaims: maximum count of each resource type. \n
-	- requests.storage: total storage requested by all PVCs. \n
-	Le champ 'hard' definit les quantites maximales autorisees : pods (nombre max de Pods), requests.cpu et requests.memory (total des requests), limits.cpu et limits.memory (total des limits), configmaps, secrets, services, persistentvolumeclaims (nombre max de chaque type), requests.storage (stockage total des PVCs).
+	- requests.storage: total storage requested by all PVCs. }
 
 #! resourcequota scopes terminating besteffort
 u: (<< [resourcequota "resource quota" quota] [scope scopes portee] >>)
-	^keep() ResourceQuota supports scopes to apply quotas only to a subset of resources: \n
+	^keep() if ($$lang == fr) { ResourceQuota supporte des scopes pour appliquer les quotas a un sous-ensemble : Terminating (Pods avec activeDeadlineSeconds), NotTerminating (workloads long-running), BestEffort (Pods sans requests ni limits), NotBestEffort (Pods avec au moins une request ou limit), et PriorityClass (Pods correspondant a une PriorityClass specifique). Les scopes permettent de creer des quotas separes par categorie de workload. }
+	else { ResourceQuota supports scopes to apply quotas only to a subset of resources: \n
 	- Terminating: Pods with spec.activeDeadlineSeconds set (typically Jobs). \n
 	- NotTerminating: Pods without spec.activeDeadlineSeconds (long-running workloads). \n
 	- BestEffort: Pods with no resource requests or limits (BestEffort QoS class). \n
 	- NotBestEffort: Pods with at least one resource request or limit. \n
 	- PriorityClass: Pods matching a specific PriorityClass (use scopeSelector with matchExpressions operator=In and values specifying priority class names). \n
-	Scopes let you create separate quotas for different workload categories within the same namespace. \n
-	ResourceQuota supporte des scopes pour appliquer les quotas a un sous-ensemble : Terminating (Pods avec activeDeadlineSeconds), NotTerminating (workloads long-running), BestEffort (Pods sans requests ni limits), NotBestEffort (Pods avec au moins une request ou limit), et PriorityClass (Pods correspondant a une PriorityClass specifique). Les scopes permettent de creer des quotas separes par categorie de workload.
+	Scopes let you create separate quotas for different workload categories within the same namespace. }
 
 #! resourcequota vs limitrange difference
 u: (<< [resourcequota "resource quota" quota] [vs versus contre ou difference comparer] [limitrange "limit range"] >>)
-	^keep() ResourceQuota vs LimitRange serve complementary purposes: \n
+	^keep() if ($$lang == fr) { ResourceQuota vs LimitRange ont des roles complementaires : LimitRange agit au niveau individuel Pod/conteneur (valeurs par defaut, bornes min/max par conteneur). ResourceQuota agit au niveau namespace (plafond sur la consommation totale). Bonne pratique : utilisez les deux ensemble pour contraindre chaque conteneur individuellement et le namespace globalement. }
+	else { ResourceQuota vs LimitRange serve complementary purposes: \n
 	- LimitRange: operates at the individual Pod/Container level. Sets default requests and limits, and enforces min/max per container or Pod. Ensures every container has reasonable resource boundaries. \n
 	- ResourceQuota: operates at the namespace level. Caps the total aggregate consumption across all Pods and resources in the namespace. Ensures a namespace does not consume more than its fair share. \n
-	Best practice: use both together. LimitRange ensures each container is properly constrained. ResourceQuota ensures the namespace as a whole stays within its budget. \n
-	ResourceQuota vs LimitRange ont des roles complementaires : LimitRange agit au niveau individuel Pod/conteneur (valeurs par defaut, bornes min/max par conteneur). ResourceQuota agit au niveau namespace (plafond sur la consommation totale). Bonne pratique : utilisez les deux ensemble pour contraindre chaque conteneur individuellement et le namespace globalement.
+	Best practice: use both together. LimitRange ensures each container is properly constrained. ResourceQuota ensures the namespace as a whole stays within its budget. }
 
 
 # =============================================================================
@@ -204,21 +221,21 @@ topic: ~pdb (pdb poddisruptionbudget "pod disruption budget" disruption perturba
 
 #! what is a pdb
 u: (<< [what que "qu est-ce"] [is est] [a un une] [pdb poddisruptionbudget "pod disruption budget"] >>)
-	^keep() A PodDisruptionBudget (PDB) limits the number of Pods from a replicated application that can be voluntarily disrupted at the same time. Voluntary disruptions include node drains, cluster upgrades, and autoscaler scale-downs. PDBs ensure high availability during maintenance operations by guaranteeing that a minimum number of Pods remain running. PDBs do NOT protect against involuntary disruptions like hardware failures or kernel panics. \n
-	Un PodDisruptionBudget (PDB) limite le nombre de Pods d'une application repliquee qui peuvent etre perturbes volontairement en meme temps. Les perturbations volontaires incluent les drains de noeuds, les mises a jour du cluster et les scale-downs de l'autoscaler. Les PDBs garantissent la haute disponibilite pendant les operations de maintenance. Les PDBs ne protegent PAS contre les perturbations involontaires comme les pannes materielles.
+	^keep() if ($$lang == fr) { Un PodDisruptionBudget (PDB) limite le nombre de Pods d'une application repliquee qui peuvent etre perturbes volontairement en meme temps. Les perturbations volontaires incluent les drains de noeuds, les mises a jour du cluster et les scale-downs de l'autoscaler. Les PDBs garantissent la haute disponibilite pendant les operations de maintenance. Les PDBs ne protegent PAS contre les perturbations involontaires comme les pannes materielles. }
+	else { A PodDisruptionBudget (PDB) limits the number of Pods from a replicated application that can be voluntarily disrupted at the same time. Voluntary disruptions include node drains, cluster upgrades, and autoscaler scale-downs. PDBs ensure high availability during maintenance operations by guaranteeing that a minimum number of Pods remain running. PDBs do NOT protect against involuntary disruptions like hardware failures or kernel panics. }
 
 #! pdb minAvailable vs maxUnavailable
 u: (<< [pdb poddisruptionbudget "pod disruption budget"] [minAvailable maxUnavailable available unavailable disponible indisponible] >>)
-	^keep() A PDB uses one of two fields (they are mutually exclusive): \n
+	^keep() if ($$lang == fr) { Un PDB utilise l'un des deux champs (mutuellement exclusifs) : minAvailable definit le nombre minimum de Pods devant rester disponibles (nombre absolu ou pourcentage). maxUnavailable definit le nombre maximum de Pods pouvant etre indisponibles. Par exemple, avec 5 replicas et minAvailable=3, au plus 2 Pods peuvent etre perturbes simultanement. Si maxUnavailable=0 ou minAvailable egal au nombre de replicas, aucune perturbation volontaire n'est autorisee, ce qui peut bloquer les drains et les mises a jour. }
+	else { A PDB uses one of two fields (they are mutually exclusive): \n
 	- minAvailable: the minimum number of Pods that must remain available during disruption. Can be an absolute number (e.g. 2) or a percentage (e.g. "50%"). \n
 	- maxUnavailable: the maximum number of Pods that can be unavailable during disruption. Can be an absolute number or percentage. \n
-	For example, with 5 replicas and minAvailable=3, at most 2 Pods can be disrupted simultaneously. The same effect is achieved with maxUnavailable=2. If maxUnavailable=0 or minAvailable equals the replica count, no voluntary disruption is allowed, which can block node drains and upgrades. \n
-	Un PDB utilise l'un des deux champs (mutuellement exclusifs) : minAvailable definit le nombre minimum de Pods devant rester disponibles (nombre absolu ou pourcentage). maxUnavailable definit le nombre maximum de Pods pouvant etre indisponibles. Par exemple, avec 5 replicas et minAvailable=3, au plus 2 Pods peuvent etre perturbes simultanement. Si maxUnavailable=0 ou minAvailable egal au nombre de replicas, aucune perturbation volontaire n'est autorisee, ce qui peut bloquer les drains et les mises a jour.
+	For example, with 5 replicas and minAvailable=3, at most 2 Pods can be disrupted simultaneously. The same effect is achieved with maxUnavailable=2. If maxUnavailable=0 or minAvailable equals the replica count, no voluntary disruption is allowed, which can block node drains and upgrades. }
 
 #! pdb unhealthyPodEvictionPolicy
 u: (<< [pdb poddisruptionbudget "pod disruption budget"] [unhealthyPodEvictionPolicy unhealthy eviction malsain expulsion] >>)
-	^keep() The unhealthyPodEvictionPolicy field, stable since Kubernetes 1.31, controls whether unhealthy Pods are considered for eviction regardless of the disruption budget: \n
+	^keep() if ($$lang == fr) { Le champ unhealthyPodEvictionPolicy (stable depuis Kubernetes 1.31) controle si les Pods non sains sont evictables malgre le budget : IfHealthy (defaut) protege les Pods non sains par le PDB. AlwaysAllow permet d'evicter les Pods non sains (Running mais pas Ready) sans tenir compte du budget, evitant qu'ils bloquent les drains de noeuds. Utilisez AlwaysAllow quand les Pods non sains ne doivent pas bloquer la maintenance operationnelle. }
+	else { The unhealthyPodEvictionPolicy field, stable since Kubernetes 1.31, controls whether unhealthy Pods are considered for eviction regardless of the disruption budget: \n
 	- IfHealthy (default): unhealthy Pods (Running but not Ready, or pending) are counted as disrupted, meaning they are protected by the PDB. Eviction only proceeds if the budget allows it. \n
 	- AlwaysAllow: unhealthy Pods (Running but not Ready) can be evicted regardless of the PDB budget. This prevents stuck unhealthy Pods from blocking node drains. Pending Pods without a condition are always considered for eviction. \n
-	Use AlwaysAllow when unhealthy Pods should not block operational maintenance like node upgrades. \n
-	Le champ unhealthyPodEvictionPolicy (stable depuis Kubernetes 1.31) controle si les Pods non sains sont evictables malgre le budget : IfHealthy (defaut) protege les Pods non sains par le PDB. AlwaysAllow permet d'evicter les Pods non sains (Running mais pas Ready) sans tenir compte du budget, evitant qu'ils bloquent les drains de noeuds. Utilisez AlwaysAllow quand les Pods non sains ne doivent pas bloquer la maintenance operationnelle.
+	Use AlwaysAllow when unhealthy Pods should not block operational maintenance like node upgrades. }

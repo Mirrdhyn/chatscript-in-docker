@@ -40,6 +40,7 @@ T~persistentvolume NODUPLICATE ( persistant stockage persistent volume PV Persis
 T~persistentvolumeclaim NODUPLICATE ( revendication claim PVC PersistentVolumeClaim )
 T~storageclass NODUPLICATE ( dynamique provisionneur provisioner classe_de_stockage storage_class StorageClass )
 T~csidriver NODUPLICATE ( driver pilote Container_Storage_Interface CSI CSIDriver )
+   ~fr_markers NODUPLICATE ( peut peut-on sont lister supprimer creer utiliser entre fonctionner fonctionne expliquer configurer deployer il_y_a c_est est-ce qu_est-ce quelles quels quelle quel quoi pourquoi comment merci coucou salut bonsoir bonjour )
 T~control NODUPLICATE ( )
 T~keywordless NODUPLICATE ( )
 T~quibble_because NODUPLICATE ( )

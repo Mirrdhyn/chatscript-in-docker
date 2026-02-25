@@ -40,8 +40,8 @@ u: (<< [who qui] [are es etes] [you tu vous] >>)
 
 #! what can you do
 u: (<< [what que qu] [can peux pouvez sais savez] [you tu vous] [do faire] >>)
-	I can answer questions about Kubernetes resources like Pods, Deployments, Services, ConfigMaps, RBAC, and much more. I also enjoy small talk! \n
-	Je peux repondre aux questions sur les ressources Kubernetes comme les Pods, Deployments, Services, ConfigMaps, RBAC, et bien plus. Je peux aussi discuter !
+	if ($$lang == fr) { Je peux repondre aux questions sur les ressources Kubernetes comme les Pods, Deployments, Services, ConfigMaps, RBAC, et bien plus. Je peux aussi discuter ! }
+	else { I can answer questions about Kubernetes resources like Pods, Deployments, Services, ConfigMaps, RBAC, and much more. I also enjoy small talk! }
 
 #! how old are you
 u: (<< [how quel] [old age] [are as avez] [you tu vous] >>)

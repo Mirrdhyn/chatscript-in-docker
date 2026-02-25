@@ -9,68 +9,97 @@ topic: ~pod (pod pods conteneur conteneurs container containers workload workloa
 
 #! what is a pod
 u: (<< [what que "qu est-ce"] [is est] [a un une] pod >>)
-	^keep() A Pod is the smallest deployable unit in Kubernetes. It represents one or more containers that share networking and storage, and run on the same node. \n
-	Un Pod est la plus petite unite deployable dans Kubernetes. Il represente un ou plusieurs conteneurs qui partagent le reseau et le stockage, et s'executent sur le meme noeud.
+	^keep() if ($$lang == fr) { Un Pod est la plus petite unite deployable dans Kubernetes. Il represente un ou plusieurs conteneurs qui partagent le reseau et le stockage, et s'executent sur le meme noeud. }
+	else { A Pod is the smallest deployable unit in Kubernetes. It represents one or more containers that share networking and storage, and run on the same node. }
 
 #! pod spec containers field
 u: (<< pod [spec specification] [containers conteneurs container conteneur] >>)
-	^keep() The 'containers' field in a Pod spec is a required array defining the containers to run. Each entry specifies image, name, ports, env, command, args, volumeMounts, resources, and lifecycle hooks. \n
-	Le champ 'containers' dans la spec d'un Pod est un tableau obligatoire qui definit les conteneurs a executer. Chaque entree precise image, name, ports, env, command, args, volumeMounts, resources et les hooks de cycle de vie.
+	^keep() if ($$lang == fr) { Le champ 'containers' dans la spec d'un Pod est un tableau obligatoire qui definit les conteneurs a executer. Chaque entree precise image, name, ports, env, command, args, volumeMounts, resources et les hooks de cycle de vie. }
+	else { The 'containers' field in a Pod spec is a required array defining the containers to run. Each entry specifies image, name, ports, env, command, args, volumeMounts, resources, and lifecycle hooks. }
 
 #! pod init containers
 u: (<< pod [init initialisation] [containers conteneurs container conteneur] >>)
-	^keep() initContainers run sequentially before app containers start. They are useful for setup tasks like downloading config files, waiting for a service, or running database migrations. Each must complete successfully before the next starts. \n
-	Les initContainers s'executent sequentiellement avant le demarrage des conteneurs applicatifs. Ils sont utiles pour des taches de preparation comme le telechargement de fichiers de configuration, l'attente d'un service ou les migrations de base de donnees.
+	^keep() if ($$lang == fr) { Les initContainers s'executent sequentiellement avant le demarrage des conteneurs applicatifs. Ils sont utiles pour des taches de preparation comme le telechargement de fichiers de configuration, l'attente d'un service ou les migrations de base de donnees. }
+	else { initContainers run sequentially before app containers start. They are useful for setup tasks like downloading config files, waiting for a service, or running database migrations. Each must complete successfully before the next starts. }
 
 #! pod volumes
 u: (<< pod [volumes volume stockage storage] >>)
-	^keep() The 'volumes' field in a Pod spec defines storage volumes available to containers. Types include emptyDir, hostPath, configMap, secret, persistentVolumeClaim, projected, and downwardAPI. Containers reference them via volumeMounts. \n
-	Le champ 'volumes' definit les volumes de stockage disponibles pour les conteneurs. Les types incluent emptyDir, hostPath, configMap, secret, persistentVolumeClaim, projected et downwardAPI. Les conteneurs y accedent via volumeMounts.
+	^keep() if ($$lang == fr) { Le champ 'volumes' definit les volumes de stockage disponibles pour les conteneurs. Les types incluent emptyDir, hostPath, configMap, secret, persistentVolumeClaim, projected et downwardAPI. Les conteneurs y accedent via volumeMounts. }
+	else { The 'volumes' field in a Pod spec defines storage volumes available to containers. Types include emptyDir, hostPath, configMap, secret, persistentVolumeClaim, projected, and downwardAPI. Containers reference them via volumeMounts. }
 
 #! pod restart policy
 u: (<< pod [restart redemarrage redemarre] [policy politique strategie] >>)
-	^keep() The restartPolicy field applies to all containers in the Pod. Values are: Always (default, used by Deployments), OnFailure (used by Jobs), and Never. Kubernetes uses exponential back-off for restarts (10s, 20s, 40s, capped at 5 minutes). \n
-	Le champ restartPolicy s'applique a tous les conteneurs du Pod. Les valeurs sont : Always (par defaut, utilise par les Deployments), OnFailure (utilise par les Jobs) et Never. Kubernetes utilise un back-off exponentiel pour les redemarrages.
+	^keep() if ($$lang == fr) { Le champ restartPolicy s'applique a tous les conteneurs du Pod. Les valeurs sont : Always (par defaut, utilise par les Deployments), OnFailure (utilise par les Jobs) et Never. Kubernetes utilise un back-off exponentiel pour les redemarrages. }
+	else { The restartPolicy field applies to all containers in the Pod. Values are: Always (default, used by Deployments), OnFailure (used by Jobs), and Never. Kubernetes uses exponential back-off for restarts (10s, 20s, 40s, capped at 5 minutes). }
 
 #! pod affinity anti-affinity
 u: (<< pod [affinity affinite] >>)
-	^keep() Pod affinity and anti-affinity let you constrain scheduling based on labels of Pods already running on nodes. Use podAffinity to co-locate related Pods and podAntiAffinity to spread them apart. Both support requiredDuringSchedulingIgnoredDuringExecution and preferredDuringSchedulingIgnoredDuringExecution. \n
-	L'affinite et l'anti-affinite de Pod permettent de contraindre le placement en fonction des labels des Pods deja presents sur les noeuds. Utilisez podAffinity pour co-localiser et podAntiAffinity pour separer les Pods.
+	^keep() if ($$lang == fr) { L'affinite et l'anti-affinite de Pod permettent de contraindre le placement en fonction des labels des Pods deja presents sur les noeuds. Utilisez podAffinity pour co-localiser et podAntiAffinity pour separer les Pods. }
+	else { Pod affinity and anti-affinity let you constrain scheduling based on labels of Pods already running on nodes. Use podAffinity to co-locate related Pods and podAntiAffinity to spread them apart. Both support requiredDuringSchedulingIgnoredDuringExecution and preferredDuringSchedulingIgnoredDuringExecution. }
 
 #! pod tolerations taints
 u: (<< pod [toleration tolerations taint taints] >>)
-	^keep() Taints are applied to nodes to repel Pods. Tolerations are set on Pods to allow scheduling on tainted nodes. A toleration matches a taint by key, operator (Equal or Exists), value, and effect (NoSchedule, PreferNoSchedule, NoExecute). \n
-	Les taints sont appliquees aux noeuds pour repousser les Pods. Les tolerations sont definies sur les Pods pour permettre le placement sur des noeuds tainted. Une toleration correspond a un taint par key, operator, value et effect.
+	^keep() if ($$lang == fr) { Les taints sont appliquees aux noeuds pour repousser les Pods. Les tolerations sont definies sur les Pods pour permettre le placement sur des noeuds tainted. Une toleration correspond a un taint par key, operator, value et effect. }
+	else { Taints are applied to nodes to repel Pods. Tolerations are set on Pods to allow scheduling on tainted nodes. A toleration matches a taint by key, operator (Equal or Exists), value, and effect (NoSchedule, PreferNoSchedule, NoExecute). }
 
 #! pod security context
 u: (<< pod [security securite] [context contexte] >>)
-	^keep() The Pod-level securityContext sets security attributes for all containers. Key fields include: runAsUser (UID), runAsNonRoot (boolean, prevents root), runAsGroup (GID), fsGroup (volume ownership GID), supplementalGroups, seccompProfile, and sysctls. \n
-	Le securityContext au niveau Pod definit les attributs de securite pour tous les conteneurs. Les champs cles sont : runAsUser, runAsNonRoot, runAsGroup, fsGroup, supplementalGroups, seccompProfile et sysctls.
+	^keep() if ($$lang == fr) { Le securityContext au niveau Pod definit les attributs de securite pour tous les conteneurs. Les champs cles sont : runAsUser, runAsNonRoot, runAsGroup, fsGroup, supplementalGroups, seccompProfile et sysctls. }
+	else { The Pod-level securityContext sets security attributes for all containers. Key fields include: runAsUser (UID), runAsNonRoot (boolean, prevents root), runAsGroup (GID), fsGroup (volume ownership GID), supplementalGroups, seccompProfile, and sysctls. }
 
 #! pod resource requests limits
 u: (<< pod [resource ressource resources ressources] [request requests limite limits] >>)
-	^keep() Each container can specify resources.requests (minimum guaranteed) and resources.limits (maximum allowed) for CPU and memory. CPU is measured in millicores (e.g. 500m = 0.5 CPU). Memory uses suffixes like Mi and Gi. Requests affect scheduling; limits enforce cgroups constraints. \n
-	Chaque conteneur peut specifier resources.requests (minimum garanti) et resources.limits (maximum autorise) pour le CPU et la memoire. Le CPU se mesure en millicores (ex: 500m = 0.5 CPU). La memoire utilise Mi et Gi. Les requests affectent le placement ; les limits appliquent les contraintes cgroups.
+	^keep() if ($$lang == fr) { Chaque conteneur peut specifier resources.requests (minimum garanti) et resources.limits (maximum autorise) pour le CPU et la memoire. Le CPU se mesure en millicores (ex: 500m = 0.5 CPU). La memoire utilise Mi et Gi. Les requests affectent le placement ; les limits appliquent les contraintes cgroups. }
+	else { Each container can specify resources.requests (minimum guaranteed) and resources.limits (maximum allowed) for CPU and memory. CPU is measured in millicores (e.g. 500m = 0.5 CPU). Memory uses suffixes like Mi and Gi. Requests affect scheduling; limits enforce cgroups constraints. }
 
 #! pod probes liveness readiness startup
 u: (<< pod [probe probes sonde sondes liveness readiness startup] >>)
-	^keep() Kubernetes supports three probe types per container: livenessProbe (restarts unhealthy containers), readinessProbe (controls traffic routing via Services), and startupProbe (delays other probes until the app starts). Probes can use httpGet, tcpSocket, exec, or grpc. Configure initialDelaySeconds, periodSeconds, timeoutSeconds, failureThreshold, and successThreshold. \n
-	Kubernetes supporte trois types de sonde par conteneur : livenessProbe (redemarre les conteneurs defaillants), readinessProbe (controle le routage du trafic), startupProbe (retarde les autres sondes). Les sondes utilisent httpGet, tcpSocket, exec ou grpc.
+	^keep() if ($$lang == fr) { Kubernetes supporte trois types de sonde par conteneur : livenessProbe (redemarre les conteneurs defaillants), readinessProbe (controle le routage du trafic), startupProbe (retarde les autres sondes). Les sondes utilisent httpGet, tcpSocket, exec ou grpc. }
+	else { Kubernetes supports three probe types per container: livenessProbe (restarts unhealthy containers), readinessProbe (controls traffic routing via Services), and startupProbe (delays other probes until the app starts). Probes can use httpGet, tcpSocket, exec, or grpc. Configure initialDelaySeconds, periodSeconds, timeoutSeconds, failureThreshold, and successThreshold. }
 
 #! pod DNS policy config
 u: (<< pod [dns] [policy politique config configuration] >>)
-	^keep() dnsPolicy controls DNS resolution for a Pod. Values: ClusterFirst (default, uses cluster DNS), Default (inherits node DNS), ClusterFirstWithHostNet (for hostNetwork Pods), and None (requires manual dnsConfig). The dnsConfig field lets you add nameservers, searches, and ndots options. \n
-	dnsPolicy controle la resolution DNS d'un Pod. Valeurs : ClusterFirst (par defaut), Default (herite du noeud), ClusterFirstWithHostNet, et None (necessite dnsConfig). Le champ dnsConfig permet d'ajouter nameservers, searches et options ndots.
+	^keep() if ($$lang == fr) { dnsPolicy controle la resolution DNS d'un Pod. Valeurs : ClusterFirst (par defaut), Default (herite du noeud), ClusterFirstWithHostNet, et None (necessite dnsConfig). Le champ dnsConfig permet d'ajouter nameservers, searches et options ndots. }
+	else { dnsPolicy controls DNS resolution for a Pod. Values: ClusterFirst (default, uses cluster DNS), Default (inherits node DNS), ClusterFirstWithHostNet (for hostNetwork Pods), and None (requires manual dnsConfig). The dnsConfig field lets you add nameservers, searches, and ndots options. }
 
 #! pod service account
 u: (<< pod [service] [account compte] >>)
-	^keep() The serviceAccountName field specifies which ServiceAccount the Pod uses to authenticate with the Kubernetes API. This controls RBAC permissions. Since Kubernetes 1.24, tokens are projected via the TokenRequest API instead of using static Secrets. Set automountServiceAccountToken to false if API access is not needed. \n
-	Le champ serviceAccountName indique quel ServiceAccount le Pod utilise pour s'authentifier aupres de l'API Kubernetes. Cela controle les permissions RBAC. Depuis Kubernetes 1.24, les tokens sont injectes via l'API TokenRequest.
+	^keep() if ($$lang == fr) { Le champ serviceAccountName indique quel ServiceAccount le Pod utilise pour s'authentifier aupres de l'API Kubernetes. Cela controle les permissions RBAC. Depuis Kubernetes 1.24, les tokens sont injectes via l'API TokenRequest. }
+	else { The serviceAccountName field specifies which ServiceAccount the Pod uses to authenticate with the Kubernetes API. This controls RBAC permissions. Since Kubernetes 1.24, tokens are projected via the TokenRequest API instead of using static Secrets. Set automountServiceAccountToken to false if API access is not needed. }
 
 #! pod lifecycle phases
 u: (<< pod [lifecycle cycle vie] [phase phases etat etats status statut] >>)
-	^keep() A Pod goes through these phases: Pending (accepted but not yet scheduled or pulling images), Running (at least one container is running), Succeeded (all containers terminated with exit code 0), Failed (at least one container failed), and Unknown (node communication lost). \n
-	Un Pod passe par ces phases : Pending (accepte mais pas encore planifie), Running (au moins un conteneur tourne), Succeeded (tous les conteneurs termines avec code 0), Failed (au moins un conteneur echoue) et Unknown (communication avec le noeud perdue).
+	^keep() if ($$lang == fr) { Un Pod passe par ces phases : Pending (accepte mais pas encore planifie), Running (au moins un conteneur tourne), Succeeded (tous les conteneurs termines avec code 0), Failed (au moins un conteneur echoue) et Unknown (communication avec le noeud perdue). }
+	else { A Pod goes through these phases: Pending (accepted but not yet scheduled or pulling images), Running (at least one container is running), Succeeded (all containers terminated with exit code 0), Failed (at least one container failed), and Unknown (node communication lost). }
+
+#! pod nodeSelector field
+u: (<< pod [nodeSelector node_selector] >>)
+	^keep() if ($$lang == fr) { Le champ nodeSelector est une map cle-valeur simple qui contraint le placement du Pod aux noeuds ayant les labels correspondants. Par exemple, 'disktype: ssd' ne planifie le Pod que sur des noeuds labellises disktype=ssd. Pour des regles plus complexes, utilisez nodeAffinity. }
+	else { The nodeSelector field is a simple key-value map that constrains Pod scheduling to nodes with matching labels. For example, setting 'disktype: ssd' only schedules the Pod on nodes labeled disktype=ssd. For more complex rules, use nodeAffinity instead. }
+
+#! pod terminationGracePeriodSeconds
+u: (<< pod [terminationGracePeriodSeconds "termination grace" "grace period" "arret gracieux"] >>)
+	^keep() if ($$lang == fr) { terminationGracePeriodSeconds definit la duree en secondes pendant laquelle le kubelet attend apres l'envoi de SIGTERM avant de forcer l'arret avec SIGKILL. La valeur par defaut est 30 secondes. Augmentez-la pour les applications necessitant plus de temps pour un arret gracieux, comme le drainage de connexions ou la purge de donnees. }
+	else { terminationGracePeriodSeconds sets the duration in seconds the kubelet waits after sending SIGTERM before force-killing the container with SIGKILL. The default is 30 seconds. Increase it for applications that need more time to shut down gracefully, such as draining connections or flushing data. Set it to 0 for immediate termination [not recommended in production]. }
+
+#! pod ephemeral containers debugging
+u: (<< pod ["ephemeral container" ephemeral ephemeralContainers debug debogage] >>)
+	^keep() if ($$lang == fr) { Les conteneurs ephemeres sont des conteneurs temporaires ajoutes a un Pod en cours d'execution pour le debogage via 'kubectl debug'. Ils ne peuvent pas etre definis dans la spec du Pod a la creation. Ils n'ont ni ports, ni sondes, ni garanties de ressources. Utilisez-les pour attacher des outils de debug a un Pod sans le redemarrer. Stable depuis Kubernetes 1.25. }
+	else { Ephemeral containers are temporary containers added to a running Pod for debugging purposes using 'kubectl debug'. They cannot be defined in the Pod spec at creation time. They do not have ports, readiness probes, or resource guarantees. Use them to attach debugging tools (curl, strace, tcpdump) to a running Pod without restarting it. Stable since Kubernetes 1.25. }
+
+#! pod hostNetwork hostPID hostIPC
+u: (<< pod [hostNetwork hostPID hostIPC "host network" "host namespace" "host PID" "host IPC"] >>)
+	^keep() if ($$lang == fr) { Champs de partage de namespace hote : hostNetwork (reseau du noeud, meme IP), hostPID (voit tous les processus du noeud), hostIPC (memoire partagee du noeud). Tous sont false par defaut et affaiblissent l'isolation. }
+	else { Host namespace sharing fields in the Pod spec: \n
+	* hostNetwork: if true, the Pod uses the node's network namespace, sharing its IP address and port space. Useful for system-level agents but creates port conflicts. \n
+	* hostPID: if true, the Pod sees all processes on the node. Used by monitoring or debugging tools. \n
+	* hostIPC: if true, the Pod shares the node's IPC namespace for shared memory. \n
+	All three are false by default and should only be enabled when necessary, as they weaken isolation. }
+
+#! pod priorityClassName scheduling priority
+u: (<< pod [priorityClassName "priority class" priorite] >>)
+	^keep() if ($$lang == fr) { Le champ priorityClassName reference une ressource PriorityClass qui attribue une priorite de planification au Pod. Les Pods de haute priorite sont planifies en premier. Quand les ressources sont insuffisantes, les Pods de basse priorite peuvent etre preemptes. Deux classes predefinies existent : system-cluster-critical et system-node-critical. }
+	else { The priorityClassName field references a PriorityClass resource that assigns a scheduling priority to the Pod. Higher-priority Pods are scheduled before lower-priority ones. When resources are scarce, lower-priority Pods may be preempted [evicted] to make room. Two built-in classes exist: system-cluster-critical and system-node-critical. If no priorityClassName is set, the Pod uses the default PriorityClass or gets priority value 0. }
 
 # ===========================================================================
 # DEPLOYMENT
@@ -80,43 +109,53 @@ topic: ~deployment (deployment deployments deploiement deploiements deploy deplo
 
 #! what is a deployment
 u: (<< [what que "qu est-ce"] [is est] [a un une] deployment >>)
-	^keep() A Deployment provides declarative updates for Pods and ReplicaSets. It manages the desired state of your application, handles rolling updates, rollbacks, and scaling. It is the most common way to run stateless applications in Kubernetes. \n
-	Un Deployment fournit des mises a jour declaratives pour les Pods et ReplicaSets. Il gere l'etat souhaite de votre application, les mises a jour progressives, les rollbacks et la mise a l'echelle. C'est le moyen le plus courant d'executer des applications stateless.
+	^keep() if ($$lang == fr) { Un Deployment fournit des mises a jour declaratives pour les Pods et ReplicaSets. Il gere l'etat souhaite de votre application, les mises a jour progressives, les rollbacks et la mise a l'echelle. C'est le moyen le plus courant d'executer des applications stateless. }
+	else { A Deployment provides declarative updates for Pods and ReplicaSets. It manages the desired state of your application, handles rolling updates, rollbacks, and scaling. It is the most common way to run stateless applications in Kubernetes. }
 
 #! deployment spec replicas selector template
 u: (<< deployment [spec specification] [replicas selector template] >>)
-	^keep() Key Deployment spec fields: 'replicas' sets the desired Pod count (default 1). 'selector' is a label selector that must match the Pod template labels (matchLabels). 'template' defines the Pod specification including metadata.labels and the container spec. The selector is immutable after creation. \n
-	Champs cles de la spec Deployment : 'replicas' definit le nombre de Pods souhaite. 'selector' est un selecteur de labels qui doit correspondre aux labels du template. 'template' definit la specification du Pod. Le selector est immuable apres creation.
+	^keep() if ($$lang == fr) { Champs cles de la spec Deployment : 'replicas' definit le nombre de Pods souhaite. 'selector' est un selecteur de labels qui doit correspondre aux labels du template. 'template' definit la specification du Pod. Le selector est immuable apres creation. }
+	else { Key Deployment spec fields: 'replicas' sets the desired Pod count (default 1). 'selector' is a label selector that must match the Pod template labels (matchLabels). 'template' defines the Pod specification including metadata.labels and the container spec. The selector is immutable after creation. }
 
 #! deployment strategy rolling update recreate
 u: (<< deployment [strategy strategie] >>)
-	^keep() Deployment supports two strategy types: RollingUpdate (default) gradually replaces old Pods with new ones, ensuring availability during updates. Recreate kills all existing Pods before creating new ones, causing downtime but avoiding version coexistence issues. \n
-	Le Deployment supporte deux types de strategie : RollingUpdate (par defaut) remplace progressivement les anciens Pods. Recreate tue tous les Pods existants avant d'en creer de nouveaux, causant une interruption mais evitant la coexistence de versions.
+	^keep() if ($$lang == fr) { Le Deployment supporte deux types de strategie : RollingUpdate (par defaut) remplace progressivement les anciens Pods. Recreate tue tous les Pods existants avant d'en creer de nouveaux, causant une interruption mais evitant la coexistence de versions. }
+	else { Deployment supports two strategy types: RollingUpdate (default) gradually replaces old Pods with new ones, ensuring availability during updates. Recreate kills all existing Pods before creating new ones, causing downtime but avoiding version coexistence issues. }
 
 #! deployment maxSurge maxUnavailable
 u: (<< deployment [maxSurge maxUnavailable surge unavailable disponible indisponible] >>)
-	^keep() In a RollingUpdate strategy, maxSurge sets the maximum number of Pods that can be created above the desired count (default 25%). maxUnavailable sets the maximum number of Pods that can be unavailable during the update (default 25%). Both accept absolute numbers or percentages. \n
-	Dans une strategie RollingUpdate, maxSurge definit le nombre max de Pods au-dessus du nombre souhaite (defaut 25%). maxUnavailable definit le nombre max de Pods indisponibles pendant la mise a jour (defaut 25%). Les deux acceptent des nombres absolus ou des pourcentages.
+	^keep() if ($$lang == fr) { Dans une strategie RollingUpdate, maxSurge definit le nombre max de Pods au-dessus du nombre souhaite (defaut 25%). maxUnavailable definit le nombre max de Pods indisponibles pendant la mise a jour (defaut 25%). Les deux acceptent des nombres absolus ou des pourcentages. }
+	else { In a RollingUpdate strategy, maxSurge sets the maximum number of Pods that can be created above the desired count (default 25%). maxUnavailable sets the maximum number of Pods that can be unavailable during the update (default 25%). Both accept absolute numbers or percentages. }
 
 #! deployment progressDeadlineSeconds
 u: (<< deployment [progress progressDeadlineSeconds deadline delai] >>)
-	^keep() progressDeadlineSeconds specifies the number of seconds the Deployment controller waits before reporting that a rollout has stalled (default 600s). If no progress is made within this window, the Deployment condition is set to Progressing=False. This does NOT cause an automatic rollback. \n
-	progressDeadlineSeconds specifie le nombre de secondes avant que le controleur signale qu'un deploiement est bloque (defaut 600s). Si aucun progres n'est fait, la condition Progressing=False est definie. Cela ne provoque PAS de rollback automatique.
+	^keep() if ($$lang == fr) { progressDeadlineSeconds specifie le nombre de secondes avant que le controleur signale qu'un deploiement est bloque (defaut 600s). Si aucun progres n'est fait, la condition Progressing=False est definie. Cela ne provoque PAS de rollback automatique. }
+	else { progressDeadlineSeconds specifies the number of seconds the Deployment controller waits before reporting that a rollout has stalled (default 600s). If no progress is made within this window, the Deployment condition is set to Progressing=False. This does NOT cause an automatic rollback. }
 
 #! deployment revisionHistoryLimit
 u: (<< deployment [revision history historique] [limit limite] >>)
-	^keep() revisionHistoryLimit specifies the number of old ReplicaSets to retain for rollback purposes (default 10). Setting it to 0 means you cannot roll back. Old ReplicaSets consume etcd storage, so balance rollback needs with resource usage. \n
-	revisionHistoryLimit specifie le nombre d'anciens ReplicaSets a conserver pour les rollbacks (defaut 10). Le mettre a 0 signifie que vous ne pouvez plus revenir en arriere. Les anciens ReplicaSets consomment du stockage etcd.
+	^keep() if ($$lang == fr) { revisionHistoryLimit specifie le nombre d'anciens ReplicaSets a conserver pour les rollbacks (defaut 10). Le mettre a 0 signifie que vous ne pouvez plus revenir en arriere. Les anciens ReplicaSets consomment du stockage etcd. }
+	else { revisionHistoryLimit specifies the number of old ReplicaSets to retain for rollback purposes (default 10). Setting it to 0 means you cannot roll back. Old ReplicaSets consume etcd storage, so balance rollback needs with resource usage. }
 
 #! how to rollback a deployment
 u: (<< [rollback revenir retour annuler undo] deployment >>)
-	^keep() To rollback a Deployment: 'kubectl rollout undo deployment/<name>' rolls back to the previous revision. Use '--to-revision=N' for a specific revision. Check history with 'kubectl rollout history deployment/<name>'. Each rollback creates a new revision entry. \n
-	Pour faire un rollback : 'kubectl rollout undo deployment/<name>' revient a la revision precedente. Utilisez '--to-revision=N' pour une revision specifique. Consultez l'historique avec 'kubectl rollout history deployment/<name>'.
+	^keep() if ($$lang == fr) { Pour faire un rollback : 'kubectl rollout undo deployment/<name>' revient a la revision precedente. Utilisez '--to-revision=N' pour une revision specifique. Consultez l'historique avec 'kubectl rollout history deployment/<name>'. }
+	else { To rollback a Deployment: 'kubectl rollout undo deployment/<name>' rolls back to the previous revision. Use '--to-revision=N' for a specific revision. Check history with 'kubectl rollout history deployment/<name>'. Each rollback creates a new revision entry. }
+
+#! deployment minReadySeconds
+u: (<< deployment [minReadySeconds "min ready" "minimum ready" disponible] >>)
+	^keep() if ($$lang == fr) { minReadySeconds specifie le nombre minimum de secondes pendant lesquelles un nouveau Pod doit etre Ready sans crash avant d'etre considere comme disponible. La valeur par defaut est 0. Augmenter cette valeur ajoute une marge de securite pendant les mises a jour progressives, garantissant la stabilite des Pods avant de continuer. }
+	else { minReadySeconds specifies the minimum number of seconds a newly created Pod must be Ready without any of its containers crashing before it is considered available. The default is 0, meaning the Pod is considered available as soon as it is Ready. Increasing this value adds a safety buffer during rolling updates, ensuring Pods are stable before proceeding. }
+
+#! deployment paused field
+u: (<< deployment [paused pause suspendre suspended] >>)
+	^keep() if ($$lang == fr) { Definir le champ 'paused' a true sur un Deployment arrete toute activite de deploiement. Les modifications du template de Pod sont enregistrees mais non appliquees jusqu'a la reprise. Utile pour faire plusieurs changements de spec sans declencher de deploiements intermediaires. Pause avec 'kubectl rollout pause' et reprise avec 'kubectl rollout resume'. }
+	else { Setting the 'paused' field to true on a Deployment halts all rollout activity. New changes to the Pod template are recorded but not applied until you unpause. This is useful for making multiple spec changes at once without triggering intermediate rollouts. Pause with 'kubectl rollout pause deployment/<name>' and resume with 'kubectl rollout resume deployment/<name>'. }
 
 #! deployment vs replicaset difference
 u: (<< deployment [vs versus contre versus ou] [replicaset "replica set"] >>)
-	^keep() A Deployment manages ReplicaSets, which in turn manage Pods. The Deployment adds rolling update capabilities, rollback history, and declarative update strategies on top of ReplicaSet. You should almost always use a Deployment rather than creating ReplicaSets directly. \n
-	Un Deployment gere des ReplicaSets, qui a leur tour gerent des Pods. Le Deployment ajoute les mises a jour progressives, l'historique de rollback et les strategies de mise a jour. Vous devriez presque toujours utiliser un Deployment plutot que des ReplicaSets directement.
+	^keep() if ($$lang == fr) { Un Deployment gere des ReplicaSets, qui a leur tour gerent des Pods. Le Deployment ajoute les mises a jour progressives, l'historique de rollback et les strategies de mise a jour. Vous devriez presque toujours utiliser un Deployment plutot que des ReplicaSets directement. }
+	else { A Deployment manages ReplicaSets, which in turn manage Pods. The Deployment adds rolling update capabilities, rollback history, and declarative update strategies on top of ReplicaSet. You should almost always use a Deployment rather than creating ReplicaSets directly. }
 
 # ===========================================================================
 # STATEFULSET
@@ -126,33 +165,46 @@ topic: ~statefulset (statefulset statefulsets stateful etat)
 
 #! what is a statefulset
 u: (<< [what que "qu est-ce"] [is est] [a un une] statefulset >>)
-	^keep() A StatefulSet manages stateful applications. Unlike Deployments, it provides stable network identities (pod-0, pod-1, ...), stable persistent storage per Pod, and ordered deployment, scaling, and deletion. Use it for databases, distributed systems, and any app needing stable identity. \n
-	Un StatefulSet gere les applications avec etat. Contrairement aux Deployments, il fournit des identites reseau stables (pod-0, pod-1, ...), un stockage persistant stable par Pod, et un deploiement ordonne. Utilisez-le pour les bases de donnees et les systemes distribues.
+	^keep() if ($$lang == fr) { Un StatefulSet gere les applications avec etat. Contrairement aux Deployments, il fournit des identites reseau stables (pod-0, pod-1, ...), un stockage persistant stable par Pod, et un deploiement ordonne. Utilisez-le pour les bases de donnees et les systemes distribues. }
+	else { A StatefulSet manages stateful applications. Unlike Deployments, it provides stable network identities (pod-0, pod-1, ...), stable persistent storage per Pod, and ordered deployment, scaling, and deletion. Use it for databases, distributed systems, and any app needing stable identity. }
 
 #! statefulset volumeClaimTemplates
 u: (<< statefulset [volume volumeClaimTemplates claim persistant persistent] >>)
-	^keep() volumeClaimTemplates in a StatefulSet spec automatically create a PersistentVolumeClaim for each Pod. Each PVC gets a unique name based on the template name and Pod ordinal (e.g. data-myapp-0). PVCs persist across Pod restarts and are NOT automatically deleted when the StatefulSet scales down. \n
-	volumeClaimTemplates dans la spec d'un StatefulSet creent automatiquement un PVC pour chaque Pod. Chaque PVC recoit un nom unique base sur le nom du template et l'ordinal du Pod. Les PVC persistent au-dela des redemarrages et ne sont PAS supprimes automatiquement lors d'un scale down.
+	^keep() if ($$lang == fr) { volumeClaimTemplates dans la spec d'un StatefulSet creent automatiquement un PVC pour chaque Pod. Chaque PVC recoit un nom unique base sur le nom du template et l'ordinal du Pod. Les PVC persistent au-dela des redemarrages et ne sont PAS supprimes automatiquement lors d'un scale down. }
+	else { volumeClaimTemplates in a StatefulSet spec automatically create a PersistentVolumeClaim for each Pod. Each PVC gets a unique name based on the template name and Pod ordinal (e.g. data-myapp-0). PVCs persist across Pod restarts and are NOT automatically deleted when the StatefulSet scales down. }
 
 #! statefulset podManagementPolicy ordered parallel
 u: (<< statefulset [podManagementPolicy management gestion ordre order parallel parallele] >>)
-	^keep() podManagementPolicy controls how Pods are created and deleted. OrderedReady (default) creates Pods sequentially (pod-0 must be Ready before pod-1 starts) and deletes in reverse order. Parallel launches or terminates all Pods simultaneously, useful when ordering is not required. \n
-	podManagementPolicy controle comment les Pods sont crees et supprimes. OrderedReady (defaut) cree les Pods sequentiellement et les supprime dans l'ordre inverse. Parallel lance ou termine tous les Pods simultanement, utile quand l'ordre n'est pas necessaire.
+	^keep() if ($$lang == fr) { podManagementPolicy controle comment les Pods sont crees et supprimes. OrderedReady (defaut) cree les Pods sequentiellement et les supprime dans l'ordre inverse. Parallel lance ou termine tous les Pods simultanement, utile quand l'ordre n'est pas necessaire. }
+	else { podManagementPolicy controls how Pods are created and deleted. OrderedReady (default) creates Pods sequentially (pod-0 must be Ready before pod-1 starts) and deletes in reverse order. Parallel launches or terminates all Pods simultaneously, useful when ordering is not required. }
 
 #! statefulset serviceName headless service
 u: (<< statefulset [serviceName service headless] >>)
-	^keep() The serviceName field is required and must reference an existing Headless Service (clusterIP: None). This Service provides the network identity for each Pod: <pod-name>.<service-name>.<namespace>.svc.cluster.local. The Headless Service must be created before the StatefulSet. \n
-	Le champ serviceName est obligatoire et doit referencer un Service Headless existant (clusterIP: None). Ce Service fournit l'identite reseau de chaque Pod. Le Service Headless doit etre cree avant le StatefulSet.
+	^keep() if ($$lang == fr) { Le champ serviceName est obligatoire et doit referencer un Service Headless existant (clusterIP: None). Ce Service fournit l'identite reseau de chaque Pod. Le Service Headless doit etre cree avant le StatefulSet. }
+	else { The serviceName field is required and must reference an existing Headless Service (clusterIP: None). This Service provides the network identity for each Pod: <pod-name>.<service-name>.<namespace>.svc.cluster.local. The Headless Service must be created before the StatefulSet. }
 
 #! statefulset updateStrategy rolling ondelete
 u: (<< statefulset [update mise_a_jour] [strategy strategie] >>)
-	^keep() StatefulSet supports two updateStrategy types: RollingUpdate (default) updates Pods in reverse ordinal order (highest first). Use 'partition' to stage a canary rollout by only updating Pods with ordinal >= partition value. OnDelete requires manual Pod deletion to trigger updates. \n
-	Le StatefulSet supporte deux types d'updateStrategy : RollingUpdate (defaut) met a jour les Pods dans l'ordre inverse. Utilisez 'partition' pour un deploiement canary. OnDelete necessite la suppression manuelle des Pods pour declencher les mises a jour.
+	^keep() if ($$lang == fr) { Le StatefulSet supporte deux types d'updateStrategy : RollingUpdate (defaut) met a jour les Pods dans l'ordre inverse. Utilisez 'partition' pour un deploiement canary. OnDelete necessite la suppression manuelle des Pods pour declencher les mises a jour. }
+	else { StatefulSet supports two updateStrategy types: RollingUpdate (default) updates Pods in reverse ordinal order (highest first). Use 'partition' to stage a canary rollout by only updating Pods with ordinal >= partition value. OnDelete requires manual Pod deletion to trigger updates. }
+
+#! statefulset persistentVolumeClaimRetentionPolicy
+u: (<< statefulset [persistentVolumeClaimRetentionPolicy "claim retention" "retention policy" "retention pvc" "pvc retention"] >>)
+	^keep() if ($$lang == fr) { persistentVolumeClaimRetentionPolicy controle le sort des PVC crees par volumeClaimTemplates. Deux sous-champs : whenDeleted [Retain par defaut ou Delete a la suppression du StatefulSet] et whenScaled [Retain par defaut ou Delete au scale-down]. Stable depuis Kubernetes 1.27. }
+	else { persistentVolumeClaimRetentionPolicy controls what happens to PVCs created by volumeClaimTemplates when the StatefulSet is deleted or scaled down. It has two sub-fields: \n
+	* whenDeleted: action when the StatefulSet is deleted. Values are Retain [default, PVCs are kept] or Delete [PVCs are deleted]. \n
+	* whenScaled: action when the StatefulSet is scaled down. Values are Retain [default] or Delete. \n
+	This policy is stable since Kubernetes 1.27 and avoids leaving orphaned PVCs that consume storage. }
+
+#! statefulset ordinals start ordinal
+u: (<< statefulset [ordinals ordinal "start ordinal"] >>)
+	^keep() if ($$lang == fr) { Le champ ordinals, stable depuis Kubernetes 1.27, permet de personnaliser l'index ordinal de depart des Pods d'un StatefulSet. Par defaut, les Pods sont numerotes a partir de 0. Definir ordinals.start a N fait commencer a pod-N. Utile pour les scenarios de migration ou de fusion de StatefulSets. }
+	else { The ordinals field, stable since Kubernetes 1.27, allows you to customize the starting ordinal index for StatefulSet Pods. By default, Pods are numbered starting from 0 (pod-0, pod-1, pod-2). Setting ordinals.start to N makes Pods start from N (pod-N, pod-N+1, ...). This is useful for migration scenarios where you need to merge StatefulSets or maintain specific Pod naming. The replicas count stays the same; only the starting number changes. }
 
 #! statefulset vs deployment difference
 u: (<< statefulset [vs versus contre ou] deployment >>)
-	^keep() Use a Deployment for stateless apps where Pods are interchangeable. Use a StatefulSet when you need: stable unique Pod names, stable persistent storage per Pod, ordered rollout and scaling, or stable network identities. StatefulSets are more complex to operate and should only be used when their guarantees are needed. \n
-	Utilisez un Deployment pour les apps stateless ou les Pods sont interchangeables. Utilisez un StatefulSet quand vous avez besoin de : noms stables, stockage persistant par Pod, deploiement ordonne ou identites reseau stables. Les StatefulSets sont plus complexes et ne devraient etre utilises que lorsque leurs garanties sont necessaires.
+	^keep() if ($$lang == fr) { Utilisez un Deployment pour les apps stateless ou les Pods sont interchangeables. Utilisez un StatefulSet quand vous avez besoin de : noms stables, stockage persistant par Pod, deploiement ordonne ou identites reseau stables. Les StatefulSets sont plus complexes et ne devraient etre utilises que lorsque leurs garanties sont necessaires. }
+	else { Use a Deployment for stateless apps where Pods are interchangeable. Use a StatefulSet when you need: stable unique Pod names, stable persistent storage per Pod, ordered rollout and scaling, or stable network identities. StatefulSets are more complex to operate and should only be used when their guarantees are needed. }
 
 # ===========================================================================
 # DAEMONSET
@@ -162,23 +214,33 @@ topic: ~daemonset (daemonset daemonsets daemon agent noeud noeuds)
 
 #! what is a daemonset
 u: (<< [what que "qu est-ce"] [is est] [a un une] daemonset >>)
-	^keep() A DaemonSet ensures that a copy of a Pod runs on all (or selected) nodes in the cluster. When a new node is added, the DaemonSet automatically schedules a Pod on it. When a node is removed, the Pod is garbage collected. \n
-	Un DaemonSet garantit qu'une copie d'un Pod tourne sur tous (ou certains) noeuds du cluster. Quand un nouveau noeud est ajoute, le DaemonSet planifie automatiquement un Pod dessus. Quand un noeud est supprime, le Pod est collecte.
+	^keep() if ($$lang == fr) { Un DaemonSet garantit qu'une copie d'un Pod tourne sur tous (ou certains) noeuds du cluster. Quand un nouveau noeud est ajoute, le DaemonSet planifie automatiquement un Pod dessus. Quand un noeud est supprime, le Pod est collecte. }
+	else { A DaemonSet ensures that a copy of a Pod runs on all (or selected) nodes in the cluster. When a new node is added, the DaemonSet automatically schedules a Pod on it. When a node is removed, the Pod is garbage collected. }
 
 #! daemonset use cases examples
 u: (<< daemonset [use usage cas utilisation example exemple] >>)
-	^keep() Common DaemonSet use cases include: log collectors (Fluentd, Filebeat, Promtail), monitoring agents (Prometheus Node Exporter, Datadog agent), network plugins (Calico, Cilium, Weave), storage daemons (Ceph, GlusterFS), and security agents (Falco, Twistlock). \n
-	Cas d'usage courants des DaemonSets : collecteurs de logs (Fluentd, Filebeat, Promtail), agents de monitoring (Node Exporter, Datadog), plugins reseau (Calico, Cilium), demons de stockage (Ceph, GlusterFS) et agents de securite (Falco, Twistlock).
+	^keep() if ($$lang == fr) { Cas d'usage courants des DaemonSets : collecteurs de logs (Fluentd, Filebeat, Promtail), agents de monitoring (Node Exporter, Datadog), plugins reseau (Calico, Cilium), demons de stockage (Ceph, GlusterFS) et agents de securite (Falco, Twistlock). }
+	else { Common DaemonSet use cases include: log collectors (Fluentd, Filebeat, Promtail), monitoring agents (Prometheus Node Exporter, Datadog agent), network plugins (Calico, Cilium, Weave), storage daemons (Ceph, GlusterFS), and security agents (Falco, Twistlock). }
 
 #! daemonset updateStrategy rolling ondelete
 u: (<< daemonset [update mise_a_jour] [strategy strategie] >>)
-	^keep() DaemonSet supports two updateStrategy types: RollingUpdate (default) updates Pods one node at a time. Configure maxUnavailable (default 1) and maxSurge to control the pace. OnDelete only updates Pods when you manually delete them, giving you full control over the rollout. \n
-	Le DaemonSet supporte deux types d'updateStrategy : RollingUpdate (defaut) met a jour les Pods un noeud a la fois. Configurez maxUnavailable et maxSurge. OnDelete ne met a jour les Pods que quand vous les supprimez manuellement.
+	^keep() if ($$lang == fr) { Le DaemonSet supporte deux types d'updateStrategy : RollingUpdate (defaut) met a jour les Pods un noeud a la fois. Configurez maxUnavailable et maxSurge. OnDelete ne met a jour les Pods que quand vous les supprimez manuellement. }
+	else { DaemonSet supports two updateStrategy types: RollingUpdate (default) updates Pods one node at a time. Configure maxUnavailable (default 1) and maxSurge to control the pace. OnDelete only updates Pods when you manually delete them, giving you full control over the rollout. }
+
+#! daemonset revisionHistoryLimit
+u: (<< daemonset [revisionHistoryLimit revision history historique limit limite] >>)
+	^keep() if ($$lang == fr) { revisionHistoryLimit specifie le nombre d'anciens objets ControllerRevision a conserver pour les rollbacks. La valeur par defaut est 10. Le mettre a 0 signifie que vous ne pouvez plus revenir en arriere. Les anciens ControllerRevisions consomment du stockage etcd. Similaire au revisionHistoryLimit du Deployment mais opere sur des ControllerRevisions. }
+	else { revisionHistoryLimit specifies the number of old ControllerRevision objects to retain for rollback purposes. The default is 10. Setting it to 0 means you cannot roll back to previous versions. Old ControllerRevisions consume etcd storage, so balance rollback needs with resource usage. This is similar to the Deployment's revisionHistoryLimit but operates on ControllerRevision objects instead of ReplicaSets. }
+
+#! daemonset minReadySeconds
+u: (<< daemonset [minReadySeconds "min ready" "minimum ready" disponible] >>)
+	^keep() if ($$lang == fr) { minReadySeconds specifie le nombre minimum de secondes pendant lesquelles un Pod DaemonSet doit etre Ready sans crash avant d'etre considere comme disponible. La valeur par defaut est 0. Augmenter cette valeur garantit la stabilite des Pods avant que le controleur continue la mise a jour sur le noeud suivant. }
+	else { minReadySeconds specifies the minimum number of seconds a DaemonSet Pod must be Ready without any container crashing before it is considered available. The default is 0, meaning the Pod is considered available as soon as it is Ready. Increasing this value ensures Pods are stable before the DaemonSet controller continues updating the next node during a rolling update. }
 
 #! daemonset node selection affinity
 u: (<< daemonset [node noeud] [select selection affinity affinite] >>)
-	^keep() To restrict a DaemonSet to specific nodes, use nodeSelector for simple label matching or nodeAffinity for advanced rules. You can also combine tolerations with taints to target dedicated node pools (e.g. GPU nodes, edge nodes). Without selectors, the DaemonSet runs on all schedulable nodes. \n
-	Pour restreindre un DaemonSet a certains noeuds, utilisez nodeSelector pour un filtrage simple ou nodeAffinity pour des regles avancees. Combinez les tolerations avec les taints pour cibler des pools de noeuds dedies. Sans selecteurs, le DaemonSet tourne sur tous les noeuds planifiables.
+	^keep() if ($$lang == fr) { Pour restreindre un DaemonSet a certains noeuds, utilisez nodeSelector pour un filtrage simple ou nodeAffinity pour des regles avancees. Combinez les tolerations avec les taints pour cibler des pools de noeuds dedies. Sans selecteurs, le DaemonSet tourne sur tous les noeuds planifiables. }
+	else { To restrict a DaemonSet to specific nodes, use nodeSelector for simple label matching or nodeAffinity for advanced rules. You can also combine tolerations with taints to target dedicated node pools (e.g. GPU nodes, edge nodes). Without selectors, the DaemonSet runs on all schedulable nodes. }
 
 # ===========================================================================
 # REPLICASET
@@ -188,18 +250,18 @@ topic: ~replicaset (replicaset replicasets "replica set")
 
 #! what is a replicaset
 u: (<< [what que "qu est-ce"] [is est] [a un une] [replicaset "replica set"] >>)
-	^keep() A ReplicaSet ensures that a specified number of Pod replicas are running at any given time. It uses a label selector to identify and manage its Pods. If a Pod is deleted or fails, the ReplicaSet creates a replacement to maintain the desired count. \n
-	Un ReplicaSet garantit qu'un nombre specifie de replicas de Pod tournent a tout moment. Il utilise un selecteur de labels pour identifier et gerer ses Pods. Si un Pod est supprime ou echoue, le ReplicaSet en cree un nouveau.
+	^keep() if ($$lang == fr) { Un ReplicaSet garantit qu'un nombre specifie de replicas de Pod tournent a tout moment. Il utilise un selecteur de labels pour identifier et gerer ses Pods. Si un Pod est supprime ou echoue, le ReplicaSet en cree un nouveau. }
+	else { A ReplicaSet ensures that a specified number of Pod replicas are running at any given time. It uses a label selector to identify and manage its Pods. If a Pod is deleted or fails, the ReplicaSet creates a replacement to maintain the desired count. }
 
 #! replicaset vs deployment
 u: (<< [replicaset "replica set"] [vs versus contre ou difference] deployment >>)
-	^keep() A ReplicaSet only ensures the desired number of Pods are running. A Deployment wraps a ReplicaSet and adds rolling updates, rollback capabilities, update history, and declarative update strategies. Always prefer Deployments over bare ReplicaSets. \n
-	Un ReplicaSet garantit uniquement le nombre de Pods souhaite. Un Deployment encapsule un ReplicaSet et ajoute les mises a jour progressives, les rollbacks, l'historique et les strategies de mise a jour. Preferez toujours les Deployments aux ReplicaSets nus.
+	^keep() if ($$lang == fr) { Un ReplicaSet garantit uniquement le nombre de Pods souhaite. Un Deployment encapsule un ReplicaSet et ajoute les mises a jour progressives, les rollbacks, l'historique et les strategies de mise a jour. Preferez toujours les Deployments aux ReplicaSets nus. }
+	else { A ReplicaSet only ensures the desired number of Pods are running. A Deployment wraps a ReplicaSet and adds rolling updates, rollback capabilities, update history, and declarative update strategies. Always prefer Deployments over bare ReplicaSets. }
 
 #! when to use replicaset directly
 u: (<< [when quand] [use utiliser] [replicaset "replica set"] [directly directement] >>)
-	^keep() You rarely need to create ReplicaSets directly. The main use case is custom update orchestration where you need programmatic control over Pod replacement (e.g. a custom controller). For standard workloads, always use Deployments. Some operators also create ReplicaSets internally. \n
-	Vous avez rarement besoin de creer des ReplicaSets directement. Le principal cas d'usage est l'orchestration personnalisee des mises a jour avec un controle programmatique. Pour les charges de travail standard, utilisez toujours des Deployments.
+	^keep() if ($$lang == fr) { Vous avez rarement besoin de creer des ReplicaSets directement. Le principal cas d'usage est l'orchestration personnalisee des mises a jour avec un controle programmatique. Pour les charges de travail standard, utilisez toujours des Deployments. }
+	else { You rarely need to create ReplicaSets directly. The main use case is custom update orchestration where you need programmatic control over Pod replacement (e.g. a custom controller). For standard workloads, always use Deployments. Some operators also create ReplicaSets internally. }
 
 # ===========================================================================
 # JOB
@@ -209,28 +271,33 @@ topic: ~k8s_job (job jobs batch tache taches completions parallelism)
 
 #! what is a job
 u: (<< [what que "qu est-ce"] [is est] [a un une] job >>)
-	^keep() A Job creates one or more Pods and ensures that a specified number of them successfully terminate. Jobs are used for batch processing, one-off tasks, data migrations, and any finite workload. The Pod's restartPolicy must be OnFailure or Never. \n
-	Un Job cree un ou plusieurs Pods et garantit qu'un nombre specifie d'entre eux se terminent avec succes. Les Jobs sont utilises pour le traitement par lots, les taches ponctuelles, les migrations de donnees et toute charge de travail finie. Le restartPolicy du Pod doit etre OnFailure ou Never.
+	^keep() if ($$lang == fr) { Un Job cree un ou plusieurs Pods et garantit qu'un nombre specifie d'entre eux se terminent avec succes. Les Jobs sont utilises pour le traitement par lots, les taches ponctuelles, les migrations de donnees et toute charge de travail finie. Le restartPolicy du Pod doit etre OnFailure ou Never. }
+	else { A Job creates one or more Pods and ensures that a specified number of them successfully terminate. Jobs are used for batch processing, one-off tasks, data migrations, and any finite workload. The Pod's restartPolicy must be OnFailure or Never. }
 
 #! job completions parallelism
 u: (<< job [completions parallelism completion parallele parallelisme] >>)
-	^keep() 'completions' sets the total number of successful Pod completions required (default 1). 'parallelism' sets the maximum number of Pods running concurrently (default 1). For example, completions=10 with parallelism=3 runs up to 3 Pods at a time until 10 have succeeded. Use completionMode 'Indexed' for indexed Jobs where each Pod gets a unique index. \n
-	'completions' definit le nombre total de Pods devant reussir (defaut 1). 'parallelism' definit le nombre max de Pods simultanes (defaut 1). Par exemple, completions=10 avec parallelism=3 execute jusqu'a 3 Pods simultanement jusqu'a 10 succes.
+	^keep() if ($$lang == fr) { 'completions' definit le nombre total de Pods devant reussir (defaut 1). 'parallelism' definit le nombre max de Pods simultanes (defaut 1). Par exemple, completions=10 avec parallelism=3 execute jusqu'a 3 Pods simultanement jusqu'a 10 succes. }
+	else { 'completions' sets the total number of successful Pod completions required (default 1). 'parallelism' sets the maximum number of Pods running concurrently (default 1). For example, completions=10 with parallelism=3 runs up to 3 Pods at a time until 10 have succeeded. Use completionMode 'Indexed' for indexed Jobs where each Pod gets a unique index. }
 
 #! job backoffLimit activeDeadlineSeconds
 u: (<< job [backoff backoffLimit deadline activeDeadlineSeconds limite delai] >>)
-	^keep() backoffLimit specifies the number of retries before marking the Job as failed (default 6). Uses exponential back-off (10s, 20s, 40s, ...). activeDeadlineSeconds sets the maximum duration for the entire Job; once reached, all running Pods are terminated and the Job is marked Failed. \n
-	backoffLimit specifie le nombre de tentatives avant d'echouer le Job (defaut 6). Utilise un back-off exponentiel. activeDeadlineSeconds definit la duree maximale du Job ; une fois atteinte, tous les Pods sont arretes et le Job est marque Failed.
+	^keep() if ($$lang == fr) { backoffLimit specifie le nombre de tentatives avant d'echouer le Job (defaut 6). Utilise un back-off exponentiel. activeDeadlineSeconds definit la duree maximale du Job ; une fois atteinte, tous les Pods sont arretes et le Job est marque Failed. }
+	else { backoffLimit specifies the number of retries before marking the Job as failed (default 6). Uses exponential back-off (10s, 20s, 40s, ...). activeDeadlineSeconds sets the maximum duration for the entire Job; once reached, all running Pods are terminated and the Job is marked Failed. }
 
 #! job ttlSecondsAfterFinished
 u: (<< job [ttl ttlSecondsAfterFinished cleanup nettoyage] >>)
-	^keep() ttlSecondsAfterFinished specifies the number of seconds after a Job finishes (Complete or Failed) before it is automatically deleted by the TTL controller. This cleans up finished Jobs and their Pods. Setting it to 0 deletes the Job immediately after completion. If unset, the Job is not automatically cleaned up. \n
-	ttlSecondsAfterFinished specifie le nombre de secondes apres la fin d'un Job avant sa suppression automatique par le controleur TTL. Le mettre a 0 supprime le Job immediatement. Si non defini, le Job n'est pas automatiquement nettoye.
+	^keep() if ($$lang == fr) { ttlSecondsAfterFinished specifie le nombre de secondes apres la fin d'un Job avant sa suppression automatique par le controleur TTL. Le mettre a 0 supprime le Job immediatement. Si non defini, le Job n'est pas automatiquement nettoye. }
+	else { ttlSecondsAfterFinished specifies the number of seconds after a Job finishes (Complete or Failed) before it is automatically deleted by the TTL controller. This cleans up finished Jobs and their Pods. Setting it to 0 deletes the Job immediately after completion. If unset, the Job is not automatically cleaned up. }
+
+#! job suspend pause resume
+u: (<< job [suspend suspendre pause resume reprendre] >>)
+	^keep() if ($$lang == fr) { Le champ 'suspend' sur un Job, quand defini a true, suspend le Job en supprimant tous les Pods actifs sans les compter comme des echecs. Le controleur arrete de creer de nouveaux Pods. Remettre 'suspend' a false reprend le Job. Utile pour liberer temporairement des ressources ou mettre en pause pendant une fenetre de maintenance. Supporte depuis Kubernetes 1.24. }
+	else { The 'suspend' field on a Job, when set to true, suspends the Job by deleting all active Pods without counting them as failures. The Job controller stops creating new Pods. Setting 'suspend' back to false resumes the Job, and the controller creates new Pods to continue toward the desired completions. This is useful for temporarily freeing cluster resources or pausing work during maintenance windows. Suspend is supported since Kubernetes 1.24. }
 
 #! job podFailurePolicy
 u: (<< job [podFailurePolicy failure echec politique] >>)
-	^keep() podFailurePolicy (stable since Kubernetes 1.31) lets you define rules for handling Pod failures based on container exit codes and Pod conditions. You can specify actions like FailJob (fail immediately), Ignore (do not count toward backoffLimit), or Count (default). This enables fine-grained failure handling, e.g. failing fast on non-retryable errors. \n
-	podFailurePolicy (stable depuis Kubernetes 1.31) permet de definir des regles de gestion des echecs de Pods basees sur les codes de sortie et conditions. Les actions possibles sont FailJob (echouer immediatement), Ignore (ne pas compter) ou Count (defaut). Cela permet une gestion fine des echecs.
+	^keep() if ($$lang == fr) { podFailurePolicy (stable depuis Kubernetes 1.31) permet de definir des regles de gestion des echecs de Pods basees sur les codes de sortie et conditions. Les actions possibles sont FailJob (echouer immediatement), Ignore (ne pas compter) ou Count (defaut). Cela permet une gestion fine des echecs. }
+	else { podFailurePolicy (stable since Kubernetes 1.31) lets you define rules for handling Pod failures based on container exit codes and Pod conditions. You can specify actions like FailJob (fail immediately), Ignore (do not count toward backoffLimit), or Count (default). This enables fine-grained failure handling, e.g. failing fast on non-retryable errors. }
 
 # ===========================================================================
 # CRONJOB
@@ -240,20 +307,33 @@ topic: ~cronjob (cronjob cronjobs cron planifie planification schedule)
 
 #! what is a cronjob
 u: (<< [what que "qu est-ce"] [is est] [a un une] cronjob >>)
-	^keep() A CronJob creates Jobs on a recurring schedule. It is the Kubernetes equivalent of a Unix cron task. Use CronJobs for periodic tasks like backups, report generation, log rotation, email sending, and database cleanup. The CronJob controller creates a new Job object at each scheduled time. \n
-	Un CronJob cree des Jobs selon un planning recurrent. C'est l'equivalent Kubernetes d'une tache cron Unix. Utilisez les CronJobs pour des taches periodiques comme les sauvegardes, la generation de rapports, la rotation des logs et le nettoyage de base de donnees.
+	^keep() if ($$lang == fr) { Un CronJob cree des Jobs selon un planning recurrent. C'est l'equivalent Kubernetes d'une tache cron Unix. Utilisez les CronJobs pour des taches periodiques comme les sauvegardes, la generation de rapports, la rotation des logs et le nettoyage de base de donnees. }
+	else { A CronJob creates Jobs on a recurring schedule. It is the Kubernetes equivalent of a Unix cron task. Use CronJobs for periodic tasks like backups, report generation, log rotation, email sending, and database cleanup. The CronJob controller creates a new Job object at each scheduled time. }
 
 #! cronjob schedule field cron syntax
 u: (<< cronjob [schedule planning planification cron syntaxe syntax] >>)
-	^keep() The schedule field uses standard cron syntax with five fields: minute (0-59), hour (0-23), day-of-month (1-31), month (1-12), day-of-week (0-6). Examples: '*/5 * * * *' (every 5 min), '0 2 * * *' (daily at 2am), '0 0 * * 0' (weekly Sunday midnight). Also supports \@yearly, \@monthly, \@weekly, \@daily, and \@hourly macros. \n
-	Le champ schedule utilise la syntaxe cron standard avec cinq champs : minute, heure, jour du mois, mois, jour de la semaine. Exemples : '*/5 * * * *' (toutes les 5 min), '0 2 * * *' (chaque jour a 2h). Supporte aussi les macros \@yearly, \@monthly, \@weekly, \@daily et \@hourly.
+	^keep() if ($$lang == fr) { Le champ schedule utilise la syntaxe cron standard avec cinq champs : minute, heure, jour du mois, mois, jour de la semaine. Exemples : '*/5 * * * *' (toutes les 5 min), '0 2 * * *' (chaque jour a 2h). Supporte aussi les macros \@yearly, \@monthly, \@weekly, \@daily et \@hourly. }
+	else { The schedule field uses standard cron syntax with five fields: minute (0-59), hour (0-23), day-of-month (1-31), month (1-12), day-of-week (0-6). Examples: '*/5 * * * *' (every 5 min), '0 2 * * *' (daily at 2am), '0 0 * * 0' (weekly Sunday midnight). Also supports \@yearly, \@monthly, \@weekly, \@daily, and \@hourly macros. }
 
 #! cronjob concurrencyPolicy allow forbid replace
 u: (<< cronjob [concurrency concurrencyPolicy concurrence] >>)
-	^keep() concurrencyPolicy controls what happens when a new Job is scheduled while a previous one is still running. Allow (default) permits concurrent Jobs. Forbid skips the new Job if the previous one is still running. Replace cancels the currently running Job and starts a new one. \n
-	concurrencyPolicy controle ce qui se passe quand un nouveau Job est planifie alors que le precedent tourne encore. Allow (defaut) autorise les Jobs simultanes. Forbid saute le nouveau Job. Replace annule le Job en cours et en demarre un nouveau.
+	^keep() if ($$lang == fr) { concurrencyPolicy controle ce qui se passe quand un nouveau Job est planifie alors que le precedent tourne encore. Allow (defaut) autorise les Jobs simultanes. Forbid saute le nouveau Job. Replace annule le Job en cours et en demarre un nouveau. }
+	else { concurrencyPolicy controls what happens when a new Job is scheduled while a previous one is still running. Allow (default) permits concurrent Jobs. Forbid skips the new Job if the previous one is still running. Replace cancels the currently running Job and starts a new one. }
+
+#! cronjob startingDeadlineSeconds missed schedule
+u: (<< cronjob [startingDeadlineSeconds "starting deadline" deadline delai "missed schedule" manque] >>)
+	^keep() if ($$lang == fr) { startingDeadlineSeconds definit le delai en secondes pour demarrer un Job apres un horaire manque. Si le temps ecoule depasse cette valeur, le Job est saute. Si non defini, il n'y a pas de delai et les Jobs manques sont lances des que possible. Avec concurrencyPolicy=Forbid, si plus de 100 horaires sont manques, le CronJob cesse de creer des Jobs. }
+	else { startingDeadlineSeconds sets the deadline in seconds for starting a Job if it missed its scheduled time. If the CronJob controller discovers that a schedule was missed and the current time exceeds the scheduled time by more than startingDeadlineSeconds, the Job is skipped. If unset, there is no deadline and missed Jobs are started as soon as possible. For CronJobs with concurrencyPolicy=Forbid, if more than 100 schedules are missed, the CronJob stops creating Jobs entirely. }
+
+#! cronjob successfulJobsHistoryLimit failedJobsHistoryLimit history
+u: (<< cronjob [successfulJobsHistoryLimit failedJobsHistoryLimit history historique "jobs history" retention] >>)
+	^keep() if ($$lang == fr) { Ces champs controlent combien de Jobs termines sont conserves : successfulJobsHistoryLimit [defaut 3, nombre de Jobs reussis conserves] et failedJobsHistoryLimit [defaut 1, nombre de Jobs echoues conserves]. Mettre a 0 signifie qu'aucun Job de ce statut n'est conserve, economisant du stockage etcd mais empechant l'inspection des resultats passes. }
+	else { These fields control how many finished Job objects the CronJob retains: \n
+	* successfulJobsHistoryLimit: number of successful Jobs to keep. Default is 3. \n
+	* failedJobsHistoryLimit: number of failed Jobs to keep. Default is 1. \n
+	Setting either to 0 means no Jobs of that status are retained, which saves etcd storage but prevents you from inspecting past Job results. The retained Jobs and their Pods can be inspected with 'kubectl get jobs' and 'kubectl logs'. }
 
 #! cronjob timeZone
 u: (<< cronjob [timezone timeZone fuseau horaire zone temps] >>)
-	^keep() The timeZone field, stable since Kubernetes 1.27, lets you specify the time zone for the schedule using standard IANA names (e.g. 'Europe/Paris', 'America/New_York', 'UTC'). Without it, the schedule is interpreted relative to the kube-controller-manager's time zone. Always set timeZone explicitly to avoid ambiguity across clusters. \n
-	Le champ timeZone (stable depuis Kubernetes 1.27) permet de specifier le fuseau horaire avec les noms IANA (ex: 'Europe/Paris', 'America/New_York', 'UTC'). Sans lui, le planning est relatif au fuseau du kube-controller-manager. Definissez toujours timeZone explicitement pour eviter les ambiguites.
+	^keep() if ($$lang == fr) { Le champ timeZone (stable depuis Kubernetes 1.27) permet de specifier le fuseau horaire avec les noms IANA (ex: 'Europe/Paris', 'America/New_York', 'UTC'). Sans lui, le planning est relatif au fuseau du kube-controller-manager. Definissez toujours timeZone explicitement pour eviter les ambiguites. }
+	else { The timeZone field, stable since Kubernetes 1.27, lets you specify the time zone for the schedule using standard IANA names (e.g. 'Europe/Paris', 'America/New_York', 'UTC'). Without it, the schedule is interpreted relative to the kube-controller-manager's time zone. Always set timeZone explicitly to avoid ambiguity across clusters. }

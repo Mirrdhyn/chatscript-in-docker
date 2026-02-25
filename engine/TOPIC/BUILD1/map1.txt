@@ -12,803 +12,1484 @@
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/configuration.top
     topic: 8  ~configmap
         rule: 11  ~configmap.0.0 u: 
-          line: 12 0  # ^keep ( ) A ConfigMap is a Kub
-          line: 13 331  # Un ConfigMap est un objet API 
-          Complexity of rule ~configmap.0.0- u: 1
+          if 12 14  
+          line: 12 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 13 414  
+          ifend 13 749  
+          line: 13 409  # else ( 1 ) 04t { A ConfigMap i
+          Complexity of rule ~configmap.0.0- u: 2
         rule: 16  ~configmap.1.0 u: 
-          line: 17 0  # ^keep ( ) A ConfigMap has two 
-          line: 18 341  # Un ConfigMap a deux champs de 
-          Complexity of rule ~configmap.1.0- u: 1
+          if 17 14  
+          line: 17 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 18 346  
+          ifend 18 691  
+          line: 18 341  # else ( 1 ) 04D { A ConfigMap h
+          Complexity of rule ~configmap.1.0- u: 2
         rule: 21  ~configmap.2.0 u: 
-          line: 22 0  # ^keep ( ) Setting the 'immutab
-          line: 23 375  # Definir le champ 'immutable' a
-          Complexity of rule ~configmap.2.0- u: 1
+          if 22 14  
+          line: 22 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 23 406  
+          ifend 23 785  
+          line: 23 401  # else ( 1 ) 04+ { Setting the '
+          Complexity of rule ~configmap.2.0- u: 2
         rule: 26  ~configmap.3.0 u: 
-          line: 27 0  # ^keep ( ) There are several wa
-          line: 28 65  # 1. Environment variables: use 
-          line: 29 183  # 2. Volume mount: mount the Con
-          line: 30 366  # 3. Command arguments: referenc
-          line: 31 490  # ConfigMaps mounted as volumes 
-          line: 32 656  # Plusieurs facons d'utiliser un
-          Complexity of rule ~configmap.3.0- u: 1
+          if 27 14  
+          line: 27 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 28 346  
+          line: 28 341  # else ( 1 ) aaa { There are sev
+          line: 29 413  # 1. Environment variables: use 
+          line: 30 531  # 2. Volume mount: mount the Con
+          line: 31 714  # 3. Command arguments: referenc
+          ifend 32 1006  
+          line: 32 838  # ConfigMaps mounted as volumes 
+          Complexity of rule ~configmap.3.0- u: 2
         rule: 35  ~configmap.4.0 u: 
-          line: 36 0  # ^keep ( ) ConfigMap and Secret
-          line: 37 96  # - ConfigMap: stores non-confid
-          line: 38 271  # - Secret: stores sensitive dat
-          line: 39 557  # Use ConfigMaps for application
-          line: 40 637  # ConfigMap et Secret sont tous 
-          Complexity of rule ~configmap.4.0- u: 1
-    topic: 47  ~k8s_secret
-        rule: 50  ~k8s_secret.0.0 u: 
-          line: 51 0  # ^keep ( ) A Kubernetes Secret 
-          line: 52 380  # Un Secret Kubernetes est un ob
-          Complexity of rule ~k8s_secret.0.0- u: 1
-        rule: 55  ~k8s_secret.1.0 u: 
-          line: 56 0  # ^keep ( ) Kubernetes provides 
-          line: 57 64  # - Opaque ( default ) : arbitra
-          line: 58 119  # - kubernetes.io/tls: stores a 
-          line: 59 237  # - kubernetes.io/dockerconfigjs
-          line: 60 350  # - kubernetes.io/basic-auth: st
-          line: 61 418  # - kubernetes.io/ssh-auth: stor
-          line: 62 479  # - kubernetes.io/service-accoun
-          line: 63 580  # - bootstrap.kubernetes.io/toke
-          line: 64 662  # Kubernetes fournit plusieurs t
-          Complexity of rule ~k8s_secret.1.0- u: 1
-        rule: 67  ~k8s_secret.2.0 u: 
-          line: 68 0  # ^keep ( ) A Secret has two dat
-          line: 69 400  # Un Secret a deux champs : 'dat
-          Complexity of rule ~k8s_secret.2.0- u: 1
-        rule: 72  ~k8s_secret.3.0 u: 
-          line: 73 0  # ^keep ( ) Setting the 'immutab
-          line: 74 402  # Definir le champ 'immutable' a
-          Complexity of rule ~k8s_secret.3.0- u: 1
-        rule: 77  ~k8s_secret.4.0 u: 
-          line: 78 0  # ^keep ( ) Secrets can be consu
-          line: 79 63  # 1. Environment variables: use 
-          line: 80 193  # 2. Volume mount: mount the Sec
-          line: 81 387  # 3. imagePullSecrets: reference
-          line: 82 498  # Secrets mounted as volumes are
-          line: 83 662  # Les Secrets peuvent etre conso
-          Complexity of rule ~k8s_secret.4.0- u: 1
-    topic: 90  ~hpa
-        rule: 93  ~hpa.0.0 u: 
-          line: 94 0  # ^keep ( ) A HorizontalPodAutos
-          line: 95 374  # Un HorizontalPodAutoscaler ( H
-          Complexity of rule ~hpa.0.0- u: 1
-        rule: 98  ~hpa.1.0 u: 
-          line: 99 0  # ^keep ( ) minReplicas sets the
-          line: 100 390  # minReplicas definit le nombre 
-          Complexity of rule ~hpa.1.0- u: 1
-        rule: 103  ~hpa.2.0 u: 
-          line: 104 0  # ^keep ( ) HPA supports four me
-          line: 105 52  # 1. Resource: built-in metrics 
-          line: 106 175  # 2. Pods: custom metrics that d
-          line: 107 293  # 3. Object: metrics from a sing
-          line: 108 392  # 4. External: metrics from syst
-          line: 109 495  # Each metric can use a target t
-          line: 110 623  # Le HPA supporte quatre types d
-          Complexity of rule ~hpa.2.0- u: 1
-        rule: 113  ~hpa.3.0 u: 
-          line: 114 0  # ^keep ( ) The scaleTargetRef f
-          line: 115 338  # Le champ scaleTargetRef specif
-          Complexity of rule ~hpa.3.0- u: 1
-        rule: 118  ~hpa.4.0 u: 
-          line: 119 0  # ^keep ( ) The behavior field p
-          line: 120 76  # - scaleUp: policies controllin
-          line: 121 248  # - scaleDown: policies controll
-          line: 122 316  # - stabilizationWindowSeconds: 
-          line: 123 565  # - selectPolicy: Min, Max ( def
-          line: 124 654  # Le champ behavior controle fin
-          Complexity of rule ~hpa.4.0- u: 1
-    topic: 131  ~limitrange
-        rule: 134  ~limitrange.0.0 u: 
-          line: 135 0  # ^keep ( ) A LimitRange is a po
-          line: 136 395  # Un LimitRange est une politiqu
-          Complexity of rule ~limitrange.0.0- u: 1
-        rule: 139  ~limitrange.1.0 u: 
-          line: 140 0  # ^keep ( ) In a LimitRange spec
-          line: 141 50  # - 'default' sets the default r
-          line: 142 233  # - 'defaultRequest' sets the de
-          line: 143 388  # If only 'default' is set witho
-          line: 144 591  # Dans un LimitRange pour les co
-          Complexity of rule ~limitrange.1.0- u: 1
-        rule: 147  ~limitrange.2.0 u: 
-          line: 148 0  # ^keep ( ) A LimitRange can enf
-          line: 149 79  # - 'min' sets the minimum resou
-          line: 150 190  # - 'max' sets the maximum resou
-          line: 151 290  # - 'maxLimitRequestRatio' enfor
-          line: 152 441  # These can be applied to types:
-          line: 153 566  # Un LimitRange peut imposer des
-          Complexity of rule ~limitrange.2.0- u: 1
-    topic: 160  ~resourcequota
-        rule: 163  ~resourcequota.0.0 u: 
-          line: 164 0  # ^keep ( ) A ResourceQuota is a
-          line: 165 418  # Un ResourceQuota est une resso
-          Complexity of rule ~resourcequota.0.0- u: 1
-        rule: 168  ~resourcequota.1.0 u: 
-          line: 169 0  # ^keep ( ) The 'hard' field in 
-          line: 170 117  # - pods: maximum number of Pods
-          line: 171 169  # - requests.cpu: total CPU requ
-          line: 172 250  # - requests.memory: total memor
-          line: 173 311  # - limits.cpu: total CPU limits
-          line: 174 362  # - limits.memory: total memory 
-          line: 175 403  # - configmaps, secrets, service
-          line: 176 500  # - requests.storage: total stor
-          line: 177 560  # Le champ 'hard' definit les qu
-          Complexity of rule ~resourcequota.1.0- u: 1
-        rule: 180  ~resourcequota.2.0 u: 
-          line: 181 0  # ^keep ( ) ResourceQuota suppor
-          line: 182 90  # - Terminating: Pods with spec.
-          line: 183 170  # - NotTerminating: Pods without
-          line: 184 260  # - BestEffort: Pods with no res
-          line: 185 345  # - NotBestEffort: Pods with at 
-          line: 186 415  # - PriorityClass: Pods matching
-          line: 187 575  # Scopes let you create separate
-          line: 188 677  # ResourceQuota supporte des sco
-          Complexity of rule ~resourcequota.2.0- u: 1
-        rule: 191  ~resourcequota.3.0 u: 
-          line: 192 0  # ^keep ( ) ResourceQuota vs Lim
-          line: 193 71  # - LimitRange: operates at the 
-          line: 194 273  # - ResourceQuota: operates at t
-          line: 195 474  # Best practice: use both togeth
-          line: 196 642  # ResourceQuota vs LimitRange on
-          Complexity of rule ~resourcequota.3.0- u: 1
-    topic: 203  ~pdb
-        rule: 206  ~pdb.0.0 u: 
-          line: 207 0  # ^keep ( ) A PodDisruptionBudge
-          line: 208 455  # Un PodDisruptionBudget ( PDB )
-          Complexity of rule ~pdb.0.0- u: 1
-        rule: 211  ~pdb.1.0 u: 
-          line: 212 0  # ^keep ( ) A PDB uses one of tw
-          line: 213 76  # - minAvailable: the minimum nu
-          line: 214 238  # - maxUnavailable: the maximum 
-          line: 215 370  # For example, with 5 replicas a
-          line: 216 661  # Un PDB utilise l'un des deux c
-          Complexity of rule ~pdb.1.0- u: 1
-        rule: 219  ~pdb.2.0 u: 
-          line: 220 0  # ^keep ( ) The unhealthyPodEvic
-          line: 221 178  # - IfHealthy ( default ) : unhe
-          line: 222 373  # - AlwaysAllow: unhealthy Pods 
-          line: 223 608  # Use AlwaysAllow when unhealthy
-          line: 224 708  # Le champ unhealthyPodEvictionP
-          Complexity of rule ~pdb.2.0- u: 1
+          if 36 14  
+          line: 36 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 37 422  
+          ifend 37 890  
+          line: 37 417  # else ( 1 ) 06c { A single Conf
+          Complexity of rule ~configmap.4.0- u: 2
+        rule: 40  ~configmap.5.0 u: 
+          if 41 14  
+          line: 41 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 42 306  
+          line: 42 301  # else ( 1 ) aaa { ConfigMap and
+          line: 43 404  # - ConfigMap: stores non-confid
+          line: 44 579  # - Secret: stores sensitive dat
+          ifend 45 947  
+          line: 45 865  # Use ConfigMaps for application
+          Complexity of rule ~configmap.5.0- u: 2
+    topic: 52  ~k8s_secret
+        rule: 55  ~k8s_secret.0.0 u: 
+          if 56 14  
+          line: 56 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 57 467  
+          ifend 57 851  
+          line: 57 462  # else ( 1 ) 053 { A Kubernetes 
+          Complexity of rule ~k8s_secret.0.0- u: 2
+        rule: 60  ~k8s_secret.1.0 u: 
+          if 61 14  
+          line: 61 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 62 373  
+          line: 62 368  # else ( 1 ) aaa { Kubernetes pr
+          line: 63 439  # - Opaque ( default ) : arbitra
+          line: 64 494  # - kubernetes.io/tls: stores a 
+          line: 65 612  # - kubernetes.io/dockerconfigjs
+          line: 66 725  # - kubernetes.io/basic-auth: st
+          line: 67 793  # - kubernetes.io/ssh-auth: stor
+          line: 68 854  # - kubernetes.io/service-accoun
+          ifend 69 1039  
+          line: 69 955  # - bootstrap.kubernetes.io/toke
+          Complexity of rule ~k8s_secret.1.0- u: 2
+        rule: 72  ~k8s_secret.2.0 u: 
+          if 73 14  
+          line: 73 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 74 378  
+          ifend 74 782  
+          line: 74 373  # else ( 1 ) 05n { A Secret has 
+          Complexity of rule ~k8s_secret.2.0- u: 2
+        rule: 77  ~k8s_secret.3.0 u: 
+          if 78 14  
+          line: 78 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 79 498  
+          line: 79 493  # else ( 1 ) aaa { Each Secret t
+          line: 80 593  # * Opaque: no required keys, an
+          line: 81 646  # * kubernetes.io/tls: requires 
+          line: 82 792  # * kubernetes.io/dockerconfigjs
+          line: 83 932  # * kubernetes.io/basic-auth: ex
+          line: 84 1003  # * kubernetes.io/ssh-auth: requ
+          line: 85 1059  # * kubernetes.io/service-accoun
+          ifend 86 1276  
+          line: 86 1185  # Creating a typed Secret withou
+          Complexity of rule ~k8s_secret.3.0- u: 2
+        rule: 89  ~k8s_secret.4.0 u: 
+          if 90 14  
+          line: 90 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 91 359  
+          ifend 91 765  
+          line: 91 354  # else ( 1 ) 05p { Setting the '
+          Complexity of rule ~k8s_secret.4.0- u: 2
+        rule: 94  ~k8s_secret.5.0 u: 
+          if 95 14  
+          line: 95 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 96 404  
+          line: 96 399  # else ( 1 ) aaa { Secrets can b
+          line: 97 469  # 1. Environment variables: use 
+          line: 98 599  # 2. Volume mount: mount the Sec
+          line: 99 793  # 3. imagePullSecrets: reference
+          ifend 100 1070  
+          line: 100 904  # Secrets mounted as volumes are
+          Complexity of rule ~k8s_secret.5.0- u: 2
+    topic: 107  ~hpa
+        rule: 110  ~hpa.0.0 u: 
+          if 111 14  
+          line: 111 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 112 464  
+          ifend 112 842  
+          line: 112 459  # else ( 1 ) 04- { A HorizontalP
+          Complexity of rule ~hpa.0.0- u: 2
+        rule: 115  ~hpa.1.0 u: 
+          if 116 14  
+          line: 116 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 117 368  
+          ifend 117 762  
+          line: 117 363  # else ( 1 ) 05d { minReplicas s
+          Complexity of rule ~hpa.1.0- u: 2
+        rule: 120  ~hpa.2.0 u: 
+          if 121 14  
+          line: 121 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 122 423  
+          line: 122 418  # else ( 1 ) aaa { HPA supports 
+          line: 123 477  # 1. Resource: built-in metrics 
+          line: 124 600  # 2. Pods: custom metrics that d
+          line: 125 718  # 3. Object: metrics from a sing
+          line: 126 817  # 4. External: metrics from syst
+          ifend 127 1050  
+          line: 127 920  # Each metric can use a target t
+          Complexity of rule ~hpa.2.0- u: 2
+        rule: 130  ~hpa.3.0 u: 
+          if 131 14  
+          line: 131 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 132 360  
+          ifend 132 702  
+          line: 132 355  # else ( 1 ) 04A { The scaleTarg
+          Complexity of rule ~hpa.3.0- u: 2
+        rule: 135  ~hpa.4.0 u: 
+          if 136 14  
+          line: 136 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 137 394  
+          line: 137 389  # else ( 1 ) aaa { The behavior 
+          line: 138 472  # - scaleUp: policies controllin
+          line: 139 644  # - scaleDown: policies controll
+          line: 140 712  # - stabilizationWindowSeconds: 
+          ifend 141 1052  
+          line: 141 961  # - selectPolicy: Min, Max ( def
+          Complexity of rule ~hpa.4.0- u: 2
+    topic: 148  ~limitrange
+        rule: 151  ~limitrange.0.0 u: 
+          if 152 14  
+          line: 152 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 153 447  
+          ifend 153 846  
+          line: 153 442  # else ( 1 ) 05i { A LimitRange 
+          Complexity of rule ~limitrange.0.0- u: 2
+        rule: 156  ~limitrange.1.0 u: 
+          if 157 14  
+          line: 157 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 158 389  
+          line: 158 384  # else ( 1 ) aaa { In a LimitRan
+          line: 159 441  # - 'default' sets the default r
+          line: 160 624  # - 'defaultRequest' sets the de
+          ifend 161 984  
+          line: 161 779  # If only 'default' is set witho
+          Complexity of rule ~limitrange.1.0- u: 2
+        rule: 164  ~limitrange.2.0 u: 
+          if 165 14  
+          line: 165 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 166 440  
+          line: 166 435  # else ( 1 ) aaa { A LimitRange 
+          line: 167 521  # - 'min' sets the minimum resou
+          line: 168 632  # - 'max' sets the maximum resou
+          line: 169 732  # - 'maxLimitRequestRatio' enfor
+          ifend 170 1010  
+          line: 170 883  # These can be applied to types:
+          Complexity of rule ~limitrange.2.0- u: 2
+    topic: 177  ~resourcequota
+        rule: 180  ~resourcequota.0.0 u: 
+          if 181 14  
+          line: 181 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 182 483  
+          ifend 182 905  
+          line: 182 478  # else ( 1 ) 05F { A ResourceQuo
+          Complexity of rule ~resourcequota.0.0- u: 2
+        rule: 185  ~resourcequota.1.0 u: 
+          if 186 14  
+          line: 186 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 187 382  
+          line: 187 377  # else ( 1 ) aaa { The 'hard' fi
+          line: 188 501  # - pods: maximum number of Pods
+          line: 189 553  # - requests.cpu: total CPU requ
+          line: 190 634  # - requests.memory: total memor
+          line: 191 695  # - limits.cpu: total CPU limits
+          line: 192 746  # - limits.memory: total memory 
+          line: 193 787  # - configmaps, secrets, service
+          ifend 194 946  
+          line: 194 884  # - requests.storage: total stor
+          Complexity of rule ~resourcequota.1.0- u: 2
+        rule: 197  ~resourcequota.2.0 u: 
+          if 198 14  
+          line: 198 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 199 481  
+          line: 199 476  # else ( 1 ) aaa { ResourceQuota
+          line: 200 573  # - Terminating: Pods with spec.
+          line: 201 653  # - NotTerminating: Pods without
+          line: 202 743  # - BestEffort: Pods with no res
+          line: 203 828  # - NotBestEffort: Pods with at 
+          line: 204 898  # - PriorityClass: Pods matching
+          ifend 205 1162  
+          line: 205 1058  # Scopes let you create separate
+          Complexity of rule ~resourcequota.2.0- u: 2
+        rule: 208  ~resourcequota.3.0 u: 
+          if 209 14  
+          line: 209 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 210 420  
+          line: 210 415  # else ( 1 ) aaa { ResourceQuota
+          line: 211 493  # - LimitRange: operates at the 
+          line: 212 695  # - ResourceQuota: operates at t
+          ifend 213 1066  
+          line: 213 896  # Best practice: use both togeth
+          Complexity of rule ~resourcequota.3.0- u: 2
+    topic: 220  ~pdb
+        rule: 223  ~pdb.0.0 u: 
+          if 224 14  
+          line: 224 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 225 495  
+          ifend 225 954  
+          line: 225 490  # else ( 1 ) 063 { A PodDisrupti
+          Complexity of rule ~pdb.0.0- u: 2
+        rule: 228  ~pdb.1.0 u: 
+          if 229 14  
+          line: 229 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 230 565  
+          line: 230 560  # else ( 1 ) aaa { A PDB uses on
+          line: 231 643  # - minAvailable: the minimum nu
+          line: 232 805  # - maxUnavailable: the maximum 
+          ifend 233 1230  
+          line: 233 937  # For example, with 5 replicas a
+          Complexity of rule ~pdb.1.0- u: 2
+        rule: 236  ~pdb.2.0 u: 
+          if 237 14  
+          line: 237 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 238 496  
+          line: 238 491  # else ( 1 ) aaa { The unhealthy
+          line: 239 676  # - IfHealthy ( default ) : unhe
+          line: 240 871  # - AlwaysAllow: unhealthy Pods 
+          ifend 242 1208  
+          Complexity of rule ~pdb.2.0- u: 2
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/workloads.top
     topic: 8  ~pod
         rule: 11  ~pod.0.0 u: 
-          line: 12 0  # ^keep ( ) A Pod is the smalles
-          line: 13 164  # Un Pod est la plus petite unit
-          Complexity of rule ~pod.0.0- u: 1
+          if 12 14  
+          line: 12 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 13 225  
+          ifend 13 393  
+          line: 13 220  # else ( 1 ) 02c { A Pod is the 
+          Complexity of rule ~pod.0.0- u: 2
         rule: 16  ~pod.1.0 u: 
-          line: 17 0  # ^keep ( ) The 'containers' fie
-          line: 18 209  # Le champ 'containers' dans la 
-          Complexity of rule ~pod.1.0- u: 1
+          if 17 14  
+          line: 17 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 18 276  
+          ifend 18 489  
+          line: 18 271  # else ( 1 ) 02V { The 'containe
+          Complexity of rule ~pod.1.0- u: 2
         rule: 21  ~pod.2.0 u: 
-          line: 22 0  # ^keep ( ) initContainers run s
-          line: 23 248  # Les initContainers s'executent
-          Complexity of rule ~pod.2.0- u: 1
+          if 22 14  
+          line: 22 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 23 307  
+          ifend 23 559  
+          line: 23 302  # else ( 1 ) 03l { initContainer
+          Complexity of rule ~pod.2.0- u: 2
         rule: 26  ~pod.3.0 u: 
-          line: 27 0  # ^keep ( ) The 'volumes' field 
-          line: 28 244  # Le champ 'volumes' definit les
-          Complexity of rule ~pod.3.0- u: 1
+          if 27 14  
+          line: 27 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 28 285  
+          ifend 28 533  
+          line: 28 280  # else ( 1 ) 03h { The 'volumes'
+          Complexity of rule ~pod.3.0- u: 2
         rule: 31  ~pod.4.0 u: 
-          line: 32 0  # ^keep ( ) The restartPolicy fi
-          line: 33 260  # Le champ restartPolicy s'appli
-          Complexity of rule ~pod.4.0- u: 1
+          if 32 14  
+          line: 32 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 33 297  
+          ifend 33 561  
+          line: 33 292  # else ( 1 ) 03x { The restartPo
+          Complexity of rule ~pod.4.0- u: 2
         rule: 36  ~pod.5.0 u: 
-          line: 37 0  # ^keep ( ) Pod affinity and ant
-          line: 38 320  # L'affinite et l'anti-affinite 
-          Complexity of rule ~pod.5.0- u: 1
+          if 37 14  
+          line: 37 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 38 269  
+          ifend 38 593  
+          line: 38 264  # else ( 1 ) 04i { Pod affinity 
+          Complexity of rule ~pod.5.0- u: 2
         rule: 41  ~pod.6.0 u: 
-          line: 42 0  # ^keep ( ) Taints are applied t
-          line: 43 254  # Les taints sont appliquees aux
-          Complexity of rule ~pod.6.0- u: 1
+          if 42 14  
+          line: 42 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 43 281  
+          ifend 43 539  
+          line: 43 276  # else ( 1 ) 03r { Taints are ap
+          Complexity of rule ~pod.6.0- u: 2
         rule: 46  ~pod.7.0 u: 
-          line: 47 0  # ^keep ( ) The Pod-level securi
-          line: 48 275  # Le securityContext au niveau P
-          Complexity of rule ~pod.7.0- u: 1
+          if 47 14  
+          line: 47 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 48 259  
+          ifend 48 538  
+          line: 48 254  # else ( 1 ) 03M { The Pod-level
+          Complexity of rule ~pod.7.0- u: 2
         rule: 51  ~pod.8.0 u: 
-          line: 52 0  # ^keep ( ) Each container can s
-          line: 53 300  # Chaque conteneur peut specifie
-          Complexity of rule ~pod.8.0- u: 1
+          if 52 14  
+          line: 52 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 53 359  
+          ifend 53 663  
+          line: 53 354  # else ( 1 ) 03+ { Each containe
+          Complexity of rule ~pod.8.0- u: 2
         rule: 56  ~pod.9.0 u: 
-          line: 57 0  # ^keep ( ) Kubernetes supports 
-          line: 58 391  # Kubernetes supporte trois type
-          Complexity of rule ~pod.9.0- u: 1
+          if 57 14  
+          line: 57 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 58 315  
+          ifend 58 710  
+          line: 58 310  # else ( 1 ) 05e { Kubernetes su
+          Complexity of rule ~pod.9.0- u: 2
         rule: 61  ~pod.10.0 u: 
-          line: 62 0  # ^keep ( ) dnsPolicy controls D
-          line: 63 310  # dnsPolicy controle la resoluti
-          Complexity of rule ~pod.10.0- u: 1
+          if 62 14  
+          line: 62 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 63 302  
+          ifend 63 616  
+          line: 63 297  # else ( 1 ) 048 { dnsPolicy con
+          Complexity of rule ~pod.10.0- u: 2
         rule: 66  ~pod.11.0 u: 
-          line: 67 0  # ^keep ( ) The serviceAccountNa
-          line: 68 332  # Le champ serviceAccountName in
-          Complexity of rule ~pod.11.0- u: 1
+          if 67 14  
+          line: 67 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 68 278  
+          ifend 68 614  
+          line: 68 273  # else ( 1 ) 04u { The serviceAc
+          Complexity of rule ~pod.11.0- u: 2
         rule: 71  ~pod.12.0 u: 
-          line: 72 0  # ^keep ( ) A Pod goes through t
-          line: 73 301  # Un Pod passe par ces phases : 
-          Complexity of rule ~pod.12.0- u: 1
-    topic: 79  ~deployment
-        rule: 82  ~deployment.0.0 u: 
-          line: 83 0  # ^keep ( ) A Deployment provide
-          line: 84 251  # Un Deployment fournit des mise
-          Complexity of rule ~deployment.0.0- u: 1
-        rule: 87  ~deployment.1.0 u: 
-          line: 88 0  # ^keep ( ) Key Deployment spec 
-          line: 89 317  # Champs cles de la spec Deploym
-          Complexity of rule ~deployment.1.0- u: 1
-        rule: 92  ~deployment.2.0 u: 
-          line: 93 0  # ^keep ( ) Deployment supports 
-          line: 94 277  # Le Deployment supporte deux ty
-          Complexity of rule ~deployment.2.0- u: 1
-        rule: 97  ~deployment.3.0 u: 
-          line: 98 0  # ^keep ( ) In a RollingUpdate s
-          line: 99 297  # Dans une strategie RollingUpda
-          Complexity of rule ~deployment.3.0- u: 1
-        rule: 102  ~deployment.4.0 u: 
-          line: 103 0  # ^keep ( ) progressDeadlineSeco
-          line: 104 304  # progressDeadlineSeconds specif
-          Complexity of rule ~deployment.4.0- u: 1
-        rule: 107  ~deployment.5.0 u: 
-          line: 108 0  # ^keep ( ) revisionHistoryLimit
-          line: 109 252  # revisionHistoryLimit specifie 
-          Complexity of rule ~deployment.5.0- u: 1
-        rule: 112  ~deployment.6.0 u: 
-          line: 113 0  # ^keep ( ) To rollback a Deploy
-          line: 114 272  # Pour faire un rollback : 'kube
-          Complexity of rule ~deployment.6.0- u: 1
-        rule: 117  ~deployment.7.0 u: 
-          line: 118 0  # ^keep ( ) A Deployment manages
-          line: 119 282  # Un Deployment gere des Replica
-          Complexity of rule ~deployment.7.0- u: 1
-    topic: 125  ~statefulset
-        rule: 128  ~statefulset.0.0 u: 
-          line: 129 0  # ^keep ( ) A StatefulSet manage
-          line: 130 302  # Un StatefulSet gere les applic
-          Complexity of rule ~statefulset.0.0- u: 1
-        rule: 133  ~statefulset.1.0 u: 
-          line: 134 0  # ^keep ( ) volumeClaimTemplates
-          line: 135 311  # volumeClaimTemplates dans la s
-          Complexity of rule ~statefulset.1.0- u: 1
-        rule: 138  ~statefulset.2.0 u: 
-          line: 139 0  # ^keep ( ) podManagementPolicy 
-          line: 140 296  # podManagementPolicy controle c
-          Complexity of rule ~statefulset.2.0- u: 1
-        rule: 143  ~statefulset.3.0 u: 
-          line: 144 0  # ^keep ( ) The serviceName fiel
-          line: 145 292  # Le champ serviceName est oblig
-          Complexity of rule ~statefulset.3.0- u: 1
-        rule: 148  ~statefulset.4.0 u: 
-          line: 149 0  # ^keep ( ) StatefulSet supports
-          line: 150 299  # Le StatefulSet supporte deux t
-          Complexity of rule ~statefulset.4.0- u: 1
-        rule: 153  ~statefulset.5.0 u: 
-          line: 154 0  # ^keep ( ) Use a Deployment for
-          line: 155 332  # Utilisez un Deployment pour le
-          Complexity of rule ~statefulset.5.0- u: 1
-    topic: 161  ~daemonset
-        rule: 164  ~daemonset.0.0 u: 
-          line: 165 0  # ^keep ( ) A DaemonSet ensures 
-          line: 166 235  # Un DaemonSet garantit qu'une c
-          Complexity of rule ~daemonset.0.0- u: 1
-        rule: 169  ~daemonset.1.0 u: 
-          line: 170 0  # ^keep ( ) Common DaemonSet use
-          line: 171 287  # Cas d'usage courants des Daemo
-          Complexity of rule ~daemonset.1.0- u: 1
-        rule: 174  ~daemonset.2.0 u: 
-          line: 175 0  # ^keep ( ) DaemonSet supports t
-          line: 176 290  # Le DaemonSet supporte deux typ
-          Complexity of rule ~daemonset.2.0- u: 1
-        rule: 179  ~daemonset.3.0 u: 
-          line: 180 0  # ^keep ( ) To restrict a Daemon
-          line: 181 308  # Pour restreindre un DaemonSet 
-          Complexity of rule ~daemonset.3.0- u: 1
-    topic: 187  ~replicaset
-        rule: 190  ~replicaset.0.0 u: 
-          line: 191 0  # ^keep ( ) A ReplicaSet ensures
-          line: 192 261  # Un ReplicaSet garantit qu'un n
-          Complexity of rule ~replicaset.0.0- u: 1
-        rule: 195  ~replicaset.1.0 u: 
-          line: 196 0  # ^keep ( ) A ReplicaSet only en
-          line: 197 260  # Un ReplicaSet garantit uniquem
-          Complexity of rule ~replicaset.1.0- u: 1
-        rule: 200  ~replicaset.2.0 u: 
-          line: 201 0  # ^keep ( ) You rarely need to c
-          line: 202 297  # Vous avez rarement besoin de c
-          Complexity of rule ~replicaset.2.0- u: 1
-    topic: 208  ~k8s_job
-        rule: 211  ~k8s_job.0.0 u: 
-          line: 212 0  # ^keep ( ) A Job creates one or
-          line: 213 257  # Un Job cree un ou plusieurs Po
-          Complexity of rule ~k8s_job.0.0- u: 1
-        rule: 216  ~k8s_job.1.0 u: 
-          line: 217 0  # ^keep ( ) 'completions' sets t
-          line: 218 369  # 'completions' definit le nombr
-          Complexity of rule ~k8s_job.1.0- u: 1
-        rule: 221  ~k8s_job.2.0 u: 
-          line: 222 0  # ^keep ( ) backoffLimit specifi
-          line: 223 302  # backoffLimit specifie le nombr
-          Complexity of rule ~k8s_job.2.0- u: 1
-        rule: 226  ~k8s_job.3.0 u: 
-          line: 227 0  # ^keep ( ) ttlSecondsAfterFinis
-          line: 228 329  # ttlSecondsAfterFinished specif
-          Complexity of rule ~k8s_job.3.0- u: 1
-        rule: 231  ~k8s_job.4.0 u: 
-          line: 232 0  # ^keep ( ) podFailurePolicy ( s
-          line: 233 377  # podFailurePolicy ( stable depu
-          Complexity of rule ~k8s_job.4.0- u: 1
-    topic: 239  ~cronjob
-        rule: 242  ~cronjob.0.0 u: 
-          line: 243 0  # ^keep ( ) A CronJob creates Jo
-          line: 244 302  # Un CronJob cree des Jobs selon
-          Complexity of rule ~cronjob.0.0- u: 1
-        rule: 247  ~cronjob.1.0 u: 
-          line: 248 0  # ^keep ( ) The schedule field u
-          line: 249 362  # Le champ schedule utilise la s
-          Complexity of rule ~cronjob.1.0- u: 1
-        rule: 252  ~cronjob.2.0 u: 
-          line: 253 0  # ^keep ( ) concurrencyPolicy co
-          line: 254 290  # concurrencyPolicy controle ce 
-          Complexity of rule ~cronjob.2.0- u: 1
-        rule: 257  ~cronjob.3.0 u: 
-          line: 258 0  # ^keep ( ) The timeZone field, 
-          line: 259 350  # Le champ timeZone ( stable dep
-          Complexity of rule ~cronjob.3.0- u: 1
+          if 72 14  
+          line: 72 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 73 319  
+          ifend 73 624  
+          line: 73 314  # else ( 1 ) 03= { A Pod goes th
+          Complexity of rule ~pod.12.0- u: 2
+        rule: 76  ~pod.13.0 u: 
+          if 77 14  
+          line: 77 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 78 327  
+          ifend 78 596  
+          line: 78 322  # else ( 1 ) 03C { The nodeSelec
+          Complexity of rule ~pod.13.0- u: 2
+        rule: 81  ~pod.14.0 u: 
+          if 82 14  
+          line: 82 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 83 386  
+          ifend 83 773  
+          line: 83 381  # else ( 1 ) 056 { terminationGr
+          Complexity of rule ~pod.14.0- u: 2
+        rule: 86  ~pod.15.0 u: 
+          if 87 14  
+          line: 87 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 88 416  
+          ifend 88 802  
+          line: 88 411  # else ( 1 ) 055 { Ephemeral con
+          Complexity of rule ~pod.15.0- u: 2
+        rule: 91  ~pod.16.0 u: 
+          if 92 14  
+          line: 92 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 93 275  
+          line: 93 270  # else ( 1 ) aaa { Host namespac
+          line: 94 337  # * hostNetwork: if true, the Po
+          line: 95 505  # * hostPID: if true, the Pod se
+          line: 96 607  # * hostIPC: if true, the Pod sh
+          ifend 97 794  
+          line: 97 689  # All three are false by default
+          Complexity of rule ~pod.16.0- u: 2
+        rule: 100  ~pod.17.0 u: 
+          if 101 14  
+          line: 101 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 102 397  
+          ifend 102 853  
+          line: 102 392  # else ( 1 ) 060 { The priorityC
+          Complexity of rule ~pod.17.0- u: 2
+    topic: 108  ~deployment
+        rule: 111  ~deployment.0.0 u: 
+          if 112 14  
+          line: 112 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 113 317  
+          ifend 113 572  
+          line: 113 312  # else ( 1 ) 03o { A Deployment 
+          Complexity of rule ~deployment.0.0- u: 2
+        rule: 116  ~deployment.1.0 u: 
+          if 117 14  
+          line: 117 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 118 302  
+          ifend 118 623  
+          line: 118 297  # else ( 1 ) 04f { Key Deploymen
+          Complexity of rule ~deployment.1.0- u: 2
+        rule: 121  ~deployment.2.0 u: 
+          if 122 14  
+          line: 122 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 123 304  
+          ifend 123 585  
+          line: 123 299  # else ( 1 ) 03O { Deployment su
+          Complexity of rule ~deployment.2.0- u: 2
+        rule: 126  ~deployment.3.0 u: 
+          if 127 14  
+          line: 127 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 128 328  
+          ifend 128 629  
+          line: 128 323  # else ( 1 ) 03* { In a RollingU
+          Complexity of rule ~deployment.3.0- u: 2
+        rule: 131  ~deployment.4.0 u: 
+          if 132 14  
+          line: 132 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 133 303  
+          ifend 133 611  
+          line: 133 298  # else ( 1 ) 042 { progressDeadl
+          Complexity of rule ~deployment.4.0- u: 2
+        rule: 136  ~deployment.5.0 u: 
+          if 137 14  
+          line: 137 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 138 279  
+          ifend 138 535  
+          line: 138 274  # else ( 1 ) 03p { revisionHisto
+          Complexity of rule ~deployment.5.0- u: 2
+        rule: 141  ~deployment.6.0 u: 
+          if 142 14  
+          line: 142 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 143 280  
+          ifend 143 556  
+          line: 143 275  # else ( 1 ) 03J { To rollback a
+          Complexity of rule ~deployment.6.0- u: 2
+        rule: 146  ~deployment.7.0 u: 
+          if 147 14  
+          line: 147 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 148 381  
+          ifend 148 755  
+          line: 148 376  # else ( 1 ) 04^ { minReadySecon
+          Complexity of rule ~deployment.7.0- u: 2
+        rule: 151  ~deployment.8.0 u: 
+          if 152 14  
+          line: 152 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 153 406  
+          ifend 153 793  
+          line: 153 401  # else ( 1 ) 056 { Setting the '
+          Complexity of rule ~deployment.8.0- u: 2
+        rule: 156  ~deployment.9.0 u: 
+          if 157 14  
+          line: 157 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 158 323  
+          ifend 158 609  
+          line: 158 318  # else ( 1 ) 03T { A Deployment 
+          Complexity of rule ~deployment.9.0- u: 2
+    topic: 164  ~statefulset
+        rule: 167  ~statefulset.0.0 u: 
+          if 168 14  
+          line: 168 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 169 325  
+          ifend 169 631  
+          line: 169 320  # else ( 1 ) 040 { A StatefulSet
+          Complexity of rule ~statefulset.0.0- u: 2
+        rule: 172  ~statefulset.1.0 u: 
+          if 173 14  
+          line: 173 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 174 336  
+          ifend 174 651  
+          line: 174 331  # else ( 1 ) 049 { volumeClaimTe
+          Complexity of rule ~statefulset.1.0- u: 2
+        rule: 177  ~statefulset.2.0 u: 
+          if 178 14  
+          line: 178 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 179 311  
+          ifend 179 611  
+          line: 179 306  # else ( 1 ) 03& { podManagement
+          Complexity of rule ~statefulset.2.0- u: 2
+        rule: 182  ~statefulset.3.0 u: 
+          if 183 14  
+          line: 183 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 184 266  
+          ifend 184 562  
+          line: 184 261  # else ( 1 ) 03# { The serviceNa
+          Complexity of rule ~statefulset.3.0- u: 2
+        rule: 187  ~statefulset.4.0 u: 
+          if 188 14  
+          line: 188 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 189 306  
+          ifend 189 609  
+          line: 189 301  # else ( 1 ) 03- { StatefulSet s
+          Complexity of rule ~statefulset.4.0- u: 2
+        rule: 192  ~statefulset.5.0 u: 
+          if 193 14  
+          line: 193 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 194 332  
+          line: 194 327  # else ( 1 ) aaa { persistentVol
+          line: 195 517  # * whenDeleted: action when the
+          line: 196 653  # * whenScaled: action when the 
+          ifend 197 859  
+          line: 197 755  # This policy is stable since Ku
+          Complexity of rule ~statefulset.5.0- u: 2
+        rule: 200  ~statefulset.6.0 u: 
+          if 201 14  
+          line: 201 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 202 347  
+          ifend 202 815  
+          line: 202 342  # else ( 1 ) 06c { The ordinals 
+          Complexity of rule ~statefulset.6.0- u: 2
+        rule: 205  ~statefulset.7.0 u: 
+          if 206 14  
+          line: 206 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 207 389  
+          ifend 207 725  
+          line: 207 384  # else ( 1 ) 04u { Use a Deploym
+          Complexity of rule ~statefulset.7.0- u: 2
+    topic: 213  ~daemonset
+        rule: 216  ~daemonset.0.0 u: 
+          if 217 14  
+          line: 217 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 218 283  
+          ifend 218 522  
+          line: 218 278  # else ( 1 ) 038 { A DaemonSet e
+          Complexity of rule ~daemonset.0.0- u: 2
+        rule: 221  ~daemonset.1.0 u: 
+          if 222 14  
+          line: 222 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 223 312  
+          ifend 223 603  
+          line: 223 307  # else ( 1 ) 03Y { Common Daemon
+          Complexity of rule ~daemonset.1.0- u: 2
+        rule: 226  ~daemonset.2.0 u: 
+          if 227 14  
+          line: 227 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 228 281  
+          ifend 228 575  
+          line: 228 276  # else ( 1 ) 03! { DaemonSet sup
+          Complexity of rule ~daemonset.2.0- u: 2
+        rule: 231  ~daemonset.3.0 u: 
+          if 232 14  
+          line: 232 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 233 403  
+          ifend 233 830  
+          line: 233 398  # else ( 1 ) 05K { revisionHisto
+          Complexity of rule ~daemonset.3.0- u: 2
+        rule: 236  ~daemonset.4.0 u: 
+          if 237 14  
+          line: 237 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 238 361  
+          ifend 238 748  
+          line: 238 356  # else ( 1 ) 056 { minReadySecon
+          Complexity of rule ~daemonset.4.0- u: 2
+        rule: 241  ~daemonset.5.0 u: 
+          if 242 14  
+          line: 242 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 243 339  
+          ifend 243 651  
+          line: 243 334  # else ( 1 ) 046 { To restrict a
+          Complexity of rule ~daemonset.5.0- u: 2
+    topic: 249  ~replicaset
+        rule: 252  ~replicaset.0.0 u: 
+          if 253 14  
+          line: 253 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 254 275  
+          ifend 254 540  
+          line: 254 270  # else ( 1 ) 03y { A ReplicaSet 
+          Complexity of rule ~replicaset.0.0- u: 2
+        rule: 257  ~replicaset.1.0 u: 
+          if 258 14  
+          line: 258 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 259 308  
+          ifend 259 572  
+          line: 259 303  # else ( 1 ) 03x { A ReplicaSet 
+          Complexity of rule ~replicaset.1.0- u: 2
+        rule: 262  ~replicaset.2.0 u: 
+          if 263 14  
+          line: 263 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 264 296  
+          ifend 264 597  
+          line: 264 291  # else ( 1 ) 03* { You rarely ne
+          Complexity of rule ~replicaset.2.0- u: 2
+    topic: 270  ~k8s_job
+        rule: 273  ~k8s_job.0.0 u: 
+          if 274 14  
+          line: 274 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 275 345  
+          ifend 275 606  
+          line: 275 340  # else ( 1 ) 03u { A Job creates
+          Complexity of rule ~k8s_job.0.0- u: 2
+        rule: 278  ~k8s_job.1.0 u: 
+          if 279 14  
+          line: 279 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 280 299  
+          ifend 280 672  
+          line: 280 294  # else ( 1 ) 04% { 'completions'
+          Complexity of rule ~k8s_job.1.0- u: 2
+        rule: 283  ~k8s_job.2.0 u: 
+          if 284 14  
+          line: 284 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 285 299  
+          ifend 285 605  
+          line: 285 294  # else ( 1 ) 040 { backoffLimit 
+          Complexity of rule ~k8s_job.2.0- u: 2
+        rule: 288  ~k8s_job.3.0 u: 
+          if 289 14  
+          line: 289 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 290 285  
+          ifend 290 618  
+          line: 290 280  # else ( 1 ) 04r { ttlSecondsAft
+          Complexity of rule ~k8s_job.3.0- u: 2
+        rule: 293  ~k8s_job.4.0 u: 
+          if 294 14  
+          line: 294 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 295 415  
+          ifend 295 878  
+          line: 295 410  # else ( 1 ) 067 { The 'suspend'
+          Complexity of rule ~k8s_job.4.0- u: 2
+        rule: 298  ~k8s_job.5.0 u: 
+          if 299 14  
+          line: 299 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 300 358  
+          ifend 300 739  
+          line: 300 353  # else ( 1 ) 050 { podFailurePol
+          Complexity of rule ~k8s_job.5.0- u: 2
+    topic: 306  ~cronjob
+        rule: 309  ~cronjob.0.0 u: 
+          if 310 14  
+          line: 310 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 311 314  
+          ifend 311 620  
+          line: 311 309  # else ( 1 ) 040 { A CronJob cre
+          Complexity of rule ~cronjob.0.0- u: 2
+        rule: 314  ~cronjob.1.0 u: 
+          if 315 14  
+          line: 315 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 316 336  
+          ifend 316 702  
+          line: 316 331  # else ( 1 ) 04Y { The schedule 
+          Complexity of rule ~cronjob.1.0- u: 2
+        rule: 319  ~cronjob.2.0 u: 
+          if 320 14  
+          line: 320 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 321 298  
+          ifend 321 592  
+          line: 321 293  # else ( 1 ) 03! { concurrencyPo
+          Complexity of rule ~cronjob.2.0- u: 2
+        rule: 324  ~cronjob.3.0 u: 
+          if 325 14  
+          line: 325 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 326 400  
+          ifend 326 896  
+          line: 326 395  # else ( 1 ) 06E { startingDeadl
+          Complexity of rule ~cronjob.3.0- u: 2
+        rule: 329  ~cronjob.4.0 u: 
+          if 330 14  
+          line: 330 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 331 404  
+          line: 331 399  # else ( 1 ) aaa { These fields 
+          line: 332 491  # * successfulJobsHistoryLimit: 
+          line: 333 573  # * failedJobsHistoryLimit: numb
+          ifend 334 885  
+          line: 334 647  # Setting either to 0 means no J
+          Complexity of rule ~cronjob.4.0- u: 2
+        rule: 337  ~cronjob.5.0 u: 
+          if 338 14  
+          line: 338 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 339 354  
+          ifend 340 708  
+          Complexity of rule ~cronjob.5.0- u: 2
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/networking.top
     topic: 8  ~k8s_service
         rule: 11  ~k8s_service.0.0 u: 
-          line: 12 0  # A Kubernetes Service is an abs
-          line: 13 222  # Un Service Kubernetes est une 
-          Complexity of rule ~k8s_service.0.0- u: 1
+          if 12 4  
+          line: 12 0  # ^if 00k( $$lang == fr ) 03J{ U
+          else 13 299  
+          ifend 13 535  
+          line: 13 294  # else ( 1 ) 035 { A Kubernetes 
+          Complexity of rule ~k8s_service.0.0- u: 2
         rule: 16  ~k8s_service.1.0 u: 
-          line: 17 0  # ^keep ( ) Kubernetes supports 
-          line: 18 53  # 1. ClusterIP ( default ) - exp
-          line: 19 130  # 2. NodePort - exposes the Serv
-          line: 20 203  # 3. LoadBalancer - provisions a
-          line: 21 286  # 4. ExternalName - maps the Ser
-          line: 22 368  # Les quatre types de Service so
-          Complexity of rule ~k8s_service.1.0- u: 1
+          if 17 14  
+          line: 17 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 18 148  
+          line: 18 143  # else ( 1 ) aaa { Kubernetes su
+          line: 19 203  # 1. ClusterIP ( default ) - exp
+          line: 20 280  # 2. NodePort - exposes the Serv
+          line: 21 353  # 3. LoadBalancer - provisions a
+          ifend 22 520  
+          line: 22 436  # 4. ExternalName - maps the Ser
+          Complexity of rule ~k8s_service.1.0- u: 2
         rule: 25  ~k8s_service.2.0 u: 
-          line: 26 0  # ClusterIP is the default Servi
-          line: 27 240  # ClusterIP est le type de Servi
-          Complexity of rule ~k8s_service.2.0- u: 1
+          if 26 4  
+          line: 26 0  # ^if 00k( $$lang == fr ) 01&{ C
+          else 27 173  
+          ifend 27 427  
+          line: 27 168  # else ( 1 ) 03n { ClusterIP is 
+          Complexity of rule ~k8s_service.2.0- u: 2
         rule: 30  ~k8s_service.3.0 u: 
-          line: 31 0  # ClusterIP is the default Servi
-          line: 32 240  # ClusterIP est le type de Servi
-          Complexity of rule ~k8s_service.3.0- u: 1
+          if 31 4  
+          line: 31 0  # ^if 00k( $$lang == fr ) 01&{ C
+          else 32 173  
+          ifend 32 427  
+          line: 32 168  # else ( 1 ) 03n { ClusterIP is 
+          Complexity of rule ~k8s_service.3.0- u: 2
         rule: 35  ~k8s_service.4.0 u: 
-          line: 36 0  # NodePort exposes the Service o
-          line: 37 248  # NodePort expose le Service sur
-          Complexity of rule ~k8s_service.4.0- u: 1
+          if 36 4  
+          line: 36 0  # ^if 00k( $$lang == fr ) 02E{ N
+          else 37 219  
+          ifend 37 481  
+          line: 37 214  # else ( 1 ) 03v { NodePort expo
+          Complexity of rule ~k8s_service.4.0- u: 2
         rule: 40  ~k8s_service.5.0 u: 
-          line: 41 0  # The default NodePort range is 
-          line: 42 213  # La plage par defaut de NodePor
-          Complexity of rule ~k8s_service.5.0- u: 1
+          if 41 4  
+          line: 41 0  # ^if 00k( $$lang == fr ) 01?{ L
+          else 42 175  
+          ifend 42 402  
+          line: 42 170  # else ( 1 ) 02? { The default N
+          Complexity of rule ~k8s_service.5.0- u: 2
         rule: 45  ~k8s_service.6.0 u: 
-          line: 46 0  # LoadBalancer provisions an ext
-          line: 47 280  # LoadBalancer provisionne un re
-          Complexity of rule ~k8s_service.6.0- u: 1
+          if 46 4  
+          line: 46 0  # ^if 00k( $$lang == fr ) 02I{ L
+          else 47 223  
+          ifend 47 517  
+          line: 47 218  # else ( 1 ) 03! { LoadBalancer 
+          Complexity of rule ~k8s_service.6.0- u: 2
         rule: 50  ~k8s_service.7.0 u: 
-          line: 51 0  # ExternalName maps a Service to
-          line: 52 262  # ExternalName associe un Servic
-          Complexity of rule ~k8s_service.7.0- u: 1
+          if 51 4  
+          line: 51 0  # ^if 00k( $$lang == fr ) 01@{ E
+          else 52 168  
+          ifend 52 444  
+          line: 52 163  # else ( 1 ) 03J { ExternalName 
+          Complexity of rule ~k8s_service.7.0- u: 2
         rule: 55  ~k8s_service.8.0 u: 
-          line: 56 0  # A Service uses a selector to m
-          line: 57 292  # Un Service utilise un selecteu
-          Complexity of rule ~k8s_service.8.0- u: 1
+          if 56 4  
+          line: 56 0  # ^if 00k( $$lang == fr ) 02b{ U
+          else 57 190  
+          ifend 57 496  
+          line: 57 185  # else ( 1 ) 040 { A Service use
+          Complexity of rule ~k8s_service.8.0- u: 2
         rule: 60  ~k8s_service.9.0 u: 
-          line: 61 0  # A Service defines several port
-          line: 62 42  # - port: the port the Service l
-          line: 63 126  # - targetPort: the port on the 
-          line: 64 200  # - nodePort: ( NodePort/LoadBal
-          line: 65 276  # - protocol: TCP ( default ) , 
-          line: 66 323  # Un Service definit plusieurs c
-          Complexity of rule ~k8s_service.9.0- u: 1
+          if 61 4  
+          line: 61 0  # ^if 00k( $$lang == fr ) 02F{ U
+          else 62 220  
+          line: 62 215  # else ( 1 ) aaa { A Service def
+          line: 63 274  # - port: the port the Service l
+          line: 64 358  # - targetPort: the port on the 
+          line: 65 432  # - nodePort: ( NodePort/LoadBal
+          ifend 66 557  
+          line: 66 508  # - protocol: TCP ( default ) , 
+          Complexity of rule ~k8s_service.9.0- u: 2
         rule: 69  ~k8s_service.10.0 u: 
-          line: 70 0  # The "port" field is the port t
-          line: 71 268  # Le champ "port" est le port d'
-          Complexity of rule ~k8s_service.10.0- u: 1
+          if 70 4  
+          line: 70 0  # ^if 00k( $$lang == fr ) 01%{ L
+          else 71 171  
+          ifend 71 453  
+          line: 71 166  # else ( 1 ) 03P { The "port" fi
+          Complexity of rule ~k8s_service.10.0- u: 2
         rule: 74  ~k8s_service.11.0 u: 
-          line: 75 0  # sessionAffinity controls wheth
-          line: 76 112  # - None ( default ) : no sessio
-          line: 77 192  # - ClientIP: all requests from 
-          line: 78 327  # sessionAffinity controle si le
-          Complexity of rule ~k8s_service.11.0- u: 1
+          if 75 4  
+          line: 75 0  # ^if 00k( $$lang == fr ) 027{ s
+          else 76 186  
+          line: 76 181  # else ( 1 ) aaa { sessionAffini
+          line: 77 310  # - None ( default ) : no sessio
+          ifend 78 527  
+          line: 78 390  # - ClientIP: all requests from 
+          Complexity of rule ~k8s_service.11.0- u: 2
         rule: 81  ~k8s_service.12.0 u: 
-          line: 82 0  # externalTrafficPolicy controls
-          line: 83 87  # - Cluster ( default ) : traffi
-          line: 84 219  # - Local: traffic is only route
-          line: 85 358  # externalTrafficPolicy controle
-          Complexity of rule ~k8s_service.12.0- u: 1
+          if 82 4  
+          line: 82 0  # ^if 00k( $$lang == fr ) 02G{ e
+          else 83 221  
+          line: 83 216  # else ( 1 ) aaa { externalTraff
+          line: 84 320  # - Cluster ( default ) : traffi
+          ifend 85 593  
+          line: 85 452  # - Local: traffic is only route
+          Complexity of rule ~k8s_service.12.0- u: 2
         rule: 88  ~k8s_service.13.0 u: 
-          line: 89 0  # internalTrafficPolicy controls
-          line: 90 102  # - Cluster ( default ) : traffi
-          line: 91 187  # - Local: traffic is only route
-          line: 92 324  # internalTrafficPolicy controle
-          Complexity of rule ~k8s_service.13.0- u: 1
+          if 89 4  
+          line: 89 0  # ^if 00k( $$lang == fr ) 020{ i
+          else 90 179  
+          line: 90 174  # else ( 1 ) aaa { internalTraff
+          line: 91 293  # - Cluster ( default ) : traffi
+          ifend 92 517  
+          line: 92 378  # - Local: traffic is only route
+          Complexity of rule ~k8s_service.13.0- u: 2
         rule: 95  ~k8s_service.14.0 u: 
-          line: 96 0  # A headless Service is created 
-          line: 97 292  # Un Service headless est cree e
-          Complexity of rule ~k8s_service.14.0- u: 1
+          if 96 4  
+          line: 96 0  # ^if 00k( $$lang == fr ) 02w{ U
+          else 97 211  
+          ifend 97 517  
+          line: 97 206  # else ( 1 ) 040 { A headless Se
+          Complexity of rule ~k8s_service.14.0- u: 2
         rule: 100  ~k8s_service.15.0 u: 
-          line: 101 0  # Setting clusterIP to None crea
-          line: 102 258  # Definir clusterIP a None cree 
-          Complexity of rule ~k8s_service.15.0- u: 1
-    topic: 109  ~k8s_ingress
-        rule: 112  ~k8s_ingress.0.0 u: 
-          line: 113 0  # An Ingress is a Kubernetes res
-          line: 114 282  # Un Ingress est une ressource K
-          Complexity of rule ~k8s_ingress.0.0- u: 1
-        rule: 117  ~k8s_ingress.1.0 u: 
-          line: 118 0  # Ingress rules define how incom
-          line: 119 81  # - host: matches the request's 
-          line: 120 154  # - http.paths: a list of paths,
-          line: 121 244  # If no host is specified, the r
-          line: 122 392  # Les regles Ingress definissent
-          Complexity of rule ~k8s_ingress.1.0- u: 1
-        rule: 125  ~k8s_ingress.2.0 u: 
-          line: 126 0  # Ingress supports host-based an
-          line: 127 55  # - Host-based: route traffic ba
-          line: 128 209  # - Path-based: route traffic ba
-          line: 129 338  # Both can be combined for fine-
-          line: 130 388  # Ingress supporte le routage pa
-          Complexity of rule ~k8s_ingress.2.0- u: 1
-        rule: 133  ~k8s_ingress.3.0 u: 
-          line: 134 0  # The pathType field in Ingress 
-          line: 135 75  # - Prefix: matches based on a U
-          line: 136 182  # - Exact: matches the URL path 
-          line: 137 271  # - ImplementationSpecific: matc
-          line: 138 359  # pathType determine la correspo
-          Complexity of rule ~k8s_ingress.3.0- u: 1
-        rule: 141  ~k8s_ingress.4.0 u: 
-          line: 142 0  # Ingress TLS configuration allo
-          line: 143 113  # - hosts: list of hostnames the
-          line: 144 167  # - secretName: the Kubernetes S
-          line: 145 279  # The Ingress Controller handles
-          line: 146 406  # La configuration TLS de l'Ingr
-          Complexity of rule ~k8s_ingress.4.0- u: 1
-        rule: 149  ~k8s_ingress.5.0 u: 
-          line: 150 0  # The ingressClassName field in 
-          line: 151 283  # Le champ ingressClassName dans
-          Complexity of rule ~k8s_ingress.5.0- u: 1
-        rule: 154  ~k8s_ingress.6.0 u: 
-          line: 155 0  # Ingress vs LoadBalancer Servic
-          line: 156 36  # - LoadBalancer: creates one ex
-          line: 157 170  # - Ingress: uses a single load 
-          line: 158 385  # LoadBalancer cree un LB extern
-          Complexity of rule ~k8s_ingress.6.0- u: 1
-    topic: 165  ~k8s_ingressclass
-        rule: 168  ~k8s_ingressclass.0.0 u: 
-          line: 169 0  # An IngressClass is a Kubernete
-          line: 170 297  # Une IngressClass est une resso
-          Complexity of rule ~k8s_ingressclass.0.0- u: 1
-        rule: 173  ~k8s_ingressclass.1.0 u: 
-          line: 174 0  # You can mark an IngressClass a
-          line: 175 290  # On peut marquer une IngressCla
-          Complexity of rule ~k8s_ingressclass.1.0- u: 1
-    topic: 182  ~k8s_networkpolicy
-        rule: 185  ~k8s_networkpolicy.0.0 u: 
-          line: 186 0  # A NetworkPolicy is a Kubernete
-          line: 187 389  # Une NetworkPolicy est une ress
-          Complexity of rule ~k8s_networkpolicy.0.0- u: 1
-        rule: 190  ~k8s_networkpolicy.1.0 u: 
-          line: 191 0  # The podSelector field in a Net
-          line: 192 307  # Le champ podSelector dans une 
-          Complexity of rule ~k8s_networkpolicy.1.0- u: 1
-        rule: 195  ~k8s_networkpolicy.2.0 u: 
-          line: 196 0  # NetworkPolicy ingress rules co
-          line: 197 107  # - from: a list of sources allo
-          line: 198 234  # - ports: a list of ports/proto
-          line: 199 299  # If you define an ingress polic
-          line: 200 393  # Les regles d'ingress de Networ
-          Complexity of rule ~k8s_networkpolicy.2.0- u: 1
-        rule: 203  ~k8s_networkpolicy.3.0 u: 
-          line: 204 0  # NetworkPolicy egress rules con
-          line: 205 107  # - to: a list of destinations t
-          line: 206 258  # - ports: a list of ports/proto
-          line: 207 323  # If you define an egress policy
-          line: 208 415  # Les regles d'egress de Network
-          Complexity of rule ~k8s_networkpolicy.3.0- u: 1
-        rule: 211  ~k8s_networkpolicy.4.0 u: 
-          line: 212 0  # To create a default deny-all N
-          line: 213 118  # apiVersion: networking.k8s.io/
-          line: 214 154  # kind: NetworkPolicy \n 
-          line: 215 177  # metadata: \n 
-          line: 216 190  # name: deny-all \n 
-          line: 217 208  # spec: \n 
-          line: 218 217  # podSelector: { } \n 
-          line: 219 237  # policyTypes: \n 
-          line: 220 253  # - Ingress \n 
-          line: 221 266  # - Egress \n 
-          line: 222 278  # An empty podSelector matches a
-          line: 223 445  # Pour creer une politique deny-
-          Complexity of rule ~k8s_networkpolicy.4.0- u: 1
-        rule: 226  ~k8s_networkpolicy.5.0 u: 
-          line: 227 0  # Here is a deny-all NetworkPoli
-          line: 228 45  # apiVersion: networking.k8s.io/
-          line: 229 81  # kind: NetworkPolicy \n 
-          line: 230 104  # metadata: \n 
-          line: 231 117  # name: deny-all \n 
-          line: 232 135  # namespace: my-namespace \n 
-          line: 233 162  # spec: \n 
-          line: 234 171  # podSelector: { } \n 
-          line: 235 191  # policyTypes: \n 
-          line: 236 207  # - Ingress \n 
-          line: 237 220  # - Egress \n 
-          line: 238 232  # This blocks all inbound and ou
-          line: 239 311  # Cet exemple bloque tout le tra
-          Complexity of rule ~k8s_networkpolicy.5.0- u: 1
-    topic: 246  ~k8s_endpointslice
-        rule: 249  ~k8s_endpointslice.0.0 u: 
-          line: 250 0  # An EndpointSlice is a Kubernet
-          line: 251 351  # Un EndpointSlice est une resso
-          Complexity of rule ~k8s_endpointslice.0.0- u: 1
-        rule: 254  ~k8s_endpointslice.1.0 u: 
-          line: 255 0  # EndpointSlice vs Endpoints: \n
-          line: 256 31  # - Endpoints: the legacy resour
-          line: 257 261  # - EndpointSlice: the modern re
-          line: 258 513  # EndpointSlice est le remplacem
-          Complexity of rule ~k8s_endpointslice.1.0- u: 1
+          if 101 4  
+          line: 101 0  # ^if 00k( $$lang == fr ) 028{ D
+          else 102 187  
+          ifend 102 459  
+          line: 102 182  # else ( 1 ) 03F { Setting clust
+          Complexity of rule ~k8s_service.15.0- u: 2
+        rule: 105  ~k8s_service.16.0 u: 
+          if 106 14  
+          line: 106 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 107 381  
+          line: 107 376  # else ( 1 ) aaa { The ipFamilie
+          line: 108 495  # * ipFamilies: an ordered list 
+          line: 109 634  # * ipFamilyPolicy: controls the
+          ifend 110 994  
+          line: 110 945  # Dual-stack is stable since Kub
+          Complexity of rule ~k8s_service.16.0- u: 2
+        rule: 113  ~k8s_service.17.0 u: 
+          if 114 14  
+          line: 114 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 115 335  
+          ifend 115 807  
+          line: 115 330  # else ( 1 ) 06g { The loadBalan
+          Complexity of rule ~k8s_service.17.0- u: 2
+        rule: 118  ~k8s_service.18.0 u: 
+          if 119 14  
+          line: 119 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 120 368  
+          ifend 120 845  
+          line: 120 363  # else ( 1 ) 06l { When publishN
+          Complexity of rule ~k8s_service.18.0- u: 2
+    topic: 127  ~k8s_ingress
+        rule: 130  ~k8s_ingress.0.0 u: 
+          if 131 4  
+          line: 131 0  # ^if 00k( $$lang == fr ) 03B{ U
+          else 132 291  
+          ifend 132 587  
+          line: 132 286  # else ( 1 ) 03# { An Ingress is
+          Complexity of rule ~k8s_ingress.0.0- u: 2
+        rule: 135  ~k8s_ingress.1.0 u: 
+          if 136 4  
+          line: 136 0  # ^if 00k( $$lang == fr ) 02z{ L
+          else 137 214  
+          line: 137 209  # else ( 1 ) aaa { Ingress rules
+          line: 138 307  # - host: matches the request's 
+          line: 139 380  # - http.paths: a list of paths,
+          ifend 140 620  
+          line: 140 470  # If no host is specified, the r
+          Complexity of rule ~k8s_ingress.1.0- u: 2
+        rule: 143  ~k8s_ingress.2.0 u: 
+          if 144 4  
+          line: 144 0  # ^if 00k( $$lang == fr ) 01P{ I
+          else 145 155  
+          line: 145 150  # else ( 1 ) aaa { Ingress suppo
+          line: 146 222  # - Host-based: route traffic ba
+          line: 147 376  # - Path-based: route traffic ba
+          ifend 148 557  
+          line: 148 505  # Both can be combined for fine-
+          Complexity of rule ~k8s_ingress.2.0- u: 2
+        rule: 151  ~k8s_ingress.3.0 u: 
+          if 152 4  
+          line: 152 0  # ^if 00k( $$lang == fr ) 020{ p
+          else 153 179  
+          line: 153 174  # else ( 1 ) aaa { The pathType 
+          line: 154 266  # - Prefix: matches based on a U
+          line: 155 373  # - Exact: matches the URL path 
+          ifend 156 552  
+          line: 156 462  # - ImplementationSpecific: matc
+          Complexity of rule ~k8s_ingress.3.0- u: 2
+        rule: 159  ~k8s_ingress.4.0 u: 
+          if 160 4  
+          line: 160 0  # ^if 00k( $$lang == fr ) 02l{ L
+          else 161 200  
+          line: 161 195  # else ( 1 ) aaa { Ingress TLS c
+          line: 162 325  # - hosts: list of hostnames the
+          line: 163 379  # - secretName: the Kubernetes S
+          ifend 164 620  
+          line: 164 491  # The Ingress Controller handles
+          Complexity of rule ~k8s_ingress.4.0- u: 2
+        rule: 167  ~k8s_ingress.5.0 u: 
+          if 168 4  
+          line: 168 0  # ^if 00k( $$lang == fr ) 02p{ L
+          else 169 204  
+          ifend 169 501  
+          line: 169 199  # else ( 1 ) 03$ { The ingressCl
+          Complexity of rule ~k8s_ingress.5.0- u: 2
+        rule: 172  ~k8s_ingress.6.0 u: 
+          if 173 14  
+          line: 173 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 174 416  
+          ifend 174 914  
+          line: 174 411  # else ( 1 ) 06G { The defaultBa
+          Complexity of rule ~k8s_ingress.6.0- u: 2
+        rule: 177  ~k8s_ingress.7.0 u: 
+          if 178 4  
+          line: 178 0  # ^if 00k( $$lang == fr ) 02g{ L
+          else 179 195  
+          line: 179 190  # else ( 1 ) aaa { Ingress vs Lo
+          line: 180 243  # - LoadBalancer: creates one ex
+          ifend 181 594  
+          line: 181 377  # - Ingress: uses a single load 
+          Complexity of rule ~k8s_ingress.7.0- u: 2
+    topic: 188  ~k8s_ingressclass
+        rule: 191  ~k8s_ingressclass.0.0 u: 
+          if 192 4  
+          line: 192 0  # ^if 00k( $$lang == fr ) 02K{ U
+          else 193 225  
+          ifend 193 536  
+          line: 193 220  # else ( 1 ) 045 { An IngressCla
+          Complexity of rule ~k8s_ingressclass.0.0- u: 2
+        rule: 196  ~k8s_ingressclass.1.0 u: 
+          if 197 4  
+          line: 197 0  # ^if 00k( $$lang == fr ) 02J{ O
+          else 198 224  
+          ifend 198 528  
+          line: 198 219  # else ( 1 ) 03+ { You can mark 
+          Complexity of rule ~k8s_ingressclass.1.0- u: 2
+    topic: 205  ~k8s_networkpolicy
+        rule: 208  ~k8s_networkpolicy.0.0 u: 
+          if 209 4  
+          line: 209 0  # ^if 00k( $$lang == fr ) 03R{ U
+          else 210 307  
+          ifend 210 710  
+          line: 210 302  # else ( 1 ) 05m { A NetworkPoli
+          Complexity of rule ~k8s_networkpolicy.0.0- u: 2
+        rule: 213  ~k8s_networkpolicy.1.0 u: 
+          if 214 4  
+          line: 214 0  # ^if 00k( $$lang == fr ) 02s{ L
+          else 215 207  
+          ifend 215 528  
+          line: 215 202  # else ( 1 ) 04f { The podSelect
+          Complexity of rule ~k8s_networkpolicy.1.0- u: 2
+        rule: 218  ~k8s_networkpolicy.2.0 u: 
+          if 219 4  
+          line: 219 0  # ^if 00k( $$lang == fr ) 02q{ L
+          else 220 205  
+          line: 220 200  # else ( 1 ) aaa { NetworkPolicy
+          line: 221 324  # - from: a list of sources allo
+          line: 222 451  # - ports: a list of ports/proto
+          ifend 223 612  
+          line: 223 516  # If you define an ingress polic
+          Complexity of rule ~k8s_networkpolicy.2.0- u: 2
+        rule: 226  ~k8s_networkpolicy.3.0 u: 
+          if 227 4  
+          line: 227 0  # ^if 00k( $$lang == fr ) 02s{ L
+          else 228 207  
+          line: 228 202  # else ( 1 ) aaa { NetworkPolicy
+          line: 229 326  # - to: a list of destinations t
+          line: 230 477  # - ports: a list of ports/proto
+          ifend 231 636  
+          line: 231 542  # If you define an egress policy
+          Complexity of rule ~k8s_networkpolicy.3.0- u: 2
+        rule: 234  ~k8s_networkpolicy.4.0 u: 
+          if 235 4  
+          line: 235 0  # ^if 00k( $$lang == fr ) 02R{ P
+          else 236 232  
+          line: 236 227  # else ( 1 ) aaa { To create a d
+          line: 237 362  # apiVersion: networking.k8s.io/
+          line: 238 398  # kind: NetworkPolicy \n 
+          line: 239 421  # metadata: \n 
+          line: 240 434  # name: deny-all \n 
+          line: 241 452  # spec: \n 
+          line: 242 461  # podSelector: { } \n 
+          line: 243 481  # policyTypes: \n 
+          line: 244 497  # - Ingress \n 
+          line: 245 510  # - Egress \n 
+          ifend 246 691  
+          line: 246 522  # An empty podSelector matches a
+          Complexity of rule ~k8s_networkpolicy.4.0- u: 2
+        rule: 249  ~k8s_networkpolicy.5.0 u: 
+          if 250 4  
+          line: 250 0  # ^if 00k( $$lang == fr ) 01o{ C
+          else 251 128  
+          line: 251 123  # else ( 1 ) aaa { Here is a den
+          line: 252 185  # apiVersion: networking.k8s.io/
+          line: 253 221  # kind: NetworkPolicy \n 
+          line: 254 244  # metadata: \n 
+          line: 255 257  # name: deny-all \n 
+          line: 256 275  # namespace: my-namespace \n 
+          line: 257 302  # spec: \n 
+          line: 258 311  # podSelector: { } \n 
+          line: 259 331  # policyTypes: \n 
+          line: 260 347  # - Ingress \n 
+          line: 261 360  # - Egress \n 
+          ifend 262 453  
+          line: 262 372  # This blocks all inbound and ou
+          Complexity of rule ~k8s_networkpolicy.5.0- u: 2
+    topic: 269  ~k8s_endpointslice
+        rule: 272  ~k8s_endpointslice.0.0 u: 
+          if 273 4  
+          line: 273 0  # ^if 00k( $$lang == fr ) 042{ U
+          else 274 331  
+          ifend 274 696  
+          line: 274 326  # else ( 1 ) 04X { An EndpointSl
+          Complexity of rule ~k8s_endpointslice.0.0- u: 2
+        rule: 277  ~k8s_endpointslice.1.0 u: 
+          if 278 4  
+          line: 278 0  # ^if 00k( $$lang == fr ) 03r{ E
+          else 279 281  
+          line: 279 276  # else ( 1 ) aaa { EndpointSlice
+          line: 280 324  # - Endpoints: the legacy resour
+          ifend 281 808  
+          line: 281 554  # - EndpointSlice: the modern re
+          Complexity of rule ~k8s_endpointslice.1.0- u: 2
+        rule: 284  ~k8s_endpointslice.2.0 u: 
+          if 285 14  
+          line: 285 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 286 401  
+          line: 286 396  # else ( 1 ) aaa { The addressTy
+          line: 287 524  # * IPv4: endpoints use IPv4 add
+          line: 288 582  # * IPv6: endpoints use IPv6 add
+          line: 289 623  # * FQDN: endpoints use fully qu
+          ifend 290 918  
+          line: 290 702  # Each EndpointSlice can only co
+          Complexity of rule ~k8s_endpointslice.2.0- u: 2
+        rule: 293  ~k8s_endpointslice.3.0 u: 
+          if 294 14  
+          line: 294 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 295 348  
+          line: 295 343  # else ( 1 ) aaa { The endpoints
+          line: 296 481  # * addresses: a list of IP addr
+          line: 297 573  # * conditions.ready: true if th
+          line: 298 649  # * conditions.serving: true if 
+          line: 299 764  # * conditions.terminating: true
+          line: 300 843  # * hostname: the hostname of th
+          line: 301 915  # * zone: the topology zone of t
+          line: 302 1038  # * nodeName: the name of the no
+          ifend 303 1169  
+          line: 303 1097  # * targetRef: an object referen
+          Complexity of rule ~k8s_endpointslice.3.0- u: 2
+        rule: 306  ~k8s_endpointslice.4.0 u: 
+          if 307 14  
+          line: 307 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 308 427  
+          line: 308 422  # else ( 1 ) aaa { The ports arr
+          line: 309 551  # * name: an optional name match
+          line: 310 611  # * protocol: TCP ( default ) , 
+          line: 311 658  # * port: the port number on the
+          line: 312 697  # * appProtocol: an optional hin
+          ifend 314 972  
+          Complexity of rule ~k8s_endpointslice.4.0- u: 2
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/access_control.top
     topic: 8  ~rbac
         rule: 11  ~rbac.0.0 u: 
-          line: 12 0  # ^keep ( ) RBAC ( Role-Based Ac
-          line: 13 333  # Le RBAC ( controle d'acces bas
-          Complexity of rule ~rbac.0.0- u: 1
+          if 12 14  
+          line: 12 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 13 413  
+          ifend 13 750  
+          line: 13 408  # else ( 1 ) 04v { RBAC ( Role-B
+          Complexity of rule ~rbac.0.0- u: 2
         rule: 16  ~rbac.1.0 u: 
-          line: 17 0  # ^keep ( ) RBAC in Kubernetes w
-          line: 18 499  # Le RBAC dans Kubernetes foncti
-          Complexity of rule ~rbac.1.0- u: 1
+          if 17 14  
+          line: 17 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 18 482  
+          ifend 18 985  
+          line: 18 477  # else ( 1 ) 06L { RBAC in Kuber
+          Complexity of rule ~rbac.1.0- u: 2
         rule: 21  ~rbac.2.0 u: 
-          line: 22 0  # ^keep ( ) The four core RBAC c
-          line: 23 62  # 1. Role - defines permissions 
-          line: 24 162  # 2. ClusterRole - defines permi
-          line: 25 295  # 3. RoleBinding - grants a Role
-          line: 26 385  # 4. ClusterRoleBinding - grants
-          line: 27 472  # Les quatre composants RBAC : ^
-          Complexity of rule ~rbac.2.0- u: 1
+          if 22 14  
+          line: 22 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 23 325  
+          line: 23 320  # else ( 1 ) aaa { The four core
+          line: 24 389  # 1. Role - defines permissions 
+          line: 25 489  # 2. ClusterRole - defines permi
+          line: 26 622  # 3. RoleBinding - grants a Role
+          ifend 27 801  
+          line: 27 712  # 4. ClusterRoleBinding - grants
+          Complexity of rule ~rbac.2.0- u: 2
     topic: 34  ~k8s_role
         rule: 37  ~k8s_role.0.0 u: 
-          line: 38 0  # ^keep ( ) A ClusterRole is a s
-          line: 39 422  # Un ClusterRole est un ensemble
-          Complexity of rule ~k8s_role.0.0- u: 1
+          if 38 14  
+          line: 38 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 39 428  
+          ifend 39 854  
+          line: 39 423  # else ( 1 ) 05J { A ClusterRole
+          Complexity of rule ~k8s_role.0.0- u: 2
         rule: 42  ~k8s_role.1.0 u: 
-          line: 43 0  # ^keep ( ) A Role is a set of p
-          line: 44 375  # Un Role est un ensemble de per
-          Complexity of rule ~k8s_role.1.0- u: 1
+          if 43 14  
+          line: 43 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 44 351  
+          ifend 44 730  
+          line: 44 346  # else ( 1 ) 04+ { A Role is a s
+          Complexity of rule ~k8s_role.1.0- u: 2
         rule: 47  ~k8s_role.2.0 u: 
-          line: 48 0  # ^keep ( ) Role vs ClusterRole:
-          line: 49 34  # - Role: namespace-scoped, defi
-          line: 50 178  # - ClusterRole: cluster-scoped,
-          line: 51 466  # Use Roles for namespace-specif
-          line: 52 571  # Role : limite a un namespace, 
-          Complexity of rule ~k8s_role.2.0- u: 1
+          if 48 14  
+          line: 48 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 49 393  
+          line: 49 388  # else ( 1 ) aaa { Role vs Clust
+          line: 50 429  # - Role: namespace-scoped, defi
+          line: 51 573  # - ClusterRole: cluster-scoped,
+          ifend 52 968  
+          line: 52 861  # Use Roles for namespace-specif
+          Complexity of rule ~k8s_role.2.0- u: 2
         rule: 55  ~k8s_role.3.0 u: 
-          line: 56 0  # ^keep ( ) Role and ClusterRole
-          line: 57 71  # - apiGroups: the API groups th
-          line: 58 246  # - resources: the resource type
-          line: 59 398  # - resourceNames: optional list
-          line: 60 480  # - verbs: the operations allowe
-          line: 61 628  # - nonResourceURLs: ( ClusterRo
-          line: 62 752  # Les regles de Role/ClusterRole
-          Complexity of rule ~k8s_role.3.0- u: 1
-    topic: 69  ~k8s_rolebinding
-        rule: 72  ~k8s_rolebinding.0.0 u: 
-          line: 73 0  # ^keep ( ) A ClusterRoleBinding
-          line: 74 418  # Un ClusterRoleBinding accorde 
-          Complexity of rule ~k8s_rolebinding.0.0- u: 1
-        rule: 77  ~k8s_rolebinding.1.0 u: 
-          line: 78 0  # ^keep ( ) A RoleBinding grants
-          line: 79 355  # Un RoleBinding accorde les per
-          Complexity of rule ~k8s_rolebinding.1.0- u: 1
-        rule: 82  ~k8s_rolebinding.2.0 u: 
-          line: 83 0  # ^keep ( ) The roleRef field in
-          line: 84 149  # - apiGroup: must be "rbac.auth
-          line: 85 202  # - kind: either "Role" ( for Ro
-          line: 86 319  # - name: the name of the Role o
-          line: 87 380  # The roleRef is immutable after
-          line: 88 480  # Le champ roleRef dans un RoleB
-          Complexity of rule ~k8s_rolebinding.2.0- u: 1
-        rule: 91  ~k8s_rolebinding.3.0 u: 
-          line: 92 0  # ^keep ( ) The subjects field i
-          line: 93 179  # - kind: "User" , "Group" , or 
-          line: 94 231  # - name: the name of the user, 
-          line: 95 290  # - namespace: required for Serv
-          line: 96 429  # - apiGroup: "rbac.authorizatio
-          line: 97 532  # Le champ subjects est une list
-          Complexity of rule ~k8s_rolebinding.3.0- u: 1
-    topic: 104  ~k8s_serviceaccount
-        rule: 107  ~k8s_serviceaccount.0.0 u: 
-          line: 108 0  # ^keep ( ) A ServiceAccount pro
-          line: 109 418  # Un ServiceAccount fournit une 
-          Complexity of rule ~k8s_serviceaccount.0.0- u: 1
-        rule: 112  ~k8s_serviceaccount.1.0 u: 
-          line: 113 0  # ^keep ( ) The automountService
-          line: 114 157  # - On the ServiceAccount resour
-          line: 115 241  # - On the Pod spec: overrides t
-          line: 116 329  # Set it to false when your Pods
-          line: 117 511  # Le champ automountServiceAccou
-          Complexity of rule ~k8s_serviceaccount.1.0- u: 1
-        rule: 120  ~k8s_serviceaccount.2.0 u: 
-          line: 121 0  # ^keep ( ) The imagePullSecrets
-          line: 122 420  # Le champ imagePullSecrets sur 
-          Complexity of rule ~k8s_serviceaccount.2.0- u: 1
-        rule: 125  ~k8s_serviceaccount.3.0 u: 
-          line: 126 0  # ^keep ( ) Every namespace in K
-          line: 127 473  # Chaque namespace dans Kubernet
-          Complexity of rule ~k8s_serviceaccount.3.0- u: 1
+          if 56 14  
+          line: 56 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 57 416  
+          line: 57 411  # else ( 1 ) aaa { Role and Clus
+          line: 58 489  # - apiGroups: the API groups th
+          line: 59 664  # - resources: the resource type
+          line: 60 816  # - resourceNames: optional list
+          line: 61 898  # - verbs: the operations allowe
+          ifend 62 1172  
+          line: 62 1046  # - nonResourceURLs: ( ClusterRo
+          Complexity of rule ~k8s_role.3.0- u: 2
+        rule: 66  ~k8s_role.4.0 u: 
+          if 67 14  
+          line: 67 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 68 713  
+          line: 68 708  # else ( 1 ) aaa { Subresources 
+          line: 69 861  # * pods/log: read container log
+          line: 70 928  # * pods/exec: execute commands 
+          line: 71 1016  # * pods/attach: attach to a run
+          line: 72 1106  # * pods/portforward: forward po
+          line: 73 1200  # * pods/status: read or update 
+          line: 74 1245  # * pods/eviction: create evicti
+          ifend 75 1512  
+          line: 75 1304  # In RBAC rules, specify subreso
+          Complexity of rule ~k8s_role.4.0- u: 2
+    topic: 81  ~k8s_rolebinding
+        rule: 84  ~k8s_rolebinding.0.0 u: 
+          if 85 14  
+          line: 85 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 86 421  
+          ifend 86 843  
+          line: 86 416  # else ( 1 ) 05F { A ClusterRole
+          Complexity of rule ~k8s_rolebinding.0.0- u: 2
+        rule: 89  ~k8s_rolebinding.1.0 u: 
+          if 90 14  
+          line: 90 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 91 304  
+          ifend 91 663  
+          line: 91 299  # else ( 1 ) 04R { A RoleBinding
+          Complexity of rule ~k8s_rolebinding.1.0- u: 2
+        rule: 94  ~k8s_rolebinding.2.0 u: 
+          if 95 14  
+          line: 95 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 96 378  
+          line: 96 373  # else ( 1 ) aaa { The roleRef f
+          line: 97 529  # - apiGroup: must be "rbac.auth
+          line: 98 582  # - kind: either "Role" ( for Ro
+          line: 99 699  # - name: the name of the Role o
+          ifend 100 862  
+          line: 100 760  # The roleRef is immutable after
+          Complexity of rule ~k8s_rolebinding.2.0- u: 2
+        rule: 103  ~k8s_rolebinding.3.0 u: 
+          if 104 14  
+          line: 104 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 105 385  
+          line: 105 380  # else ( 1 ) aaa { The subjects 
+          line: 106 566  # - kind: "User" , "Group" , or 
+          line: 107 618  # - name: the name of the user, 
+          line: 108 677  # - namespace: required for Serv
+          ifend 109 921  
+          line: 109 816  # - apiGroup: "rbac.authorizatio
+          Complexity of rule ~k8s_rolebinding.3.0- u: 2
+    topic: 116  ~k8s_serviceaccount
+        rule: 119  ~k8s_serviceaccount.0.0 u: 
+          if 120 14  
+          line: 120 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 121 464  
+          ifend 121 886  
+          line: 121 459  # else ( 1 ) 05F { A ServiceAcco
+          Complexity of rule ~k8s_serviceaccount.0.0- u: 2
+        rule: 124  ~k8s_serviceaccount.1.0 u: 
+          if 125 14  
+          line: 125 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 126 447  
+          line: 126 442  # else ( 1 ) aaa { The automount
+          line: 127 606  # - On the ServiceAccount resour
+          line: 128 690  # - On the Pod spec: overrides t
+          ifend 129 962  
+          line: 129 778  # Set it to false when your Pods
+          Complexity of rule ~k8s_serviceaccount.1.0- u: 2
+        rule: 132  ~k8s_serviceaccount.2.0 u: 
+          if 133 14  
+          line: 133 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 134 450  
+          ifend 134 874  
+          line: 134 445  # else ( 1 ) 05H { The imagePull
+          Complexity of rule ~k8s_serviceaccount.2.0- u: 2
+        rule: 137  ~k8s_serviceaccount.3.0 u: 
+          if 138 14  
+          line: 138 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 139 511  
+          ifend 140 988  
+          Complexity of rule ~k8s_serviceaccount.3.0- u: 2
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/administration.top
     topic: 9  ~validatingwebhook
         rule: 12  ~validatingwebhook.0.0 u: 
-          line: 13 0  # ^keep ( ) A ValidatingWebhookC
-          line: 14 497  # Une ValidatingWebhookConfigura
-          Complexity of rule ~validatingwebhook.0.0- u: 1
+          if 13 14  
+          line: 13 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 14 547  
+          ifend 14 1048  
+          line: 14 542  # else ( 1 ) 06J { A ValidatingW
+          Complexity of rule ~validatingwebhook.0.0- u: 2
         rule: 17  ~validatingwebhook.1.0 u: 
-          line: 18 0  # ^keep ( ) The clientConfig fie
-          line: 19 133  # - url: a direct HTTPS URL to a
-          line: 20 295  # - service: references a Kubern
-          line: 21 435  # In both cases, caBundle contai
-          line: 22 637  # Le champ clientConfig definit 
-          Complexity of rule ~validatingwebhook.1.0- u: 1
+          if 18 14  
+          line: 18 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 19 498  
+          line: 19 493  # else ( 1 ) aaa { The clientCon
+          line: 20 633  # - url: a direct HTTPS URL to a
+          line: 21 795  # - service: references a Kubern
+          ifend 22 1139  
+          line: 22 935  # In both cases, caBundle contai
+          Complexity of rule ~validatingwebhook.1.0- u: 2
         rule: 25  ~validatingwebhook.2.0 u: 
-          line: 26 0  # ^keep ( ) The rules field defi
-          line: 27 98  # - apiGroups: the API groups to
-          line: 28 192  # - apiVersions: the API version
-          line: 29 287  # - resources: the resource type
-          line: 30 402  # - operations: the operations t
-          line: 31 512  # - scope: Cluster, Namespaced, 
-          line: 32 563  # Multiple rules are ORed togeth
-          line: 33 644  # Le champ rules definit quelles
-          Complexity of rule ~validatingwebhook.2.0- u: 1
+          if 26 14  
+          line: 26 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 27 439  
+          line: 27 434  # else ( 1 ) aaa { The rules fie
+          line: 28 539  # - apiGroups: the API groups to
+          line: 29 633  # - apiVersions: the API version
+          line: 30 728  # - resources: the resource type
+          line: 31 843  # - operations: the operations t
+          line: 32 953  # - scope: Cluster, Namespaced, 
+          ifend 33 1087  
+          line: 33 1004  # Multiple rules are ORed togeth
+          Complexity of rule ~validatingwebhook.2.0- u: 2
         rule: 36  ~validatingwebhook.3.0 u: 
-          line: 37 0  # ^keep ( ) The failurePolicy fi
-          line: 38 123  # - Fail [ default ] : the API r
-          line: 39 312  # - Ignore: the API request is a
-          line: 40 493  # Best practice: use Fail for se
-          line: 41 643  # Le champ failurePolicy determi
-          Complexity of rule ~validatingwebhook.3.0- u: 1
-    topic: 48  ~mutatingwebhook
-        rule: 51  ~mutatingwebhook.0.0 u: 
-          line: 52 0  # ^keep ( ) A MutatingWebhookCon
-          line: 53 505  # Une MutatingWebhookConfigurati
-          Complexity of rule ~mutatingwebhook.0.0- u: 1
-        rule: 56  ~mutatingwebhook.1.0 u: 
-          line: 57 0  # ^keep ( ) The key differences 
-          line: 58 110  # - Mutating webhooks can modify
-          line: 59 295  # - Mutating webhooks run first 
-          line: 60 409  # - Mutating webhooks return JSO
-          line: 61 561  # - Multiple mutating webhooks a
-          line: 62 683  # Les differences cles : les web
-          Complexity of rule ~mutatingwebhook.1.0- u: 1
-        rule: 65  ~mutatingwebhook.2.0 u: 
-          line: 66 0  # ^keep ( ) The reinvocationPoli
-          line: 67 161  # - Never ( default ) : the webh
-          line: 68 273  # - IfNeeded: the webhook is cal
-          line: 69 484  # Kubernetes guarantees at most 
-          line: 70 570  # Le champ reinvocationPolicy co
-          Complexity of rule ~mutatingwebhook.2.0- u: 1
-    topic: 77  ~validatingadmissionpolicy
-        rule: 80  ~validatingadmissionpolicy.0.0 u: 
-          line: 81 0  # ^keep ( ) A ValidatingAdmissio
-          line: 82 511  # Une ValidatingAdmissionPolicy 
-          Complexity of rule ~validatingadmissionpolicy.0.0- u: 1
-        rule: 85  ~validatingadmissionpolicy.1.0 u: 
-          line: 86 0  # ^keep ( ) ValidatingAdmissionP
-          line: 87 163  # - object: the resource being v
-          line: 88 231  # - oldObject: the existing reso
-          line: 89 314  # - request: the admission reque
-          line: 90 399  # - params: the parameter resour
-          line: 91 469  # - namespaceObject: the namespa
-          line: 92 538  # Example expressions: object.sp
-          line: 93 779  # ValidatingAdmissionPolicy util
-          Complexity of rule ~validatingadmissionpolicy.1.0- u: 1
-        rule: 96  ~validatingadmissionpolicy.2.0 u: 
-          line: 97 0  # ^keep ( ) A ValidatingAdmissio
-          line: 98 133  # - policyName: the name of the 
-          line: 99 201  # - paramRef: an optional refere
-          line: 100 332  # - matchResources: controls whi
-          line: 101 464  # - validationActions: what happ
-          line: 102 636  # Without a binding, a Validatin
-          line: 103 786  # Un ValidatingAdmissionPolicyBi
-          Complexity of rule ~validatingadmissionpolicy.2.0- u: 1
-    topic: 110  ~priorityclass
-        rule: 113  ~priorityclass.0.0 u: 
-          line: 114 0  # ^keep ( ) A PriorityClass is a
-          line: 115 517  # Une PriorityClass est une ress
-          Complexity of rule ~priorityclass.0.0- u: 1
-        rule: 118  ~priorityclass.1.0 u: 
-          line: 119 0  # ^keep ( ) Key PriorityClass fi
-          line: 120 39  # - value: an integer from -2147
-          line: 121 262  # - globalDefault: a boolean ( d
-          line: 122 583  # - description: an optional hum
-          line: 123 678  # Champs cles de PriorityClass :
-          Complexity of rule ~priorityclass.1.0- u: 1
-        rule: 126  ~priorityclass.2.0 u: 
-          line: 127 0  # ^keep ( ) The preemptionPolicy
-          line: 128 130  # - PreemptLowerPriority ( defau
-          line: 129 382  # - Never: Pods with this Priori
-          line: 130 650  # Use Never for Pods that should
-          line: 131 752  # Le champ preemptionPolicy cont
-          Complexity of rule ~priorityclass.2.0- u: 1
-    topic: 138  ~runtimeclass
-        rule: 141  ~runtimeclass.0.0 u: 
-          line: 142 0  # ^keep ( ) A RuntimeClass is a 
-          line: 143 427  # Une RuntimeClass est une resso
-          Complexity of rule ~runtimeclass.0.0- u: 1
-        rule: 146  ~runtimeclass.1.0 u: 
-          line: 147 0  # ^keep ( ) The handler field in
-          line: 148 253  # - runc: the standard OCI runti
-          line: 149 447  # - gVisor ( runsc ) : a user-sp
-          line: 150 685  # - Kata Containers: runs each P
-          line: 151 916  # You can also configure Runtime
-          line: 152 1063  # Le champ handler dans une Runt
-          Complexity of rule ~runtimeclass.1.0- u: 1
+          if 37 14  
+          line: 37 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 38 496  
+          line: 38 491  # else ( 1 ) aaa { The failurePo
+          line: 39 621  # - Fail [ default ] : the API r
+          line: 40 810  # - Ignore: the API request is a
+          ifend 41 1143  
+          line: 41 991  # Best practice: use Fail for se
+          Complexity of rule ~validatingwebhook.3.0- u: 2
+        rule: 45  ~validatingwebhook.4.0 u: 
+          if 46 14  
+          line: 46 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 47 386  
+          ifend 47 893  
+          line: 47 381  # else ( 1 ) 06P { The namespace
+          Complexity of rule ~validatingwebhook.4.0- u: 2
+        rule: 50  ~validatingwebhook.5.0 u: 
+          if 51 14  
+          line: 51 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 52 362  
+          ifend 52 829  
+          line: 52 357  # else ( 1 ) 06b { The objectSel
+          Complexity of rule ~validatingwebhook.5.0- u: 2
+        rule: 55  ~validatingwebhook.6.0 u: 
+          if 56 14  
+          line: 56 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 57 413  
+          line: 57 408  # else ( 1 ) aaa { The sideEffec
+          line: 58 548  # * None: the webhook has no sid
+          line: 59 674  # * NoneOnDryRun: the webhook ma
+          ifend 60 951  
+          line: 60 797  # The API server uses this to de
+          Complexity of rule ~validatingwebhook.6.0- u: 2
+        rule: 63  ~validatingwebhook.7.0 u: 
+          if 64 14  
+          line: 64 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 65 362  
+          ifend 65 827  
+          line: 65 357  # else ( 1 ) 069 { The timeoutSe
+          Complexity of rule ~validatingwebhook.7.0- u: 2
+    topic: 71  ~mutatingwebhook
+        rule: 74  ~mutatingwebhook.0.0 u: 
+          if 75 14  
+          line: 75 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 76 591  
+          ifend 76 1100  
+          line: 76 586  # else ( 1 ) 06R { A MutatingWeb
+          Complexity of rule ~mutatingwebhook.0.0- u: 2
+        rule: 79  ~mutatingwebhook.1.0 u: 
+          if 80 14  
+          line: 80 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 81 567  
+          line: 81 562  # else ( 1 ) aaa { The key diffe
+          line: 82 679  # - Mutating webhooks can modify
+          line: 83 864  # - Mutating webhooks run first 
+          line: 84 978  # - Mutating webhooks return JSO
+          ifend 85 1254  
+          line: 85 1130  # - Multiple mutating webhooks a
+          Complexity of rule ~mutatingwebhook.1.0- u: 2
+        rule: 88  ~mutatingwebhook.2.0 u: 
+          if 89 14  
+          line: 89 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 90 366  
+          ifend 90 828  
+          line: 90 361  # else ( 1 ) 066 { The namespace
+          Complexity of rule ~mutatingwebhook.2.0- u: 2
+        rule: 93  ~mutatingwebhook.3.0 u: 
+          if 94 14  
+          line: 94 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 95 348  
+          ifend 95 760  
+          line: 95 343  # else ( 1 ) 05v { The objectSel
+          Complexity of rule ~mutatingwebhook.3.0- u: 2
+        rule: 98  ~mutatingwebhook.4.0 u: 
+          if 99 14  
+          line: 99 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 100 370  
+          line: 100 365  # else ( 1 ) aaa { The sideEffec
+          line: 101 526  # * None: the webhook has no ext
+          line: 102 606  # * NoneOnDryRun: the webhook ma
+          ifend 103 887  
+          line: 103 753  # Setting sideEffects is require
+          Complexity of rule ~mutatingwebhook.4.0- u: 2
+        rule: 106  ~mutatingwebhook.5.0 u: 
+          if 107 14  
+          line: 107 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 108 426  
+          ifend 108 898  
+          line: 108 421  # else ( 1 ) 06g { The timeoutSe
+          Complexity of rule ~mutatingwebhook.5.0- u: 2
+        rule: 111  ~mutatingwebhook.6.0 u: 
+          if 112 14  
+          line: 112 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 113 481  
+          line: 113 476  # else ( 1 ) aaa { The reinvocat
+          line: 114 644  # - Never ( default ) : the webh
+          line: 115 756  # - IfNeeded: the webhook is cal
+          ifend 116 1055  
+          line: 116 967  # Kubernetes guarantees at most 
+          Complexity of rule ~mutatingwebhook.6.0- u: 2
+    topic: 123  ~validatingadmissionpolicy
+        rule: 126  ~validatingadmissionpolicy.0.0 u: 
+          if 127 14  
+          line: 127 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 128 572  
+          ifend 128 1087  
+          line: 128 567  # else ( 1 ) 06X { A ValidatingA
+          Complexity of rule ~validatingadmissionpolicy.0.0- u: 2
+        rule: 131  ~validatingadmissionpolicy.1.0 u: 
+          if 132 14  
+          line: 132 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 133 532  
+          line: 133 527  # else ( 1 ) aaa { ValidatingAdm
+          line: 134 697  # - object: the resource being v
+          line: 135 765  # - oldObject: the existing reso
+          line: 136 848  # - request: the admission reque
+          line: 137 933  # - params: the parameter resour
+          line: 138 1003  # - namespaceObject: the namespa
+          ifend 139 1315  
+          line: 139 1072  # Example expressions: object.sp
+          Complexity of rule ~validatingadmissionpolicy.1.0- u: 2
+        rule: 142  ~validatingadmissionpolicy.2.0 u: 
+          if 143 14  
+          line: 143 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 144 645  
+          line: 144 640  # else ( 1 ) aaa { A ValidatingA
+          line: 145 780  # - policyName: the name of the 
+          line: 146 848  # - paramRef: an optional refere
+          line: 147 979  # - matchResources: controls whi
+          line: 148 1111  # - validationActions: what happ
+          ifend 149 1435  
+          line: 149 1283  # Without a binding, a Validatin
+          Complexity of rule ~validatingadmissionpolicy.2.0- u: 2
+    topic: 156  ~priorityclass
+        rule: 159  ~priorityclass.0.0 u: 
+          if 160 14  
+          line: 160 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 161 573  
+          ifend 161 1094  
+          line: 161 568  # else ( 1 ) 06# { A PriorityCla
+          Complexity of rule ~priorityclass.0.0- u: 2
+        rule: 164  ~priorityclass.1.0 u: 
+          if 165 14  
+          line: 165 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 166 496  
+          line: 166 491  # else ( 1 ) aaa { Key PriorityC
+          line: 167 537  # - value: an integer from -2147
+          line: 168 760  # - globalDefault: a boolean ( d
+          ifend 169 1178  
+          line: 169 1081  # - description: an optional hum
+          Complexity of rule ~priorityclass.1.0- u: 2
+        rule: 172  ~priorityclass.2.0 u: 
+          if 173 14  
+          line: 173 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 174 600  
+          line: 174 595  # else ( 1 ) aaa { The preemptio
+          line: 175 732  # - PreemptLowerPriority ( defau
+          line: 176 984  # - Never: Pods with this Priori
+          ifend 177 1356  
+          line: 177 1252  # Use Never for Pods that should
+          Complexity of rule ~priorityclass.2.0- u: 2
+    topic: 184  ~runtimeclass
+        rule: 187  ~runtimeclass.0.0 u: 
+          if 188 14  
+          line: 188 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 189 518  
+          ifend 189 949  
+          line: 189 513  # else ( 1 ) 05O { A RuntimeClas
+          Complexity of rule ~runtimeclass.0.0- u: 2
+        rule: 192  ~runtimeclass.1.0 u: 
+          if 193 14  
+          line: 193 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 194 796  
+          line: 194 791  # else ( 1 ) aaa { The handler f
+          line: 195 1051  # - runc: the standard OCI runti
+          line: 196 1245  # - gVisor ( runsc ) : a user-sp
+          line: 197 1483  # - Kata Containers: runs each P
+          ifend 199 1863  
+          Complexity of rule ~runtimeclass.1.0- u: 2
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/cluster.top
     topic: 8  ~namespace
         rule: 11  ~namespace.0.0 u: 
-          line: 12 0  # ^keep ( ) A Namespace is a mec
-          line: 13 324  # Un Namespace est un mecanisme 
-          Complexity of rule ~namespace.0.0- u: 1
+          if 12 14  
+          line: 12 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 13 408  
+          ifend 13 736  
+          line: 13 403  # else ( 1 ) 04m { A Namespace i
+          Complexity of rule ~namespace.0.0- u: 2
         rule: 16  ~namespace.1.0 u: 
-          line: 17 0  # ^keep ( ) Kubernetes creates f
-          line: 18 57  # - default: the namespace for r
-          line: 19 134  # - kube-system: the namespace f
-          line: 20 270  # - kube-public: readable by all
-          line: 21 392  # - kube-node-lease: holds Lease
-          line: 22 547  # Kubernetes cree quatre namespa
-          Complexity of rule ~namespace.1.0- u: 1
-        rule: 25  ~namespace.2.0 u: 
-          line: 26 0  # ^keep ( ) Namespace finalizers
-          line: 27 490  # Les finalizers de Namespace em
-          Complexity of rule ~namespace.2.0- u: 1
-        rule: 30  ~namespace.3.0 u: 
-          line: 31 0  # ^keep ( ) A Namespace has two 
-          line: 32 50  # - Active: the namespace is in 
-          line: 33 188  # - Terminating: the namespace h
-          line: 34 462  # Un Namespace a deux phases pos
-          Complexity of rule ~namespace.3.0- u: 1
-    topic: 41  ~node
-        rule: 44  ~node.0.0 u: 
-          line: 45 0  # ^keep ( ) A Node is a worker m
-          line: 46 390  # Un Node est une machine de tra
-          Complexity of rule ~node.0.0- u: 1
-        rule: 49  ~node.1.0 u: 
-          line: 50 0  # ^keep ( ) Node conditions desc
-          line: 51 91  # - Ready: True if the node is h
-          line: 52 303  # - MemoryPressure: True if memo
-          line: 53 405  # - DiskPressure: True if disk c
-          line: 54 546  # - PIDPressure: True if there a
-          line: 55 622  # - NetworkUnavailable: True if 
-          line: 56 738  # Les conditions d'un Node decri
-          Complexity of rule ~node.1.0- u: 1
-        rule: 59  ~node.2.0 u: 
-          line: 60 0  # ^keep ( ) Taints are applied t
-          line: 61 143  # - NoSchedule: new Pods without
-          line: 62 234  # - PreferNoSchedule: Kubernetes
-          line: 63 359  # - NoExecute: existing Pods wit
-          line: 64 468  # Apply a taint with: kubectl ta
-          line: 65 609  # Les taints sont appliquees aux
-          Complexity of rule ~node.2.0- u: 1
-        rule: 68  ~node.3.0 u: 
-          line: 69 0  # ^keep ( ) Each Node reports tw
-          line: 70 65  # - capacity: the total amount o
-          line: 71 203  # - allocatable: the amount of r
-          line: 72 400  # The scheduler uses allocatable
-          line: 73 528  # Chaque Node rapporte deux ense
-          Complexity of rule ~node.3.0- u: 1
-    topic: 80  ~k8s_event
-        rule: 83  ~k8s_event.0.0 u: 
-          line: 84 0  # ^keep ( ) A Kubernetes Event i
-          line: 85 432  # Un Event Kubernetes est un obj
-          Complexity of rule ~k8s_event.0.0- u: 1
-        rule: 88  ~k8s_event.1.0 u: 
-          line: 89 0  # ^keep ( ) You can view Kuberne
-          line: 90 67  # - kubectl get events: lists ev
-          line: 91 157  # - kubectl get events --sort-by
-          line: 92 235  # - kubectl get events -A: lists
-          line: 93 299  # - kubectl get events --field-s
-          line: 94 383  # - kubectl describe <resource> 
-          line: 95 497  # Events have a default TTL of o
-          line: 96 652  # Vous pouvez consulter les Even
-          Complexity of rule ~k8s_event.1.0- u: 1
+          if 17 14  
+          line: 17 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 18 355  
+          ifend 18 906  
+          line: 18 350  # else ( 1 ) 07k { Kubernetes cr
+          Complexity of rule ~namespace.1.0- u: 2
+        rule: 21  ~namespace.2.0 u: 
+          if 22 14  
+          line: 22 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 23 510  
+          ifend 23 1004  
+          line: 23 505  # else ( 1 ) 06C { Namespace fin
+          Complexity of rule ~namespace.2.0- u: 2
+        rule: 26  ~namespace.3.0 u: 
+          if 27 14  
+          line: 27 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 28 355  
+          ifend 28 821  
+          line: 28 350  # else ( 1 ) 06a { A Namespace h
+          Complexity of rule ~namespace.3.0- u: 2
+    topic: 35  ~node
+        rule: 38  ~node.0.0 u: 
+          if 39 14  
+          line: 39 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 40 458  
+          ifend 40 852  
+          line: 40 453  # else ( 1 ) 05d { A Node is a w
+          Complexity of rule ~node.0.0- u: 2
+        rule: 43  ~node.1.0 u: 
+          if 44 14  
+          line: 44 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 45 373  
+          ifend 45 1115  
+          line: 45 368  # else ( 1 ) 09Z { Node conditio
+          Complexity of rule ~node.1.0- u: 2
+        rule: 48  ~node.2.0 u: 
+          if 49 14  
+          line: 49 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 50 585  
+          ifend 50 1198  
+          line: 50 580  # else ( 1 ) 087 { Taints are ap
+          Complexity of rule ~node.2.0- u: 2
+        rule: 53  ~node.3.0 u: 
+          if 54 14  
+          line: 54 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 55 499  
+          ifend 55 1031  
+          line: 55 494  # else ( 1 ) 071 { Each Node rep
+          Complexity of rule ~node.3.0- u: 2
+        rule: 59  ~node.4.0 u: 
+          if 60 14  
+          line: 60 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 61 472  
+          ifend 61 992  
+          line: 61 467  # else ( 1 ) 06@ { The spec.unsc
+          Complexity of rule ~node.4.0- u: 2
+        rule: 64  ~node.5.0 u: 
+          if 65 14  
+          line: 65 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 66 513  
+          ifend 66 1269  
+          line: 66 508  # else ( 1 ) 0a0 { Kubernetes au
+          Complexity of rule ~node.5.0- u: 2
+    topic: 72  ~k8s_event
+        rule: 75  ~k8s_event.0.0 u: 
+          if 76 14  
+          line: 76 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 77 489  
+          ifend 77 925  
+          line: 77 484  # else ( 1 ) 05T { A Kubernetes 
+          Complexity of rule ~k8s_event.0.0- u: 2
+        rule: 80  ~k8s_event.1.0 u: 
+          if 81 14  
+          line: 81 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 82 588  
+          ifend 83 1244  
+          Complexity of rule ~k8s_event.1.0- u: 2
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/introductions.top
     topic: 1  ~introductions
         rule: 4  ~introductions.0.0 t: 
@@ -868,9 +1549,12 @@ file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScri
           line: 39 0  # I'm KubeBot, a ChatScript-powe
           Complexity of rule ~bot_identity.0.0- u: 1
         rule: 42  ~bot_identity.1.0 u: 
-          line: 43 0  # I can answer questions about K
-          line: 44 145  # Je peux repondre aux questions
-          Complexity of rule ~bot_identity.1.0- u: 1
+          if 43 4  
+          line: 43 0  # ^if 00k( $$lang == fr ) 02i{ J
+          else 44 197  
+          ifend 44 356  
+          line: 44 192  # else ( 1 ) 023 { I can answer 
+          Complexity of rule ~bot_identity.1.0- u: 2
         rule: 47  ~bot_identity.2.0 u: 
           line: 48 0  # I'm powered by ChatScript 14.1
           Complexity of rule ~bot_identity.2.0- u: 1
@@ -923,147 +1607,196 @@ file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScri
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/storage.top
     topic: 8  ~persistentvolume
         rule: 11  ~persistentvolume.0.0 u: 
-          line: 12 0  # A PersistentVolume ( PV ) is a
-          line: 13 250  # Un PersistentVolume ( PV ) est
-          Complexity of rule ~persistentvolume.0.0- u: 1
+          if 12 14  
+          line: 12 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 13 304  
+          ifend 13 568  
+          line: 13 299  # else ( 1 ) 03x { A PersistentV
+          Complexity of rule ~persistentvolume.0.0- u: 2
         rule: 16  ~persistentvolume.1.0 u: 
-          line: 17 0  # A PersistentVolume ( PV ) repr
-          line: 18 219  # Un PersistentVolume ( PV ) rep
-          Complexity of rule ~persistentvolume.1.0- u: 1
+          if 17 14  
+          line: 17 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 18 199  
+          ifend 18 432  
+          line: 18 194  # else ( 1 ) 032 { A PersistentV
+          Complexity of rule ~persistentvolume.1.0- u: 2
         rule: 21  ~persistentvolume.2.0 u: 
-          line: 22 0  # A PV has a specific storage ca
-          line: 23 247  # Un PV a une capacite de stocka
-          Complexity of rule ~persistentvolume.2.0- u: 1
+          if 22 14  
+          line: 22 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 23 249  
+          ifend 23 510  
+          line: 23 244  # else ( 1 ) 03u { A PV has a sp
+          Complexity of rule ~persistentvolume.2.0- u: 2
         rule: 26  ~persistentvolume.3.0 u: 
-          line: 27 0  # PersistentVolumes support four
-          line: 28 48  # - ReadWriteOnce ( RWO ) : the 
-          line: 29 134  # - ReadOnlyMany ( ROX ) : the v
-          line: 30 215  # - ReadWriteMany ( RWX ) : the 
-          line: 31 298  # - ReadWriteOncePod ( RWOP ) : 
-          line: 32 387  # Les PersistentVolumes supporte
-          Complexity of rule ~persistentvolume.3.0- u: 1
-        rule: 35  ~persistentvolume.4.0 u: 
-          line: 36 0  # ReadWriteOnce ( RWO ) means th
-          line: 37 204  # ReadWriteOnce ( RWO ) signifie
-          Complexity of rule ~persistentvolume.4.0- u: 1
-        rule: 40  ~persistentvolume.5.0 u: 
-          line: 41 0  # ReadWriteMany ( RWX ) means th
-          line: 42 183  # ReadWriteMany ( RWX ) signifie
-          Complexity of rule ~persistentvolume.5.0- u: 1
-        rule: 45  ~persistentvolume.6.0 u: 
-          line: 46 0  # ReadWriteOncePod ( RWOP ) mean
-          line: 47 220  # ReadWriteOncePod ( RWOP ) sign
-          Complexity of rule ~persistentvolume.6.0- u: 1
-        rule: 50  ~persistentvolume.7.0 u: 
-          line: 51 0  # The persistentVolumeReclaimPol
-          line: 52 91  # - Retain: the PV is kept and m
-          line: 53 171  # - Delete: the PV and its under
-          line: 54 250  # - Recycle ( deprecated ) : bas
-          line: 55 362  # La politique de recuperation d
-          Complexity of rule ~persistentvolume.7.0- u: 1
-        rule: 58  ~persistentvolume.8.0 u: 
-          line: 59 0  # The volumeMode field in a PV c
-          line: 60 47  # - Filesystem ( default ) : the
-          line: 61 214  # - Block: the volume is present
-          line: 62 377  # Le champ volumeMode peut etre 
-          Complexity of rule ~persistentvolume.8.0- u: 1
-        rule: 65  ~persistentvolume.9.0 u: 
-          line: 66 0  # A PV can set nodeAffinity to c
-          line: 67 267  # Un PV peut definir une nodeAff
-          Complexity of rule ~persistentvolume.9.0- u: 1
-        rule: 70  ~persistentvolume.10.0 u: 
-          line: 71 0  # PersistentVolumes support many
-          line: 72 55  # - hostPath: mounts a file or d
-          line: 73 158  # - nfs: mounts an NFS ( Network
-          line: 74 212  # - csi: uses a Container Storag
-          line: 75 287  # - local: mounts a local storag
-          line: 76 382  # - Cloud providers: awsElasticB
-          line: 77 466  # Les PVs supportent plusieurs t
-          Complexity of rule ~persistentvolume.10.0- u: 1
-    topic: 84  ~persistentvolumeclaim
-        rule: 87  ~persistentvolumeclaim.0.0 u: 
-          line: 88 0  # A PersistentVolumeClaim ( PVC 
-          line: 89 258  # Un PersistentVolumeClaim ( PVC
-          Complexity of rule ~persistentvolumeclaim.0.0- u: 1
-        rule: 92  ~persistentvolumeclaim.1.0 u: 
-          line: 93 0  # A PersistentVolumeClaim ( PVC 
-          line: 94 259  # Un PersistentVolumeClaim ( PVC
-          Complexity of rule ~persistentvolumeclaim.1.0- u: 1
-        rule: 97  ~persistentvolumeclaim.2.0 u: 
-          line: 98 0  # In a PVC, the spec.resources.r
-          line: 99 261  # Dans un PVC, le champ spec.res
-          Complexity of rule ~persistentvolumeclaim.2.0- u: 1
-        rule: 102  ~persistentvolumeclaim.3.0 u: 
-          line: 103 0  # The storageClassName field in 
-          line: 104 260  # Le champ storageClassName dans
-          Complexity of rule ~persistentvolumeclaim.3.0- u: 1
-        rule: 107  ~persistentvolumeclaim.4.0 u: 
-          line: 108 0  # A PVC can use a selector field
-          line: 109 290  # Un PVC peut utiliser un champ 
-          Complexity of rule ~persistentvolumeclaim.4.0- u: 1
-        rule: 112  ~persistentvolumeclaim.5.0 u: 
-          line: 113 0  # A PVC can specify a dataSource
-          line: 114 95  # - Volume cloning: set dataSour
-          line: 115 224  # - Volume snapshots: set dataSo
-          line: 116 324  # - dataSourceRef: like dataSour
-          line: 117 422  # Un PVC peut specifier dataSour
-          Complexity of rule ~persistentvolumeclaim.5.0- u: 1
-    topic: 124  ~storageclass
-        rule: 127  ~storageclass.0.0 u: 
-          line: 128 0  # A StorageClass provides a way 
-          line: 129 290  # Une StorageClass permet de dec
-          Complexity of rule ~storageclass.0.0- u: 1
-        rule: 132  ~storageclass.1.0 u: 
-          line: 133 0  # A StorageClass defines how new
-          line: 134 240  # Une StorageClass definit comme
-          Complexity of rule ~storageclass.1.0- u: 1
-        rule: 137  ~storageclass.2.0 u: 
-          line: 138 0  # The provisioner field in a Sto
-          line: 139 132  # - kubernetes.io/aws-ebs: for A
-          line: 140 196  # - kubernetes.io/gce-pd: for Go
-          line: 141 266  # - kubernetes.io/azure-disk: fo
-          line: 142 321  # - kubernetes.io/no-provisioner
-          line: 143 402  # - CSI drivers: like ebs.csi.aw
-          line: 144 466  # Le champ provisioner determine
-          Complexity of rule ~storageclass.2.0- u: 1
-        rule: 147  ~storageclass.3.0 u: 
-          line: 148 0  # The reclaimPolicy in a Storage
-          line: 149 138  # - ^delete ( default ) : the PV
-          line: 150 231  # - Retain: the PV is kept for m
-          line: 151 297  # La reclaimPolicy dans une Stor
-          Complexity of rule ~storageclass.3.0- u: 1
-        rule: 154  ~storageclass.4.0 u: 
-          line: 155 0  # The volumeBindingMode field co
-          line: 156 99  # - Immediate ( default ) : bind
-          line: 157 190  # - WaitForFirstConsumer: bindin
-          line: 158 369  # Le champ volumeBindingMode con
-          Complexity of rule ~storageclass.4.0- u: 1
-        rule: 161  ~storageclass.5.0 u: 
-          line: 162 0  # When allowVolumeExpansion is s
-          line: 163 311  # Quand allowVolumeExpansion est
-          Complexity of rule ~storageclass.5.0- u: 1
-    topic: 170  ~csidriver
-        rule: 173  ~csidriver.0.0 u: 
-          line: 174 0  # A CSIDriver object in Kubernet
-          line: 175 280  # Un objet CSIDriver dans Kubern
-          Complexity of rule ~csidriver.0.0- u: 1
-        rule: 178  ~csidriver.1.0 u: 
-          line: 179 0  # CSIDriver is a cluster-scoped 
-          line: 180 339  # CSIDriver est une ressource au
-          Complexity of rule ~csidriver.1.0- u: 1
-        rule: 183  ~csidriver.2.0 u: 
-          line: 184 0  # The CSIDriver spec has two imp
-          line: 185 56  # - attachRequired: if true ( de
-          line: 186 321  # - podInfoOnMount: if true, Kub
-          line: 187 507  # Le spec du CSIDriver a deux ch
-          Complexity of rule ~csidriver.2.0- u: 1
-        rule: 190  ~csidriver.3.0 u: 
-          line: 191 0  # The fsGroupPolicy field in CSI
-          line: 192 140  # - ReadWriteOnceWithFSType: Kub
-          line: 193 297  # - File: Kubernetes always atte
-          line: 194 401  # - None: Kubernetes will not mo
-          line: 195 543  # Le champ fsGroupPolicy control
-          Complexity of rule ~csidriver.3.0- u: 1
+          if 27 14  
+          line: 27 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 28 208  
+          ifend 28 609  
+          line: 28 203  # else ( 1 ) 05k { PersistentVol
+          Complexity of rule ~persistentvolume.3.0- u: 2
+        rule: 31  ~persistentvolume.4.0 u: 
+          if 32 14  
+          line: 32 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 33 219  
+          ifend 33 437  
+          line: 33 214  # else ( 1 ) 02~ { ReadWriteOnce
+          Complexity of rule ~persistentvolume.4.0- u: 2
+        rule: 36  ~persistentvolume.5.0 u: 
+          if 37 14  
+          line: 37 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 38 256  
+          ifend 38 453  
+          line: 38 251  # else ( 1 ) 02F { ReadWriteMany
+          Complexity of rule ~persistentvolume.5.0- u: 2
+        rule: 41  ~persistentvolume.6.0 u: 
+          if 42 14  
+          line: 42 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 43 205  
+          ifend 43 439  
+          line: 43 200  # else ( 1 ) 033 { ReadWriteOnce
+          Complexity of rule ~persistentvolume.6.0- u: 2
+        rule: 46  ~persistentvolume.7.0 u: 
+          if 47 14  
+          line: 47 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 48 253  
+          ifend 48 629  
+          line: 48 248  # else ( 1 ) 04* { The persisten
+          Complexity of rule ~persistentvolume.7.0- u: 2
+        rule: 51  ~persistentvolume.8.0 u: 
+          if 52 14  
+          line: 52 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 53 193  
+          ifend 53 584  
+          line: 53 188  # else ( 1 ) 05a { The volumeMod
+          Complexity of rule ~persistentvolume.8.0- u: 2
+        rule: 56  ~persistentvolume.9.0 u: 
+          if 57 14  
+          line: 57 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 58 274  
+          ifend 58 555  
+          line: 58 269  # else ( 1 ) 03O { A PV can set 
+          Complexity of rule ~persistentvolume.9.0- u: 2
+        rule: 61  ~persistentvolume.10.0 u: 
+          if 62 14  
+          line: 62 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 63 190  
+          ifend 63 670  
+          line: 63 185  # else ( 1 ) 06o { PersistentVol
+          Complexity of rule ~persistentvolume.10.0- u: 2
+    topic: 70  ~persistentvolumeclaim
+        rule: 73  ~persistentvolumeclaim.0.0 u: 
+          if 74 14  
+          line: 74 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 75 305  
+          ifend 75 577  
+          line: 75 300  # else ( 1 ) 03F { A PersistentV
+          Complexity of rule ~persistentvolumeclaim.0.0- u: 2
+        rule: 78  ~persistentvolumeclaim.1.0 u: 
+          if 79 14  
+          line: 79 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 80 207  
+          ifend 80 480  
+          line: 80 202  # else ( 1 ) 03G { A PersistentV
+          Complexity of rule ~persistentvolumeclaim.1.0- u: 2
+        rule: 83  ~persistentvolumeclaim.2.0 u: 
+          if 84 14  
+          line: 84 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 85 236  
+          ifend 85 511  
+          line: 85 231  # else ( 1 ) 03I { In a PVC, the
+          Complexity of rule ~persistentvolumeclaim.2.0- u: 2
+        rule: 88  ~persistentvolumeclaim.3.0 u: 
+          if 89 14  
+          line: 89 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 90 246  
+          ifend 90 520  
+          line: 90 241  # else ( 1 ) 03H { The storageCl
+          Complexity of rule ~persistentvolumeclaim.3.0- u: 2
+        rule: 93  ~persistentvolumeclaim.4.0 u: 
+          if 94 14  
+          line: 94 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 95 214  
+          ifend 95 518  
+          line: 95 209  # else ( 1 ) 03+ { A PVC can use
+          Complexity of rule ~persistentvolumeclaim.4.0- u: 2
+        rule: 98  ~persistentvolumeclaim.5.0 u: 
+          if 99 14  
+          line: 99 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 100 247  
+          ifend 100 683  
+          line: 100 242  # else ( 1 ) 05T { A PVC can spe
+          Complexity of rule ~persistentvolumeclaim.5.0- u: 2
+    topic: 107  ~storageclass
+        rule: 110  ~storageclass.0.0 u: 
+          if 111 14  
+          line: 111 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 112 327  
+          ifend 112 631  
+          line: 112 322  # else ( 1 ) 03+ { A StorageClas
+          Complexity of rule ~storageclass.0.0- u: 2
+        rule: 115  ~storageclass.1.0 u: 
+          if 116 14  
+          line: 116 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 117 230  
+          ifend 117 484  
+          line: 117 225  # else ( 1 ) 03n { A StorageClas
+          Complexity of rule ~storageclass.1.0- u: 2
+        rule: 120  ~storageclass.2.0 u: 
+          if 121 14  
+          line: 121 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 122 235  
+          ifend 122 715  
+          line: 122 230  # else ( 1 ) 06o { The provision
+          Complexity of rule ~storageclass.2.0- u: 2
+        rule: 125  ~storageclass.3.0 u: 
+          if 126 14  
+          line: 126 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 127 278  
+          ifend 127 589  
+          line: 127 273  # else ( 1 ) 045 { The reclaimPo
+          Complexity of rule ~storageclass.3.0- u: 2
+        rule: 130  ~storageclass.4.0 u: 
+          if 131 14  
+          line: 131 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 132 316  
+          ifend 132 699  
+          line: 132 311  # else ( 1 ) 052 { The volumeBin
+          Complexity of rule ~storageclass.4.0- u: 2
+        rule: 135  ~storageclass.5.0 u: 
+          if 136 14  
+          line: 136 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 137 308  
+          ifend 137 633  
+          line: 137 303  # else ( 1 ) 04j { When allowVol
+          Complexity of rule ~storageclass.5.0- u: 2
+    topic: 144  ~csidriver
+        rule: 147  ~csidriver.0.0 u: 
+          if 148 14  
+          line: 148 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 149 329  
+          ifend 149 623  
+          line: 149 324  # else ( 1 ) 03! { A CSIDriver o
+          Complexity of rule ~csidriver.0.0- u: 2
+        rule: 152  ~csidriver.1.0 u: 
+          if 153 14  
+          line: 153 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 154 259  
+          ifend 154 612  
+          line: 154 254  # else ( 1 ) 04L { CSIDriver is 
+          Complexity of rule ~csidriver.1.0- u: 2
+        rule: 157  ~csidriver.2.0 u: 
+          if 158 14  
+          line: 158 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 159 269  
+          ifend 159 790  
+          line: 159 264  # else ( 1 ) 06# { The CSIDriver
+          Complexity of rule ~csidriver.2.0- u: 2
+        rule: 162  ~csidriver.3.0 u: 
+          if 163 14  
+          line: 163 0  # ^keep ( ) ^if 00k( $$lang == f
+          else 164 287  
+          ifend 165 844  
+          Complexity of rule ~csidriver.3.0- u: 2
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/simplecontrol.top
     macro: 3  ^kubebot
           line: 4 0  # $cs_token = 4096 | 255 | 512 |
@@ -1074,117 +1807,126 @@ file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScri
           line: 10 165  # $botprompt = ^"KubeBot: " 
           line: 11 191  # $singleresponse = 1 
           Complexity of ^kubebot: 1
-    topic: 18  ~control
-        rule: 21  ~control.0.0 u: 
-          line: 22 0  # ^gambit ( ~introductions ) 
+    concept: 18  ~fr_markers
+    topic: 27  ~control
+        rule: 30  ~control.0.0 u: 
+          line: 31 0  # ^gambit ( ~introductions ) 
           Complexity of rule ~control.0.0- u: 1
-        rule: 24  ~control.1.0 u: 
-          line: 25 0  # $_responsecount = %response 
-          if 27 32  
-          ifend 27 85  
-          line: 27 28  # ^if 00n( $singleresponse ) 00v
-          line: 29 86  # $$currenttopic = %topic 
-          if 32 114  
-          ifend 32 193  
-          line: 32 110  # ^if 00A( %response == $_respon
-          if 35 198  
-          line: 35 194  # ^if 00R( %length == 0 and %res
-          line: 36 254  # { 
-          line: 37 256  # ^nofail ( TOPIC ^gambit ( $$cu
-          ifend 38 306  
-          line: 38 301  # } 004 
-          if 41 311  
-          ifend 41 403  
-          line: 41 307  # ^if 00A( %response == $_respon
-          if 44 408  
-          line: 44 404  # ^if 00A( %response == $_respon
-          line: 45 447  # { 
-          line: 46 449  # @8 = ^keywordtopics ( ) 
-          loop 47 479  
-          line: 47 473  # ^loop ( -1 ) aaa 
-          line: 48 490  # { 
-          line: 49 492  # $$topic = ^first ( @8subject )
-          line: 50 523  # ^nofail ( TOPIC ^respond ( $$t
-          if 51 566  
-          line: 51 562  # ^if 00A( %response != $_respon
-          line: 52 605  # { 
-          line: 53 607  # ^end ( RULE ) 
-          ifend 54 626  
-          line: 54 621  # } 004 
-          loopend 55 629  
-          line: 55 627  # } 
-          ifend 56 634  
-          line: 56 629  # } 004 
-          if 59 639  
-          line: 59 635  # ^if 00A( %response == $_respon
-          line: 60 678  # { 
-          line: 61 680  # ^nofail ( TOPIC ^respond ( ~ke
-          ifend 62 729  
-          line: 62 724  # } 004 
-          if 65 734  
-          line: 65 730  # ^if 00P( %response == $_respon
-          line: 66 788  # { 
-          line: 67 790  # ^nofail ( TOPIC ^respond ( ~qu
-          ifend 68 839  
-          line: 68 834  # } 004 
-          if 71 844  
-          line: 71 840  # ^if 00F( %outputrejoinder or %
-          line: 72 888  # { 
-          line: 73 890  # ^end ( TOPIC ) 
-          ifend 74 910  
-          line: 74 905  # } 004 
-          if 77 915  
-          ifend 77 1037  
-          line: 77 911  # ^if 00%( %response == $_respon
-          if 79 1042  
-          line: 79 1038  # ^if 00A( %response == $_respon
-          line: 80 1081  # { 
-          line: 81 1083  # @8 = ^keywordtopics ( ) 
-          loop 82 1113  
-          line: 82 1107  # ^loop ( -1 ) aaa 
-          line: 83 1124  # { 
-          line: 84 1126  # $$topic = ^first ( @8subject )
-          line: 85 1157  # ^nofail ( TOPIC ^gambit ( $$to
-          if 86 1199  
-          line: 86 1195  # ^if 00A( %response != $_respon
-          line: 87 1238  # { 
-          line: 88 1240  # ^end ( RULE ) 
-          ifend 89 1259  
-          line: 89 1254  # } 004 
-          loopend 90 1262  
-          line: 90 1260  # } 
-          ifend 91 1267  
-          line: 91 1262  # } 004 
-          if 93 1272  
-          ifend 93 1363  
-          line: 93 1268  # ^if 00A( %response == $_respon
-          if 95 1368  
-          line: 95 1364  # ^if 00A( %response == $_respon
-          line: 96 1407  # { 
-          line: 97 1409  # @8 = ^gambittopics ( ) 
-          loop 98 1438  
-          line: 98 1432  # ^loop ( -1 ) aaa 
-          line: 99 1449  # { 
-          line: 100 1451  # $$topic = ^pick ( @8subject ) 
-          line: 101 1481  # ^nofail ( TOPIC ^gambit ( $$to
-          if 102 1523  
-          line: 102 1519  # ^if 00A( %response != $_respon
-          line: 103 1562  # { 
-          line: 104 1564  # ^end ( RULE ) 
-          ifend 105 1583  
-          line: 105 1578  # } 004 
-          loopend 106 1586  
-          line: 106 1584  # } 
-          ifend 107 1591  
-          line: 107 1586  # } 004 
-          if 109 1596  
-          line: 109 1592  # ^if 00A( %response == $_respon
-          line: 110 1635  # { 
-          line: 111 1637  # ^repeat ( ) 
-          line: 112 1649  # I don't know what to say. Try 
-          line: 113 1720  # } aaa 
-          ifend 115 1725  
-          Complexity of rule ~control.1.0- u: 17
+        rule: 33  ~control.1.0 u: 
+          line: 35 0  # $$lang = en 
+          if 36 16  
+          ifend 36 65  
+          line: 36 12  # ^if 00r( pattern ~fr_markers )
+          line: 38 66  # $_responsecount = %response 
+          if 40 98  
+          ifend 40 151  
+          line: 40 94  # ^if 00n( $singleresponse ) 00v
+          line: 42 152  # $$currenttopic = %topic 
+          if 45 180  
+          ifend 45 259  
+          line: 45 176  # ^if 00A( %response == $_respon
+          if 48 264  
+          line: 48 260  # ^if 00R( %length == 0 and %res
+          line: 49 320  # { 
+          line: 50 322  # ^nofail ( TOPIC ^gambit ( $$cu
+          ifend 51 372  
+          line: 51 367  # } 004 
+          if 54 377  
+          ifend 54 469  
+          line: 54 373  # ^if 00A( %response == $_respon
+          if 57 474  
+          line: 57 470  # ^if 00A( %response == $_respon
+          line: 58 513  # { 
+          line: 59 515  # @8 = ^keywordtopics ( ) 
+          loop 60 545  
+          line: 60 539  # ^loop ( -1 ) aaa 
+          line: 61 556  # { 
+          line: 62 558  # $$topic = ^first ( @8subject )
+          line: 63 589  # ^nofail ( TOPIC ^respond ( $$t
+          if 64 632  
+          line: 64 628  # ^if 00A( %response != $_respon
+          line: 65 671  # { 
+          line: 66 673  # ^end ( RULE ) 
+          ifend 67 692  
+          line: 67 687  # } 004 
+          loopend 68 695  
+          line: 68 693  # } 
+          ifend 69 700  
+          line: 69 695  # } 004 
+          if 72 705  
+          line: 72 701  # ^if 00A( %response == $_respon
+          line: 73 744  # { 
+          line: 74 746  # ^nofail ( TOPIC ^respond ( ~ke
+          ifend 75 795  
+          line: 75 790  # } 004 
+          if 78 800  
+          line: 78 796  # ^if 00P( %response == $_respon
+          line: 79 854  # { 
+          line: 80 856  # ^nofail ( TOPIC ^respond ( ~qu
+          ifend 81 905  
+          line: 81 900  # } 004 
+          if 84 910  
+          line: 84 906  # ^if 00F( %outputrejoinder or %
+          line: 85 954  # { 
+          line: 86 956  # ^end ( TOPIC ) 
+          ifend 87 976  
+          line: 87 971  # } 004 
+          if 90 981  
+          ifend 90 1103  
+          line: 90 977  # ^if 00%( %response == $_respon
+          if 92 1108  
+          line: 92 1104  # ^if 00A( %response == $_respon
+          line: 93 1147  # { 
+          line: 94 1149  # @8 = ^keywordtopics ( ) 
+          loop 95 1179  
+          line: 95 1173  # ^loop ( -1 ) aaa 
+          line: 96 1190  # { 
+          line: 97 1192  # $$topic = ^first ( @8subject )
+          line: 98 1223  # ^nofail ( TOPIC ^gambit ( $$to
+          if 99 1265  
+          line: 99 1261  # ^if 00A( %response != $_respon
+          line: 100 1304  # { 
+          line: 101 1306  # ^end ( RULE ) 
+          ifend 102 1325  
+          line: 102 1320  # } 004 
+          loopend 103 1328  
+          line: 103 1326  # } 
+          ifend 104 1333  
+          line: 104 1328  # } 004 
+          if 106 1338  
+          ifend 106 1429  
+          line: 106 1334  # ^if 00A( %response == $_respon
+          if 108 1434  
+          line: 108 1430  # ^if 00A( %response == $_respon
+          line: 109 1473  # { 
+          line: 110 1475  # @8 = ^gambittopics ( ) 
+          loop 111 1504  
+          line: 111 1498  # ^loop ( -1 ) aaa 
+          line: 112 1515  # { 
+          line: 113 1517  # $$topic = ^pick ( @8subject ) 
+          line: 114 1547  # ^nofail ( TOPIC ^gambit ( $$to
+          if 115 1589  
+          line: 115 1585  # ^if 00A( %response != $_respon
+          line: 116 1628  # { 
+          line: 117 1630  # ^end ( RULE ) 
+          ifend 118 1649  
+          line: 118 1644  # } 004 
+          loopend 119 1652  
+          line: 119 1650  # } 
+          ifend 120 1657  
+          line: 120 1652  # } 004 
+          if 122 1662  
+          line: 122 1658  # ^if 00A( %response == $_respon
+          line: 123 1701  # { 
+          line: 124 1703  # ^repeat ( ) 
+          if 125 1719  
+          line: 125 1715  # ^if 00k( $$lang == fr ) 01t{ J
+          else 126 1848  
+          ifend 126 1936  
+          line: 126 1843  # else ( 1 ) 017 { I don't know 
+          line: 127 1937  # } aaa 
+          ifend 129 1942  
+          Complexity of rule ~control.1.0- u: 19
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/BOT/keywordless.top
     topic: 3  ~keywordless
         rule: 5  ~keywordless.0.0 u: 
@@ -1194,27 +1936,42 @@ file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScri
           line: 8 0  # ^keep ( ) ^gambit ( $$currentt
           Complexity of rule ~keywordless.1.0- u: 1
         rule: 11  ~keywordless.2.0 u: 
-          line: 12 0  # I can help you with Kubernetes
-          line: 13 60  # - Workloads: Pod, Deployment, 
-          line: 14 130  # - Networking: Service, Ingress
-          line: 15 179  # - Storage: PersistentVolume, P
-          line: 16 229  # - Configuration: ConfigMap, Se
-          line: 17 287  # - Access Control: Role, Cluste
-          line: 18 342  # - Cluster: Namespace, Node \n 
-          line: 19 372  # Or just chat with me! 
-          Complexity of rule ~keywordless.2.0- u: 1
-        rule: 22  ~keywordless.3.0 u: 
-          line: 23 0  # Here are the Kubernetes topics
-          line: 24 48  # Workloads | Networking | Stora
-          line: 25 144  # You can also just chat with me
+          if 12 4  
+          line: 12 0  # ^if 00k( $$lang == fr ) aaa{ J
+          line: 13 117  # - Workloads : Pod, Deployment,
+          line: 14 188  # - Reseau : Service, Ingress, N
+          line: 15 234  # - Stockage : PersistentVolume,
+          line: 16 286  # - Configuration : ConfigMap, S
+          line: 17 345  # - Controle d'acces : Role, Clu
+          line: 18 403  # - Cluster : Namespace, Node \n
+          line: 19 434  # Ou discutez simplement avec mo
+          else 20 479  
+          line: 20 474  # else ( 1 ) aaa { I can help yo
+          line: 21 551  # - Workloads: Pod, Deployment, 
+          line: 22 621  # - Networking: Service, Ingress
+          line: 23 670  # - Storage: PersistentVolume, P
+          line: 24 720  # - Configuration: ConfigMap, Se
+          line: 25 778  # - Access Control: Role, Cluste
+          line: 26 833  # - Cluster: Namespace, Node \n 
+          ifend 27 890  
+          line: 27 863  # Or just chat with me! } 004 
+          Complexity of rule ~keywordless.2.0- u: 2
+        rule: 30  ~keywordless.3.0 u: 
+          line: 31 0  # Here are the Kubernetes topics
+          line: 32 48  # Workloads | Networking | Stora
+          line: 33 144  # You can also just chat with me
           Complexity of rule ~keywordless.3.0- u: 1
-        rule: 27  ~keywordless.4.0 u: 
-          line: 28 0  # Bien sur ! Posez-moi une quest
+        rule: 35  ~keywordless.4.0 u: 
+          line: 36 0  # Bien sur ! Posez-moi une quest
           Complexity of rule ~keywordless.4.0- u: 1
-        rule: 30  ~keywordless.5.0 u: 
-          line: 31 0  # ^keep ( ) I'm not sure I under
-          line: 32 124  # Type "help" to see all topics 
-          Complexity of rule ~keywordless.5.0- u: 1
+        rule: 38  ~keywordless.5.0 u: 
+          if 39 14  
+          line: 39 0  # ^keep ( ) ^if 00k( $$lang == f
+          line: 40 199  # Tapez "help" pour voir tous le
+          else 41 265  
+          line: 41 260  # else ( 1 ) aaa { I'm not sure 
+          ifend 43 440  
+          Complexity of rule ~keywordless.5.0- u: 2
 file: 0  /Users/dleclercq/Documents/Workspaces/projets-perso/chatscript/ChatScript/RAWDATA/QUIBBLE/eliza_because.top
     topic: 1  ~quibble_because
         rule: 2  ~quibble_because.0.0 s: 

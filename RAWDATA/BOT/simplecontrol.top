@@ -15,6 +15,15 @@ table: defaultbot (^name)
 DATA:
 kubebot
 
+concept: ~fr_markers (
+    bonjour bonsoir salut coucou merci
+    comment pourquoi quoi quel quelle quels quelles
+    "qu est-ce" "est-ce" "c est" "il y a"
+    deployer configurer expliquer fonctionne fonctionner
+    entre utiliser creer supprimer lister
+    sont "peut-on" peut
+)
+
 topic: ~control system ()
 
 # on startup, do introduction
@@ -22,6 +31,10 @@ u: (%input<%userfirstline)
 	gambit(~introductions)
 
 u: () # main per-sentence processing
+	# Language detection
+	$$lang = en
+	if (pattern ~fr_markers) { $$lang = fr }
+
 	$_responseCount = %response
 
 	if ($singleResponse) {$_responseCount = 0}
@@ -109,5 +122,6 @@ u: () # main per-sentence processing
 	if (%response == $_responseCount)
 	{
 		^repeat()
-		I don't know what to say. Try asking me about Kubernetes or just chat!
+		if ($$lang == fr) { Je ne sais pas quoi repondre. Essayez de me poser une question sur Kubernetes ou discutons ! }
+		else { I don't know what to say. Try asking me about Kubernetes or just chat! }
 	}

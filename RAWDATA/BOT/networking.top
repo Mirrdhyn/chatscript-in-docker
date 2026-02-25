@@ -9,97 +9,115 @@ topic: ~k8s_service (service services clusterip nodeport loadbalancer externalna
 
 #! what is a service
 u: (<< [what quel "qu'est-ce"] [is est] [a un une] service >>)
-	A Kubernetes Service is an abstraction that exposes a set of Pods as a network service. It provides a stable IP address and DNS name so that clients can reliably connect to Pods, even as they are created and destroyed. \n
-	Un Service Kubernetes est une abstraction qui expose un ensemble de Pods en tant que service reseau. Il fournit une adresse IP stable et un nom DNS pour que les clients puissent se connecter aux Pods de maniere fiable, meme lorsqu'ils sont crees et detruits.
+	if ($$lang == fr) { Un Service Kubernetes est une abstraction qui expose un ensemble de Pods en tant que service reseau. Il fournit une adresse IP stable et un nom DNS pour que les clients puissent se connecter aux Pods de maniere fiable, meme lorsqu'ils sont crees et detruits. }
+	else { A Kubernetes Service is an abstraction that exposes a set of Pods as a network service. It provides a stable IP address and DNS name so that clients can reliably connect to Pods, even as they are created and destroyed. }
 
 #! service types
 u: (<< [type types kind sorte] [of de] service >>)
-	^keep() Kubernetes supports four Service types: \n
+	^keep() if ($$lang == fr) { Les quatre types de Service sont : ClusterIP (defaut), NodePort, LoadBalancer et ExternalName. }
+	else { Kubernetes supports four Service types: \n
 	1. ClusterIP (default) - exposes the Service on an internal cluster IP. \n
 	2. NodePort - exposes the Service on each node's IP at a static port. \n
 	3. LoadBalancer - provisions an external load balancer from the cloud provider. \n
-	4. ExternalName - maps the Service to an external DNS name via a CNAME record. \n
-	Les quatre types de Service sont : ClusterIP (defaut), NodePort, LoadBalancer et ExternalName.
+	4. ExternalName - maps the Service to an external DNS name via a CNAME record. }
 
 #! what is clusterip
 u: (<< [what quel "qu'est-ce"] [is est] clusterip >>)
-	ClusterIP is the default Service type. It assigns an internal IP address reachable only from within the cluster. Other Pods can access the Service using this IP or the Service's DNS name (e.g., my-svc.my-namespace.svc.cluster.local). \n
-	ClusterIP est le type de Service par defaut. Il attribue une adresse IP interne accessible uniquement depuis l'interieur du cluster.
+	if ($$lang == fr) { ClusterIP est le type de Service par defaut. Il attribue une adresse IP interne accessible uniquement depuis l'interieur du cluster. }
+	else { ClusterIP is the default Service type. It assigns an internal IP address reachable only from within the cluster. Other Pods can access the Service using this IP or the Service's DNS name (e.g., my-svc.my-namespace.svc.cluster.local). }
 
 #! explain clusterip
 u: (<< [explain expliquer tell dis parle] clusterip >>)
-	ClusterIP is the default Service type. It assigns an internal IP address reachable only from within the cluster. Other Pods can access the Service using this IP or the Service's DNS name (e.g., my-svc.my-namespace.svc.cluster.local). \n
-	ClusterIP est le type de Service par defaut. Il attribue une adresse IP interne accessible uniquement depuis l'interieur du cluster.
+	if ($$lang == fr) { ClusterIP est le type de Service par defaut. Il attribue une adresse IP interne accessible uniquement depuis l'interieur du cluster. }
+	else { ClusterIP is the default Service type. It assigns an internal IP address reachable only from within the cluster. Other Pods can access the Service using this IP or the Service's DNS name (e.g., my-svc.my-namespace.svc.cluster.local). }
 
 #! what is nodeport
 u: (<< [what quel "qu'est-ce"] [is est] nodeport >>)
-	NodePort exposes the Service on a static port (default range 30000-32767) on every node in the cluster. External traffic can reach the Service via <NodeIP>:<NodePort>. Kubernetes automatically creates a ClusterIP to which the NodePort routes. \n
-	NodePort expose le Service sur un port statique (plage par defaut 30000-32767) sur chaque noeud du cluster. Le trafic externe peut atteindre le Service via <NodeIP>:<NodePort>.
+	if ($$lang == fr) { NodePort expose le Service sur un port statique (plage par defaut 30000-32767) sur chaque noeud du cluster. Le trafic externe peut atteindre le Service via <NodeIP>:<NodePort>. }
+	else { NodePort exposes the Service on a static port (default range 30000-32767) on every node in the cluster. External traffic can reach the Service via <NodeIP>:<NodePort>. Kubernetes automatically creates a ClusterIP to which the NodePort routes. }
 
 #! nodeport range
 u: (<< nodeport [range plage port ports] >>)
-	The default NodePort range is 30000 to 32767. This can be configured with the --service-node-port-range flag on the API server. You can also specify a particular port within the range using the nodePort field. \n
-	La plage par defaut de NodePort est 30000 a 32767. Elle peut etre configuree via le flag --service-node-port-range sur le serveur API.
+	if ($$lang == fr) { La plage par defaut de NodePort est 30000 a 32767. Elle peut etre configuree via le flag --service-node-port-range sur le serveur API. }
+	else { The default NodePort range is 30000 to 32767. This can be configured with the --service-node-port-range flag on the API server. You can also specify a particular port within the range using the nodePort field. }
 
 #! what is loadbalancer service
 u: (<< [what quel "qu'est-ce"] [is est] loadbalancer >>)
-	LoadBalancer provisions an external load balancer from your cloud provider (AWS ELB, GCP LB, Azure LB, etc.). It automatically creates a NodePort and ClusterIP to which the external load balancer routes traffic. This is the standard way to expose a Service to the internet. \n
-	LoadBalancer provisionne un repartiteur de charge externe aupres de votre fournisseur cloud. Il cree automatiquement un NodePort et un ClusterIP vers lesquels le trafic est achemine.
+	if ($$lang == fr) { LoadBalancer provisionne un repartiteur de charge externe aupres de votre fournisseur cloud. Il cree automatiquement un NodePort et un ClusterIP vers lesquels le trafic est achemine. }
+	else { LoadBalancer provisions an external load balancer from your cloud provider (AWS ELB, GCP LB, Azure LB, etc.). It automatically creates a NodePort and ClusterIP to which the external load balancer routes traffic. This is the standard way to expose a Service to the internet. }
 
 #! what is externalname
 u: (<< [what quel "qu'est-ce"] [is est] externalname >>)
-	ExternalName maps a Service to an external DNS name by returning a CNAME record. It does not use selectors or define any ports. For example, you could map a Service to my-database.example.com so Pods can use the Service name instead of the external hostname. \n
-	ExternalName associe un Service a un nom DNS externe en renvoyant un enregistrement CNAME. Il n'utilise ni selecteurs ni ports.
+	if ($$lang == fr) { ExternalName associe un Service a un nom DNS externe en renvoyant un enregistrement CNAME. Il n'utilise ni selecteurs ni ports. }
+	else { ExternalName maps a Service to an external DNS name by returning a CNAME record. It does not use selectors or define any ports. For example, you could map a Service to my-database.example.com so Pods can use the Service name instead of the external hostname. }
 
 #! service selector
 u: (<< service [selector selecteur label labels etiquette] >>)
-	A Service uses a selector to match Pods by their labels. Only Pods whose labels match the selector receive traffic from the Service. For example, a selector of "app: web" routes traffic to all Pods with the label app=web. If no selector is defined, no Endpoints are automatically created. \n
-	Un Service utilise un selecteur pour cibler les Pods par leurs labels. Seuls les Pods dont les labels correspondent au selecteur recoivent le trafic.
+	if ($$lang == fr) { Un Service utilise un selecteur pour cibler les Pods par leurs labels. Seuls les Pods dont les labels correspondent au selecteur recoivent le trafic. }
+	else { A Service uses a selector to match Pods by their labels. Only Pods whose labels match the selector receive traffic from the Service. For example, a selector of "app: web" routes traffic to all Pods with the label app=web. If no selector is defined, no Endpoints are automatically created. }
 
 #! service ports
 u: (<< service [port ports] [explain expliquer detail] >>)
-	A Service defines several port fields: \n
+	if ($$lang == fr) { Un Service definit plusieurs champs de port : port (ecoute du Service), targetPort (port du conteneur), nodePort (port sur chaque noeud) et protocol (TCP, UDP ou SCTP). }
+	else { A Service defines several port fields: \n
 	- port: the port the Service listens on (the port other Pods use to connect). \n
 	- targetPort: the port on the Pod container that receives the traffic. \n
 	- nodePort: (NodePort/LoadBalancer only) the static port on each node. \n
-	- protocol: TCP (default), UDP, or SCTP. \n
-	Un Service definit plusieurs champs de port : port (ecoute du Service), targetPort (port du conteneur), nodePort (port sur chaque noeud) et protocol (TCP, UDP ou SCTP).
+	- protocol: TCP (default), UDP, or SCTP. }
 
 #! port targetport
 u: (<< [port targetport target_port] [targetport target_port port] >>)
-	The "port" field is the port the Service is exposed on within the cluster. The "targetPort" field is the port your container is actually listening on. They can be different. For example, your Service can listen on port 80 but forward to targetPort 8080 on the Pod. \n
-	Le champ "port" est le port d'ecoute du Service. Le champ "targetPort" est le port reel du conteneur. Ils peuvent etre differents.
+	if ($$lang == fr) { Le champ "port" est le port d'ecoute du Service. Le champ "targetPort" est le port reel du conteneur. Ils peuvent etre differents. }
+	else { The "port" field is the port the Service is exposed on within the cluster. The "targetPort" field is the port your container is actually listening on. They can be different. For example, your Service can listen on port 80 but forward to targetPort 8080 on the Pod. }
 
 #! session affinity
 u: (<< [session sessionaffinity] [affinity affinite] >>)
-	sessionAffinity controls whether requests from the same client are routed to the same Pod. It can be set to: \n
+	if ($$lang == fr) { sessionAffinity controle si les requetes d'un meme client sont dirigees vers le meme Pod. Les valeurs possibles sont None (defaut) et ClientIP. }
+	else { sessionAffinity controls whether requests from the same client are routed to the same Pod. It can be set to: \n
 	- None (default): no session affinity, requests are distributed randomly. \n
-	- ClientIP: all requests from the same client IP go to the same Pod. You can also set timeoutSeconds (default 10800s / 3 hours). \n
-	sessionAffinity controle si les requetes d'un meme client sont dirigees vers le meme Pod. Les valeurs possibles sont None (defaut) et ClientIP.
+	- ClientIP: all requests from the same client IP go to the same Pod. You can also set timeoutSeconds (default 10800s / 3 hours). }
 
 #! external traffic policy
 u: (<< [external externe] [traffic trafic] [policy politique] >>)
-	externalTrafficPolicy controls how external traffic is routed to Service endpoints: \n
+	if ($$lang == fr) { externalTrafficPolicy controle le routage du trafic externe : Cluster (defaut, repartition uniforme) ou Local (preserve l'IP source, mais repartition potentiellement inegale). }
+	else { externalTrafficPolicy controls how external traffic is routed to Service endpoints: \n
 	- Cluster (default): traffic may be routed to any node, potentially adding an extra hop but providing even load distribution. \n
-	- Local: traffic is only routed to Pods on the node that received the traffic, preserving the client source IP but risking uneven load. \n
-	externalTrafficPolicy controle le routage du trafic externe : Cluster (defaut, repartition uniforme) ou Local (preserve l'IP source, mais repartition potentiellement inegale).
+	- Local: traffic is only routed to Pods on the node that received the traffic, preserving the client source IP but risking uneven load. }
 
 #! internal traffic policy
 u: (<< [internal interne] [traffic trafic] [policy politique] >>)
-	internalTrafficPolicy controls how internal (in-cluster) traffic is routed to Service endpoints: \n
+	if ($$lang == fr) { internalTrafficPolicy controle le routage du trafic interne : Cluster (defaut) ou Local (uniquement les endpoints sur le meme noeud). }
+	else { internalTrafficPolicy controls how internal (in-cluster) traffic is routed to Service endpoints: \n
 	- Cluster (default): traffic can be routed to any endpoint across the cluster. \n
-	- Local: traffic is only routed to endpoints on the same node as the client Pod. If no local endpoint exists, the traffic is dropped. \n
-	internalTrafficPolicy controle le routage du trafic interne : Cluster (defaut) ou Local (uniquement les endpoints sur le meme noeud).
+	- Local: traffic is only routed to endpoints on the same node as the client Pod. If no local endpoint exists, the traffic is dropped. }
 
 #! headless service
 u: (<< headless [service services] >>)
-	A headless Service is created by setting clusterIP to None. It does not get a cluster IP. Instead, a DNS query returns the individual IP addresses of the Pods. This is useful for StatefulSets where clients need to connect to specific Pods, or for service discovery without load balancing. \n
-	Un Service headless est cree en definissant clusterIP a None. Il ne recoit pas d'adresse IP de cluster et les requetes DNS renvoient directement les adresses IP des Pods.
+	if ($$lang == fr) { Un Service headless est cree en definissant clusterIP a None. Il ne recoit pas d'adresse IP de cluster et les requetes DNS renvoient directement les adresses IP des Pods. }
+	else { A headless Service is created by setting clusterIP to None. It does not get a cluster IP. Instead, a DNS query returns the individual IP addresses of the Pods. This is useful for StatefulSets where clients need to connect to specific Pods, or for service discovery without load balancing. }
 
 #! clusterip none
 u: (<< clusterip none >>)
-	Setting clusterIP to None creates a headless Service. No virtual IP is allocated. DNS resolution returns the A/AAAA records of the individual Pods matching the selector. This pattern is commonly used with StatefulSets for direct Pod-to-Pod communication. \n
-	Definir clusterIP a None cree un Service headless. Aucune IP virtuelle n'est attribuee et le DNS renvoie les enregistrements A/AAAA de chaque Pod.
+	if ($$lang == fr) { Definir clusterIP a None cree un Service headless. Aucune IP virtuelle n'est attribuee et le DNS renvoie les enregistrements A/AAAA de chaque Pod. }
+	else { Setting clusterIP to None creates a headless Service. No virtual IP is allocated. DNS resolution returns the A/AAAA records of the individual Pods matching the selector. This pattern is commonly used with StatefulSets for direct Pod-to-Pod communication. }
+
+#! service ipFamilies ipFamilyPolicy dual-stack
+u: (<< service [ipFamilies ipFamilyPolicy "ip family" "dual stack" "dual-stack" "double pile" ipv4 ipv6] >>)
+	^keep() if ($$lang == fr) { Les champs ipFamilies et ipFamilyPolicy activent le support dual-stack (IPv4 et IPv6). ipFamilies est une liste ordonnee des familles IP. ipFamilyPolicy controle le comportement : SingleStack [defaut], PreferDualStack [dual-stack si supporte], RequireDualStack [exige les deux familles]. Stable depuis Kubernetes 1.23. }
+	else { The ipFamilies and ipFamilyPolicy fields enable dual-stack (IPv4 and IPv6) support on a Service: \n
+	* ipFamilies: an ordered list specifying which IP families to use, e.g. ["IPv4"], ["IPv6"], or ["IPv4","IPv6"] for dual-stack. \n
+	* ipFamilyPolicy: controls the behavior. Values are SingleStack [default, single IP family], PreferDualStack [use dual-stack if the cluster supports it, fallback to single], and RequireDualStack [the Service must have both IPv4 and IPv6 addresses, fails if the cluster does not support dual-stack]. \n
+	Dual-stack is stable since Kubernetes 1.23. }
+
+#! service loadBalancerSourceRanges restrict access CIDR
+u: (<< service [loadBalancerSourceRanges "source range" "source ranges" "restrict access" CIDR "restrict LB" "restrict load"] >>)
+	^keep() if ($$lang == fr) { Le champ loadBalancerSourceRanges restreint les plages IP clientes pouvant acceder a un Service LoadBalancer. Il prend une liste de blocs CIDR. Seul le trafic provenant de ces plages est autorise ; le reste est bloque. Si non specifie, le LoadBalancer est ouvert a toutes les sources. }
+	else { The loadBalancerSourceRanges field restricts which client IP ranges can access a LoadBalancer Service. It takes a list of CIDR blocks, e.g. ["203.0.113.0/24", "198.51.100.0/24"]. Only traffic from these IP ranges is allowed through the cloud load balancer; all other traffic is dropped. This provides a simple IP-based access control layer without needing a separate firewall. If not specified, the LoadBalancer is open to all sources (0.0.0.0/0). }
+
+#! service publishNotReadyAddresses headless statefulset
+u: (<< service [publishNotReadyAddresses "not ready" "publish not ready" "pas pret"] >>)
+	^keep() if ($$lang == fr) { Quand publishNotReadyAddresses est true sur un Service, le controleur EndpointSlice inclut les adresses des Pods meme quand ils ne sont pas encore Ready. Principalement utilise avec les Services headless pour les StatefulSets, ou les Pods doivent se decouvrir pendant l'initialisation. La valeur par defaut est false. }
+	else { When publishNotReadyAddresses is set to true on a Service, the EndpointSlice controller includes Pod addresses even when Pods are not yet Ready. This is primarily used with headless Services for StatefulSets, where Pods need to discover each other during initialization before they become Ready. For example, a database cluster where nodes must find peers to form a quorum. The default is false, meaning only Ready Pods are included in DNS and EndpointSlices. }
 
 
 # =============================================================================
@@ -110,52 +128,57 @@ topic: ~k8s_ingress (ingress ingresses entree routage routing host path tls http
 
 #! what is an ingress
 u: (<< [what quel "qu'est-ce"] [is est] [a un une] ingress >>)
-	An Ingress is a Kubernetes resource that manages external HTTP/HTTPS access to Services in the cluster. It provides URL-based routing, SSL/TLS termination, and name-based virtual hosting. An Ingress requires an Ingress Controller (like NGINX, Traefik, or HAProxy) to function. \n
-	Un Ingress est une ressource Kubernetes qui gere l'acces HTTP/HTTPS externe aux Services du cluster. Il fournit le routage par URL, la terminaison SSL/TLS et l'hebergement virtuel par nom. Un Ingress Controller est necessaire pour son fonctionnement.
+	if ($$lang == fr) { Un Ingress est une ressource Kubernetes qui gere l'acces HTTP/HTTPS externe aux Services du cluster. Il fournit le routage par URL, la terminaison SSL/TLS et l'hebergement virtuel par nom. Un Ingress Controller est necessaire pour son fonctionnement. }
+	else { An Ingress is a Kubernetes resource that manages external HTTP/HTTPS access to Services in the cluster. It provides URL-based routing, SSL/TLS termination, and name-based virtual hosting. An Ingress requires an Ingress Controller (like NGINX, Traefik, or HAProxy) to function. }
 
 #! ingress rules
 u: (<< ingress [rule rules regle regles routing routage] >>)
-	Ingress rules define how incoming requests are routed. Each rule can specify: \n
+	if ($$lang == fr) { Les regles Ingress definissent le routage des requetes entrantes. Chaque regle peut specifier un host (en-tete Host) et des paths (chemins) avec un backend Service/port. }
+	else { Ingress rules define how incoming requests are routed. Each rule can specify: \n
 	- host: matches the request's Host header (e.g., app.example.com). \n
 	- http.paths: a list of paths, each with a path, pathType, and a backend Service/port. \n
-	If no host is specified, the rule applies to all inbound HTTP traffic. Multiple rules can route different hosts and paths to different Services. \n
-	Les regles Ingress definissent le routage des requetes entrantes. Chaque regle peut specifier un host (en-tete Host) et des paths (chemins) avec un backend Service/port.
+	If no host is specified, the rule applies to all inbound HTTP traffic. Multiple rules can route different hosts and paths to different Services. }
 
 #! ingress host path routing
 u: (<< ingress [host path chemin] >>)
-	Ingress supports host-based and path-based routing: \n
+	if ($$lang == fr) { Ingress supporte le routage par host (en-tete Host) et par path (chemin URL). Les deux peuvent etre combines. }
+	else { Ingress supports host-based and path-based routing: \n
 	- Host-based: route traffic based on the Host header (e.g., api.example.com goes to the api Service, web.example.com goes to the frontend Service). \n
 	- Path-based: route traffic based on the URL path (e.g., /api goes to the api Service, /app goes to the frontend Service). \n
-	Both can be combined for fine-grained routing. \n
-	Ingress supporte le routage par host (en-tete Host) et par path (chemin URL). Les deux peuvent etre combines.
+	Both can be combined for fine-grained routing. }
 
 #! pathtype
 u: (<< [pathtype path_type] [ingress path] >>)
-	The pathType field in Ingress rules determines how the path is matched: \n
+	if ($$lang == fr) { pathType determine la correspondance du chemin : Prefix (prefixe), Exact (exacte) ou ImplementationSpecific (selon le controleur). }
+	else { The pathType field in Ingress rules determines how the path is matched: \n
 	- Prefix: matches based on a URL path prefix split by /. A path /foo matches /foo, /foo/, and /foo/bar. \n
 	- Exact: matches the URL path exactly. /foo only matches /foo, not /foo/ or /foo/bar. \n
-	- ImplementationSpecific: matching depends on the Ingress Controller implementation. \n
-	pathType determine la correspondance du chemin : Prefix (prefixe), Exact (exacte) ou ImplementationSpecific (selon le controleur).
+	- ImplementationSpecific: matching depends on the Ingress Controller implementation. }
 
 #! ingress tls
 u: (<< ingress [tls ssl https certificat certificate secret] >>)
-	Ingress TLS configuration allows you to terminate HTTPS at the Ingress level. You specify a TLS section with: \n
+	if ($$lang == fr) { La configuration TLS de l'Ingress permet de terminer HTTPS au niveau de l'Ingress. On specifie les hosts et un Secret contenant le certificat et la cle privee. }
+	else { Ingress TLS configuration allows you to terminate HTTPS at the Ingress level. You specify a TLS section with: \n
 	- hosts: list of hostnames the certificate covers. \n
 	- secretName: the Kubernetes Secret containing the TLS certificate (tls.crt) and private key (tls.key). \n
-	The Ingress Controller handles the SSL/TLS termination, and traffic to backend Services is typically unencrypted (HTTP). \n
-	La configuration TLS de l'Ingress permet de terminer HTTPS au niveau de l'Ingress. On specifie les hosts et un Secret contenant le certificat et la cle privee.
+	The Ingress Controller handles the SSL/TLS termination, and traffic to backend Services is typically unencrypted (HTTP). }
 
 #! ingressclassname
 u: (<< [ingressclassname ingressclass "ingress class"] [ingress] >>)
-	The ingressClassName field in an Ingress resource specifies which Ingress Controller should handle this Ingress. For example, setting ingressClassName to "nginx" tells Kubernetes to use the NGINX Ingress Controller. This replaced the older kubernetes.io/ingress.class annotation. \n
-	Le champ ingressClassName dans un Ingress specifie quel Ingress Controller doit gerer cet Ingress. Cela remplace l'ancienne annotation kubernetes.io/ingress.class.
+	if ($$lang == fr) { Le champ ingressClassName dans un Ingress specifie quel Ingress Controller doit gerer cet Ingress. Cela remplace l'ancienne annotation kubernetes.io/ingress.class. }
+	else { The ingressClassName field in an Ingress resource specifies which Ingress Controller should handle this Ingress. For example, setting ingressClassName to "nginx" tells Kubernetes to use the NGINX Ingress Controller. This replaced the older kubernetes.io/ingress.class annotation. }
+
+#! ingress defaultBackend catch-all
+u: (<< ingress [defaultBackend "default backend" "catch all" "catch-all" "backend par defaut" "backend default"] >>)
+	^keep() if ($$lang == fr) { Le champ defaultBackend dans la spec d'un Ingress definit un backend par defaut qui traite les requetes ne correspondant a aucune regle. Il reference un Service par nom et port. Si aucune regle ne correspond, le trafic est envoye au defaultBackend. Si aucun defaultBackend n'est defini, le comportement depend du controleur Ingress (generalement une erreur 404). }
+	else { The defaultBackend field in an Ingress spec defines a catch-all backend that handles requests that do not match any rule. It references a Service by name and port. If no rules match an incoming request (no matching host or path), traffic is sent to the defaultBackend. If no defaultBackend is defined and no rules match, the behavior depends on the Ingress Controller (usually returns a 404). You can also set a cluster-wide default backend on the Ingress Controller itself. }
 
 #! ingress vs loadbalancer
 u: (<< ingress [vs versus ou or compare comparer difference] [loadbalancer service] >>)
-	Ingress vs LoadBalancer Service: \n
+	if ($$lang == fr) { LoadBalancer cree un LB externe par Service (L4). Ingress utilise un seul LB avec routage par host/path (L7), plus economique pour les charges HTTP. }
+	else { Ingress vs LoadBalancer Service: \n
 	- LoadBalancer: creates one external load balancer per Service. Simple but expensive with many Services. Works at L4 (TCP/UDP). \n
-	- Ingress: uses a single load balancer with an Ingress Controller to route traffic to multiple Services based on host/path rules. Works at L7 (HTTP/HTTPS). More cost-effective and flexible for HTTP workloads. \n
-	LoadBalancer cree un LB externe par Service (L4). Ingress utilise un seul LB avec routage par host/path (L7), plus economique pour les charges HTTP.
+	- Ingress: uses a single load balancer with an Ingress Controller to route traffic to multiple Services based on host/path rules. Works at L7 (HTTP/HTTPS). More cost-effective and flexible for HTTP workloads. }
 
 
 # =============================================================================
@@ -166,13 +189,13 @@ topic: ~k8s_ingressclass (ingressclass "ingress class" controller controleur)
 
 #! what is an ingressclass
 u: (<< [what quel "qu'est-ce"] [is est] [a un une] ingressclass >>)
-	An IngressClass is a Kubernetes resource that defines a named class of Ingress Controllers. It specifies which controller implementation should handle Ingresses that reference this class. The resource has a spec.controller field pointing to the controller name (e.g., k8s.io/ingress-nginx). \n
-	Une IngressClass est une ressource Kubernetes qui definit une classe nommee de controleurs Ingress. Elle specifie quel controleur doit gerer les Ingresses qui referencent cette classe.
+	if ($$lang == fr) { Une IngressClass est une ressource Kubernetes qui definit une classe nommee de controleurs Ingress. Elle specifie quel controleur doit gerer les Ingresses qui referencent cette classe. }
+	else { An IngressClass is a Kubernetes resource that defines a named class of Ingress Controllers. It specifies which controller implementation should handle Ingresses that reference this class. The resource has a spec.controller field pointing to the controller name (e.g., k8s.io/ingress-nginx). }
 
 #! default ingressclass
 u: (<< [default defaut] ingressclass >>)
-	You can mark an IngressClass as the default by adding the annotation ingressclass.kubernetes.io/is-default-class: "true". When an Ingress does not specify an ingressClassName, it will be handled by the default IngressClass controller. Only one IngressClass should be marked as default. \n
-	On peut marquer une IngressClass par defaut avec l'annotation ingressclass.kubernetes.io/is-default-class: "true". Les Ingresses sans ingressClassName seront geres par ce controleur.
+	if ($$lang == fr) { On peut marquer une IngressClass par defaut avec l'annotation ingressclass.kubernetes.io/is-default-class: "true". Les Ingresses sans ingressClassName seront geres par ce controleur. }
+	else { You can mark an IngressClass as the default by adding the annotation ingressclass.kubernetes.io/is-default-class: "true". When an Ingress does not specify an ingressClassName, it will be handled by the default IngressClass controller. Only one IngressClass should be marked as default. }
 
 
 # =============================================================================
@@ -183,33 +206,34 @@ topic: ~k8s_networkpolicy (networkpolicy networkpolicies politique reseau firewa
 
 #! what is a networkpolicy
 u: (<< [what quel "qu'est-ce"] [is est] [a un une] networkpolicy >>)
-	A NetworkPolicy is a Kubernetes resource that controls network traffic to and from Pods. By default, all Pods can communicate freely. NetworkPolicies act like a firewall, allowing you to restrict ingress (incoming) and egress (outgoing) traffic based on Pod selectors, namespace selectors, and IP blocks. A CNI plugin supporting NetworkPolicy (like Calico or Cilium) is required. \n
-	Une NetworkPolicy est une ressource Kubernetes qui controle le trafic reseau vers et depuis les Pods. Par defaut, tous les Pods peuvent communiquer librement. Les NetworkPolicies agissent comme un pare-feu. Un plugin CNI compatible (Calico, Cilium) est necessaire.
+	if ($$lang == fr) { Une NetworkPolicy est une ressource Kubernetes qui controle le trafic reseau vers et depuis les Pods. Par defaut, tous les Pods peuvent communiquer librement. Les NetworkPolicies agissent comme un pare-feu. Un plugin CNI compatible (Calico, Cilium) est necessaire. }
+	else { A NetworkPolicy is a Kubernetes resource that controls network traffic to and from Pods. By default, all Pods can communicate freely. NetworkPolicies act like a firewall, allowing you to restrict ingress (incoming) and egress (outgoing) traffic based on Pod selectors, namespace selectors, and IP blocks. A CNI plugin supporting NetworkPolicy (like Calico or Cilium) is required. }
 
 #! networkpolicy podselector
 u: (<< networkpolicy [podselector pod_selector selector selecteur pod pods] >>)
-	The podSelector field in a NetworkPolicy selects the Pods to which the policy applies. It uses label matching, just like a Service selector. An empty podSelector ({}) selects all Pods in the namespace. Only Pods matching the selector are subject to the ingress and egress rules defined in the policy. \n
-	Le champ podSelector dans une NetworkPolicy selectionne les Pods auxquels la politique s'applique. Un podSelector vide ({}) selectionne tous les Pods du namespace.
+	if ($$lang == fr) { Le champ podSelector dans une NetworkPolicy selectionne les Pods auxquels la politique s'applique. Un podSelector vide ({}) selectionne tous les Pods du namespace. }
+	else { The podSelector field in a NetworkPolicy selects the Pods to which the policy applies. It uses label matching, just like a Service selector. An empty podSelector ({}) selects all Pods in the namespace. Only Pods matching the selector are subject to the ingress and egress rules defined in the policy. }
 
 #! networkpolicy ingress rules
 u: (<< networkpolicy [ingress entrant incoming entree] [rule rules regle regles] >>)
-	NetworkPolicy ingress rules control incoming traffic to the selected Pods. Each ingress rule specifies: \n
+	if ($$lang == fr) { Les regles d'ingress de NetworkPolicy controlent le trafic entrant. On definit les sources (from: podSelector, namespaceSelector, ipBlock) et les ports autorises. }
+	else { NetworkPolicy ingress rules control incoming traffic to the selected Pods. Each ingress rule specifies: \n
 	- from: a list of sources allowed to send traffic. Sources can be podSelector, namespaceSelector, ipBlock, or combinations. \n
 	- ports: a list of ports/protocols the traffic is allowed on. \n
-	If you define an ingress policy type but no ingress rules, all incoming traffic is denied. \n
-	Les regles d'ingress de NetworkPolicy controlent le trafic entrant. On definit les sources (from: podSelector, namespaceSelector, ipBlock) et les ports autorises.
+	If you define an ingress policy type but no ingress rules, all incoming traffic is denied. }
 
 #! networkpolicy egress rules
 u: (<< networkpolicy [egress sortant outgoing sortie] [rule rules regle regles] >>)
-	NetworkPolicy egress rules control outgoing traffic from the selected Pods. Each egress rule specifies: \n
+	if ($$lang == fr) { Les regles d'egress de NetworkPolicy controlent le trafic sortant. On definit les destinations (to: podSelector, namespaceSelector, ipBlock) et les ports autorises. }
+	else { NetworkPolicy egress rules control outgoing traffic from the selected Pods. Each egress rule specifies: \n
 	- to: a list of destinations the Pods are allowed to send traffic to. Destinations can be podSelector, namespaceSelector, ipBlock, or combinations. \n
 	- ports: a list of ports/protocols the traffic is allowed on. \n
-	If you define an egress policy type but no egress rules, all outgoing traffic is denied. \n
-	Les regles d'egress de NetworkPolicy controlent le trafic sortant. On definit les destinations (to: podSelector, namespaceSelector, ipBlock) et les ports autorises.
+	If you define an egress policy type but no egress rules, all outgoing traffic is denied. }
 
 #! default deny networkpolicy
 u: (<< [default defaut] [deny bloquer refuser interdire] [all tout toutes] [networkpolicy policy politique traffic trafic] >>)
-	To create a default deny-all NetworkPolicy that blocks all ingress and egress traffic for all Pods in a namespace: \n
+	if ($$lang == fr) { Pour creer une politique deny-all, utilisez un podSelector vide et les policyTypes Ingress et Egress sans regles. Ajoutez ensuite des politiques specifiques pour autoriser le trafic souhaite. }
+	else { To create a default deny-all NetworkPolicy that blocks all ingress and egress traffic for all Pods in a namespace: \n
 	apiVersion: networking.k8s.io/v1 \n
 	kind: NetworkPolicy \n
 	metadata: \n
@@ -219,12 +243,12 @@ u: (<< [default defaut] [deny bloquer refuser interdire] [all tout toutes] [netw
 	  policyTypes: \n
 	  - Ingress \n
 	  - Egress \n
-	An empty podSelector matches all Pods and the absence of ingress/egress rules means all traffic is denied. You then add specific policies to allow desired traffic. \n
-	Pour creer une politique deny-all, utilisez un podSelector vide et les policyTypes Ingress et Egress sans regles. Ajoutez ensuite des politiques specifiques pour autoriser le trafic souhaite.
+	An empty podSelector matches all Pods and the absence of ingress/egress rules means all traffic is denied. You then add specific policies to allow desired traffic. }
 
 #! deny all example
 u: (<< [deny bloquer refuser] [all tout] [example exemple yaml manifest] >>)
-	Here is a deny-all NetworkPolicy example: \n
+	if ($$lang == fr) { Cet exemple bloque tout le trafic entrant et sortant pour chaque Pod dans my-namespace. }
+	else { Here is a deny-all NetworkPolicy example: \n
 	apiVersion: networking.k8s.io/v1 \n
 	kind: NetworkPolicy \n
 	metadata: \n
@@ -235,8 +259,7 @@ u: (<< [deny bloquer refuser] [all tout] [example exemple yaml manifest] >>)
 	  policyTypes: \n
 	  - Ingress \n
 	  - Egress \n
-	This blocks all inbound and outbound traffic for every Pod in my-namespace. \n
-	Cet exemple bloque tout le trafic entrant et sortant pour chaque Pod dans my-namespace.
+	This blocks all inbound and outbound traffic for every Pod in my-namespace. }
 
 
 # =============================================================================
@@ -247,12 +270,44 @@ topic: ~k8s_endpointslice (endpointslice endpointslices endpoint endpoints)
 
 #! what is an endpointslice
 u: (<< [what quel "qu'est-ce"] [is est] [a un une] endpointslice >>)
-	An EndpointSlice is a Kubernetes resource that represents a subset of the endpoints (Pod IPs and ports) for a Service. It was introduced to improve scalability over the older Endpoints resource. Each EndpointSlice can hold up to 100 endpoints by default and is automatically managed by the EndpointSlice controller when a Service has a selector. \n
-	Un EndpointSlice est une ressource Kubernetes qui represente un sous-ensemble des endpoints (IPs et ports des Pods) d'un Service. Il a ete introduit pour ameliorer la scalabilite par rapport a l'ancienne ressource Endpoints. Chaque EndpointSlice contient par defaut jusqu'a 100 endpoints.
+	if ($$lang == fr) { Un EndpointSlice est une ressource Kubernetes qui represente un sous-ensemble des endpoints (IPs et ports des Pods) d'un Service. Il a ete introduit pour ameliorer la scalabilite par rapport a l'ancienne ressource Endpoints. Chaque EndpointSlice contient par defaut jusqu'a 100 endpoints. }
+	else { An EndpointSlice is a Kubernetes resource that represents a subset of the endpoints (Pod IPs and ports) for a Service. It was introduced to improve scalability over the older Endpoints resource. Each EndpointSlice can hold up to 100 endpoints by default and is automatically managed by the EndpointSlice controller when a Service has a selector. }
 
 #! endpointslice vs endpoints
 u: (<< endpointslice [vs versus ou or compare comparer difference] endpoints >>)
-	EndpointSlice vs Endpoints: \n
+	if ($$lang == fr) { EndpointSlice est le remplacement moderne d'Endpoints. Il divise les endpoints en tranches plus petites (max 100 par defaut), ce qui est plus performant pour les grands Services. Il supporte aussi le dual-stack et les hints de topologie. }
+	else { EndpointSlice vs Endpoints: \n
 	- Endpoints: the legacy resource. A single Endpoints object holds all IPs for a Service. For large Services (thousands of Pods), this becomes very large and any change causes the entire object to be re-sent to all watchers. \n
-	- EndpointSlice: the modern replacement. Splits endpoints into multiple smaller slices (default max 100 per slice). Updates are more efficient because only the affected slice is updated. Also supports dual-stack (IPv4/IPv6) and topology hints. \n
-	EndpointSlice est le remplacement moderne d'Endpoints. Il divise les endpoints en tranches plus petites (max 100 par defaut), ce qui est plus performant pour les grands Services. Il supporte aussi le dual-stack et les hints de topologie.
+	- EndpointSlice: the modern replacement. Splits endpoints into multiple smaller slices (default max 100 per slice). Updates are more efficient because only the affected slice is updated. Also supports dual-stack (IPv4/IPv6) and topology hints. }
+
+#! endpointslice addressType IPv4 IPv6 FQDN
+u: (<< endpointslice [addressType "address type" "type adresse" IPv4 IPv6 FQDN] >>)
+	^keep() if ($$lang == fr) { Le champ addressType dans un EndpointSlice specifie le type d'adresses qu'il contient : IPv4 (adresses IPv4, le plus courant), IPv6 (adresses IPv6) ou FQDN (noms de domaine pleinement qualifies). Chaque EndpointSlice ne contient qu'un seul type d'adresse. Pour les Services dual-stack, des EndpointSlices separes sont crees pour IPv4 et IPv6. }
+	else { The addressType field in an EndpointSlice specifies the type of addresses it contains. Possible values are: \n
+	* IPv4: endpoints use IPv4 addresses (most common). \n
+	* IPv6: endpoints use IPv6 addresses. \n
+	* FQDN: endpoints use fully qualified domain names instead of IP addresses. \n
+	Each EndpointSlice can only contain one address type. For dual-stack Services, the EndpointSlice controller creates separate EndpointSlice objects for IPv4 and IPv6. The addressType is immutable after creation. }
+
+#! endpointslice endpoints structure addresses conditions
+u: (<< endpointslice [endpoints endpoint structure addresses conditions hostname zone topology] >>)
+	^keep() if ($$lang == fr) { Le tableau endpoints contient les entrees individuelles. Chaque endpoint possede : addresses (liste d'IPs), conditions.ready/serving/terminating (etat du Pod), hostname (nom d'hote du Pod), zone (zone topologique du noeud), nodeName (nom du noeud) et targetRef (reference au Pod). }
+	else { The endpoints array in an EndpointSlice contains the individual endpoint entries. Each endpoint has these key fields: \n
+	* addresses: a list of IP addresses or FQDNs for this endpoint (usually one per Pod). \n
+	* conditions.ready: true if the Pod is Ready and should receive traffic. \n
+	* conditions.serving: true if the Pod is serving, regardless of its Ready state (useful during termination). \n
+	* conditions.terminating: true if the Pod is in the process of terminating. \n
+	* hostname: the hostname of the Pod (set from pod.spec.hostname). \n
+	* zone: the topology zone of the node where the Pod is running (e.g. "us-east-1a"), used for topology-aware routing. \n
+	* nodeName: the name of the node hosting this endpoint. \n
+	* targetRef: an object reference to the Pod backing this endpoint. }
+
+#! endpointslice ports structure
+u: (<< endpointslice [ports port structure] >>)
+	^keep() if ($$lang == fr) { Le tableau ports dans un EndpointSlice definit les ports reseau exposes. Chaque entree contient : name (nom optionnel correspondant au port du Service), protocol (TCP par defaut, UDP ou SCTP), port (numero de port sur le Pod) et appProtocol (indication optionnelle du protocole applicatif). Tous les endpoints d'un EndpointSlice partagent le meme ensemble de ports. }
+	else { The ports array in an EndpointSlice defines the network ports exposed by the endpoints. Each port entry has: \n
+	* name: an optional name matching the Service port name. \n
+	* protocol: TCP (default), UDP, or SCTP. \n
+	* port: the port number on the Pod. \n
+	* appProtocol: an optional hint about the application protocol (e.g. "http", "https", "h2c", "kubernetes.io/h2c"). This helps proxies and load balancers optimize their handling of the traffic. \n
+	All endpoints in a given EndpointSlice share the same set of ports. }

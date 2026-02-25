@@ -9,22 +9,22 @@ topic: ~rbac (rbac "role based" "base sur les roles" acces access controle contr
 
 #! what is RBAC
 u: (<< [what que "qu est-ce"] [is est] rbac >>)
-	^keep() RBAC (Role-Based Access Control) is a method for regulating access to Kubernetes resources based on the roles of individual users or service accounts. It uses the rbac.authorization.k8s.io API group to drive authorization decisions, allowing you to grant fine-grained permissions on specific resources and operations. \n
-	Le RBAC (controle d'acces base sur les roles) est une methode pour reguler l'acces aux ressources Kubernetes en fonction des roles des utilisateurs ou des comptes de service. Il utilise le groupe d'API rbac.authorization.k8s.io pour piloter les decisions d'autorisation, permettant d'accorder des permissions fines sur des ressources et operations specifiques.
+	^keep() if ($$lang == fr) { Le RBAC (controle d'acces base sur les roles) est une methode pour reguler l'acces aux ressources Kubernetes en fonction des roles des utilisateurs ou des comptes de service. Il utilise le groupe d'API rbac.authorization.k8s.io pour piloter les decisions d'autorisation, permettant d'accorder des permissions fines sur des ressources et operations specifiques. }
+	else { RBAC (Role-Based Access Control) is a method for regulating access to Kubernetes resources based on the roles of individual users or service accounts. It uses the rbac.authorization.k8s.io API group to drive authorization decisions, allowing you to grant fine-grained permissions on specific resources and operations. }
 
 #! how does RBAC work in Kubernetes
 u: (<< [how comment] rbac [work fonctionne marche operates] >>)
-	^keep() RBAC in Kubernetes works by combining four resource types: Role and ClusterRole define sets of permissions (which API verbs are allowed on which resources). RoleBinding and ClusterRoleBinding attach those permissions to subjects (users, groups, or ServiceAccounts). A Role/RoleBinding pair is scoped to a single namespace, while ClusterRole/ClusterRoleBinding applies cluster-wide. The API server evaluates these bindings on every request to determine if the action is permitted. \n
-	Le RBAC dans Kubernetes fonctionne en combinant quatre types de ressources : Role et ClusterRole definissent des ensembles de permissions. RoleBinding et ClusterRoleBinding attachent ces permissions a des sujets (utilisateurs, groupes ou ServiceAccounts). Role/RoleBinding sont limites a un namespace, tandis que ClusterRole/ClusterRoleBinding s'appliquent a tout le cluster. Le serveur API evalue ces liaisons a chaque requete.
+	^keep() if ($$lang == fr) { Le RBAC dans Kubernetes fonctionne en combinant quatre types de ressources : Role et ClusterRole definissent des ensembles de permissions. RoleBinding et ClusterRoleBinding attachent ces permissions a des sujets (utilisateurs, groupes ou ServiceAccounts). Role/RoleBinding sont limites a un namespace, tandis que ClusterRole/ClusterRoleBinding s'appliquent a tout le cluster. Le serveur API evalue ces liaisons a chaque requete. }
+	else { RBAC in Kubernetes works by combining four resource types: Role and ClusterRole define sets of permissions (which API verbs are allowed on which resources). RoleBinding and ClusterRoleBinding attach those permissions to subjects (users, groups, or ServiceAccounts). A Role/RoleBinding pair is scoped to a single namespace, while ClusterRole/ClusterRoleBinding applies cluster-wide. The API server evaluates these bindings on every request to determine if the action is permitted. }
 
 #! RBAC components overview
 u: (<< rbac [component composant element part partie overview vue ensemble] >>)
-	^keep() The four core RBAC components in Kubernetes are: \n
+	^keep() if ($$lang == fr) { Les quatre composants RBAC : Role (permissions dans un namespace), ClusterRole (permissions a l'echelle du cluster), RoleBinding (lie un Role/ClusterRole a des sujets dans un namespace), ClusterRoleBinding (lie un ClusterRole a des sujets dans tout le cluster). }
+	else { The four core RBAC components in Kubernetes are: \n
 	1. Role - defines permissions within a single namespace (e.g., read Pods in namespace "dev"). \n
 	2. ClusterRole - defines permissions cluster-wide or on non-namespaced resources (e.g., list Nodes, manage PersistentVolumes). \n
 	3. RoleBinding - grants a Role or ClusterRole to subjects within a specific namespace. \n
-	4. ClusterRoleBinding - grants a ClusterRole to subjects across the entire cluster. \n
-	Les quatre composants RBAC : Role (permissions dans un namespace), ClusterRole (permissions a l'echelle du cluster), RoleBinding (lie un Role/ClusterRole a des sujets dans un namespace), ClusterRoleBinding (lie un ClusterRole a des sujets dans tout le cluster).
+	4. ClusterRoleBinding - grants a ClusterRole to subjects across the entire cluster. }
 
 
 # =============================================================================
@@ -35,32 +35,44 @@ topic: ~k8s_role (role roles clusterrole clusterroles "cluster role" apigroups v
 
 #! what is a ClusterRole
 u: (<< [what que "qu est-ce"] [is est] [a un une] clusterrole >>)
-	^keep() A ClusterRole is a set of permissions that applies across the entire cluster. Unlike a Role, it can grant access to cluster-scoped resources (Nodes, PersistentVolumes, Namespaces), non-resource endpoints (like /healthz), and namespaced resources across all namespaces. ClusterRoles can be bound to subjects using either a ClusterRoleBinding (cluster-wide) or a RoleBinding (scoped to a namespace). \n
-	Un ClusterRole est un ensemble de permissions qui s'applique a l'ensemble du cluster. Contrairement a un Role, il peut accorder l'acces a des ressources cluster-scoped (Nodes, PersistentVolumes, Namespaces), des endpoints non-ressource (comme /healthz), et des ressources namespacees dans tous les namespaces. Il peut etre lie via un ClusterRoleBinding ou un RoleBinding.
+	^keep() if ($$lang == fr) { Un ClusterRole est un ensemble de permissions qui s'applique a l'ensemble du cluster. Contrairement a un Role, il peut accorder l'acces a des ressources cluster-scoped (Nodes, PersistentVolumes, Namespaces), des endpoints non-ressource (comme /healthz), et des ressources namespacees dans tous les namespaces. Il peut etre lie via un ClusterRoleBinding ou un RoleBinding. }
+	else { A ClusterRole is a set of permissions that applies across the entire cluster. Unlike a Role, it can grant access to cluster-scoped resources (Nodes, PersistentVolumes, Namespaces), non-resource endpoints (like /healthz), and namespaced resources across all namespaces. ClusterRoles can be bound to subjects using either a ClusterRoleBinding (cluster-wide) or a RoleBinding (scoped to a namespace). }
 
 #! what is a Role
 u: (<< [what que "qu est-ce"] [is est] [a un une] role >>)
-	^keep() A Role is a set of permissions scoped to a single namespace. It defines rules that grant access to namespaced resources (Pods, Services, Deployments, ConfigMaps, Secrets, etc.) within that namespace only. A Role must be bound to subjects via a RoleBinding to take effect. Roles cannot grant access to cluster-scoped resources or resources in other namespaces. \n
-	Un Role est un ensemble de permissions limite a un seul namespace. Il definit des regles qui accordent l'acces aux ressources namespacees (Pods, Services, Deployments, ConfigMaps, Secrets, etc.) dans ce namespace uniquement. Un Role doit etre lie a des sujets via un RoleBinding pour prendre effet.
+	^keep() if ($$lang == fr) { Un Role est un ensemble de permissions limite a un seul namespace. Il definit des regles qui accordent l'acces aux ressources namespacees (Pods, Services, Deployments, ConfigMaps, Secrets, etc.) dans ce namespace uniquement. Un Role doit etre lie a des sujets via un RoleBinding pour prendre effet. }
+	else { A Role is a set of permissions scoped to a single namespace. It defines rules that grant access to namespaced resources (Pods, Services, Deployments, ConfigMaps, Secrets, etc.) within that namespace only. A Role must be bound to subjects via a RoleBinding to take effect. Roles cannot grant access to cluster-scoped resources or resources in other namespaces. }
 
 #! Role vs ClusterRole difference
 u: (<< role [vs versus contre ou difference] clusterrole >>)
-	^keep() Role vs ClusterRole: \n
+	^keep() if ($$lang == fr) { Role : limite a un namespace, permissions dans un seul namespace. ClusterRole : a l'echelle du cluster, peut definir des permissions sur les ressources cluster-wide, les URLs non-ressource, et les ressources namespacees dans tous les namespaces. Utilisez Role pour un acces specifique a un namespace et ClusterRole pour un acces cluster-wide. }
+	else { Role vs ClusterRole: \n
 	- Role: namespace-scoped, defines permissions only within a single namespace. Can only be referenced by a RoleBinding in the same namespace. \n
 	- ClusterRole: cluster-scoped, can define permissions on cluster-wide resources, non-resource URLs, and namespaced resources across all namespaces. Can be referenced by both ClusterRoleBinding (cluster-wide) and RoleBinding (to grant its permissions within a specific namespace). \n
-	Use Roles for namespace-specific access and ClusterRoles for cross-namespace or cluster-level access. \n
-	Role : limite a un namespace, permissions dans un seul namespace. ClusterRole : a l'echelle du cluster, peut definir des permissions sur les ressources cluster-wide, les URLs non-ressource, et les ressources namespacees dans tous les namespaces. Utilisez Role pour un acces specifique a un namespace et ClusterRole pour un acces cluster-wide.
+	Use Roles for namespace-specific access and ClusterRoles for cross-namespace or cluster-level access. }
 
 #! Role rules apiGroups resources verbs
 u: (<< [role clusterrole] [rule rules regle regles] [apigroups resources verbs resourcenames "non resource" nonresource] >>)
-	^keep() Role and ClusterRole rules are defined with these fields: \n
+	^keep() if ($$lang == fr) { Les regles de Role/ClusterRole se definissent avec : apiGroups (groupes d'API, "" pour le groupe core), resources (types de ressource), resourceNames (optionnel, noms specifiques), verbs (operations autorisees : get, list, watch, create, update, patch, delete), et nonResourceURLs (ClusterRole uniquement, pour les URLs non-ressource comme /healthz). }
+	else { Role and ClusterRole rules are defined with these fields: \n
 	- apiGroups: the API groups the rule applies to. Use "" for the core group (Pods, Services, ConfigMaps), "apps" for Deployments/StatefulSets, "batch" for Jobs/CronJobs. \n
 	- resources: the resource types (e.g. "pods", "services", "deployments", "secrets"). Can include subresources like "pods/log" or "pods/exec". \n
 	- resourceNames: optional list to restrict access to specific named resources. \n
 	- verbs: the operations allowed. Common verbs are "get", "list", "watch", "create", "update", "patch", "delete", and "deletecollection". \n
-	- nonResourceURLs: (ClusterRole only) non-resource URL paths like "/healthz" or "/metrics". Requires the verb "get". \n
-	Les regles de Role/ClusterRole se definissent avec : apiGroups (groupes d'API, "" pour le groupe core), resources (types de ressource), resourceNames (optionnel, noms specifiques), verbs (operations autorisees : get, list, watch, create, update, patch, delete), et nonResourceURLs (ClusterRole uniquement, pour les URLs non-ressource comme /healthz).
+	- nonResourceURLs: (ClusterRole only) non-resource URL paths like "/healthz" or "/metrics". Requires the verb "get". }
 
+
+#! role subresources pods/log pods/exec pods/attach pods/portforward
+u: (<< [role clusterrole] [subresource subresources "pods/log" "pods/exec" "pods/attach" "pods/portforward" sous-ressource] >>)
+	^keep() if ($$lang == fr) { Les sous-ressources sont des endpoints API enfants controlables separement dans les regles RBAC. Sous-ressources courantes de Pod : pods/log (lire les logs, verbe: get), pods/exec (executer des commandes, verbes: create, get), pods/attach (s'attacher a un conteneur, verbes: create, get), pods/portforward (transfert de port, verbes: create, get), pods/status (lire ou modifier le statut) et pods/eviction (creer des evictions). Specifiez les sous-ressources avec le format "ressource/sous-ressource" dans le champ 'resources', par exemple "pods/exec". Cela permet d'accorder l'acces a 'kubectl exec' sans accorder la gestion complete des Pods. }
+	else { Subresources are child API endpoints of a resource that can be controlled separately in RBAC rules. Common Pod subresources include: \n
+	* pods/log: read container logs via 'kubectl logs'. Verbs: get. \n
+	* pods/exec: execute commands in a container via 'kubectl exec'. Verbs: create, get. \n
+	* pods/attach: attach to a running container via 'kubectl attach'. Verbs: create, get. \n
+	* pods/portforward: forward ports to a Pod via 'kubectl port-forward'. Verbs: create, get. \n
+	* pods/status: read or update Pod status. \n
+	* pods/eviction: create eviction objects to evict Pods. \n
+	In RBAC rules, specify subresources in the 'resources' field using the format "resource/subresource", e.g. "pods/exec". This allows granting 'kubectl exec' access without granting full Pod management. }
 
 # =============================================================================
 # CLUSTERROLEBINDING AND ROLEBINDING
@@ -70,31 +82,31 @@ topic: ~k8s_rolebinding (rolebinding rolebindings clusterrolebinding clusterrole
 
 #! what is a ClusterRoleBinding
 u: (<< [what que "qu est-ce"] [is est] [a un une] clusterrolebinding >>)
-	^keep() A ClusterRoleBinding grants the permissions defined in a ClusterRole to subjects (users, groups, or ServiceAccounts) across the entire cluster. It binds a ClusterRole to one or more subjects at the cluster scope. For example, binding the "cluster-admin" ClusterRole to a user gives them full access to all resources in all namespaces. A ClusterRoleBinding always references a ClusterRole, never a Role. \n
-	Un ClusterRoleBinding accorde les permissions definies dans un ClusterRole a des sujets (utilisateurs, groupes ou ServiceAccounts) dans tout le cluster. Par exemple, lier le ClusterRole "cluster-admin" a un utilisateur lui donne un acces complet a toutes les ressources dans tous les namespaces. Un ClusterRoleBinding reference toujours un ClusterRole, jamais un Role.
+	^keep() if ($$lang == fr) { Un ClusterRoleBinding accorde les permissions definies dans un ClusterRole a des sujets (utilisateurs, groupes ou ServiceAccounts) dans tout le cluster. Par exemple, lier le ClusterRole "cluster-admin" a un utilisateur lui donne un acces complet a toutes les ressources dans tous les namespaces. Un ClusterRoleBinding reference toujours un ClusterRole, jamais un Role. }
+	else { A ClusterRoleBinding grants the permissions defined in a ClusterRole to subjects (users, groups, or ServiceAccounts) across the entire cluster. It binds a ClusterRole to one or more subjects at the cluster scope. For example, binding the "cluster-admin" ClusterRole to a user gives them full access to all resources in all namespaces. A ClusterRoleBinding always references a ClusterRole, never a Role. }
 
 #! what is a RoleBinding
 u: (<< [what que "qu est-ce"] [is est] [a un une] rolebinding >>)
-	^keep() A RoleBinding grants the permissions defined in a Role or ClusterRole to subjects within a specific namespace. It lives in a namespace and binds subjects to a role within that namespace only. Importantly, a RoleBinding can reference a ClusterRole, which then restricts the ClusterRole's broad permissions to just the RoleBinding's namespace. \n
-	Un RoleBinding accorde les permissions definies dans un Role ou ClusterRole a des sujets dans un namespace specifique. Un RoleBinding peut referencer un ClusterRole, ce qui restreint alors les permissions du ClusterRole au seul namespace du RoleBinding.
+	^keep() if ($$lang == fr) { Un RoleBinding accorde les permissions definies dans un Role ou ClusterRole a des sujets dans un namespace specifique. Un RoleBinding peut referencer un ClusterRole, ce qui restreint alors les permissions du ClusterRole au seul namespace du RoleBinding. }
+	else { A RoleBinding grants the permissions defined in a Role or ClusterRole to subjects within a specific namespace. It lives in a namespace and binds subjects to a role within that namespace only. Importantly, a RoleBinding can reference a ClusterRole, which then restricts the ClusterRole's broad permissions to just the RoleBinding's namespace. }
 
 #! roleRef field apiGroup kind name
 u: (<< [rolebinding clusterrolebinding] [roleref roleRef "role ref" reference] >>)
-	^keep() The roleRef field in a RoleBinding or ClusterRoleBinding specifies which Role or ClusterRole to bind. It has three required sub-fields: \n
+	^keep() if ($$lang == fr) { Le champ roleRef dans un RoleBinding ou ClusterRoleBinding specifie quel Role ou ClusterRole lier. Sous-champs requis : apiGroup ("rbac.authorization.k8s.io"), kind ("Role" ou "ClusterRole"), name (nom de la ressource). Le roleRef est immuable apres creation ; pour le changer, il faut supprimer et recreer la liaison. }
+	else { The roleRef field in a RoleBinding or ClusterRoleBinding specifies which Role or ClusterRole to bind. It has three required sub-fields: \n
 	- apiGroup: must be "rbac.authorization.k8s.io". \n
 	- kind: either "Role" (for RoleBinding only) or "ClusterRole" (for both RoleBinding and ClusterRoleBinding). \n
 	- name: the name of the Role or ClusterRole to reference. \n
-	The roleRef is immutable after creation. To change it, you must delete and recreate the binding. \n
-	Le champ roleRef dans un RoleBinding ou ClusterRoleBinding specifie quel Role ou ClusterRole lier. Sous-champs requis : apiGroup ("rbac.authorization.k8s.io"), kind ("Role" ou "ClusterRole"), name (nom de la ressource). Le roleRef est immuable apres creation ; pour le changer, il faut supprimer et recreer la liaison.
+	The roleRef is immutable after creation. To change it, you must delete and recreate the binding. }
 
 #! subjects field kind name namespace apiGroup
 u: (<< [rolebinding clusterrolebinding] [subject subjects sujet sujets] >>)
-	^keep() The subjects field in a RoleBinding or ClusterRoleBinding is a list of users, groups, or ServiceAccounts that receive the permissions. Each subject has these fields: \n
+	^keep() if ($$lang == fr) { Le champ subjects est une liste d'utilisateurs, groupes ou ServiceAccounts qui recoivent les permissions. Chaque sujet a : kind ("User", "Group" ou "ServiceAccount"), name (nom), namespace (requis pour ServiceAccount, specifie le namespace), apiGroup ("rbac.authorization.k8s.io" pour User/Group, "" pour ServiceAccount). }
+	else { The subjects field in a RoleBinding or ClusterRoleBinding is a list of users, groups, or ServiceAccounts that receive the permissions. Each subject has these fields: \n
 	- kind: "User", "Group", or "ServiceAccount". \n
 	- name: the name of the user, group, or ServiceAccount. \n
 	- namespace: required for ServiceAccount subjects, specifies which namespace the ServiceAccount lives in. Not needed for User or Group. \n
-	- apiGroup: "rbac.authorization.k8s.io" for User and Group, "" (empty string) for ServiceAccount. \n
-	Le champ subjects est une liste d'utilisateurs, groupes ou ServiceAccounts qui recoivent les permissions. Chaque sujet a : kind ("User", "Group" ou "ServiceAccount"), name (nom), namespace (requis pour ServiceAccount, specifie le namespace), apiGroup ("rbac.authorization.k8s.io" pour User/Group, "" pour ServiceAccount).
+	- apiGroup: "rbac.authorization.k8s.io" for User and Group, "" (empty string) for ServiceAccount. }
 
 
 # =============================================================================
@@ -105,23 +117,23 @@ topic: ~k8s_serviceaccount (serviceaccount serviceaccounts "service account" "co
 
 #! what is a ServiceAccount
 u: (<< [what que "qu est-ce"] [is est] [a un une] [serviceaccount "service account" "compte de service"] >>)
-	^keep() A ServiceAccount provides an identity for processes running in a Pod to authenticate with the Kubernetes API server. Each namespace has a default ServiceAccount named "default". ServiceAccounts are used with RBAC to control what Pods are authorized to do. Since Kubernetes 1.24, bound service account tokens are projected into Pods via the TokenRequest API instead of being stored as long-lived Secrets. \n
-	Un ServiceAccount fournit une identite aux processus s'executant dans un Pod pour s'authentifier aupres du serveur API Kubernetes. Chaque namespace possede un ServiceAccount par defaut nomme "default". Les ServiceAccounts sont utilises avec le RBAC pour controler les autorisations des Pods. Depuis Kubernetes 1.24, les tokens sont injectes via l'API TokenRequest au lieu d'etre stockes comme Secrets permanents.
+	^keep() if ($$lang == fr) { Un ServiceAccount fournit une identite aux processus s'executant dans un Pod pour s'authentifier aupres du serveur API Kubernetes. Chaque namespace possede un ServiceAccount par defaut nomme "default". Les ServiceAccounts sont utilises avec le RBAC pour controler les autorisations des Pods. Depuis Kubernetes 1.24, les tokens sont injectes via l'API TokenRequest au lieu d'etre stockes comme Secrets permanents. }
+	else { A ServiceAccount provides an identity for processes running in a Pod to authenticate with the Kubernetes API server. Each namespace has a default ServiceAccount named "default". ServiceAccounts are used with RBAC to control what Pods are authorized to do. Since Kubernetes 1.24, bound service account tokens are projected into Pods via the TokenRequest API instead of being stored as long-lived Secrets. }
 
 #! automountServiceAccountToken
 u: (<< [serviceaccount "service account" "compte de service"] [automount automountServiceAccountToken token mount monter montage] >>)
-	^keep() The automountServiceAccountToken field controls whether a ServiceAccount token is automatically mounted into Pods. It can be set at two levels: \n
+	^keep() if ($$lang == fr) { Le champ automountServiceAccountToken controle si un token de ServiceAccount est automatiquement monte dans les Pods. Il peut etre defini au niveau du ServiceAccount (s'applique a tous les Pods l'utilisant) ou au niveau du Pod spec (surcharge le parametre du ServiceAccount). Mettez-le a false si vos Pods n'ont pas besoin de communiquer avec l'API Kubernetes. La valeur par defaut est true. }
+	else { The automountServiceAccountToken field controls whether a ServiceAccount token is automatically mounted into Pods. It can be set at two levels: \n
 	- On the ServiceAccount resource: applies to all Pods using that ServiceAccount. \n
 	- On the Pod spec: overrides the ServiceAccount-level setting for that specific Pod. \n
-	Set it to false when your Pods do not need to communicate with the Kubernetes API. This reduces the attack surface by not exposing credentials unnecessarily. The default is true. \n
-	Le champ automountServiceAccountToken controle si un token de ServiceAccount est automatiquement monte dans les Pods. Il peut etre defini au niveau du ServiceAccount (s'applique a tous les Pods l'utilisant) ou au niveau du Pod spec (surcharge le parametre du ServiceAccount). Mettez-le a false si vos Pods n'ont pas besoin de communiquer avec l'API Kubernetes. La valeur par defaut est true.
+	Set it to false when your Pods do not need to communicate with the Kubernetes API. This reduces the attack surface by not exposing credentials unnecessarily. The default is true. }
 
 #! imagePullSecrets ServiceAccount
 u: (<< [serviceaccount "service account" "compte de service"] [imagepull imagePullSecrets "image pull" "pull secret" registre registry] >>)
-	^keep() The imagePullSecrets field on a ServiceAccount specifies a list of Secrets containing credentials for pulling container images from private registries. When a Pod uses this ServiceAccount, Kubernetes automatically injects these image pull secrets into the Pod spec, so you do not need to specify them on every Pod individually. Each entry references a Secret of type kubernetes.io/dockerconfigjson by name. \n
-	Le champ imagePullSecrets sur un ServiceAccount specifie une liste de Secrets contenant les identifiants pour tirer des images de registres prives. Quand un Pod utilise ce ServiceAccount, Kubernetes injecte automatiquement ces secrets dans la spec du Pod, evitant de les specifier sur chaque Pod individuellement. Chaque entree reference un Secret de type kubernetes.io/dockerconfigjson par son nom.
+	^keep() if ($$lang == fr) { Le champ imagePullSecrets sur un ServiceAccount specifie une liste de Secrets contenant les identifiants pour tirer des images de registres prives. Quand un Pod utilise ce ServiceAccount, Kubernetes injecte automatiquement ces secrets dans la spec du Pod, evitant de les specifier sur chaque Pod individuellement. Chaque entree reference un Secret de type kubernetes.io/dockerconfigjson par son nom. }
+	else { The imagePullSecrets field on a ServiceAccount specifies a list of Secrets containing credentials for pulling container images from private registries. When a Pod uses this ServiceAccount, Kubernetes automatically injects these image pull secrets into the Pod spec, so you do not need to specify them on every Pod individually. Each entry references a Secret of type kubernetes.io/dockerconfigjson by name. }
 
 #! default ServiceAccount per namespace
 u: (<< [default defaut] [serviceaccount "service account" "compte de service"] [namespace] >>)
-	^keep() Every namespace in Kubernetes automatically gets a ServiceAccount named "default". If a Pod does not specify a serviceAccountName, it uses the default ServiceAccount of its namespace. The default ServiceAccount typically has no additional RBAC permissions beyond what is granted to all authenticated users. Best practice is to create dedicated ServiceAccounts with specific RBAC bindings for your workloads, rather than relying on the default ServiceAccount. \n
-	Chaque namespace dans Kubernetes recoit automatiquement un ServiceAccount nomme "default". Si un Pod ne specifie pas de serviceAccountName, il utilise le ServiceAccount par defaut de son namespace. Ce ServiceAccount par defaut n'a generalement pas de permissions RBAC supplementaires. La bonne pratique est de creer des ServiceAccounts dedies avec des liaisons RBAC specifiques pour vos charges de travail, plutot que de dependre du ServiceAccount par defaut.
+	^keep() if ($$lang == fr) { Chaque namespace dans Kubernetes recoit automatiquement un ServiceAccount nomme "default". Si un Pod ne specifie pas de serviceAccountName, il utilise le ServiceAccount par defaut de son namespace. Ce ServiceAccount par defaut n'a generalement pas de permissions RBAC supplementaires. La bonne pratique est de creer des ServiceAccounts dedies avec des liaisons RBAC specifiques pour vos charges de travail, plutot que de dependre du ServiceAccount par defaut. }
+	else { Every namespace in Kubernetes automatically gets a ServiceAccount named "default". If a Pod does not specify a serviceAccountName, it uses the default ServiceAccount of its namespace. The default ServiceAccount typically has no additional RBAC permissions beyond what is granted to all authenticated users. Best practice is to create dedicated ServiceAccounts with specific RBAC bindings for your workloads, rather than relying on the default ServiceAccount. }

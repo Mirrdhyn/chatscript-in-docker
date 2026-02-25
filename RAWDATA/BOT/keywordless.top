@@ -9,14 +9,22 @@ u: (< [~yesanswer ~more oui ouais] >) ^keep() gambit($$currenttopic)
 
 #! help
 u: (< [help aide aidez aider] >)
-	I can help you with Kubernetes topics! Try asking about: \n
+	if ($$lang == fr) { Je peux vous aider avec les sujets Kubernetes ! Essayez de poser des questions sur : \n
+	- Workloads : Pod, Deployment, StatefulSet, DaemonSet, Job, CronJob \n
+	- Reseau : Service, Ingress, NetworkPolicy \n
+	- Stockage : PersistentVolume, PVC, StorageClass \n
+	- Configuration : ConfigMap, Secret, HPA, ResourceQuota \n
+	- Controle d'acces : Role, ClusterRole, ServiceAccount \n
+	- Cluster : Namespace, Node \n
+	Ou discutez simplement avec moi ! }
+	else { I can help you with Kubernetes topics! Try asking about: \n
 	- Workloads: Pod, Deployment, StatefulSet, DaemonSet, Job, CronJob \n
 	- Networking: Service, Ingress, NetworkPolicy \n
 	- Storage: PersistentVolume, PVC, StorageClass \n
 	- Configuration: ConfigMap, Secret, HPA, ResourceQuota \n
 	- Access Control: Role, ClusterRole, ServiceAccount \n
 	- Cluster: Namespace, Node \n
-	Or just chat with me!
+	Or just chat with me! }
 
 #! list topics / what can I ask
 u: (<< [list liste lister] [topic topics sujet sujets] >>)
@@ -28,5 +36,7 @@ u: (<< [parle parler discuter] [kubernetes k8s kube] >>)
 	Bien sur ! Posez-moi une question sur n'importe quelle ressource Kubernetes : Pods, Deployments, Services, ConfigMaps, Secrets, RBAC, et bien plus.
 
 u: (_*)
-	^keep() I'm not sure I understand. Try asking about a Kubernetes resource (like "What is a Pod?") or just say hello! \n
-	Type "help" to see all topics I know about.
+	^keep() if ($$lang == fr) { Je ne suis pas sur de comprendre. Essayez de poser une question sur une ressource Kubernetes (comme "Qu'est-ce qu'un Pod ?") ou dites simplement bonjour ! \n
+	Tapez "help" pour voir tous les sujets que je connais. }
+	else { I'm not sure I understand. Try asking about a Kubernetes resource (like "What is a Pod?") or just say hello! \n
+	Type "help" to see all topics I know about. }

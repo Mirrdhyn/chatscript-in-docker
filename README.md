@@ -133,16 +133,91 @@ print(ask_bot("What is a Deployment?"))
 print(ask_bot("Comment configurer un Ingress?"))
 ```
 
-### Using curl (via a TCP proxy)
+## HTTP API with nginx Reverse Proxy
 
-ChatScript does not speak HTTP natively. If you need HTTP access, you can use a TCP-to-HTTP proxy like [socat](https://linux.die.net/man/1/socat) or write a thin wrapper.
+ChatScript speaks TCP, not HTTP. For frontend integration, this repo includes a production-ready stack: **nginx** (rate limiting + API key) → **Python middleware** (HTTP-to-TCP bridge) → **ChatScript**.
+
+```
+Browser/Frontend ──POST /api/chat──▶ nginx:80 ──▶ middleware:8000 ──▶ chatscript:1024
+                                     (API key     (HTTP→TCP         (ChatScript
+                                      + throttle)  translation)      engine)
+```
+
+### Setup
+
+1. Set your API key:
+
+```bash
+export VALID_API_KEY="my-secret-key-123"
+```
+
+2. Start the production stack:
+
+```bash
+docker compose -f docker-compose.prod.yml up --build -d
+```
+
+### Query via HTTP
+
+```bash
+# Ask a question
+curl -s -X POST http://localhost/api/chat \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: $VALID_API_KEY" \
+  -d '{"user": "user1", "message": "What is a Pod?"}' | jq
+
+# Health check (no API key required)
+curl -s http://localhost/health | jq
+
+# Missing API key → 401
+curl -s -X POST http://localhost/api/chat \
+  -d '{"user": "u1", "message": "hi"}' | jq
+```
+
+Response format:
+
+```json
+{"reply": "A Pod is the smallest deployable unit in Kubernetes..."}
+```
+
+### Rate Limiting
+
+nginx enforces **10 requests/second per IP** with a burst of 20. Exceeding the limit returns HTTP 429.
+
+### Frontend Integration (JavaScript)
+
+```javascript
+async function askKubeBot(message, user = "anonymous") {
+  const res = await fetch("https://your-domain/api/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-API-Key": "your-api-key",
+    },
+    body: JSON.stringify({ user, message }),
+  });
+  const data = await res.json();
+  return data.reply;
+}
+```
+
+### Configuration Files
+
+| File | Purpose |
+|------|---------|
+| `nginx.conf` | Rate limiting, API key validation, reverse proxy |
+| `middleware.py` | HTTP-to-TCP bridge (Python stdlib, no dependencies) |
+| `docker-compose.prod.yml` | Full stack: nginx + middleware + ChatScript |
 
 ## Project Structure
 
 ```
 chatscript-in-docker/
 ├── Dockerfile                 # Multi-stage: compile + runtime
-├── docker-compose.yml
+├── docker-compose.yml         # Direct TCP access (dev)
+├── docker-compose.prod.yml    # nginx + middleware + ChatScript (prod)
+├── nginx.conf                 # Rate limiting + API key validation
+├── middleware.py               # HTTP-to-TCP bridge
 ├── .dockerignore
 ├── .gitignore
 ├── LICENSE
