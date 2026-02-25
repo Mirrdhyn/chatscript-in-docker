@@ -1,0 +1,3400 @@
+﻿##<<FRENCH
+concept: ~numberoperator()
+table: ~numberOperator (^op ^iop)
+^createfact(^op member ~numberOperator)
+^createfact(^iop inverse ^op)
+DATA:
+
+# have to quote * because otherwise it means ignore- ^ must appear after remainder line, to not look like a script command
+reste ajouter
+Mod ajouter
+Modulo ajouter
+- plus
+/ multiplier
+% multiplier
+quotient multiplier
+\* diviser
+X diviser
+exposant racine_carrée
+puissance racine_carrée
+^ racine
+plus moins
+moins plus
+soustraire ajouter
+sous ajouter
+déduire ajouter
+multiplier diviser
+fois diviser
+diviser fois_moins
+ajouter moins
+à_emporter ajouter
+
+
+# a lot of these are *not* valid
+table: ~opposites (^arg1 ^arg2) # makes bi-directional so dont have to list both ways here
+^createfact(^arg1 opposite ^arg2 0)
+^createfact(^arg2 opposite ^arg1 0)
+DATA:
+prod dével
+production développement
+sourire "froncer les sourcils"
+grand court
+enregistrer dépenser
+artefact "objet naturel"
+"manque de performance" survie
+disparition apparence
+"mouvement vers le avant" "battre en retraite"
+embarquement débarquement
+échouer qualification
+"option de vente" "option de appel"
+pire meilleur
+"ballon malin" "boule équitable"
+contraction desserrage
+"la démonetisation" "la monétisation"
+"billet direct" "billet fractionné"
+"course non acquise" "course gagnée"
+rétrogradation promotion
+commencement finition
+"naissance vivante" "avortement spontané"
+activation désactivation
+décontamination contamination
+"trottement assis" "trot ascensionnel"
+"vol international" "vol national"
+ralentissement accélération
+fermeture ouverture
+pronation supination
+augmenter diminution
+maximisation minimisation
+décompression compression
+"une addition" soustraction
+inflation déflation
+renforcement affaiblissement
+concentration dilution
+dépréciation appréciation
+élargissement contraction
+flexion extension
+désunion unification
+détribalisation "la tribulation"
+rétrécissement élargissement
+inactivité activité
+"jeu de nuit" "jeu de jour"
+"jeu lointain" "jeu à la maison"
+"jeu de softball" hardball
+volée "coup de masse"
+"chirurgie mineure" "une intervention chirurgicale majeure"
+homéopathie allopathie
+déchargement chargement
+"péché originel" "le péché réel"
+"le péché véniel" "péché mortel"
+"petit larcin" "grand larcin"
+hypopnée hyperpnée
+"accouplement désassistant" "accouplement assortitif"
+approuvant désapprobation
+démantèlement fabrication
+assemblage démantèlement
+arrêt continuation
+prolifération non-prolifération
+ramener downtick
+"de gros" "vente au détail"
+non-paiement rémunération
+décriminalisation "la criminalisation"
+désengagement affranchissement
+déclassification classification
+"la dénationalisation" nationalisation
+démobilisation militarisation
+désarmement équipement
+déstabilisation stabilisation
+non-conformité obéissance
+"la coopération" compétition
+conformation non-conformité
+affirmation renversement
+acquittement "jugement de conviction"
+"jugement in rem" "jugement en personne"
+"verdict spécial" "verdict général"
+"exception péremptoire" "poursuites pénales"
+déségrégation séquestration
+non-conformité conformation
+non-observation observance
+service "un service"
+non-assistance présence
+absence présence
+décentralisation centralisation
+"non participation" participation
+mâle femelle
+hôte parasite
+procaryote ekaryote
+"poisson épineux" "poisson à ailettes douces"
+"oiseau cariné" "oiseau incapable de voler"
+"reptile diapside" "reptile anapside"
+"dabbling canard" "canard de plongée"
+"pied hétérodactyle" "pied zygodactyle"
+"ongle à ongles" "mammifère périssodactyle"
+"patère homocercale" hétérocéreuse
+"mammifère digitigrade" "planifier le mammifère"
+"basso relievo" "alto relievo"
+cathode anode
+synergiste antagoniste
+outfield "diamant de baseball"
+blanc noir
+"fichier effilé" "fichier brutal"
+"médicament générique" "drogue exclusive"
+"circuit ouvert" "circuit fermé"
+"prêt à le emploi" "sur mesure"
+"serveur de fichiers non dédié" "serveur de fichiers dédié"
+"thermomètre à bulbe humide" "thermomètre à bulbe à sec"
+"mouche mouillée" "mouche sèche"
+"bombe intelligente" "bombe de gravité"
+"pile galvanique" "cellule électrolytique"
+importation exportation
+local express
+"voie lente" "voie rapide"
+"réacteur thermique" "réacteur rapide"
+arrière "de face"
+"tondeuse électrique" "tondeuse à main"
+"drogue douce" "drogue dure"
+logiciel "matériel informatique"
+queue tête
+hors-panier "dans le panier"
+tribord bâbord
+studio emplacement
+stable mobile
+"stockage volatil" "stockage non volatile"
+"sens inverse" face
+incontournable "vêtement extérieur"
+"médicaments sur ordonnance" "médicaments en vente libre"
+"bobine de stator" "bobine du rotor"
+"navire de surface" "navire de guerre submersible"
+internalité extériorité
+mondanités "le autre monde"
+introversion extraversion
+"le ambivalence" extraversion
+"le ambivalence" introversion
+"émotion sans douleur" émotivité
+désintéressement gaieté
+inactivité activité
+"le inadmissibilité" permissivité
+"la nature physique" "bonne nature"
+impatience abstention
+désagréable "le agrément"
+franchement acuité
+involontairement volonté
+"la frivolité" "le esprit sérieux"
+"manque de communication" communication
+"le unicité" sociabilité
+"le secret" nudité
+"le hostilité" "la convivialité"
+inaccessibilité accessibilité
+"le indifférence" sympathie
+"un voisinage" "bon voisinage"
+inhospitalité hospitalité
+inadaptation adaptabilité
+rigidité flexibilité
+inconscience prévenance
+inattention attention
+négligence soin
+"manque de conscience" "pleine conscience"
+imprudence prudence
+"le ennui" prudence
+"la féminité" masculinité
+"manque de confiance" fiabilité
+irresponsabilité responsabilité
+indépendant "la fiabilité"
+inconscience conscience
+déshumidification poilité
+"la laideur" beauté
+désagréments plaisanterie
+"manque de attrait" attraction
+"le opacité" uncloudedness
+indistinctance distinction
+stupidité acuité
+discrétion visibilité
+"le intransigeance" "le intrusion"
+difficulté simplicité
+effort "effort sans effort"
+incompatibilité compatibilité
+incongruité congruence
+insaisissable convenance
+inadéquation "la pertinence"
+malheur bonheur
+inapposité apposité
+inaptitude adaptation
+inadmissibilité admissibilité
+insécurité "le assurabilité"
+inconvénient commodité
+inopérité opportunité
+inaccessibilité accessibilité
+infériorité "haute qualité"
+"le irrégularité" "changement de situation"
+irréversibilité réversibilité
+constance "changement de situation"
+invariabilité "la variabilité"
+"le incapacité" "la variabilité"
+"le interchangeabilité" "le interchangeabilité"
+inconvertibilité convertibilité
+immutabilité mutabilité
+"le inaltérabilité" modification
+différence similitude
+dissemblance similarité
+dissimilitude similitude
+"non uniformité" uniformité
+hétérogénéité homogénéité
+incohérence cohérence
+inégalité égalité
+"aucune équivalence" équivalence
+inégalités uniformité
+"la précarité" "conclusion inévitable"
+inconclusivité conclusion
+imprévisibilité "la prévisibilité"
+"le improbabilité" probabilité
+"peu probable" probabilité
+contrefactualité "la facturation"
+abstraction concret
+intangibilité tangibilité
+"le incorporéité" physique
+insubstantialité substantiel
+irréalité réalité
+généralité "la particularité"
+"point en commun" individualité
+complexité simplicité
+irrégularité régularité
+variabilité invariabilité
+déséquilibre stabilité
+immobilité mobilité
+"le immotilité" motilité
+"le inconvénient" mobilité
+étanchéité relâchement
+stableness insalubres
+relâchement "la sécurité"
+désagréable charme
+méchanceté "la gentillesse"
+incrédibilité "la crédibilité"
+implausibilité plausibilité
+"le illogisme" "la logique"
+"le anormalité" naturel
+affectation simplicité
+prétention modestie
+insalubrité salubrité
+"le insalubrité" santé
+insalubrité "la salubrité"
+insatisfaction satisfaction
+inadéquation adéquation
+"le inacceptable" acceptabilité
+inadmissibilité "la recevabilité"
+inadmissibilité permissibilité
+extraordinaire banalité
+imprévoyance "le attente"
+uncommonness "le aspect commun"
+insolité "le habitude"
+"manque de connaissance" familiarité
+nativité "le étrangeté"
+"non originalité" originalité
+orthodoxie "peu orthodoxe"
+convention "la non-conventionnalité"
+"le incorrection" "la justesse"
+inexactitude précision
+inexactitude exactitude
+"le imprécision" précision
+faillibilité infaillibilité
+"le erreur" inerrance
+indignité "la dignité"
+impopularité popularité
+illégalité légalité
+"le illégalité" régularité
+illégitimité légitimité
+illicite licences
+inélégance élégance
+insipide "le bon goût"
+urbanité rusticité
+incompréhensibilité compréhensibilité
+"le illégalité" lisibilité
+"le inintelligibilité" intelligibilité
+"le incertitude" pellucidité
+"la reconduitité" pellucidité
+"ambiguïté lexicale" monosemie
+équivoque "le équivoque"
+inexplicabilité explicitation
+"le injustice" droiture
+impie piété
+impudicité sainteté
+"le inhumanité" humanité
+"la miséricorde" clémence
+avarice généreuse
+"le illibéralité" libéralité
+égoïsme désintéressement
+"le égocentrisme" désintéressement
+injustice justice
+"la méchanceté" "la gentillesse"
+malfaisance bienfaisance
+malignité grâce
+inconséquence "prise en compte"
+tactlessness "le tact"
+insensibilité sensibilité
+insaisissabilité perspicacité
+immoralité moralité
+inexactitude justesse
+malveillance "la bonté"
+"le injustice" justice
+"le illicéité" droit
+incorruptibilité corruptibilité
+"le incorruptance" corruption
+"le impuissance" "la sanctitude"
+dangerosité sécurité
+incurablesse curabilité
+"la lâcheté" courage
+faiblesse "la joie"
+"la peur" intrépidité
+timoressité résistance
+gutlessness impitoyable
+"le irrévérence" "fermeté de but"
+indécision "la détermination"
+"manque de sincérité" "la sincérité"
+déshabilleur "le honneur"
+déshonorer honneur
+"le absence de scrupule" scrupules
+"manque de sensibilité" respectabilité
+malhonnêteté honnêteté
+mensonge véracité
+fausseté véracité
+"la faiblesse" "le ingénuité"
+ruse "le inégalité"
+"le infidélité" fidélité
+déloyauté véracité
+naïveté sophistication
+indiscipline "la discipline"
+liberté retenue
+intempérance tempérance
+humilité "la vanité"
+"la bêtise" "la sagesse"
+imprudence prudence
+myopie providence
+méfiance "la confiance"
+malpropreté propreté
+désordre propreté
+irrégularité "la correction"
+indecorousness décorousness
+"le inexactitude politique" "la correction politique"
+"le inconvénient" bienséance
+"le avarice" devenir
+indécence décence
+indécence "la modestie"
+décomposition équanimité
+intractabilité traçabilité
+sauvagerie domestication
+désobéissance obéissance
+insubordination subordination
+"le informalité" formalisme
+"sans cérémonie" cérémonie
+incivilité "bonnes manières"
+impolitesse politesse
+"la misère" grâce
+incivilité civilité
+anisotropie isotropie
+indirecte rectitude
+médiation immédiateté
+nouveauté vieillesse
+"manque de fraîcheur" fraîcheur
+"la jeunesse" vieillesse
+"calcul réduit des calculs de instructions" "calcul complexe de calcul de instructions"
+minceur épaisseur
+douceur dureté
+incompétence compressibilité
+unbreakableness fragilité
+"la solidité" "la porosité"
+"le imperméabilité" "la perméabilité"
+impénétrabilité pénétrabilité
+"non absorbabilité" absorbance
+déchiquetage douceur
+platitude luminosité
+"la couleur sans couleur" coloration
+"couleur achromatique" "couleur chromatique"
+blancheur noirceur
+dépigmentation pigmentation
+obscurité légèreté
+silence "du son"
+dissonance harmonie
+"basse fréquence" "haute fréquence"
+douceur intensité
+"la marginalité" palatableness
+"peu appétissante" appétissants
+indigestibilité digestibilité
+"le encombrement" avoirdupois
+shortness hauteur
+maladresse grâce
+inanimité "le animation"
+"le inséance" sentience
+féminité masculinité
+"haute température" "basse température"
+imperceptibilité perceptibilité
+invisibilité visibilité
+inaudibilité audibleness
+inélasticité élasticité
+unmalleability malléabilité
+inflexibilité flexibilité
+apesanteur lourdeur
+"la faiblesse" force
+"partie faible" "bonne partie"
+désordre solidité
+vulnérabilité invulnérabilité
+alcalinité acidité
+indestructibilité destructibilité
+retard précocité
+"la subséquence" antécédence
+lenteur ponctualité
+"caractère abusif" "caractère saisonnier"
+présentation "le passé"
+avenir "le passé"
+présentation avenir
+shortness longévité
+impermanence "la permanence"
+immortalité mortalité
+dissymétrie symétrie
+"asymétrie radiale" "symétrie radiale"
+progressivité précipitation
+rondeur angularité
+impuissance pointillisme
+excentricité concentricité
+"la tortue" rectitude
+rectitude contrainte
+marginalité centralité
+"la posteriorité" antériorité
+"le intériorité" extériorité
+"la méridion" nordique
+proximité "la distance"
+concentration distribution
+"caractère superficiel" profondeur
+faible haute
+finesse épaisseur
+petitesse largeur
+"la négativité" positivité
+décrémentation incrément
+insuffisance suffisance
+rareté copiosité
+immoderateness modération
+minorité majorité
+"manque de profondeur" profondeur
+étroitesse largeur
+modicité hauteur
+inutilité vaut
+démérite vertu
+indésirabilité désirabilité
+méchanceté "la bonté"
+peine avantage
+"peu coûteux" expensivité
+infructueuse fécondité
+stérilité productivité
+inutilité utilité
+"manque de réalisme" pratique
+impraticabilité praticabilité
+infaillibilité faisabilité
+incompétence compétence
+responsabilité atout
+désavantage avantage
+"le indifférence" rentabilité
+impétuosité opportunité
+"point faible" "point fort"
+inconvénient opportunité
+déconfiguration avantage
+inauspiciousness "la générosité"
+destructivité constructivité
+"sans importance" importance
+insignifiance importance
+"le absence de sens" "la signification"
+"le absence de raison" "sens du but"
+"en conséquence" conséquence
+inessentialité "le essentiel"
+dispensabilité indispensableité
+impuissance puissance
+"le impassibilité" "force de persuasion"
+désintéressement intérêt
+inefficacité efficacité
+inefficacité efficacité
+incapacité capacité
+incapacité capacité
+incapacité capacité
+limite "la non-conformité"
+insolubilité solubilité
+pessimisme optimisme
+"manque de sensibilité" réactivité
+"non solvabilité" solvabilité
+"muscle fléchisseur" "muscle extenseur"
+"récepteur sensoriel" effecteur
+moelle cortex
+imprudence "la sagesse"
+stupidité intelligence
+inaptitude aptitude
+incapacité "capacité mentale"
+incapacité potentialité
+imperfectibilité perfectibilité
+"la non-créativité" "la pensée créative"
+"région infernale" paradis
+analphabétisme "le alphabétisation"
+insouciance habileté
+incoordination coordination
+"la disfluence" aisance
+inefficacité efficacité
+kinanesthesia "sens du mouvement"
+"système de gâches" "système de mérite"
+inconscience conscience
+incognisance conscience
+inconscience "conscience de soi"
+insensibilité sensibilité
+"en train de dormir" veille
+doute certitude
+inattention attention
+inattention "prêter attention"
+inexpérience expérience
+"la pensée synthétique" "la pensée analytique"
+"la pensée hors-la-boîte" "la pensée convergente"
+incompréhension compréhension
+général particulier
+"idée fausse" conception
+antitype type
+divergence convergence
+milieu début
+fin début
+fin milieu
+"principe de la réalité" "principe de plaisir-déplaisir"
+yin yang
+sol figure
+incrédulité croyance
+cataphatisme "le apophatisme"
+"doctrine de le analogie" "le apophatisme"
+"doctrine de le analogie" cataphatisme
+imitation formalisme
+nationalisme internationalisme
+pluralisme monisme
+nationalisme multiculturalisme
+héréditaire environnementalisme
+"le illumination" éclaircissement
+"interval le illimité"  "intervalle borné"
+cacogénie eugénisme
+"théorie holistique" "théorie atomique"
+"théorie corpusculaire de la lumière" "théorie de le onde de la lumière"
+"mouvement romantique" "le classicisme"
+"linguistique prescriptive" "linguistique descriptive"
+athanésisme arianisme
+"non partisan" "esprit de parti"
+"le impartialité" injustice
+intolérance tolérance
+"étroitesse de esprit" "le esprit large"
+"manque de respect" "le respect"
+irrévérence révérence
+non-conformité conformité
+hawkishness "la douceur"
+théisme "le impudicité"
+polythéisme monothéisme
+verso recto
+"courrier électronique" "courrier postal"
+"mot équivalent" "mot opposé"
+"forme singulière" "forme pluriel"
+"cas oblique" "cas nominatif"
+"fausse interprétation" "construction grammaticale"
+"nom commun" "nom propre"
+flash-forward "retour en arrière"
+"édition de texte" "édition commerciale"
+"programme source" "programme de objet"
+dysphémisme euphémisme
+"courrier de surface" "courrier aérien"
+inhospitalité "accueil cordial"
+con pro
+non-intervention intervention
+désapprobation recommandation
+désapprobation approbation
+découragement encouragement
+mensonge "déclaration réelle"
+"preuve circonstancielle" "preuve directe"
+"proposition universelle" "proposition particulière"
+syncategoreme catégorisation
+euphémisme exagération
+contre-indication indication
+"chiffre romain" "chiffre hindou-arabe"
+indice exposé
+"lettre minuscule" "lettre majuscule"
+"police proportionnelle" "police à largeur constante"
+"police de style ancien" "police moderne"
+atonalité tonalité
+"langue naturelle" "langage artificiel"
+"langage unidimensionnel" "langue multidimensionnelle"
+"langue non-étatique" "langage stratifié"
+"la tragédie" comédie
+"musique polyphonique" "musique monophonique"
+résolution préparation
+diminution augmentation
+"la verbosité" laconisme
+consonne voyelle
+"consonne continue" "le son de la parole plueuse"
+"discours direct" "discours indirect"
+désaccord accord
+répondre interrogatoire
+négatif affirmative
+non oui
+non oui
+dissuasion persuasion
+conclusion début
+débarquement embarras
+succès échec
+décès nativité
+immersion émersion
+chute augmenter
+augmenter diminution
+lévitation gravitation
+ascension tomber
+"eau basse" "haute eau"
+"marée montante" ebbtide
+springtide "marée du naufrage"
+déclin fartage
+auto-fertilisation "fertilisation croisée"
+autogamie allogamie
+auto-pollinisation "pollinisation croisée"
+"rotation antihoraire" "rotation horaire"
+léchage "la victoire"
+anaphrodisia aphrodisia
+douleur plaisance
+"ne pas aimer" "le goût"
+désintégration inclination
+désapprobation approbation
+anglophobie anglophilie
+"le misogyme" philogynie
+ingratitude reconnaissance
+insouciance préoccupation
+humilité "le orgueil"
+solennité légèreté
+calme agitation
+confiance "le auto-méfiance"
+"le malheur" bonheur
+chagrin joie
+dysphorie euphorie
+"la discordance" contentement
+insatisfaction "la satisfaction"
+désespoir espérer
+désespoir espoir
+amour haine
+malveillance bienveillance
+"mauvaise humeur" "bonne humeur"
+"pomme de cuisson" "dessert pomme"
+"lait entier" "lait écrémé"
+"vin varié" "vin générique"
+jeune vieux
+prudent courageux
+vivant mort
+"non initié" éclairé
+végétation zoologie
+poursuite "avocats de la défense"
+"équipe de défense" infraction
+temporelle "le clergé"
+"les gens riches" "les pauvres"
+"matrice singulière" "matrice non singulière"
+"non alignement" coalition
+"économie socialiste" "économie capitaliste"
+"économie non marchande" "le économie du laissez-faire"
+hostile amical
+internat "école de jour"
+"école de nuit" "école de jour"
+"la loi internationale" "droit civil"
+arrière tête
+là ici
+antapex "sommet du soleil"
+périgée apogée
+"point de périapsis" "point de apoapsis"
+"la périhélie" aphelion
+perijove apojove
+periselène aposélène
+"nœud descendant" "nœud ascendant"
+antinode nœud
+tête pied
+arrière "le extrémité avant"
+extérieur intérieur
+"au vent" "lee côté"
+"le minimum" maximum
+zénith nadir
+"la gauche" droite
+"de face" arrière
+"zone peuplée" "zone rurale"
+"état libre" "état esclave"
+dissuasif incitation
+"le expérience" "le accessibilité"
+déclinaison montée
+"chaîne ouverte" "chaîne fermée"
+affluent distributaire
+plaine montagnes
+"eaux territoriales" "eaux internationales"
+exigence "non essentiel"
+"élévation naturelle" "dépression naturelle"
+"bon esprit" cacodaemon
+juvénile adulte
+libérateur capteur
+"personne masculine" "personne féminine"
+disciple chef
+"personne religieuse" "personne non-religieuse"
+ouvrier non-travailleur
+buveur non-drogué
+plaignant défendeur
+"une personne infructueuse" successer
+étranger connaissance
+agoniste antagoniste
+ennemi ami
+professionnel amateur
+descendant antécédent
+oncle tata
+"bon œuf" "mauvais oeuf"
+"bon gars" "mauvais garçon"
+"bonne personne" "mauvaise personne"
+taureau ours
+prêteur emprunteur
+sœur "frère de sang"
+parent enfant
+"non citoyen" citoyen
+"personnel militaire" civil
+romantique classiciste
+laïc "homme du tissu"
+progressive conservateur
+non-conformiste conformiste
+anglican non-conformiste
+débiteur créancier
+fils fille
+"faucon de guerre" peacenik
+"volontaire militaire" conscrit
+nondriver chauffeur
+élitiste égalitaire
+"personne émotive" "personne émotive"
+employeur employé
+témoigner "témoin expert"
+introverti extraverti
+"parent féminin" "parent homme"
+"peau et os" "grosse personne"
+"aristocrate masculin" "aristocrate féminin"
+"progéniture masculine" "progéniture féminine"
+"frère ou sœur masculin" fratrie
+"enfant masculin" "enfant féminin"
+titulaire certificat
+"héritier présomptif" "héritier apparent"
+"femme mariée" "homme marié"
+superordonné inférieur
+ambulatoire hospitalisation
+"monarque féminine" "monarque masculin"
+noble noble
+"bon tireur" prévaricateur
+nécessitarien libertaire
+"nourrisson mort-né" "nourrisson né vivant"
+gagnant perdant
+gagnant "aussi couru"
+diviseur "ouvrier du bâtiment"
+"femme adulte" "homme adulte"
+femme homme
+sadique masochiste
+"non membre" collègue
+nièce neveu
+drumbeater impartial
+résident non-résident
+"utilisateur de tabac" "non fumeur"
+pessimiste optimiste
+coenobite ermite
+spécialiste "homme de la renaissance"
+stander modèle
+"agent universel" "agent spécial"
+technophobe technophile
+"courant électrique direct" "courant alternatif électrique"
+"force répulsive" "force de attraction"
+"force centripète" "force centrifuge"
+"charge négative" "charge positive"
+transparence opacité
+"mousse pleurocarpeuse" "mousse acrocarnée"
+cryptogamie phanérogamae
+"champignon vénéneux" champignon
+cannabis "plante cultivée"
+"plante à feuilles caduques" "plante à feuilles persistantes"
+"encre rouge" gain
+dépense "le revenu"
+"argent serré" "le argent facile"
+"perte de papier" "bénéfices papier"
+pertes gains
+"non conservatoire" paiement
+"caution non garantie" "caution sécurisée"
+"compte de marge" "compte de caisse"
+"confiance passive" "confiance active"
+"paiement immédiat" "paiement différé"
+"entrée de débit" "entrée de crédit"
+caisse "la comptabilité de exercice"
+"sur la garantie du compteur" "sécurité cotée"
+inactivation activation
+"métabolisme destructeur" "métabolisme constructif"
+katamorphisme "le anamorphisme"
+vermiculation anastalsis
+ovulation anovulation
+"fonctionnement synchrone" "opération asynchrone"
+récapitulation caenogenèse
+"hausse des prix" déflation
+désinflation déflation
+développement dégénérescence
+"la fourniture" demande
+"hausse des prix" désinflation
+non-développement développement
+"spirale déflationniste" "spirale inflationniste"
+effluence afflux
+"processus réversible" "processus irréversible"
+"opération consécutive" "opération simultanée"
+"la source" évier
+conduire déficit
+"partie alicante" "partie aliquote"
+"limite supérieure" "limite inférieure"
+inconnience connectivité
+irrelevance pertinence
+immatérialité matérialité
+inapplicabilité applicabilité
+"sans rapport" parenté
+intransigeance transitivité
+"voix passive" "voix active"
+consanguinité affinité
+"côté sous le vent" "au vent"
+désynchronisation synchronisation
+dernier ancien
+"polygone concave" "polygone convexe"
+"ligne droite" "forme incurvée"
+"triangle rectangle" "triangle oblique"
+trapèze parallélogramme
+"angle saillant" "angle de rentrée"
+"angle oblique" "angle droit"
+disproportion proportion
+dystopie utopie
+rejet acceptation
+équilibre déséquilibre
+inclusion exclusion
+astigmatisme stigmatisme
+"état faible" "haut statut"
+"brûleur avant" veilleuse
+inexistence "le être"
+non-être "le être"
+spuriousness authenticité
+irréalité "la réalité"
+fausseté "la vérité"
+"la proximité" hérédité
+sympathie allopatry
+intermariage intermariage
+chômage emploi
+désordre commande
+instabilité "la stabilité"
+"état de guerre" paix
+immunodéficience immunocompétence
+"guerre froide" "guerre chaude obscurité"
+éclairage culpabilité
+innocence instabilité
+équilibre "le immobilité"
+mouvement sobriété
+intoxication "envie de dormir"
+insomnie insomnie
+hypersomanie anoestrus
+oestrus "le hypocapnie"
+hypercapnie hypothermie
+hyperthermie puissance
+impuissance "la fertilité"
+infertilité "problème de santé"
+"bonne santé" "désordre organique"
+"trouble fonctionnel" bien-être
+malaise hypoparathyroïdie
+hyperparathyroïdie hypotension
+hypertension hypothyroïdie
+hyperthyroïdie hypovolémie
+hypervolémie hypocalcémie
+hypercalcémie hypokaliémie
+hyperkaliémie hyponatrémie
+hypernatrémie hypopigmentation
+hyperpigmentation hypoglycémie
+hyperglycémie "maladie mentale"
+"santé mentale" folie
+sageté "dépression psychotique"
+"dépression neurotique" allégresse
+dépression haute
+"les esprits bas" unification
+séparation continuité
+discontinuité connectivité
+déconnexion cohésion
+incohérence dissociation
+association déclinaison
+amélioration immaturité
+maturité verdure
+maturité obscurité
+importance déshonorer
+lauriers opprobre
+célébrité disesteem
+"le respect" déconsidération
+réputation infamie
+célébrité inconfort
+comfortableness malheur
+bien-être vide
+plénitude cavité
+solidité imperfection
+"ne plus ultra" incomplétude
+exhaustivité varus
+valgus malheur
+chance insolvabilité
+solvabilité impossibilité
+possibilité impureté
+pureté appauvrissement
+richesse insalubres
+sanitaire "le impureté"
+propreté désordre
+ordre anomalie
+normalité untypicality
+"la typicité" "pollution non biodégradable"
+"pollution biodégradable" cyclone
+anticyclone "le infortune"
+"beau temps" susceptibilité
+insensibilité "sans eau"
+humidité danger
+sécurité insécurité
+sécurité "le insécurité"
+"la sécurité" "le atonicité"
+tonicité inaptitude
+"forme physique" "la clairvoyance"
+myopie hétérozygotie
+homozygotie hypotonie
+hypertonicité "essence sans plomb"
+"essence au plomb" inhibiteur
+activateur anticatalyseur
+accélérateur isolant
+conducteur "adn non codant"
+"codant le adn" "faible explosif"
+"hautement explosif" "eau douce"
+"eau dure" "eau fraiche"
+"eau salée" exotoxine
+endotoxine "temps de fonctionnement"
+"temps de arrêt" "temps libre"
+"temps de travail" "le temps de venir"
+"temps passés" "jour de repos"
+"jour ouvrable" disparition
+naissance minorité
+"âge légal" nuit
+"lumière du jour" coucher
+"rupture du jour" "solstice de hiver"
+"solstice de été" "équinoxe de septembre"
+"équinoxe vernal" "du temps en plus"
+"temps réglementaire" "hors saison"
+"haute saison" "saison sèche"
+"saison des pluies" "le fond de le entrée"
+"haut de la manche" milieu
+"heure de départ" fin
+"heure de départ" fin
+milieu inspirer
+expirer "être actif"
+"du repos" réveiller
+"attrape des z" aestivate
+hiberner revivre
+"se endormir" "se avérer"
+"se pieuter" "faire dormir"
+réveillez-vous apporter
+anesthésier stimuler
+tranquilliser désactiver
+stimuler "porter sur"
+rafraîchir "se détendre"
+tendue décompresser
+tendue pleurer
+"exprimer la joie" "se habiller"
+overdress mettez
+"perdre du poids" dévêtir
+"se habiller" dévêtir
+habiliter sous-couche
+overcloth enlever
+"glisser sur" avorter
+"porter à terme" apaiser
+irriter "être bien"
+souffrir "rester en panne"
+régurgiter désinfecter
+infecter récupérer
+détériorer rester
+changement dédifférencier
+différencier démythologiser
+"se métiser" augmenter
+diminution dissimilé
+assimiler affaiblir
+vivifier appauvrir
+enrichir ajouter
+"à emporter" encombrer
+unclutter inactivé
+activer revigorer
+amortir falsifier
+correct améliorer
+déclin exacerber
+améliorer hydrater
+sécher déssecher
+humide déshumidifier
+hydrater ouvrir
+"fermer à clé" "se dégager"
+engager affaiblir
+renforcer oxyder
+désoxyder exploser
+réduire étaler
+contrat étendue
+contrat élaborer
+"raccourcir rétrograde" viens
+rajeunir âge
+indurer adoucir
+pause "remis en état"
+dégonfler gonfler
+alcaliniser acidifier
+"se empirer" rebondir
+dégeler immobiliser
+déstabiliser stabiliser
+désensibiliser sensibiliser
+postdater antidate
+mélaniser blanchir
+assombrir éclaircir
+coloris décolorer
+de-escalade intensifier
+enlaidir embellir
+untune "mise au point"
+disqualifier qualifier
+contrat élargir
+prendre "laisser sortir"
+exploser imploser
+hydrogénation déshydrogéner
+focaliser brouiller
+focaliser blear
+apprécier déprécier
+allonger raccourcir
+dématérialiser "se concrétiser"
+"mettre fin" commencer
+"mettre fin" commencer
+"être né" "cash in one's chips"
+briser unifier
+chauffer refroidir
+ébullition gel
+dépersonnaliser individualiser
+stimuler étouffer
+aplatir aiguiser
+désynchroniser synchroniser
+intégrer désintégrer
+démagnétiser magnétiser
+compliquer simplifier
+dépressuriser pressuriser
+déconcentrer concentrer
+étaler hiverner
+dénationaliser nationaliser
+dénaturer naturaliser
+émigrer immigrer
+desserrer raidir
+détransitiver transitiver
+disparaître apparaître
+disparaître viens
+maximiser minimiser
+"mise à le échelle" réduire
+intensifier mince
+décliner monter
+décliner plein
+retrousser déployer
+diminuer branchement
+ralentir accélérer
+invalider valider
+remplir décharge
+"faire plein" vide
+"lait aigre" homogénéiser
+braquage "se dépêcher"
+bruyère apaiser
+fausser "se aligner"
+contaminer décontaminer
+décalcifier calcifier
+démultiplier émulsifier
+nazify dénaziser
+nitrifier dénitrifier
+activer incapacité
+"premier plan" contexte
+démystifier mystifier
+ionate désioner
+de-iodate iodate
+orienter occidentaliser
+dessaler salé
+déchiffrer brouiller
+decrescendo crescendo
+virer arrière
+destaliniser staliniser
+ignorer connaître
+"perdre la trace" suivre
+"dessiner une ébauche" rappeler
+oublier "garder à le esprit"
+oublier "rappelles toi"
+"prendre à cœur" prématurer
+comprendre omettre
+spiritualiser littéraire
+soustraire additionner
+fraction multiplier
+intégrer différencier
+synthétiser panne
+surclassement rétrograder
+réfuter démontrer
+contredire justifier
+surestimer sous-estime
+désapprouver approuver
+répugner disposer
+"ne pas croire" croyez
+acceptez rejeter
+réprouver "donner son accord"
+confiance méfiance
+dissocier associer
+désavouer prétendre
+dissuader persuader
+parler "parler de visage"
+interdit consentement
+déclin "se contracter"
+"contrat dans" contestation
+acquiescer concorde
+"prendre problème" désapprouver
+sanction affronter
+éviter reconnaître
+nier désavouer
+confirmer louange
+"prendre séparement" minimiser
+hyperboliser absoudre
+"faire des reproches" flatter
+dénigrer détromper
+"se égarer" sonne
+courage sifflement
+applaudir bénir
+anathématiser déconsacre
+consacrer désobliger
+accommoder pause
+faire "dis adieu"
+bienvenue condamné
+décharge chuchotement
+crier contre-indiqué
+indiquer "garde la bouche fermée"
+"laisse le chat en dehors du sac" obscurcir
+élucider vocaliser
+dévice check-out
+enregistrement horloge
+horloge déchiffrer
+encoder effacer
+record généraliser
+particulariser communiquer
+excommunier "se ouvrir"
+boutonner "non encadré"
+épeler "tomber par le bord du chemin"
+participer démilitariser
+accumuler mobiliser
+démobiliser "faire la paix"
+guerre rassembler
+rassembler démilitariser
+militariser gagner
+perdre "prendre du retard"
+"faire des progrès" "rester ferme"
+abandon défendre
+attaque dépassement
+dépasser fusible
+désamorcer abstention
+consommer "dîner à le extérieur"
+"dîner dans" "dormir dehors"
+"dormir dans" affamer
+alimentation biberon
+allaiter "être rempli"
+affamer dégrafer
+fermoir renoncer
+saisir défaire
+fausser manquer
+"entrer en collision avec" aiguiser
+émousser rugueuse
+lisser étaler
+replier détendre
+déformer déballer
+emballer lier
+unbrace déchaîner
+chaîne unstrap
+sangle vient
+attacher disjointe
+conjointe rassembler
+disjointe détacher
+attacher découpler
+"couple sur" suffixe
+préfixe débrider
+bride délier
+lier unlash
+fouetter décrocher
+dock dégrader
+aggrade démêler
+attelage devoiler
+couverture détacher
+boucler fermez
+décompresser débarrer
+bar "se ouvrir"
+fermer déboulonner
+boulon vis
+dévisser desceller
+joint déconnecter
+relier démasquer
+masque "détendre les cordes"
+chaîne décrocher
+crochet "détacher la ceinture"
+ceinture dégrafer
+agrafe déclier
+agrafe déboutonner
+bouton détacher
+épingle rassembler
+distribuer décompresser
+"emballer ensemble" déconnecter
+brancher déboucher
+"bouchon de liège" emporter
+transmettre obliger
+obliger enlever
+adduit redresser
+emmêler déranger
+organiser obstruer
+"se dégager" désinstaller
+étouffer "se détendre"
+étouffer sortir
+pack dévoiler
+voile unbox
+paquet uncrate
+caisse décoller
+"poids vers le bas" décharge
+charge dételer
+joug outpan
+inspan dételer
+harnais offsaddle
+selle "force retour"
+attirer éteindre
+allumer "se dégager"
+fonctionner détortiller
+entrelacer "non tissé"
+entremêler unbrid
+plaider enchevêtrement
+déchiffrer dénouer
+enchevêtrement éteindre
+ficelle "se dérouler"
+bobine fonction
+"mauvais fonctionnement" taper
+courir partir
+montez déloger
+dépôt polluer
+"rendre propre" "lavage en machine"
+"lavage des mains" "se lever"
+asseyez-vous mensonge
+asseyez-vous mensonge
+"se lever" déboucler
+boucle dégainer
+gainer indigné
+câble unmake
+faire éliminer
+phase désincarné
+incarner démonter
+"tordre ensemble" démanteler
+installer rejeter
+"jeter sur" minimiser
+"le renverser" tranquilliser
+charger rassurer
+inquiéter amour
+détester comme
+"ne pas aimer" humaniser
+déshumaniser repousser
+attirer démoraliser
+enivrer attrister
+réjouir accabler
+éclaircir mécontenter
+délice mécontenter
+satisfaire mécontentement
+contenu désillusion
+ravir décourager
+recréer décourager
+encourager ennuyer
+intérêt faiblesse
+"souhaite bien" "regarder de haut"
+chercher "rester immobile"
+"bouge toi" "rester en place"
+locomote montez
+"allez-vous en" "rester dans les parages"
+"bouge toi" déménager
+emménager arrêtez
+commencez "aller de le avant"
+arrêtez éloigner
+poussée "aller en-desous"
+flotte balade
+marche uncross
+traverser déposer
+déposer sortir
+"entrer brusquement" sort
+monter "calme toi"
+"déplacer vers le haut" "calme toi"
+monter "aller en-desous"
+montez "faire monter"
+"faire tomber" embarquer
+débarquer "se allonger"
+"se lever" déglychériser
+glyceroliser tirez-vous
+"le progrès" arrière
+avancer précéder
+suivre "va de le avant"
+arrivée "sortie par le haut"
+"toucher le fond" rester
+"prendre congé" tirer
+extraire "emménager dans"
+sortez monter
+descendez converger
+diverge pliez
+redresser "balle de canon le long"
+"se attarder" "prendre plaisir"
+souffrir sous-représenter
+surexposer sensibiliser
+désensibiliser ignorer
+remarquer déodoriser
+odourise cacher
+montrer fermer
+ouvrir désorienter
+orienter concentrer
+brouiller bruyère
+calmer aiguiser
+adoucir aciduler
+édulcoré prendre
+donner perdre
+attendez vendre
+achat permettre
+refuser déshériter
+léguer exportation
+importer télécharger
+télécharger refuser
+acceptez "connectez - out"
+"se identifier" "paiement insuffisant"
+surpayer "défaut sur"
+"ante up" clair
+rebondir débit
+crédit "ne dépasse pas"
+"trop dépenser" économiser
+gaspiller désinvestissements
+investir "jeter par-dessus bord"
+réclamer confiscation
+réquisition "faire une perte"
+"faire un profit" "seuil de rentabilité"
+"faire un profit" "faire une perte"
+"seuil de rentabilité" perdre
+reconquérir acquérir
+perdre underbid
+surenchérir underbid
+surenchérir "se désister"
+dépôt "payer en argent comptant"
+charge surcharge
+surcharge noter
+marquer "sous bois"
+suremballage prêter
+emprunter unmuzzle
+museau kern
+kern refrain
+"bouge toi" "prendre le pouvoir"
+"quitter le bureau" introniser
+désinvestissements détrôner
+introniser "descendre les escaliers"
+"kick upstairs" engager
+"donner le sac" "viens avant"
+"vient apres" stagner
+travail confiner
+libérer prévenir
+permis fermer
+"se ouvrir" "se débarrasser de"
+établir désorganiser
+organiser décomptabiliser
+licence comprendre
+"rester dehors" "manque de respect"
+respecter fréquenter
+boycotter unir
+séparer affranchir
+désengagement formaliser
+invalider rappel
+"la fourniture" décriminaliser
+criminaliser séparer
+déségréger rapatrier
+expatrié refuser
+"autoriser dans" déclassifier
+classer déréglementer
+restreindre déréglementer
+régulariser compenser
+faux comporte
+inconduite échouer
+négocier fais-le
+lave-le passer
+échouer "se tromper"
+"ramener à la maison le lard" désobéir
+obéit soulager
+"mettre en place" réhabiliter
+purge observer
+transgresser représenter
+poursuivre décoloniser
+coloniser "mettre fin"
+commencer manquer
+assister succomber
+tirer éliminer
+nécessiter manquer
+fonctionnalité exclure
+comprendre désaccord
+correspondre "se conformer"
+dévier différer
+égal sortir
+entrez "conforme à"
+"aller contre" "à la hauteur"
+"ne manque pas" déséquilibrer
+équilibrer cesser
+continuer céder
+"rester ferme" résister
+"se prêter" postdater
+antécédent éteindre
+enflammer abandonner
+prendre nettoyer
+couvert maladroitement
+gentiment insignifiant
+significativement complètement
+partiellement imparfaitement
+"à la perfection" pauvrement
+bien mal
+bien désavantageusement
+avantageusement insatisfaisant
+"de manière satisfaisante" jamais
+toujours "non conventionnellement"
+"de manière conventionnelle" "plus maintenant"
+encore rarement
+fréquemment "peu fréquent"
+fréquemment déraisonnablement
+raisonnablement naturellement
+naturellement intentionnellement
+"de manière circonstancielle" "en général"
+"plus précisément" malheureusement
+"car la chance le aurait" malheureusement
+heureusement malheureusement
+mémorablement "par machine"
+"par la main" inacceptablement
+acceptable maladroitement
+habilement "non pas par la faute"
+"par tous les moyens" indirectement
+directement involontairement
+intentionnellement tranquillement
+bruyamment "vers le avant"
+"vers le arrière" "en avant"
+"en arrière" ouvertement
+secrètement passivement
+activement "au dessus"
+"au dessous de" "dans un endroit supérieur"
+"à un endroit inférieur" bien
+"de devoir" multiplier
+séparément théoriquement
+"par observation empirique" tardivement
+chop-chop "de façon inadmissible"
+permise temporairement
+"en permanence" linéairement
+géométriquement inconclusivement
+"une fois pour toutes" "sur un étage supérieur"
+"à le étage inférieur" "contre le vent"
+"sous le vent" "vers le haut"
+"vers le bas" haut
+"vers le bas" "en aval"
+"en amont" "dans une moindre mesure"
+"dans une plus grande mesure" moins
+plus tardivement
+"en avance" "au plus"
+"au moins" "au pire"
+"au mieux" "de manière irresponsable"
+"de manière responsable" remarquablement
+"sans importance" "dans cet endroit"
+ici là
+ici "à le extérieur"
+"à le intérieur" "à le extérieur"
+"à le intérieur" "au degré le plus bas"
+"au plus haut degré" inorganiquement
+"de manière organique" officieusement
+officiellement périphériquement
+"au centre" "de un côté"
+"de autre part" "sans succès"
+"avec succès" "de manière non systématique"
+systématiquement inconséquemment
+systématiquement inconstitutionnellement
+constitutionnellement "non démocratiquement"
+démocratiquement "sans importance"
+typiquement "en premier lieu"
+secondairement "sans forme"
+dramatiquement "de manière inappropriée"
+"de manière appropriée" "à terre"
+"au large" "par des moyens artificiels"
+naturellement chroniquement
+"de façon aiguë" insuffisamment
+suffisamment "avec hésitation"
+"sans hésiter" "hors de contrôle"
+"dans la main" "par inadvertance"
+"par voie de discrétion" "sans aucun doute"
+"par voie de discrétion" légitimement
+illégalement inconfortablement
+confortablement "en privé"
+publiquement publiquement
+"en privé" aborad
+orade patiemment
+impatiemment régulièrement
+"par vague" asymétrique
+symétriquement légèrement
+"à le heure actuelle" faiblement
+fortement "avec parcimonie"
+amplement "sans gratitude"
+gracieusement inconsidérément
+considéreusement "sans aide"
+"de manière utile" irrationnellement
+rationnellement "sans critique"
+"de manière critique" "affichage de incompétence"
+"avec compétence" "sans relâche"
+"de façon émotionnelle" officiellement
+"de façon informelle" "centre ville"
+haut-ville "sans enthousiasme"
+"avec enthousiasme" finement
+grossièrement indifférent
+"avec sympathie" "sans conviction"
+"de manière convaincante" malheureusement
+gracieusement "sur une base irrégulière"
+régulièrement "en bon ordre"
+"de manière incorrecte" inconvenient
+commodément "de manière abstraite"
+concrètement "sans entorse"
+craintivement "sans espoir"
+espérons-le bêtement
+judicieusement "sans intelligence"
+intelligemment incompréhensiblement
+"de manière compréhensible" "sans répartition"
+diplomatiquement incorrectement
+correctement inexactement
+"avec précision" injustement
+"de manière justifiée" "sans hâte"
+précipitamment monauralement
+"aux deux oreilles" "sans équivoque"
+imaginativement honteusement
+"sans vergogne" "peu impressionnante"
+impressionnante "de manière improductive"
+"de manière productive" amateur
+"comme un expert" "sans intérêt"
+"de façon intéressante" immodérément
+modérément "de façon irréaliste"
+"de façon réaliste" étourdiment
+pensivement inauspiciously
+"avec enthousiasme" "de façon décontractée"
+courtoisement désagréablement
+agréablement désagréablement
+agréablement "sans ambiguïté"
+ambiguëment cérémonieusement
+"sans cérémonie" "de une manière générale"
+étroitement infidèlement
+fidèlement non-violent
+violemment fini
+infiniment petit
+gros inconsciemment
+"avec précaution" tranquillement
+bruyamment "sans inquiétude"
+tranquillement intérieurement
+extérieurement défavorablement
+favorablement "sans douleur"
+gaiement involontairement
+volontairement inefficacement
+rapidement "par inadvertance"
+sciemment injustifiablement
+"à juste titre" "de manière immodieuse"
+modestement "de manière irrésolue"
+résolument "peu attractif"
+"de façon attrayante" inconsciemment
+consciemment "non concurrentiel"
+"de manière compétitive" incroyablement
+"de manière crédible" indécemment
+décemment "de manière inhabituelle"
+typiquement "à le extérieur"
+intérieurement "a priori"
+"a postériori" illégalement
+légalement mi-temps
+"à plein temps" multilatéralement
+unilatéralement "sens horaire"
+"dans le sens contraire des aiguilles de une montre" "en dehors"
+"vers le intérieur" "sur scène"
+"dans les coulisses" "peu attrayante"
+"de façon séduisante" "avec désapprobation"
+"avec approbation" "sans ambition"
+résolument "en bas niveau"
+"haut de gamme" "sans relâche"
+"de façon affirmée" inarticulièrement
+"de manière articulée" inaudiblement
+audiblement sanglement
+"sans sang" "de manière inappropriée"
+"avec reconnaissance" "de manière temporaire"
+"de façon saisonnière" "vers le avant"
+"à le arrière" "de manière imprudente"
+"avec prudence" "sans équivoque"
+"de manière chevaleresque" "dessous de la ceinture"
+équitablement incohérente
+"de manière cohérente" incompatibles
+"de manière compatible" "se plaindre"
+"sans plainte" "de une manière incomparable"
+"de manière exhaustive" inconditionnellement
+conditionnellement inconséquemment
+"par conséquent" "de manière crédible"
+malheureusement indécis
+"de façon décisive" faiblement
+"à forte densité" incroyablement
+peut-être "à tort"
+"à juste titre" "sans contrainte"
+controversé indécisement
+"de manière décorative" "contre son gré"
+volontairement "de façon offensive"
+défensivement "de façon offensive"
+inoffensivement "sans danger"
+"de manière préjudiciable" malhonnêtement
+honnête honorablement
+"de manière déshonorante" déloyalement
+loyalement désobéissant
+obéissant proportionnellement
+disproportionné réputés
+déraisonnablement "sans respect"
+"avec respect" confiant
+méfiant "vers le ouest"
+"vers le est" inefficacement
+efficacement inefficace
+efficacement désintéressé
+"de manière égoïste" inefficacement
+élégamment décourageant
+"de manière encourageante" inéquitablement
+équitablement "de manière non éthique"
+éthiquement "de façon inégale"
+uniformément irrégulièrement
+régulièrement inégalement
+également "sans excès"
+excitant impardonnablement
+pardonable inexpérimenté
+convenablement "à peu de frais"
+"de manière économique" inexpressivement
+expressément démodée
+"à la mode" incivilement
+poliment insensiblement
+"avec sensibilité" "par infelicité"
+heureusement littéralement
+métaphoriquement inflexiblement
+"avec souplesse" impitoyablement
+pardonnant bruyamment
+doucement "très fort"
+"très doucement" "sans joie"
+joyeusement "à contrecœur"
+"à contrecœur" inhospitalièrement
+hospitalier inhumanément
+humainement "sans humour"
+"avec humour" "sans hygiène"
+"de façon hygiénique" indescifrablement
+déchiffrablement légitimement
+illégitimement illogiquement
+logiquement immoralement
+vertueusement pénitentiellement
+impénétrablement "de façon perceptible"
+imperceptiblement personnellement
+impersonnellement explicitement
+implicitement "de manière imprécise"
+incisivement providentiellement
+"de façon improvisée" imprudemment
+providentiellement insuffisamment
+adéquatement comparativement
+incomparablement discrètement
+visiblement indiscrètement
+discrètement "non informatif"
+"de manière informative" opportunément
+inopérément "de façon insécurisée"
+"en toute sécurité" insensiblement
+sensiblement "de manière insigne"
+"sans faille" intolérantement
+tolérantement intransitivement
+transitivement visiblement
+invisiblement "de manière pertinente"
+"sans importance" "de manière respectueuse"
+irrévérencieusement mûrement
+immature "avec précaution"
+judicieusement staccato
+legato incontrôlable
+"de manière administrative" inconditionnellement
+virilement malveillant
+bienveillant "au minimum"
+"au maximum" richement
+"avec parcimonie" "de manière mesurable"
+incommensurablement "sans modération"
+mélodieusement unmemorably
+inoubliablement "en vérité"
+mendainement "de manière unmusique"
+musicalement "de manière large"
+"étroitement mentalement" inutilement
+nécessairement subjectivement
+objectivement discrètement
+"de manière intrusive" "avec pessimisme"
+"avec optimisme" obligatoirement
+éventuellement "de manière désagréable"
+"de manière palatée" "sans être patriotique"
+patriotiquement inconcevable
+reconnaissable "sans prétention"
+prétentiellement injustement
+"à la droiture" inconsciemment
+consciencieusement inconsciemment
+sentimentalement "de manière inséparable"
+séparablement "sans raison"
+souriantement insociablement
+sociablement "de manière sportive"
+sportivement unromantically
+romantique "sans tact"
+"avec tact" vulgairement
+"avec goût" légèrement
+grossièrement grossièrement
+faiblement grammaticalement
+"sans programme" "sans précédent"
+précédemment "de manière déshonorante"
+honorablement inutilement
+utilement concave
+"de façon convexe" "sans douleur"
+douloureusement adaxialement
+abaxialement incapable
+capable adaxial
+abaxial basiscopique
+acroscopique adductif
+enlèvement "en train de mourir"
+naissant intégral
+abrégé comparatif
+absolu "non absorbant"
+absorbant "non adsorbant"
+"assimilateur de surface" adsorbable
+absorbable glouton
+sobre béton
+abstrait rare
+abondant "non consommé"
+maltraité inacceptable
+acceptable inaccessible
+accessible "non adapté"
+accommodant inexacte
+précis inhabituel
+habitué alcalin
+acide amphiprotique
+acide amphiprotique
+alcalin "aimant alcalin amoureux de le acide"
+"non reconnu" reconnu
+inaccessible avide
+basipétal acropétale
+inactif actif
+actif disparu
+statif dynamique
+passif actif
+silencieux actif
+potentiel existant
+chronique aigu
+avirulent virulent
+inadapté adaptative
+"non adonné" intoxiqué
+"non additives" "formation d'habitude"
+soustractif additif
+"sans réponse" adressé
+inadéquat adéquat
+"non adhérent" adhésif
+substantiel "de procédure"
+inaccessible adoptable
+"non décoré" décoré
+anticholinergique cholinergique
+maladroit adroit
+désavantageux avantageux
+"non aventureux" aventureux
+inconveniable conseillé
+"mal conseillé" "bien conseillé"
+anaérobiotique aérophiles
+anaérobie aérobique
+inesthésique esthétique
+"non affecté" affecté
+"non affecté" "non naturel"
+rejetant acceptable
+échoué "à flot"
+"sans peur" peur
+"non agressif" agressif
+"non agité" agité
+désagréable agréable
+air-air air-surface
+"surface à air" air-surface
+"surface à air" air-air
+débrayée vigilant
+heuristique algorithmique
+inaliénable aliénable
+mort vivant
+écréme apocrine
+subartesien artésien
+mort vivre
+analphabétique alphabétique
+précocial altricial
+égocentrique altruiste
+"non ambigu" ambigu
+"sans ambition" ambitieux
+emmetropique amétrique
+malheureusement ample
+catabolique anabolisant
+cataclinal anaclinal
+astigmatique anastigmatique
+synclinal anticlinal
+catadrome anadrome
+diadromes anadrome
+diadromes catadrome
+katabatic anabatique
+oral "rétention anale"
+numérique analogue
+synthétique analytique
+synthétique "non fléchée"
+dérivation flexionnel
+syncarpous apocarptique
+unanier "en colère"
+non-résistant irrité
+insensé sensible
+non-vivant animer
+"à le unanimité" animé
+"non animé" animé
+inanimé animer
+onymous anonyme
+autopsie antemortem
+subséquent antécédent
+retrorse antrorse
+terrestre aquatique
+amphibie aquatique
+amphibie terrestre
+réussir précédent
+"sans précédent" précédé
+"non préhensible" préhensile
+périnatal antepartum
+post-partum antepartum
+post-partum périnatal
+postprandial préprandial
+"après la guerre" "avant la guerre"
+antérogène rétrograde
+postmeridien antiméridien
+postérieur antérieur
+ventral dorsal
+inaccessible appelable
+"non adapté" appenduit
+"peu appétissant" appétissant
+inabordable approchable
+inapproprié approprié
+indu dû
+malapropos "à propos de périphérique apteral"
+non-arbitrable arbitrable
+"non collonnés" colonnade
+"non azuréaire" "arbre de vie"
+argileux arénacée
+"sans armes" armé
+"non armé" blindé
+"sans bras" armé
+naïf astucieux
+inarticulé articuler
+"non parlant" parlant
+"non articulé" articulé
+"sans vergogne" honteux
+unassertive auto-affirmé
+"non associatif" associatif
+"non engagé" engagé
+"non résorbé" apposé
+pédiculier "sans tache"
+vagin sessile
+détaché attaché
+décollé coincé
+détachable attachable
+imprudent prudent
+inattentif attentif
+"peu attrayant" attrayant
+repoussant attrayant
+"peu attrayant" attirant
+"non attribuable" attribuable
+prédicatif attributif
+"pas enceinte" enceinte
+indécentable audible
+subsonique transonique
+supersonique transonique
+supersonique subsonique
+"peu propice" "de bon augure"
+impitoyable propice
+"non autorisé" autorisé
+inconstitutionnel constitutionnel
+allochtone autochtone
+hétérotique autoécique
+hétérogène autogène
+manuel automatique
+indisponible disponible
+endormi éveillé
+"non catastrophant" astringent
+inconnaissant compétent
+involontaire "mal à le esprit"
+désamorcer alarmant
+entomophile anémophile
+"non rassurant" rassurant
+suivant "de premier plan"
+"dos nu" soutenu
+"sens inverse" "vers le avant"
+"non équilibré" balisé
+"sans barrière" canon
+"sans bec" bec
+"sans lit" couché
+unbeneficed bénéficié
+"non établi" stratifié
+fernless fougère
+"sans pelouse" herbeux
+ungusseted soufflé
+hirsute chauve
+"sans crayon" awned
+"non porteur" palier
+laid beau
+laid joli
+"à ventre plat" ventre
+"non bandé" bandé
+"sans ceinture" ceinturé
+maléfique bienfaisant
+illimitée "mal intentionné"
+calomnier bienfaisant
+pire meilleur
+"a empiré" meilleur
+détérioration amélioration
+unicaméral bicaméral
+unidirectionnel bidirectionnel
+"sans visage" face
+bibless bavure
+multilatéral unilatéral
+unimodal bimodal
+monaural binaural
+trinucléée binucléé
+mononucléate binucléé
+trinucléé mononucléate
+quadrupède "deux pieds"
+brunette "aux cheveux clairs"
+"sans tache" tordu
+exsangue sanglant
+timide audacieux
+"non lié" lié
+désactivé attelé
+détaché attaché
+démêlé enchevêtré
+"non mis en ordre" bordé
+lentic lotic
+"classe moyenne" "classe inférieure"
+"classe supérieure" "classe inférieure"
+"classe supérieure" "classe moyenne"
+dolichocéphale brachycéphale
+lâche courageux
+gutless courageux
+"alimenté en bouteille" allaité
+"à bout de souffle" respiration
+"non cristallin" cristalline
+"sans terre" "a atterri"
+foncé lumière
+"sans ombre" ombragé
+"sans lune" "éclairé par la lune"
+infranchissable puissable
+terne brillant
+"sans préparation" "obscurci impartial"
+discriminatoire "étroit de esprit"
+"large esprit" "non reconstruit"
+reconstruit ininterrompu
+cassé sœur
+"frère endergonic" exergonique
+identique fraternel
+"non enterré" enterré
+"tourner au ralenti" occupé
+"sans os" boney
+déboutonné boutonné
+socialiste capitaliste
+euphonique cacophonique
+incalculable calculable
+orageux calme
+"non chromé" camphré
+incapable capable
+indifférent "tenir à"
+négligent prudent
+herbivore carnivore
+omnivore carnivore
+insectivore carnivore
+omnivore herbivore
+insectivore herbivore
+insectivore omnivore
+holophytique holozoïque
+acarpellé carpellé
+"non tapoté" "tapissé clincher-construit"
+carvel-built "non dessiné"
+sculpté catalécanique
+acatalectique hypercataléctique
+acatalectique hypercataléctique
+catalécanique radical
+cauline "sans censure"
+censuré acaude
+caudated acaulescent
+caulescent "non causable"
+causal imprudent
+prudent "non cellulaire"
+cellulaire incohérent
+cohérent "non complétées"
+compartimenté "non poreux"
+porifère périphérique
+central centripète
+centrifuge eferent
+afférente décentralisation
+centralisation incertain
+certain "pas convaincu"
+convaincu timide
+"sur de soi" "non certifié"
+agréé évitable
+inévitable impénétrable
+évitable "non modifiable"
+changeable incommutable
+commutable inaltérable
+modifiable "non modifiable"
+modifiable "non corrigé"
+ajusté inadapté
+ajusté inchangé
+modifié "non amendé"
+modifié inchangé
+modifié isotonique
+isométrique "non ionisé"
+ionisé immuable
+changeable "non caractéristique"
+caractéristiques "non chargé"
+accusé "peu charitable"
+charitable unchartered
+affrété "sans propriétaire"
+propriété impudique
+chaste déprimant
+"de bonne humeur" achlamideuse
+chlamydeous achondritique
+chondritique triclinique
+monoclinique polychrome
+monochromatique achromatique
+chromatique insaturé
+saturé "noir et blanc"
+couleur "non coloré"
+coloré "sans tache"
+coloré incolore
+coloré foncé
+"lumière colorée" diatonique
+chromatique transmontane
+cismontane "peu chrétien"
+christian "non civilisé"
+civilisé "non classique"
+classique "non classé"
+classifié "non analysé"
+analysé impur
+nettoyer sale
+inobjectif contaminant
+"non contaminant" "non radioactif"
+radioactif "pas clair"
+clair opaque
+clair radio-opaque
+radiolucent confus
+"pensée claire" inclément
+clément stupide
+intelligent fermer
+loin fermer
+loin uncousinlyly
+cousinlyly "sans vêtements"
+habillé "sans emballage"
+soigné nuageux
+clair intérieur
+côtier "au large"
+"vers le rivage" incohérent
+cohérent "non collapsible"
+pliant "non pris en charge"
+fissuré distributif
+collectif supprimé
+publicitaire "non publié"
+publié "non publiable"
+publiable "non signalé"
+signalé "non consignable"
+"à signaler" non-compulsif
+combinatoire incombustible
+combustible "non explosif"
+explosif "sans lumière"
+éclairé incommode
+spacieux inconfortable
+confortable "sans rapport"
+commensurable disproportionné
+proportionné "non commercial"
+commercial "non résidentiel"
+résidentiel non-commissionné
+commandé rare
+commun inhabituel
+habituel hydrophile
+hydrophobe oléophobe
+oléophile individuel
+commun "peu communicatif"
+communicatif "en vrac"
+compact incomparable
+comparable indifférent
+compatissant incompatible
+compatible "non miscible"
+miscible incompétent
+compétent "non compétitif"
+compétitif "sans plainte"
+plaignant incompressible
+compressible fractionnaire
+entier moitié
+entier "non dédié"
+dévoué incomplet
+achevée "non compliqué"
+complet décomposé
+composé incompréhensible
+compréhensible renflé
+concave distribué
+concentré "non concentrique"
+concentrique indifférent
+concerné prolixe
+concis "non concluant"
+concluante "non consommé"
+consommé subordonner
+coordination discordant
+accordant étendu
+contracté hypertrophié
+diminué inconditionnel
+conditionnel inapplicable
+exécutoire "non forcé"
+"mis en œuvre" "non conducteur"
+conducteur ouvert
+confiné "peu fréquentée"
+bondé incompatible
+agréable incongrue
+conforme incongru
+convenable disjonctif
+conjonctif disjointe
+conjoint "sans rapport"
+connecté invincible
+vaincable inconscient
+conscient profané
+consacré "sans prétention"
+prêtre libéral
+conservateur inconsistant
+cohérent discret
+visible indiscernable
+perceptible indiscernable
+distinguable inconstant
+constante destructeur
+constructif mécontent
+content incontestable
+contestetable incontinent
+continent sporadique
+continuel discontinue
+ininterrompu discontinue
+continu abandonné
+"a continué" incontrôlé
+contrôlé "non controversée"
+controversé "non préjugé"
+argumentatif incommode
+pratique "non conventionnel"
+conventionnel conventionnel
+nucléaire "non traditionnel"
+traditionnel divergent
+convergent "sans branches"
+branchu "peu convaincant"
+convaincant brut
+cuit "peu coopératif"
+coopérative incorruptible
+corrompu antagoniste
+synergiques négligeable
+considérable négligeable
+substantiel "non significatif"
+matériel unbodied
+"en corps" "non lavé"
+"lavage de cerveau" incorporel
+corporel incorrect
+correct faux
+correct "non corrigé"
+corrigé incorrigible
+corrigible provincial
+cosmopolite laxatif
+costive inconscient
+constipé inconsidéré
+prévenant discourtois
+courtois impoli
+poli impoli
+poli sidéral
+civil "non créatif"
+créatif incroyable
+croyable incrédule
+crédule "non critique"
+critique "sans jugement"
+jugement "non critique"
+critique "sans croix"
+franchi walleyed
+"les yeux croisés" "non couvert"
+couronné "non contractuel"
+important "non cristallisé"
+cristallisé unidimensionnel
+tridimensionnel bidimensionnel
+tridimensionnel bidimensionnel
+unidimensionnel multidimensionnel
+unidimensionnel "non coupé"
+couper incurieux
+curieuse non-courant
+actuel béni
+maudit "non aligné"
+doté inoxydable
+rideaux "prêt à le emploi"
+"fait sur mesure" "fait à la machine"
+"fabriqué à la main" "fabriqué en usine"
+"fait maison" "non cyclique"
+cyclique "chaîne ouverte"
+cyclique acyclique
+cyclique biennal
+"un ans" vivace
+"un ans" vivace
+biennal nocturne
+diurne "en bon état"
+endommagé inépuisable
+"accessible à la date" audition
+sourd indécent
+décent indécis
+décisif interrogatif
+déclaratif "non déclaré"
+déclaré inconvenant
+convenable non-déductible
+déductible "peu profond"
+profond "de jure"
+"de facto" irrévocable
+vaincable invaincu
+vaincu conforme
+"non conforme" indéfini
+défini "mal défini"
+"bien défini" "a subi"
+dérivé "non fléchée"
+infléchie indéfini
+précis indéhiscente
+déhiscente exaltée
+abattu robuste
+délicat incassable
+cassable "peu exigeante"
+exigeant implorant
+impératif antidémocratique
+démocratique "non arbitraire"
+arbitraire "peu démonstratif"
+démonstratif indéniable
+déniable connotative
+dénotatif "non dépendant"
+sûr indépendant
+dépendant subalterne
+indépendant impartial
+partisan "non aligné"
+aligné prescriptif
+descriptif "non descriptif"
+descriptif indésirable
+souhaitable conservé
+détruit indestructible
+destructible indéterminable
+déterminable indéterminé
+déterminé "non développé"
+développé sinistral
+dextral adiabatique
+diabétiques indifférencié
+différencié facile
+difficile plantigrade
+digitigrade indigne
+digne indifférent
+"homme de état" "non présidentiel"
+présidentiel monocotylédone
+dicotylédone négligent
+diligent "non dilué"
+dilué insaturé
+concentré "peu diplomatique"
+diplomatique antagoniste
+conciliatoire indirect
+direct "en alternance"
+direct inverse
+direct rétrograde
+direct médiat
+immédiat "sans discernement"
+discernant indiscret
+discret indiscriminé
+discriminer "sans discernement"
+discrimination "non disponible"
+jetable "non remboursable"
+consigné proximal
+distal mesial
+distal indistinct
+distinct "non fixé"
+focalisé "non diversifié"
+diversifié indivisible
+divisible "sans papiers"
+documenté soumis
+dominateur "non soumise"
+servile subalterne
+dominant récessif
+dominant "à double canon"
+"à un seul canon" "à poitrine unique"
+double-breasted "sans forme"
+dramatique inacceptable
+actable "non théâtral"
+théâtral imbuvable
+potable sobre
+ivre tranchant
+terne "sans incidents"
+mouvementé vivre
+mourir terne
+animé undynamique
+dynamique désagréable
+désireux "sans oreille"
+écossé milieu
+"de bonne heure" "en retard"
+"de bonne heure" "en retard"
+milieu "plus tard"
+"de bonne heure" "non acquises"
+gagné inquiet
+facile ouest
+est est
+occidental endomorphique
+ectomorphique mésomorphe
+ectomorphique mésomorphe
+endomorphique immangeable
+comestible "sans instruction"
+éduqué innumer
+numérotation inopérant
+opératoire inefficace
+efficace "sans effort"
+effort inefficace
+efficace inefficace
+efficace "sans force"
+énergique inélastique
+élastique appointive
+électif "non attribué"
+attribué obligatoire
+optionnel inélégant
+élégant inéligible
+éligible "sans émotion"
+émotif théorique
+empirique appliqué
+théorique "travailleur indépendant"
+salarié "sans emploi"
+employé inaccessible
+employable désabusé
+enchanté décourageant
+encourageant "sans encombre"
+encombré déchargé
+chargé exocentrique
+endocentrique exogames
+endogames endogames
+autogame exogames
+autogamique "libération de énergie"
+"absorbant le énergie" "libération de chaleur"
+"absorbant la chaleur" exogène
+endogène run-on
+arrêté unengétique
+énergique "privé de droits"
+affranchi inexpériable
+exportable inexplicable
+exploratoire inquisiteur
+curieux diminué
+augmenté irréductible
+réductible ignorant
+éclairé "non entreprenant"
+entreprenant "sans enthousiasme"
+enthousiaste indésirables
+désireux épizoique
+entozoïque inégal
+égal déséquilibré
+équilibré hypertonique
+isosmotique hypotonique
+isosmotique hypotonique
+hypertonique "sans équivoque"
+équivoque indéracinable
+éradiable exotérique
+ésotérique "non essentiel"
+essentiel indispensable
+dispensable méprisable
+estimable immoral
+éthique "peu compliqué"
+complémentaire "peu compliqué"
+flatteur dysphémique
+euphémique affligé
+euphorique inégal
+même "à feuilles caduques"
+"à feuilles persistantes" inexact
+exact "non échangeable"
+échangeable "non excable"
+excitable "sans excès"
+excité "peu passionnant"
+passionnant inculpatoire
+disculpatoire inépuisable
+"non renouvelable" "pas épuisé"
+épuisé inexistant
+existant inexistant
+existant inattendu
+attendu inopportun
+opportun inexplicable
+consommable "peu coûteux"
+coûteux inexpérimenté
+expérimenté "non expiré"
+expiré incompréhensible
+explicable inexplicite
+exprimé inexploité
+exploité inexprimable
+exprimable "non protractile"
+extensible inextricable
+extricable arraché
+baissé "sans doigts"
+doigté inexpansive
+expansif inextinguible
+extinguible interne
+externe interne
+extérieur "vers le intérieur"
+"vers le extérieur" "sans yeux"
+regardé "impossible à jouer"
+jouable faute
+juste injuste
+juste inéquitable
+équitable infidèle
+fidèle déloyal
+fidèle infaillible
+faillible inconnu
+familier familier
+étrange démodé
+"à la mode" "sans style"
+"à la mode" lent
+vite "peu fastidieux"
+délicat mince
+graisse "sans gras"
+gras "non fatale"
+fatal incurable
+guérissable insondable
+insondable défavorable
+favorable dérangé
+"à plumes" malheureux
+heureux "non fertile"
+fertile inachevé
+fini infini
+fini "non fini"
+fini fermeture
+ouverture dernier
+premier terminal
+intermédiaire seconde
+premier "non fissile"
+fissile "non fondable"
+fissile inapte
+"en forme" contrasté
+appartement inflexible
+flexible compromettre
+intransigeant non-rigide
+rigide "non adaptable"
+adaptable orthotrope
+campylotropes amphitropes
+anatrogène "tout droit"
+frisé "sans pied"
+pieds inutile
+toed panard
+pigeon-toed "à le arrière"
+avant équivoque
+"mal pris en main" adoptif
+"originaire de" "originaire de"
+étranger nonnative
+aborigène national
+étranger inconnus
+national inoubliable
+oubliable impitoyable
+indulgent informel
+formel malheureux
+chanceux "odeur désagréable"
+parfumé inodore
+odorant inodore
+parfumé lié
+gratuit "non fixé"
+fixé non-libre
+gratuit rare
+fréquent vicié
+frais conservé
+frais salé
+frais hostile
+amical dégelé
+congelé infructueux
+fructueux vide
+plein "non détruit"
+drainé "à temps partiel"
+"à plein temps" "non fonctionnel"
+fonctionnel dysfonctionnement
+fonctionnement biologique
+fonctionnel délabré
+gréé "non équipé"
+équipé "non engagés"
+"sans cadre" encadré
+"non meublé" meublé
+"non financé" financé
+"non déployé" alimenté
+"non spécifié" spécifié
+ungeared orienté
+spécifique général
+"non spécifique" spécifique
+local nationale
+endémique "distribué largement"
+abranchiate branchement
+unitaire fédéral
+décentralisé centralisé
+"non technique" technique
+propriétaire "propriété collective"
+"peu généreux" généreuse
+entrainé généreuse
+contrefaire authentique
+héliocentrique géocentrique
+"non talentueux" talentueux
+"non émaillée" vitré
+"sans verre" vitré
+"peu glorieux" glorieux
+"ne pas aller" aller
+mal bien
+mal bien
+malheureux "bonne nature"
+gênant gracieux
+désobligeant gracieux
+soudain graduel
+raide graduel
+programmatique grammatical
+ingrat reconnaissant
+diploïde haploïde
+polyploïde haploïde
+polyploïde diploïde
+malheureux content
+déconcertant "de regret"
+doux difficile
+diffus concentré
+doux "au cœur dur"
+"non alcoolique" alcoolique
+nocif inoffensif
+inharmonieux harmonieux
+insalubres salubre
+opératoire médical
+inopérable opérable
+antipyrétique pyrétique
+"mauvais pour la santé" "en bonne santé"
+phlegmy sec
+terrestre céleste
+indigeste digestible
+"sans tête" "à tête"
+décalée "à tête"
+lumière lourd
+"sans poids" lourd
+"à toute épreuve" "service léger"
+"pieds lourds" "pieds légers"
+"prêter attention" insouciant
+disqualifiant habilitation
+"peu serviable" utile
+zygodactyle heterodactyle
+homogène hétérogène
+hétérozygote homozygote
+homosexuel hétérosexuel
+bisexuel hétérosexuel
+bisexuel homosexuel
+"non hiérarchique" hiérarchique
+abaissé élevé
+"basse technologie" "haute technologie"
+"sans cravate" "à col"
+"au sol" plafonné
+"haute essorage" "faible essorage"
+"intérêt élevé" "peu de intérêt"
+faible agitée
+"non significatif" imitatif
+"non échoïque" onomatopée
+"basse résolution" "haute résolution"
+"faible hauteur" "hauteur élevée"
+"un moyen" maison
+hétérologue homologue
+autologue homologue
+autologue hétérologue
+analogue homologue
+hétérologique homologue
+analogue hétérologique
+éclipsé "à pignon"
+hippie éclipsé
+déshonorant honorable
+mensonger véridique
+déshonorant honorable
+désespéré optimiste
+"non institutionnalisé" institutionnalisé
+"non institutionnel" institutionnel
+déodorant iodation
+inconsolable consolable
+perpendiculaire horizontal
+incliné horizontal
+incliné perpendiculaire
+désélectionner verticale
+séance permanent
+fonctionnement permanent
+"qui passe" fonctionnement
+inhospitalier hospitalier
+amical hostile
+"du froid" chaud
+estivale vernal
+automnal vernal
+hivernage vernal
+automnal estivale
+hivernage estivale
+hivernage automnal
+non-humain humain
+sous-humain surhumain
+inhumain humain
+"sans humour" humoristique
+assoiffé affamé
+"sans répit" pressé
+"non identifiable" identifiable
+transeunt subjectif
+intact handicapé
+"sans importance" important
+"peu impressionnant" impressionnant
+imperceptible perceptible
+"non amélioré" amélioré
+"non clarifié" effacé
+exaugural inaugural
+hors-bord intérieur
+outbred inné
+"peu disposé" incliné
+sortant entrant
+déductif inductif
+"non indulgent" indulgent
+"non industrielle" industriel
+"non infectieux" infectieux
+supernal infernal
+"non informatif" informatif
+agnostique gnostique
+"mal informé" informé
+fourbe ingénu
+inhabité habité
+"non négligeable" héréditaire
+désinhibé inhibé
+ininjectable injectable
+"non blessé" blessé
+coupable "pur les mains"
+"sans inspiration" inspirant
+non-instructif instructif
+"non éclairant" éclairant
+"non intégrés" intégré
+"non intégrés" intégré
+"non mélangé" mélangé
+"non combiné" combiné
+désintégration intégratif
+"non intellectuel" intellectuel
+inintelligent intelligent
+inintelligible intelligible
+"non intentionnel" prévu
+"non conçu" intentionnel
+modération "se intensifiant"
+intraspécifique interspécifique
+indifférent intéressé
+inintéressant intéressant
+extra-muros intramural
+"ultra vires" "intra vires"
+extrinsèque intrinsèque
+extrospective auto-examen
+extroversive introversif
+ambivalent introversif
+ambivalent extroversive
+"pas intrusif" intrusif
+"en saillie" intrusif
+sédimentaire éruptif
+extrusion intrusif
+confiné envahissant
+"non invasif" envahissant
+débilitant revigorant
+"peu aimable" attrayant
+"in vivo" "in vitro"
+désordonné repassé
+"sans plis" ridé
+anisotrope isotrope
+triste "content de"
+douloureux joyeux
+triste joyeux
+"sans soucis" juteux
+injuste juste
+immercie mérité
+"sans clés" claveté
+méchant gentil
+inconnaissable cognoscible
+inconnu connu
+incompris compris
+"sans étiquette" marqué
+"non brisé" déploré
+unlaurelled laurier
+peu grand
+moindre "plus grand"
+illicite légitime
+"sans plomb" plombé
+serré "qui fuit"
+"non scellé" caulked
+"sans levain" levé
+illégal légal
+illisible lisible
+"non déchiffré" déchiffré
+adoptif biologique
+illégitime légitime
+catarrhinien leptorrhinian
+platyrhinien leptorrhinian
+platyrhinien catarrhinien
+eusporangiate leptosporangiate
+différent similaire
+"contrairement à" comme
+improbable probable
+"sans membres" limbed
+illimité limité
+collatéral direct
+"non linéaire" additif
+"sans doublure" doublé
+"non mentionné" listé
+figuratif littéral
+analphabète alphabétisé
+enregistré "non enregistré"
+"non facultative" habitables
+inébranlable "en livrée"
+déchargé chargé
+inconscient limoneuse
+général local
+endémique épidémie
+ecdémique épidémie
+endémique ecdémique
+"sans le esprit" gantée
+"sans chapeau" éclaté
+"non guidé" guidé
+"sans poussée" jambières
+illogique logique
+"sans extension" élargi
+midi mini
+maxi mini
+maxi midi
+"sans perte" "à perte"
+court longue
+"en croix" longitudinal
+"sans couvercle" couvercle
+serré "en vrac"
+"sans entraves" rétréci
+"a trouvé" perdu
+enregistré perdu
+"a gagné" perdu
+doux bruyant
+mince plein
+forte piano
+doux endurci
+odieux aimable
+"ne a pas aimé" aimé
+"non aimé" aimé
+méchant aimant
+majuscule minuscule
+malheureux chanceux
+dramatique lyrique
+"fait mal" fabriqué
+antimagnétique magnétisé
+géographique magnétique
+"non magnétique" magnétique
+mineur majeur
+mineur majeur
+minuscule majuscule
+"impossible à gérer" maniable
+"non maniable" maniaque
+télécommandé équipé
+"non marqué" marqué
+"sans marque" marque
+célibataire marié
+inconnu accouplés
+féminin masculin
+"de façon incontrôlable" féminin
+neutre masculin
+neutre féminin
+incompatible assorti
+immatériel matériel
+immature mature
+"non mûr" mature
+"toute le année" saisonnier
+"hors de saison" "de saison"
+"hors saison" chevronné
+prématuré terme
+minimal maximal
+"non significative" significatif
+incommensurable mesurable
+"sans viande" "de viande"
+"non mécanique" mécanique
+"non mélodieux" mélodieux
+"sans membre" membre
+"non miné" miné
+"non musical" musical
+"non fondu" liquéfié
+impitoyable miséricordieux
+amebobolique métabolique
+intense doux
+extensif intensif
+"non impliqués" impliqué
+civil militaire
+"non militaire" militaire
+absolu atténué
+"non tempéré" tempéré
+"non tempéré" trempé
+immobile mobile
+inportable portable
+inamovible amovible
+"non métallique" métallique
+"non métamorphique" métamorphique
+immodéré modérer
+non-moderne moderne
+impudique modeste
+"non modifié" modifié
+"non modulé" modulé
+moléculaire molaire
+diclinous monoclinique
+dioïque monoïque
+contrapuntique monophonique
+polygame monogame
+multilingue monolingue
+multivalent monovalent
+bivalent univalent
+multivalent univalent
+multivalent bivalent
+"non monotone" monotone
+polyvalent monovalent
+immoral moral
+illicite licite
+"sans scrupules" "en principe"
+peu beaucoup
+peu beaucoup
+moins "plus que"
+moins "les plus"
+moins plus
+"le moins" "les plus"
+immortel mortel
+"sans motivation" motivé
+"non motorisé" motorisé
+immobile "en mouvement"
+"non mobile" "en mouvement"
+encore "en mouvement"
+"non validé" toupie
+unseamanlike "semblable à des marins"
+intercontinental continental
+international nationale
+"à le intérieur de le état" "entre états"
+"non naturel" naturel
+artificiel naturel
+surnaturel naturel
+tranchant naturel
+appartement naturel
+appartement tranchant
+proche ultime
+inutile nécessaire
+brut nett
+unneurotique psychoneurotique
+méchant agréable
+nidifuges nidicolous
+ignoble noble
+"faible néant" noble
+"non naturel" normal
+anormal normal
+hypotensif hypertendu
+normotensive hypertensif
+normotensive hypotensif
+paranormal normal
+sud nord
+"du sud" nord
+inutile nez
+inaperçu remarqué
+"non détecté" détecté
+indéterminé déterminé
+inoffensif nuisible
+désobéissant obéissant
+subjectif non-subjectif
+"non bloqué" obligé
+facultatif obliger
+"peu évident" évident
+"sans obstruction" obstrué
+inoccupé occupé
+inoffensif offensive
+désagréable sarriette
+défensive offensive
+inoffensif incriminé
+"sans solution" apologétique
+"non officiel" officiel
+"non confirmé" confirmé
+"non établi" établi
+inconditionné conditionné
+"hors site" "sur place"
+"dans la rue" "hors rue"
+nouveau vieux
+immature vieux
+"deux pièces" "une pièce"
+"trois pièces" "une pièce"
+"trois pièces" "deux pièces"
+"hors ligne" "en ligne"
+de sur
+annulé sur
+offsides "sur le côté"
+"non ouvert" détaché
+fermé ouvrir
+fermé ouvert
+"non pavé" espacés
+"non clos" enfermé
+"non tannée" bronzé
+inexploité tapoté
+"non opérationnelle" opérationnel
+inopportun opportun
+"sans opposition" opposable
+"sans opposition" opposé
+alterner contraire
+contraire alterner
+pessimiste optimiste
+aboral oral
+abactinal actinal
+désordonné ordonné
+désordonné commandé
+désorganisé organisé
+"non organisé" organisé
+"non structuré" structuré
+extraordinaire ordinaire
+inorganique biologique
+atomique holistique
+désorganisé arrangé
+"non orienté" orienté
+désorientant orientation
+"sans originalité" original
+"peu orthodoxe" orthodoxe
+intérieur "à le extérieur"
+nu couvert
+"sans revêtement" recouvert
+"sans toit" couverte
+"sans feuilles" feuillu
+débranché lèvres
+secret manifeste
+"non payé" payé
+"sans douleur" douloureux
+"non peint" peint
+"non linéaire" représenté
+impensable peignable
+désagréable acceptable
+impalpable palpable
+perpendiculaire parallèle
+oblique parallèle
+perpendiculaire oblique
+impardonnable pardonnable
+inexcusable excusable
+filial parental
+impartial partiel
+"non partiel" particules
+infranchissable passable
+"sans passion" passionné
+présent passé
+avenir passé
+avenir présent
+"à naître" née
+"non partagée" parée
+maternel paternel
+familier wifelike
+impatient patient
+matriarcal patriarcal
+"non conditionné" fréquenté
+"non emballé" emballés
+"non pavé" pavé
+antipatriotique patriotique
+insensible paisible
+"sans remords" repentant
+inacceptable perspicace
+imperceptible perceptible
+imparfait parfait
+impérissable périssable
+transitoire permanent
+caduc persistant
+irréversible réversible
+"non réversible" réversible
+irrévocable révocable
+inadmissible permis
+inadmissible admissible
+inaperçu permissif
+préventif permissif
+"non perplexe" perplexe
+impersonnel personnel
+dissuasif persuasif
+impénétrable pénétrable
+imperméable perméable
+apetaleux pétale
+"sans poinçonnage" ponctuel
+"non psychoactive" psychoactif
+mental physique
+polythéiste monothéiste
+impie pieux
+religieux séculier
+irréligieux religieux
+implacable placable
+"à motifs" "non substitué"
+fantaisie plaine
+imprévu prévu
+incontrôlé étudié
+"peu plausible" plausible
+désagréable agréable
+mécontent heureux
+déplaisant plaisant
+inutile pointu
+obtus aigu
+"non poli" brillant
+impolitique politique
+apolitique politique
+impondérable pondérable
+impopulaire populaire
+anti pro
+négatif positif
+neutre positif
+neutre négatif
+moins plus
+déconcertant "la confirmation"
+impossible possible
+impuissant puissant
+"non alimenté" alimenté
+"faible tension" "haute tension"
+"sans influence" influent
+aplacental placentaire
+"non planté" planté
+"non agrippé" labouré
+inculte cultivé
+"non moulé" "mis en pot"
+"pas pratique" pratique
+imprécis précis
+retardé précoce
+imprévisible prévisible
+"non précisé" prémédité
+"non préparé" préparé
+"hors cote" ordonnance
+absent présent
+"sans ostentation" ostentatoire
+"sans prétention" prétentieux
+secondaire primaire
+accessoire "de base"
+public privé
+compris exclusif
+défavorisés privilégié
+improductif productif
+phtisique génératif
+"non reproductible" reproductible
+"non professionnel" professionnel
+"peu professionnel" professionnel
+"peu rentable" rentable
+superficiel profond
+opisthognathous hypognathous
+régressif progressive
+impronunciable prononçant
+"non conforme" correct
+insipide prophétique
+rétrospective éventuel
+"non protégé" protégé
+"non protégé" protecteur
+humble fier
+"non démontré" prouvé
+imprévoyant prévoyant
+peupropre provocant
+imprudent prudent
+"non ponctuel" ponctuel
+impuni puni
+réhabilitation punitif
+métis "de race"
+impur pur
+"non contaminé" contaminé
+"sans but" déterminé
+"sans réserve" qualifié
+"non formé" qualifié
+quantitatif qualitatif
+incontestable discutable
+bruyant silencieux
+agité reposant
+inquiet silencieux
+non-régional "au hasard"
+irrationnel rationnel
+intellectuel émotif
+non-raciale racial
+"non réactif" réactif
+"pas prêt" prêt
+irréel existant
+irréel réal
+nominal réal
+irréaliste réaliste
+déraisonnable raisonnable
+"non réciproque" réciproque
+"non raffiné" raffiné
+"non traité" traité
+"non traité" traité
+"non contrôlé" huilé
+irrécupérable restaurable
+"non régénéré" régénérer
+"non enregistré" inscrit
+irrégulier ordinaire
+"non réglementé" réglementé
+irrémédiable remédiable
+"non renouvelable" renouvelable
+impraticable louable
+irréparable rectifiable
+irrépétable répétable
+"non répétitif" répétitif
+"non imprimable" imprimable
+"non demandé" demandé
+rhymeless rime
+multiforme invariable
+"non périodique" périodique
+"sans rapport" "en relation"
+"sans rapport" "relatif à"
+"sans importance" pertinent
+indifférent conscient
+irremplaçable remplaçable
+"non représentatif" représentationnelle
+"non représentatif" représentant
+"de mauvaise réputation" honorable
+"non réceptif" réceptif
+irréconciliable conciliables
+"sans réserve" réservé
+irrésistible résistible
+irrésolu résolu
+imprévisible respectable
+irrespectueux respectueux
+irresponsable responsable
+"ne répond pas" sensible
+effréné restreint
+libre limité
+"non restrictif" contraignant
+inadmissible recueillement
+"non réticulé" réticulé
+"non rétractable" rétractile
+"non réfléchissant" réfléchissant
+"non réfléchi" réfléchi
+"non révolutionnaire" réverbérant
+irrévérencieux respectueux
+"non réussi" relancé
+"non réveillé" réveillé
+"non convenu" awestricken
+contre-révolutionnaire révolutionnaire
+"sans récompense" récompense
+non-rhétorique rhétorique
+"non humoristique" rythmé
+"sans rire" côtes
+pauvre riches
+moneyless riche
+insolvable solvant
+maigre riches
+"sans bordure" bordé
+"sans porte" remis
+"sans poignées" manipulé
+gaucher droitier
+ambidextre droitier
+ambidextre gaucher
+centre droite
+centre "la gauche"
+"sans corne" cornu
+faux droite
+impie vertueux
+frêle robuste
+carré circulaire
+angulation arrondie
+"en forme de pastèque" "en forme de citrouille"
+urbain rural
+"sans rouille" rouillé
+"non protégé" saint
+profane sacré
+masochiste sadique
+dangereux sûr
+"en dehors" sûr
+invendable vendable
+différent même
+autre même
+fou sain
+insatiable rassasié
+unarcastique sarcastique
+insatisfaisant satisfaisant
+instable évolutif
+"non scolaire" savant
+"peu scientifique" scientifique
+"sans scrupules" scrupuleux
+inconscient consciencieux
+"non scellé" scellé
+déballé enveloppé
+"non prudent" "en état de naviguer"
+inconnaissable "en état de navigabilité"
+déconcerté caché
+révélateur occultation
+"non syndicaliste" sectaire
+"peu sûr" tranquille
+"peu sûr" garantir
+"non assuré" assuré
+non-éducatif séduisant
+généreux égoïste
+junior sénior
+"non fondamental" sensationnel
+insensible sensible
+désensibilisation sensibilisation
+extrasensorielle sensoriel
+"non dessiné" envoyé
+mixte séparé
+antiseptique infecté
+germy "sans germe"
+purification adulteration
+frivole sérieux
+"sans jeu" espiègle
+"non sélectionné" choisi
+inutilisable utilisable
+instable colonisé
+"non générateur" migratoire
+unsexy sexy
+non-sexiste sexuel
+"non diffusé" castré
+anaphrodisiaque aphrodisiaque
+anestrous estrous
+"sans forme" galbé
+"sans seins" breasted
+informe formé
+"non partagé" partagé
+"non rasé" rasé
+"sans entretien" cisaillé
+dégainé enveloppé
+décolleté shodden
+discaliser calcé
+hypermétrope myope
+irrétrécissable rétractable
+désactivé aperçu
+"non signé" signé
+insignifiant important
+"non significatif" important
+"non séparé" silencieux
+composé "non subdivisé"
+complexe simple
+"pas sincère" sincère
+pluriel singulier
+ordinal cardinal
+"sans scénarios" scripted
+insubmersible potable
+plusieurs unique
+unique double
+"vrai faux" "choix multiple"
+"voies multiples" "voie unique"
+"non coté" taille
+"non qualifié" qualifié
+mathématique verbal
+bien grossier
+"sans fumée" enfumé
+non-solaire glissant
+"non lubrifié" lubrifié
+"non lisse" lisse
+cahotant lisse
+démonté sillonné
+rugueux lisse
+"bord doux" rifled
+insociable social
+"non accompagné" accompagné
+désintéressé grégaire
+"sans couture" cousu
+"non ensemencé" semé
+"sans pépins" miteux
+"sans découpage" fermé
+"sans manches" manches
+insociable sociable
+invendu vendu
+"sans limite" soled
+liquide solide
+gazeux solide
+gazeux liquide
+creux solide
+indissoluble soluble
+insoluble soluble
+"non résolu" résolu
+non certains
+tout certains
+tout non
+naïf sophistiqué
+désordonné "du son"
+"non négligeable" effervescent
+"non spécialisé" spécialisé
+mou épineuse
+"sans esprit" fougueux
+induite auto-généré
+écrit parlé
+"sans voix" voisé
+"non écrit" écrit
+consonantique vocalique
+inarrêtable stoppable
+non-syllabique syllabique
+accentuation syllabique
+quantitatif syllabique
+quantitatif accentuation
+instable stable
+legato débranché
+"non marqué" "mise en scène"
+"non standard" "la norme"
+"sans fouet" féculent
+"sans étoiles" étoilé
+malnutri nourri
+instable stable
+"sans tige" déclenché
+"non stimulant" stimulant
+stimulant dépresseur
+astomateuse estomacé
+courbé "tout droit"
+courbe "tout droit"
+désintégrés enroulé
+"sans contraintes" stressé
+"sans accent" accentué
+faible fort
+docile "non régénéré"
+insubordonné subalterne
+infructueux réussi
+insuffisant suffisant
+"sans sucre" sucré
+inférieur supérieur
+sous-jacente superjacent
+adscript exposé
+adscript indice
+"sans surveillance" supervisé
+"non supporté" "prise en charge"
+"non assisté" assisté
+insoutenable soutien
+insurmontable surmontable
+"pas surpris" surpris
+"pas surprenant" surprenant
+insensible sensible
+"non impressionnable" impressionnable
+"non négligé" exempter
+"non programmée" prévu
+sec doux
+acide doux
+"non desservis" aigri
+insoupçonné soupçonné
+"non balayé" "balayé non usé"
+juré asymétrique
+symétrique "symétrique bilatéralement"
+actinomorphes antipathique
+sympathique allopatrique
+sympatrique diachronique
+synchronique asynchrone
+synchrone asyndétique
+syndétique antonyme
+synonyme "peu systématique"
+systématique volubile
+taciturne "sans contact"
+"plein de tact" peu
+grand sauvage
+apprivoisé sauvage
+apprivoiser intangible
+touchable intangible
+tangible insipide
+"de bon goût" insipide
+délicieux "non taxable"
+"non négligé" intempérant
+tempéré relâché
+tendu détendu
+tendu extra-territorial
+territorial non-territorial
+territorial thermodurcissable
+thermoplastique mince
+épais impensable
+pensable irréfléchi
+réfléchi gaspilleur
+économe désordonné
+rangé "non damré"
+soigné incompétents
+peigné "non mélangé"
+boisé "sans timbre"
+tonique "sans tons"
+balayé désuet
+pointe reposé
+fatigué intolérable
+tolérable intolérant
+tolérant "sans touches"
+tonal édenté
+denté bas
+haut côté
+haut côté
+bas "aux seins nus"
+surmonté "sans fond"
+fond "de bas en haut"
+"de haut en bas" polaire
+équatorial intestat
+testate intact
+touché soumissionner
+dure "non endurci"
+trempé "non toxique"
+toxique intraitable
+manipulable "à la carte"
+"table de hôte" introuvable
+traçable "sans chenilles"
+suivi "sans distraction"
+voyagé "non coupé"
+coupé tranquille
+troublé faux
+vrai méfiant
+confiant "indigne de confiance"
+"digne de confiance" "sans chambre à air"
+tube désintéressé
+caché "non tourné"
+##>>

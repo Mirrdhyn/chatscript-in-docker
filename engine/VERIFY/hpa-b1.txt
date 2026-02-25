@@ -1,0 +1,5 @@
+﻿~hpa.0.0  #! what is an hpa
+~hpa.1.0  #! hpa minReplicas maxReplicas
+~hpa.2.0  #! hpa metrics types resource pods object external
+~hpa.3.0  #! hpa scaleTargetRef
+~hpa.4.0  #! hpa behavior scaleUp scaleDown stabilization

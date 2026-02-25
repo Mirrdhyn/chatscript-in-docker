@@ -1,0 +1,13 @@
+﻿~pod.0.0  #! what is a pod
+~pod.1.0  #! pod spec containers field
+~pod.2.0  #! pod init containers
+~pod.3.0  #! pod volumes
+~pod.4.0  #! pod restart policy
+~pod.5.0  #! pod affinity anti-affinity
+~pod.6.0  #! pod tolerations taints
+~pod.7.0  #! pod security context
+~pod.8.0  #! pod resource requests limits
+~pod.9.0  #! pod probes liveness readiness startup
+~pod.10.0  #! pod DNS policy config
+~pod.11.0  #! pod service account
+~pod.12.0  #! pod lifecycle phases

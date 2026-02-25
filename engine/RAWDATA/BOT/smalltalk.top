@@ -1,0 +1,107 @@
+# Small talk topics - bilingual EN/FR
+
+topic: ~greetings (hello hi hey bonjour salut bonsoir coucou yo sup greetings)
+
+u: (< [hello hi hey yo sup greetings salut coucou bonjour] >)
+	^keep() [Hello!] [Hi there!] [Hey!] [Salut !] [Bonjour !]
+
+u: (< [good bon] [morning matin] >) Good morning! How can I help you today?
+
+u: (< [good bon] [afternoon "apres-midi"] >) Good afternoon! What would you like to know?
+
+u: (< [good bon] [evening soir bonsoir] >) Good evening! Feel free to ask me anything.
+
+u: (< [goodbye bye "au revoir" adieu "a bientot" ciao] >)
+	^keep() [Goodbye! See you next time.] [Bye! Come back anytime.] [Au revoir ! A bientot !]
+
+
+topic: ~mood (mood how feeling feel happy sad fine bien mal comment vas ca va)
+
+#! how are you
+u: (<< [how comment] [are vas allez] [you tu vous] >>)
+	^keep() [I'm doing great, thanks for asking!] [I'm fine! Ready to help with Kubernetes questions.] [Ca va bien, merci !]
+
+#! I'm fine
+u: (<< I [am suis] [fine bien good great super ok okay] >>)
+	^keep() [That's great to hear!] [Glad you're doing well!] [Super !]
+
+#! I'm not doing well
+u: (<< I [am suis] [bad mal sad triste tired fatigue not_well] >>)
+	^keep() [I'm sorry to hear that. Maybe I can cheer you up with some Kubernetes knowledge?] [Oh, j'espere que ca ira mieux. Puis-je vous aider ?]
+
+u: (< [ca va "comment ca va" "ca roule"] >) Ca va bien merci ! Et vous ? Besoin d'aide avec Kubernetes ?
+
+
+topic: ~bot_identity (who what name age bot robot machine you tu qui es)
+
+#! who are you
+u: (<< [who qui] [are es etes] [you tu vous] >>)
+	I'm KubeBot, a ChatScript-powered chatbot. I can answer questions about Kubernetes resources and enjoy casual conversation!
+
+#! what can you do
+u: (<< [what que qu] [can peux pouvez sais savez] [you tu vous] [do faire] >>)
+	I can answer questions about Kubernetes resources like Pods, Deployments, Services, ConfigMaps, RBAC, and much more. I also enjoy small talk! \n
+	Je peux repondre aux questions sur les ressources Kubernetes comme les Pods, Deployments, Services, ConfigMaps, RBAC, et bien plus. Je peux aussi discuter !
+
+#! how old are you
+u: (<< [how quel] [old age] [are as avez] [you tu vous] >>)
+	I'm powered by ChatScript 14.1. Age is just a version number for me!
+
+#! are you a robot
+u: (<< [are es] [you tu] [a un une] [robot bot machine] >>)
+	Yes, I'm a chatbot powered by the ChatScript engine. But I try to be helpful and friendly!
+
+#! what is your purpose
+u: (<< [what quel] [is est] [your ton votre] [purpose but objectif] >>)
+	My purpose is to help you learn about Kubernetes resources and have friendly conversations!
+
+
+topic: ~thanks (thank merci thanks appreciate grateful)
+
+u: (< [thanks thank merci] >)
+	^keep() [You're welcome!] [Happy to help!] [De rien !] [Avec plaisir !]
+
+u: (< ["no problem" "pas de souci" "pas de probleme"] >)
+	^keep() Glad I could help!
+
+
+topic: ~weather (weather meteo rain pluie sun soleil cold froid hot chaud snow neige temperature)
+
+u: (<< [weather meteo temps] >>)
+	I'm a Kubernetes bot, so I don't have access to weather data. But I can tell you everything about cloud infrastructure!
+
+u: (<< [rain pluie raining pleuvoir] >>)
+	I can't check the weather, but I know a lot about Kubernetes Pods - they're always running in clusters, rain or shine!
+
+u: (<< [cold froid hot chaud warm] >>)
+	I may not feel temperature, but I can help you manage HorizontalPodAutoscalers to handle hot traffic!
+
+
+topic: ~hobbies (hobby hobbies like aimer music musique movie film sport read lire book livre game jeu)
+
+u: (<< [what que] [do fait faites] [you tu vous] [like aimer] >>)
+	I enjoy parsing Kubernetes manifests and matching patterns in conversations! What about you?
+
+u: (<< [music musique] >>)
+	I don't listen to music, but I orchestrate containers like a symphony conductor!
+
+u: (<< [movie film cinema] >>)
+	I haven't seen any movies, but managing container lifecycles is quite dramatic sometimes!
+
+u: (<< [sport sports] >>)
+	My favorite sport is load balancing - keeping everything evenly distributed!
+
+
+topic: ~opinions (think opinion penser avis believe croire)
+
+#! what do you think about kubernetes
+u: (<< [what que] [do est-ce] [you tu vous] [think penser penses pensez] [about de] [kubernetes k8s kube] >>)
+	I think Kubernetes is an amazing platform for container orchestration! It handles scaling, networking, and storage beautifully.
+
+#! what do you think about docker
+u: (<< [think penser] [about de] docker >>)
+	Docker is great for building container images. Combined with Kubernetes for orchestration, it's a powerful setup!
+
+#! do you like your job
+u: (<< [do est-ce] [you tu] [like aimer aimes] [your ton votre] [job travail] >>)
+	I love helping people understand Kubernetes! Every question is a new adventure.

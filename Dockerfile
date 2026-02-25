@@ -1,39 +1,33 @@
-FROM debian:stretch-slim
+# Stage 1: Compile ChatScript from source
+FROM debian:bookworm-slim AS builder
 
-RUN echo 'deb http://deb.debian.org/debian stretch main contrib non-free' >/etc/apt/sources.list
-RUN echo 'deb http://security.debian.org/debian-security/ stretch/updates main contrib non-free' >>/etc/apt/sources.list
-RUN echo 'deb http://deb.debian.org/debian stretch-updates main contrib non-free' >>/etc/apt/sources.list
-RUN apt-get update
-RUN apt-get install -y autoconf \
-curl \
-vim \
-unzip
+RUN apt-get update \
+ && apt-get install --no-install-recommends -y g++ make libcurl4-openssl-dev \
+ && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /data
-ADD . /data/
+COPY engine/SRC/ /build/SRC/
+WORKDIR /build/SRC
+RUN mkdir -p ../BINARIES && make clean server
 
-RUN chmod 755 /data/ChatScriptNLP/BINARIES/LinuxChatScript64
+# Stage 2: Runtime image
+FROM debian:bookworm-slim
 
-RUN { echo '#!/bin/bash'; \
-      echo 'set -e'; \
-	  echo 'cd /data/ChatScriptNLP/BINARIES'; \
-      echo './LinuxChatScript64' \
-      'source=/data/sourceBot.txt' \
-      'livedata=/data/ChatScriptNLP/LIVEDATA' \
-      'topic=/data/ChatScriptNLP/TOPIC' \
-      'users=/data/ChatScriptNLP/USERS' \
-      'logs=/data/ChatScriptNLP/LOGS' \
-      'tmp=/data/ChatScriptNLP/TMP'; \
-    } > /entrypoint-chatscript.sh \
- && chmod +x /entrypoint-chatscript.sh
+RUN apt-get update \
+ && apt-get install --no-install-recommends -y libcurl4 \
+ && rm -rf /var/lib/apt/lists/*
 
-ENV PORT 1024
-ENV DEBIAN_FRONTEND noninteractive
+RUN mkdir -p /opt/ChatScript/BINARIES /opt/ChatScript/LOGS \
+    /opt/ChatScript/USERS /opt/ChatScript/TMP
 
+COPY --from=builder /build/BINARIES/ChatScript /opt/ChatScript/BINARIES/ChatScript
+COPY engine/DICT/ /opt/ChatScript/DICT/
+COPY engine/LIVEDATA/ /opt/ChatScript/LIVEDATA/
+COPY engine/TOPIC/ /opt/ChatScript/TOPIC/
+
+VOLUME ["/opt/ChatScript/USERS/", "/opt/ChatScript/LOGS/"]
+
+ENV LANG=C.UTF-8
 EXPOSE 1024
 
-# startup
-USER root
-
-CMD ["/bin/echo", "Hello ChatScript"]
-CMD ["/entrypoint-chatscript.sh"]
+WORKDIR /opt/ChatScript/BINARIES
+ENTRYPOINT ["./ChatScript"]

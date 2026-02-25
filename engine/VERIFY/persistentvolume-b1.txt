@@ -1,0 +1,11 @@
+﻿~persistentvolume.0.0  #! what is a PersistentVolume
+~persistentvolume.1.0  #! tell me about PV
+~persistentvolume.2.0  #! PV capacity
+~persistentvolume.3.0  #! PV access modes
+~persistentvolume.4.0  #! what is ReadWriteOnce
+~persistentvolume.5.0  #! what is ReadWriteMany
+~persistentvolume.6.0  #! what is ReadWriteOncePod
+~persistentvolume.7.0  #! PV reclaim policy
+~persistentvolume.8.0  #! PV volume mode
+~persistentvolume.9.0  #! PV node affinity
+~persistentvolume.10.0  #! PV volume source types

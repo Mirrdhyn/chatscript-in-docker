@@ -1,0 +1,6 @@
+﻿~persistentvolumeclaim.0.0  #! what is a PersistentVolumeClaim
+~persistentvolumeclaim.1.0  #! tell me about PVC
+~persistentvolumeclaim.2.0  #! PVC resources requests storage
+~persistentvolumeclaim.3.0  #! PVC storageClassName
+~persistentvolumeclaim.4.0  #! PVC selector
+~persistentvolumeclaim.5.0  #! PVC dataSource and dataSourceRef

@@ -1,0 +1,77 @@
+﻿ $ ( CURRENCY ) 
+ @tm ( SYMBOL )
+ @sm ( SYMBOL )
+ @r  ( SYMBOL )
+ @c  ( SYMBOL )
+ ~utf8 ( ) 
+ ~repeatinput1 ( ) 
+ ~repeatinput2 ( ) 
+ ~repeatinput3 ( ) 
+ ~repeatinput4 ( ) 
+ ~repeatinput5 ( ) 
+ ~repeatinput6 ( ) 
+ ~grade1_2 ( ) 
+ ~grade3_4 ( ) 
+ ~grade5_6 ( ) 
+ .22 ( meanings=1 NOUN NOUN_SINGULAR ) 
+    twenty-two~1n 
+ 'hood ( meanings=1 glosses=1 NOUN NOUN_SINGULAR posdefault:NOUN ) 
+    'hood~1nz (^neighborhood~2) a neighborhood
+ 's_Gravenhage ( meanings=1 glosses=1 NOUN NOUN_PROPER_SINGULAR ) 
+    Den_Haag~1nz (^city~2) the site of the royal residence and the de facto capital in the western part of the Netherlands
+ 's ( POSSESSIVE ) 
+ € ( CURRENCY ) 
+ £ ( CURRENCY ) 
+ ¥ ( CURRENCY ) 
+ . ( PUNCTUATION ) 
+ ; ( PUNCTUATION ) 
+ : ( PUNCTUATION ) 
+ ? ( PUNCTUATION ) 
+ , ( COMMA ) 
+ -- ( PUNCTUATION ) 
+ ! ( PUNCTUATION ) 
+ ( ( PAREN ) 
+ ) ( PAREN OBJECT_AS_ADJECTIVE ) 
+ [ ( PUNCTUATION ) 
+ ] ( PUNCTUATION ) 
+ % ( NOUN NOUN_SINGULAR ) 
+ / ( PUNCTUATION ) 
+ + ( PUNCTUATION ) 
+ - ( PUNCTUATION ) 
+ * ( PUNCTUATION ) 
+ = ( PUNCTUATION ) 
+ ' ( POSSESSIVE ) 
+ .22_caliber ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL  CONDITIONAL_IDIOM poscondition=?=A ) 
+    .22-calibre~1az 
+ .22-caliber ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    .22_caliber~1a 
+ .22_calibre ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL  CONDITIONAL_IDIOM poscondition=?=A ) 
+    .22-caliber~1a 
+ .22-calibre ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    .22_calibre~1a 
+ .38_caliber ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL  CONDITIONAL_IDIOM poscondition=?=A ) 
+    .38-calibre~1az 
+ .38-caliber ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    .38_caliber~1a 
+ .38_calibre ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL  CONDITIONAL_IDIOM poscondition=?=A ) 
+    .38-caliber~1a 
+ .38-calibre ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    .38_calibre~1a 
+ .45_caliber ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL  CONDITIONAL_IDIOM poscondition=?=A ) 
+    .45-calibre~1az 
+ .45-caliber ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    .45_caliber~1a 
+ .45_calibre ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL  CONDITIONAL_IDIOM poscondition=?=A ) 
+    .45-caliber~1a 
+ .45-calibre ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+    .45_calibre~1a 
+ # ( ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_NOT_PREDICATE OF_PROPER OBJECT_AS_ADJECTIVE ) 
+ 'tween ( meanings=1 ADVERB ) 
+    between~1 
+ 'tween_decks ( meanings=1 ADVERB  CONDITIONAL_IDIOM poscondition=?=R ) 
+    between_decks~1 
+ & ( meanings=1 CONJUNCTION_COORDINATE KINDERGARTEN ) 
+    &~1z 
+ '' ( QUOTE ) 
+ " ( QUOTE ) 
+ (_A_) (  CONDITIONAL_IDIOM poscondition=(null) ) 

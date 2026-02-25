@@ -1,0 +1,4 @@
+﻿~daemonset.0.0  #! what is a daemonset
+~daemonset.1.0  #! daemonset use cases examples
+~daemonset.2.0  #! daemonset updateStrategy rolling ondelete
+~daemonset.3.0  #! daemonset node selection affinity

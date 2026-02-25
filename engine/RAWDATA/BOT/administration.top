@@ -1,0 +1,152 @@
+# Kubernetes Administration Resources FAQ - bilingual EN/FR
+# Covers: ValidatingWebhookConfiguration, MutatingWebhookConfiguration,
+#         ValidatingAdmissionPolicy, PriorityClass, RuntimeClass
+
+# =============================================================================
+# VALIDATINGWEBHOOKCONFIGURATION
+# =============================================================================
+
+topic: ~validatingwebhook (ValidatingWebhookConfiguration validating webhook validation admission "admission webhook" validate valider)
+
+#! what is a ValidatingWebhookConfiguration
+u: (<< [what que "qu est-ce"] [is est] [a un une] ValidatingWebhookConfiguration >>)
+	^keep() A ValidatingWebhookConfiguration is a Kubernetes resource that registers a validating admission webhook with the API server. When a matching API request is made (e.g. creating or updating a resource), the API server sends an AdmissionReview request to the webhook endpoint. The webhook can approve or reject the request but cannot modify it. This is used to enforce custom policies, such as requiring specific labels, restricting image registries, or enforcing security standards. \n
+	Une ValidatingWebhookConfiguration est une ressource Kubernetes qui enregistre un webhook d'admission de validation aupres du serveur API. Lorsqu'une requete API correspondante est effectuee, le serveur API envoie une requete AdmissionReview au webhook. Le webhook peut approuver ou rejeter la requete mais ne peut pas la modifier. Cela sert a appliquer des politiques personnalisees, comme exiger des labels specifiques, restreindre les registres d'images ou appliquer des standards de securite.
+
+#! ValidatingWebhookConfiguration clientConfig
+u: (<< [ValidatingWebhookConfiguration validating webhook] [clientConfig client config configuration endpoint url service caBundle] >>)
+	^keep() The clientConfig field in a webhook defines how the API server connects to the webhook endpoint. It supports two modes: \n
+	- url: a direct HTTPS URL to an external endpoint (e.g. https://my-webhook.example.com:8443/validate). Used when the webhook is hosted outside the cluster. \n
+	- service: references a Kubernetes Service in the cluster, specifying namespace, name, path, and port. This is the most common approach. \n
+	In both cases, caBundle contains the PEM-encoded CA certificate used to verify the webhook server's TLS certificate. If using a cert-manager or Kubernetes CA, the caBundle is injected automatically. \n
+	Le champ clientConfig definit comment le serveur API se connecte au webhook. Deux modes : url (URL HTTPS directe vers un endpoint externe) ou service (reference un Service Kubernetes dans le cluster avec namespace, name, path et port). Dans les deux cas, caBundle contient le certificat CA encode en PEM pour verifier le certificat TLS du serveur webhook. Avec cert-manager ou une CA Kubernetes, le caBundle peut etre injecte automatiquement.
+
+#! ValidatingWebhookConfiguration rules
+u: (<< [ValidatingWebhookConfiguration validating webhook] [rule rules regle regles apiGroups apiVersions resources operations] >>)
+	^keep() The rules field defines which API requests trigger the webhook. Each rule specifies: \n
+	- apiGroups: the API groups to match (e.g. "", "apps", "batch"). Use "*" for all groups. \n
+	- apiVersions: the API versions to match (e.g. "v1", "v1beta1"). Use "*" for all versions. \n
+	- resources: the resource types to match (e.g. "pods", "deployments", "services"). Use "*" for all resources. \n
+	- operations: the operations to intercept: CREATE, UPDATE, DELETE, or CONNECT. Use "*" for all operations. \n
+	- scope: Cluster, Namespaced, or "*" (both). \n
+	Multiple rules are ORed together: if any rule matches, the webhook is called. \n
+	Le champ rules definit quelles requetes API declenchent le webhook. Chaque regle specifie : apiGroups (groupes API, "*" pour tous), apiVersions (versions, "*" pour toutes), resources (types de ressources, "*" pour toutes), operations (CREATE, UPDATE, DELETE, CONNECT, "*" pour toutes) et scope (Cluster, Namespaced ou "*"). Plusieurs regles sont combinees par un OU logique.
+
+#! ValidatingWebhookConfiguration failurePolicy
+u: (<< [ValidatingWebhookConfiguration validating webhook] [failurePolicy failure fail echec politique] >>)
+	^keep() The failurePolicy field determines what happens when the webhook endpoint is unreachable or returns an error: \n
+	- Fail (default): the API request is rejected. This is the safer choice, ensuring that the policy is always enforced, but it can block all matching operations if the webhook is down. \n
+	- Ignore: the API request is allowed to proceed. This is more permissive and avoids blocking operations, but it means the policy is not enforced when the webhook is unavailable. \n
+	Best practice: use Fail for security-critical webhooks and Ignore for non-critical ones. Always pair with proper health monitoring of the webhook. \n
+	Le champ failurePolicy determine ce qui se passe quand le webhook est injoignable ou retourne une erreur : Fail (par defaut, la requete est rejetee, plus sur mais peut bloquer les operations si le webhook est en panne) ou Ignore (la requete est autorisee, plus permissif mais la politique n'est pas appliquee en cas d'indisponibilite). Bonne pratique : utilisez Fail pour les webhooks critiques de securite et Ignore pour les non-critiques.
+
+
+# =============================================================================
+# MUTATINGWEBHOOKCONFIGURATION
+# =============================================================================
+
+topic: ~mutatingwebhook (MutatingWebhookConfiguration mutating mutation modifier modification inject injection sidecar)
+
+#! what is a MutatingWebhookConfiguration
+u: (<< [what que "qu est-ce"] [is est] [a un une] MutatingWebhookConfiguration >>)
+	^keep() A MutatingWebhookConfiguration is a Kubernetes resource that registers a mutating admission webhook with the API server. When a matching API request is intercepted, the webhook can modify (mutate) the object before it is persisted. Common use cases include injecting sidecar containers (e.g. Istio's Envoy proxy), adding default labels or annotations, setting resource limits, and injecting environment variables. Mutating webhooks run before validating webhooks in the admission chain. \n
+	Une MutatingWebhookConfiguration est une ressource Kubernetes qui enregistre un webhook d'admission de mutation aupres du serveur API. Lorsqu'une requete API est interceptee, le webhook peut modifier (muter) l'objet avant sa persistance. Cas d'usage courants : injection de conteneurs sidecar (ex: proxy Envoy d'Istio), ajout de labels ou annotations par defaut, definition de limites de ressources et injection de variables d'environnement. Les webhooks mutants s'executent avant les webhooks de validation dans la chaine d'admission.
+
+#! difference between mutating and validating webhook
+u: (<< [difference diff vs versus ou compare comparer] [mutating mutation] [validating validation] >>)
+	^keep() The key differences between MutatingWebhookConfiguration and ValidatingWebhookConfiguration are: \n
+	- Mutating webhooks can modify the incoming object (add fields, change values, inject containers). Validating webhooks can only accept or reject the request without modifying it. \n
+	- Mutating webhooks run first in the admission chain. Validating webhooks run after all mutations are applied. \n
+	- Mutating webhooks return JSON patches to modify the object. Validating webhooks return an allowed/denied decision with an optional status message. \n
+	- Multiple mutating webhooks are called in order based on their name. The output of one becomes the input of the next. \n
+	Les differences cles : les webhooks mutants peuvent modifier l'objet (ajouter des champs, changer des valeurs, injecter des conteneurs) tandis que les webhooks de validation peuvent seulement accepter ou rejeter. Les webhooks mutants s'executent en premier dans la chaine d'admission. Les webhooks mutants renvoient des patches JSON, les webhooks de validation renvoient une decision autorise/refuse. Plusieurs webhooks mutants sont appeles dans l'ordre de leur nom, la sortie de l'un devenant l'entree du suivant.
+
+#! MutatingWebhookConfiguration reinvocationPolicy
+u: (<< [MutatingWebhookConfiguration mutating webhook] [reinvocationPolicy reinvocation reinvoke rappel] >>)
+	^keep() The reinvocationPolicy field controls whether a mutating webhook is called again if the object is modified by a later mutating webhook. Values are: \n
+	- Never (default): the webhook is called only once, regardless of subsequent mutations by other webhooks. \n
+	- IfNeeded: the webhook is called again if other mutating webhooks modify the object after it was first called. This ensures the webhook can react to changes made by other webhooks, but may increase latency. \n
+	Kubernetes guarantees at most one additional invocation to prevent infinite loops. \n
+	Le champ reinvocationPolicy controle si un webhook mutant est rappele lorsque l'objet est modifie par un autre webhook mutant. Valeurs : Never (par defaut, appele une seule fois) ou IfNeeded (rappele si d'autres webhooks mutants modifient l'objet, garantit que le webhook peut reagir aux changements, mais peut augmenter la latence). Kubernetes garantit au plus une invocation supplementaire pour eviter les boucles infinies.
+
+
+# =============================================================================
+# VALIDATINGADMISSIONPOLICY
+# =============================================================================
+
+topic: ~validatingadmissionpolicy (ValidatingAdmissionPolicy ValidatingAdmissionPolicyBinding CEL "admission policy" "politique admission")
+
+#! what is a ValidatingAdmissionPolicy
+u: (<< [what que "qu est-ce"] [is est] [a un une] ValidatingAdmissionPolicy >>)
+	^keep() A ValidatingAdmissionPolicy is a Kubernetes resource (stable since 1.30) that allows you to define admission validation rules directly in the cluster using CEL (Common Expression Language) expressions, without needing an external webhook server. It provides an in-process alternative to ValidatingWebhookConfiguration, reducing latency and operational complexity. The policy defines what to validate, and a ValidatingAdmissionPolicyBinding associates it with the resources to which it applies. \n
+	Une ValidatingAdmissionPolicy est une ressource Kubernetes (stable depuis 1.30) qui permet de definir des regles de validation d'admission directement dans le cluster en utilisant des expressions CEL (Common Expression Language), sans avoir besoin d'un serveur webhook externe. Elle fournit une alternative in-process a ValidatingWebhookConfiguration, reduisant la latence et la complexite operationnelle. La politique definit quoi valider, et un ValidatingAdmissionPolicyBinding l'associe aux ressources concernees.
+
+#! ValidatingAdmissionPolicy CEL expressions
+u: (<< [ValidatingAdmissionPolicy admission policy] [CEL expression expressions] >>)
+	^keep() ValidatingAdmissionPolicy uses CEL (Common Expression Language) expressions to define validation rules. Key variables available in CEL expressions: \n
+	- object: the resource being validated (the incoming object). \n
+	- oldObject: the existing resource (for UPDATE operations, null for CREATE). \n
+	- request: the admission request attributes (user, operation, resource, etc.). \n
+	- params: the parameter resource referenced by the policy binding. \n
+	- namespaceObject: the namespace of the resource being validated. \n
+	Example expressions: object.spec.replicas <= 100 (limit replicas), object.metadata.labels.exists(l, l == 'env') (require 'env' label), !object.spec.containers.exists(c, c.image.contains('latest')) (forbid 'latest' tag). \n
+	ValidatingAdmissionPolicy utilise des expressions CEL pour definir les regles de validation. Variables cles : object (la ressource validee), oldObject (la ressource existante pour les UPDATE), request (attributs de la requete d'admission), params (ressource de parametres) et namespaceObject (le namespace). Exemples : object.spec.replicas <= 100, object.metadata.labels.exists(l, l == 'env'), !object.spec.containers.exists(c, c.image.contains('latest')).
+
+#! ValidatingAdmissionPolicyBinding
+u: (<< [ValidatingAdmissionPolicyBinding binding association liaison] >>)
+	^keep() A ValidatingAdmissionPolicyBinding links a ValidatingAdmissionPolicy to the resources it should apply to. It specifies: \n
+	- policyName: the name of the ValidatingAdmissionPolicy to bind. \n
+	- paramRef: an optional reference to a parameter resource (e.g. a ConfigMap) providing runtime values to the CEL expressions. \n
+	- matchResources: controls which resources are subject to the policy using resourceRules, namespaceSelector, and objectSelector. \n
+	- validationActions: what happens on validation failure: Deny (reject the request), Warn (allow but return a warning), or Audit (allow but log an audit event). \n
+	Without a binding, a ValidatingAdmissionPolicy has no effect. Multiple bindings can reference the same policy with different parameters or scopes. \n
+	Un ValidatingAdmissionPolicyBinding lie une ValidatingAdmissionPolicy aux ressources auxquelles elle s'applique. Il specifie : policyName (nom de la politique), paramRef (reference optionnelle a une ressource de parametres), matchResources (controle quelles ressources sont concernees via resourceRules, namespaceSelector, objectSelector) et validationActions (Deny pour rejeter, Warn pour avertir, Audit pour journaliser). Sans binding, une ValidatingAdmissionPolicy n'a aucun effet. Plusieurs bindings peuvent referencer la meme politique avec des parametres ou portees differents.
+
+
+# =============================================================================
+# PRIORITYCLASS
+# =============================================================================
+
+topic: ~priorityclass (PriorityClass priority priorite preemption preemptionPolicy globalDefault)
+
+#! what is a PriorityClass
+u: (<< [what que "qu est-ce"] [is est] [a un une] PriorityClass >>)
+	^keep() A PriorityClass is a cluster-scoped Kubernetes resource that defines a mapping between a priority name and an integer value. Pods reference a PriorityClass by name via the priorityClassName field. Higher-priority Pods are scheduled before lower-priority ones and, when cluster resources are scarce, lower-priority Pods may be preempted (evicted) to make room for higher-priority Pods. Two built-in PriorityClasses exist: system-cluster-critical (2000000000) and system-node-critical (2000001000). \n
+	Une PriorityClass est une ressource Kubernetes au niveau du cluster qui definit un mapping entre un nom de priorite et une valeur entiere. Les Pods referencent une PriorityClass par nom via le champ priorityClassName. Les Pods de haute priorite sont planifies avant ceux de basse priorite et, quand les ressources sont insuffisantes, les Pods de basse priorite peuvent etre preemptes (expulses). Deux PriorityClasses predefinies existent : system-cluster-critical (2000000000) et system-node-critical (2000001000).
+
+#! PriorityClass value and globalDefault
+u: (<< PriorityClass [value valeur globalDefault global default defaut] >>)
+	^keep() Key PriorityClass fields: \n
+	- value: an integer from -2147483648 to 1000000000 (values above 1000000000 are reserved for system-critical Pods). Higher values mean higher priority. The value is assigned to Pods that reference this PriorityClass. \n
+	- globalDefault: a boolean (default false). If set to true, this PriorityClass is the default for all Pods that do not specify a priorityClassName. Only one PriorityClass should have globalDefault set to true. If no PriorityClass has globalDefault=true, Pods without a priorityClassName have a priority value of 0. \n
+	- description: an optional human-readable string describing when to use this PriorityClass. \n
+	Champs cles de PriorityClass : value (entier de -2147483648 a 1000000000, les valeurs au-dessus de 1000000000 sont reservees au systeme, plus la valeur est haute plus la priorite est haute), globalDefault (booleen, si true cette PriorityClass est le defaut pour tous les Pods sans priorityClassName, un seul PriorityClass devrait avoir globalDefault=true) et description (chaine optionnelle decrivant quand utiliser cette PriorityClass).
+
+#! PriorityClass preemptionPolicy
+u: (<< PriorityClass [preemption preemptionPolicy preempter] >>)
+	^keep() The preemptionPolicy field controls whether Pods using this PriorityClass can preempt (evict) lower-priority Pods: \n
+	- PreemptLowerPriority (default): Pods with this PriorityClass will preempt lower-priority Pods when no node has enough resources available. The scheduler evicts the minimum number of lower-priority Pods necessary to accommodate the pending Pod. \n
+	- Never: Pods with this PriorityClass will not preempt other Pods. They will remain Pending until sufficient resources are available naturally (e.g. from scale-down or completed Jobs). The Pod still has scheduling priority over lower-priority Pods in the queue. \n
+	Use Never for Pods that should have high scheduling priority without disrupting running workloads. \n
+	Le champ preemptionPolicy controle si les Pods utilisant cette PriorityClass peuvent preempter les Pods de priorite inferieure : PreemptLowerPriority (par defaut, les Pods preemptent les Pods de priorite inferieure quand les ressources sont insuffisantes) ou Never (les Pods ne preemptent pas, ils restent Pending jusqu'a ce que les ressources se liberent naturellement, mais conservent leur priorite dans la file d'attente du scheduler). Utilisez Never pour les Pods qui doivent avoir une priorite elevee sans perturber les workloads en cours.
+
+
+# =============================================================================
+# RUNTIMECLASS
+# =============================================================================
+
+topic: ~runtimeclass (RuntimeClass runtime container_runtime runc gvisor kata conteneur moteur sandbox)
+
+#! what is a RuntimeClass
+u: (<< [what que "qu est-ce"] [is est] [a un une] RuntimeClass >>)
+	^keep() A RuntimeClass is a cluster-scoped Kubernetes resource that allows you to select which container runtime configuration is used to run Pods. It enables running different Pods with different container runtimes in the same cluster, providing flexibility for workloads with different isolation, performance, or security requirements. Pods reference a RuntimeClass by name via the runtimeClassName field in their spec. \n
+	Une RuntimeClass est une ressource Kubernetes au niveau du cluster qui permet de selectionner quelle configuration de runtime de conteneurs est utilisee pour executer les Pods. Elle permet d'executer differents Pods avec differents runtimes dans le meme cluster, offrant de la flexibilite pour les workloads ayant des besoins differents en isolation, performance ou securite. Les Pods referencent une RuntimeClass par nom via le champ runtimeClassName dans leur spec.
+
+#! RuntimeClass handler and container runtimes
+u: (<< [RuntimeClass runtime] [handler gestionnaire runc gvisor kata containerd runtime conteneur] >>)
+	^keep() The handler field in a RuntimeClass specifies the name of the CRI (Container Runtime Interface) handler configuration to use. This must match a handler configured in the container runtime on the nodes. Common runtimes and their handlers: \n
+	- runc: the standard OCI runtime, providing Linux namespace and cgroup isolation. This is the default handler used by containerd and CRI-O. Fast and lightweight, suitable for most workloads. \n
+	- gVisor (runsc): a user-space kernel from Google that intercepts application system calls, providing an additional layer of isolation. Good for running untrusted code, at the cost of some system call compatibility and performance. \n
+	- Kata Containers: runs each Pod inside a lightweight virtual machine, providing hardware-level isolation via a dedicated kernel. Offers the strongest isolation, suitable for multi-tenant environments, but with higher overhead. \n
+	You can also configure RuntimeClass with scheduling (nodeSelector) and overhead (additional CPU/memory accounting for the runtime itself). \n
+	Le champ handler dans une RuntimeClass specifie le nom de la configuration CRI a utiliser. Runtimes courants : runc (runtime OCI standard, isolation par namespaces Linux et cgroups, rapide et leger, adapte a la plupart des workloads), gVisor/runsc (noyau en espace utilisateur de Google, intercepte les appels systeme pour une isolation supplementaire, adapte au code non fiable, au prix de la compatibilite et de la performance) et Kata Containers (execute chaque Pod dans une machine virtuelle legere, isolation au niveau materiel, adapte aux environnements multi-tenant, avec un overhead plus eleve). Vous pouvez aussi configurer le scheduling (nodeSelector) et le overhead (CPU/memoire supplementaires pour le runtime lui-meme).

@@ -1,0 +1,2 @@
+﻿~k8s_endpointslice.0.0  #! what is an endpointslice
+~k8s_endpointslice.1.0  #! endpointslice vs endpoints

@@ -1,0 +1,7 @@
+﻿~k8s_ingress.0.0  #! what is an ingress
+~k8s_ingress.1.0  #! ingress rules
+~k8s_ingress.2.0  #! ingress host path routing
+~k8s_ingress.3.0  #! pathtype
+~k8s_ingress.4.0  #! ingress tls
+~k8s_ingress.5.0  #! ingressclassname
+~k8s_ingress.6.0  #! ingress vs loadbalancer

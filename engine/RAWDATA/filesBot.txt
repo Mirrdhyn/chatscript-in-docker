@@ -1,0 +1,3 @@
+# unified bot: smalltalk + Kubernetes FAQ
+RAWDATA/BOT/
+RAWDATA/QUIBBLE/

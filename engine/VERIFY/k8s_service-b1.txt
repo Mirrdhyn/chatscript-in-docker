@@ -1,0 +1,16 @@
+﻿~k8s_service.0.0  #! what is a service
+~k8s_service.1.0  #! service types
+~k8s_service.2.0  #! what is clusterip
+~k8s_service.3.0  #! explain clusterip
+~k8s_service.4.0  #! what is nodeport
+~k8s_service.5.0  #! nodeport range
+~k8s_service.6.0  #! what is loadbalancer service
+~k8s_service.7.0  #! what is externalname
+~k8s_service.8.0  #! service selector
+~k8s_service.9.0  #! service ports
+~k8s_service.10.0  #! port targetport
+~k8s_service.11.0  #! session affinity
+~k8s_service.12.0  #! external traffic policy
+~k8s_service.13.0  #! internal traffic policy
+~k8s_service.14.0  #! headless service
+~k8s_service.15.0  #! clusterip none

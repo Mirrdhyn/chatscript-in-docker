@@ -1,0 +1,6 @@
+﻿~k8s_networkpolicy.0.0  #! what is a networkpolicy
+~k8s_networkpolicy.1.0  #! networkpolicy podselector
+~k8s_networkpolicy.2.0  #! networkpolicy ingress rules
+~k8s_networkpolicy.3.0  #! networkpolicy egress rules
+~k8s_networkpolicy.4.0  #! default deny networkpolicy
+~k8s_networkpolicy.5.0  #! deny all example

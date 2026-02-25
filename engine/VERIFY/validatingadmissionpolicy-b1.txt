@@ -1,0 +1,3 @@
+﻿~validatingadmissionpolicy.0.0  #! what is a ValidatingAdmissionPolicy
+~validatingadmissionpolicy.1.0  #! ValidatingAdmissionPolicy CEL expressions
+~validatingadmissionpolicy.2.0  #! ValidatingAdmissionPolicyBinding

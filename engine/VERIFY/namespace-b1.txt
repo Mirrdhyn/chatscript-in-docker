@@ -1,0 +1,4 @@
+﻿~namespace.0.0  #! what is a namespace
+~namespace.1.0  #! default namespaces in kubernetes
+~namespace.2.0  #! namespace finalizers
+~namespace.3.0  #! namespace phases active terminating

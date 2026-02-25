@@ -1,0 +1,32 @@
+# Fallback topic for unmatched input - bilingual
+
+topic: ~keywordless nostay ()
+
+u: (< [say dis dire] _*) ^keep() ^repeat() '_0
+
+#! yes
+u: (< [~yesanswer ~more oui ouais] >) ^keep() gambit($$currenttopic)
+
+#! help
+u: (< [help aide aidez aider] >)
+	I can help you with Kubernetes topics! Try asking about: \n
+	- Workloads: Pod, Deployment, StatefulSet, DaemonSet, Job, CronJob \n
+	- Networking: Service, Ingress, NetworkPolicy \n
+	- Storage: PersistentVolume, PVC, StorageClass \n
+	- Configuration: ConfigMap, Secret, HPA, ResourceQuota \n
+	- Access Control: Role, ClusterRole, ServiceAccount \n
+	- Cluster: Namespace, Node \n
+	Or just chat with me!
+
+#! list topics / what can I ask
+u: (<< [list liste lister] [topic topics sujet sujets] >>)
+	Here are the Kubernetes topics I know about: \n
+	Workloads | Networking | Storage | Configuration | Access Control | Cluster | Administration \n
+	You can also just chat with me about anything!
+
+u: (<< [parle parler discuter] [kubernetes k8s kube] >>)
+	Bien sur ! Posez-moi une question sur n'importe quelle ressource Kubernetes : Pods, Deployments, Services, ConfigMaps, Secrets, RBAC, et bien plus.
+
+u: (_*)
+	^keep() I'm not sure I understand. Try asking about a Kubernetes resource (like "What is a Pod?") or just say hello! \n
+	Type "help" to see all topics I know about.

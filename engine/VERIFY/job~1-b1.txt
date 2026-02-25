@@ -1,0 +1,5 @@
+﻿~job~1.0.0  #! what is a job
+~job~1.1.0  #! job completions parallelism
+~job~1.2.0  #! job backoffLimit activeDeadlineSeconds
+~job~1.3.0  #! job ttlSecondsAfterFinished
+~job~1.4.0  #! job podFailurePolicy

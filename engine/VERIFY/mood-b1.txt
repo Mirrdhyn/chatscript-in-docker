@@ -1,0 +1,3 @@
+﻿~mood.0.0  #! how are you
+~mood.1.0  #! I'm fine
+~mood.2.0  #! I'm not doing well

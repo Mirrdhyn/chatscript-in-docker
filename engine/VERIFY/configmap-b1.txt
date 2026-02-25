@@ -1,0 +1,5 @@
+﻿~configmap.0.0  #! what is a configmap
+~configmap.1.0  #! configmap data and binaryData fields
+~configmap.2.0  #! immutable configmap
+~configmap.3.0  #! how to use configmap in a pod
+~configmap.4.0  #! configmap vs secret difference

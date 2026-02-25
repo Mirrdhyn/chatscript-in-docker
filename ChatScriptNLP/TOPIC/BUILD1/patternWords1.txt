@@ -1,3 +1,0 @@
-﻿loopback
-direct_v
-chatoutput

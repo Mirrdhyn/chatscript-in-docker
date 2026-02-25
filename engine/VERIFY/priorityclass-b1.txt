@@ -1,0 +1,3 @@
+﻿~priorityclass.0.0  #! what is a PriorityClass
+~priorityclass.1.0  #! PriorityClass value and globalDefault
+~priorityclass.2.0  #! PriorityClass preemptionPolicy

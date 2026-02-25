@@ -1,0 +1,6 @@
+﻿~statefulset.0.0  #! what is a statefulset
+~statefulset.1.0  #! statefulset volumeClaimTemplates
+~statefulset.2.0  #! statefulset podManagementPolicy ordered parallel
+~statefulset.3.0  #! statefulset serviceName headless service
+~statefulset.4.0  #! statefulset updateStrategy rolling ondelete
+~statefulset.5.0  #! statefulset vs deployment difference

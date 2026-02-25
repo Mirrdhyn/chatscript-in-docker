@@ -1,0 +1,2 @@
+﻿~k8s_event.0.0  #! what is a kubernetes event
+~k8s_event.1.0  #! how to view kubernetes events

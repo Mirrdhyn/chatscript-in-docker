@@ -1,0 +1,113 @@
+# Main control script for the unified Smalltalk + Kubernetes FAQ bot
+
+outputmacro: kubebot()
+$cs_token = #DO_INTERJECTION_SPLITTING | #DO_SUBSTITUTE_SYSTEM | #DO_NUMBER_MERGE | #DO_DATE_MERGE | #DO_PROPERNAME_MERGE | #DO_SPELLCHECK
+$cs_token += #SPLIT_QUOTE | #NO_WITHIN
+
+^addtopic(~introductions)
+$cs_control_main = ~control
+$userprompt = ^"%user: >"
+$botprompt = ^"KubeBot: "
+$singleResponse = 1
+
+table: defaultbot (^name)
+^createfact(^name defaultbot defaultbot)
+DATA:
+kubebot
+
+topic: ~control system ()
+
+# on startup, do introduction
+u: (%input<%userfirstline)
+	gambit(~introductions)
+
+u: () # main per-sentence processing
+	$_responseCount = %response
+
+	if ($singleResponse) {$_responseCount = 0}
+
+	$$currenttopic = %topic
+
+	# 1. Try rejoinders first (continue ongoing conversation thread)
+	if (%response == $_responseCount) {nofail(TOPIC ^rejoinder())}
+
+	# 2. If no input (start of conversation), gambit current topic
+	if (%length == 0 AND %response == $_responseCount)
+	{
+		nofail(TOPIC ^gambit($$currenttopic))
+	}
+
+	# 3. Current topic tries to respond
+	if (%response == $_responseCount) { nofail(TOPIC ^respond($$currenttopic)) }
+
+	# 4. Keyword-based topic routing (auto-branching between smalltalk and k8s FAQ)
+	if (%response == $_responseCount)
+	{
+		@8 = ^keywordtopics()
+		loop()
+		{
+			$$topic = first(@8subject)
+			nofail(TOPIC ^respond($$topic))
+			if (%response != $_responseCount)
+			{
+				^end(RULE)
+			}
+		}
+	}
+
+	# 5. Keywordless fallback
+	if (%response == $_responseCount)
+	{
+		nofail(TOPIC ^respond(~keywordless))
+	}
+
+	# 6. Quibble as last resort
+	if (%response == $_responseCount AND %rand > 50)
+	{
+		nofail(TOPIC respond(~QUIBBLE_ALL))
+	}
+
+	# If we have rejoinders or asked a question, stop here
+	if (%outputrejoinder OR %lastquestion)
+	{
+		end(TOPIC)
+	}
+
+	# 7. Try gambits from keyword topics
+	if (%response == $_responseCount AND ^marked($$currenttopic)) { nofail(TOPIC ^gambit($$currenttopic)) }
+
+	if (%response == $_responseCount)
+	{
+		@8 = ^keywordtopics()
+		loop()
+		{
+			$$topic = first(@8subject)
+			nofail(TOPIC ^Gambit($$topic))
+			if (%response != $_responseCount)
+			{
+				^end(RULE)
+			}
+		}
+	}
+
+	if (%response == $_responseCount) { nofail(TOPIC ^gambit($$currenttopic)) }
+
+	if (%response == $_responseCount)
+	{
+		@8 = ^GambitTopics()
+		loop()
+		{
+			$$topic = pick(@8subject)
+			nofail(TOPIC ^Gambit($$topic))
+			if (%response != $_responseCount)
+			{
+				^end(RULE)
+			}
+		}
+	}
+
+	if (%response == $_responseCount)
+	{
+		^repeat()
+		I don't know what to say. Try asking me about Kubernetes or just chat!
+	}

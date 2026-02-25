@@ -1,0 +1,4 @@
+﻿~resourcequota.0.0  #! what is a resourcequota
+~resourcequota.1.0  #! resourcequota hard limits pods cpu memory
+~resourcequota.2.0  #! resourcequota scopes terminating besteffort
+~resourcequota.3.0  #! resourcequota vs limitrange difference

@@ -1,0 +1,6 @@
+﻿~storageclass.0.0  #! what is a StorageClass
+~storageclass.1.0  #! tell me about StorageClass
+~storageclass.2.0  #! StorageClass provisioner
+~storageclass.3.0  #! StorageClass reclaim policy
+~storageclass.4.0  #! StorageClass volumeBindingMode
+~storageclass.5.0  #! StorageClass allowVolumeExpansion

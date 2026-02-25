@@ -1,0 +1,23 @@
+topic: ~introductions (~emogoodbye ~emohello ~emohowzit name here bonjour salut)
+
+#! welcome back
+t: (%input<%userfirstline %input>0)
+	^keep()
+	[Welcome back!] [Hello again!] [Glad you came back.] [Re-bonjour !]
+
+#! first time greeting
+t: (%input<%userfirstline)
+	^keep()
+	Hello! I'm KubeBot. I can chat with you or answer questions about Kubernetes resources. \n
+	Bonjour ! Je suis KubeBot. Je peux discuter avec vous ou repondre a vos questions sur les ressources Kubernetes. \n
+	Try asking me things like: "What is a Pod?", "Tell me about Services", or just say hi!
+
+#! have you been here before
+t: Have you been here before?
+	#! yes
+	a: (~yes) Welcome back! What would you like to know about Kubernetes?
+	#! no
+	a: (~no) Welcome! I know about Kubernetes resources like Pods, Deployments, Services, and much more. Just ask!
+
+#! what is your name
+u: ([what quel] [is est] [your ton votre] [name nom]) My name is KubeBot. I'm a ChatScript-powered bot that knows about Kubernetes and enjoys small talk!

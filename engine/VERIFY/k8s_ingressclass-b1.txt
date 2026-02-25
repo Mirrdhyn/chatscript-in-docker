@@ -1,0 +1,2 @@
+﻿~k8s_ingressclass.0.0  #! what is an ingressclass
+~k8s_ingressclass.1.0  #! default ingressclass

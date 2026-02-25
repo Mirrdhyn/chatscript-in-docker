@@ -1,0 +1,195 @@
+# Kubernetes Storage resources FAQ - bilingual EN/FR
+# Covers: PersistentVolume, PersistentVolumeClaim, StorageClass, CSIDriver
+
+# =============================================================================
+# PersistentVolume (PV)
+# =============================================================================
+
+topic: ~persistentvolume (PersistentVolume PV volume persistent stockage persistant)
+
+#! what is a PersistentVolume
+u: (<< [what que qu] [is est] [a un une] PersistentVolume >>)
+	A PersistentVolume (PV) is a piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using a StorageClass. It is a cluster-level resource that persists beyond the lifecycle of any individual Pod. \n
+	Un PersistentVolume (PV) est un espace de stockage dans le cluster qui a ete provisionne par un administrateur ou dynamiquement via une StorageClass. C'est une ressource au niveau du cluster qui persiste au-dela du cycle de vie de tout Pod individuel.
+
+#! tell me about PV
+u: (<< [tell expliquer explain dire parler] [about de du sur] [PV PersistentVolume "persistent volume"] >>)
+	A PersistentVolume (PV) represents a piece of networked or local storage in your cluster. PVs have a lifecycle independent of any Pod. They are provisioned statically by an admin or dynamically via StorageClasses. \n
+	Un PersistentVolume (PV) represente un espace de stockage reseau ou local dans votre cluster. Les PVs ont un cycle de vie independant de tout Pod.
+
+#! PV capacity
+u: (<< [PV PersistentVolume "persistent volume"] [capacity capacite taille size] >>)
+	A PV has a specific storage capacity set via the spec.capacity.storage field, for example "10Gi". This tells Kubernetes how much storage the volume provides. When a PVC requests storage, Kubernetes matches it to a PV with sufficient capacity. \n
+	Un PV a une capacite de stockage specifique definie via le champ spec.capacity.storage, par exemple "10Gi". Quand un PVC demande du stockage, Kubernetes le lie a un PV avec une capacite suffisante.
+
+#! PV access modes
+u: (<< [PV PersistentVolume "persistent volume"] [access acces] [mode modes] >>)
+	PersistentVolumes support four access modes: \n
+	- ReadWriteOnce (RWO): the volume can be mounted as read-write by a single node \n
+	- ReadOnlyMany (ROX): the volume can be mounted as read-only by many nodes \n
+	- ReadWriteMany (RWX): the volume can be mounted as read-write by many nodes \n
+	- ReadWriteOncePod (RWOP): the volume can be mounted as read-write by a single Pod \n
+	Les PersistentVolumes supportent quatre modes d'acces : ReadWriteOnce (RWO), ReadOnlyMany (ROX), ReadWriteMany (RWX), et ReadWriteOncePod (RWOP).
+
+#! what is ReadWriteOnce
+u: (<< [what que qu] [is est signifie] ReadWriteOnce >>)
+	ReadWriteOnce (RWO) means the volume can be mounted as read-write by a single node. Multiple Pods on the same node can still access the volume. This is the most common access mode for block storage. \n
+	ReadWriteOnce (RWO) signifie que le volume peut etre monte en lecture-ecriture par un seul noeud. Plusieurs Pods sur le meme noeud peuvent toujours acceder au volume.
+
+#! what is ReadWriteMany
+u: (<< [what que qu] [is est signifie] ReadWriteMany >>)
+	ReadWriteMany (RWX) means the volume can be mounted as read-write by many nodes simultaneously. This is supported by network file systems like NFS, CephFS, and some CSI drivers. \n
+	ReadWriteMany (RWX) signifie que le volume peut etre monte en lecture-ecriture par plusieurs noeuds simultanement. Supporte par les systemes de fichiers reseau comme NFS, CephFS, et certains pilotes CSI.
+
+#! what is ReadWriteOncePod
+u: (<< [what que qu] [is est signifie] ReadWriteOncePod >>)
+	ReadWriteOncePod (RWOP) means the volume can be mounted as read-write by a single Pod only. This is the most restrictive access mode and ensures that only one Pod in the entire cluster can read or write the volume. \n
+	ReadWriteOncePod (RWOP) signifie que le volume peut etre monte en lecture-ecriture par un seul Pod uniquement. C'est le mode d'acces le plus restrictif.
+
+#! PV reclaim policy
+u: (<< [PV PersistentVolume "persistent volume"] [reclaim recuperation] [policy politique] >>)
+	The persistentVolumeReclaimPolicy defines what happens to a PV when its PVC is deleted: \n
+	- Retain: the PV is kept and must be manually cleaned up by an administrator \n
+	- Delete: the PV and its underlying storage asset are deleted automatically \n
+	- Recycle (deprecated): basic scrub (rm -rf /thevolume/*) is performed before making it available again \n
+	La politique de recuperation definit ce qui arrive a un PV quand son PVC est supprime : Retain (conservation manuelle), Delete (suppression automatique), Recycle (obsolete, nettoyage basique).
+
+#! PV volume mode
+u: (<< [PV PersistentVolume "persistent volume"] [volume] [mode] >>)
+	The volumeMode field in a PV can be set to: \n
+	- Filesystem (default): the volume is mounted as a directory in the Pod. If the volume is backed by a block device, Kubernetes creates a filesystem on it first. \n
+	- Block: the volume is presented as a raw block device to the Pod without any filesystem. This is useful for applications that manage their own storage format. \n
+	Le champ volumeMode peut etre Filesystem (par defaut, monte comme repertoire) ou Block (peripherique bloc brut sans systeme de fichiers).
+
+#! PV node affinity
+u: (<< [PV PersistentVolume "persistent volume"] [node noeud] [affinity affinite] >>)
+	A PV can set nodeAffinity to constrain which nodes the volume can be accessed from. This is essential for local volumes and useful when storage is physically attached to specific nodes. Kubernetes uses this to schedule Pods that use the PV onto the correct nodes. \n
+	Un PV peut definir une nodeAffinity pour restreindre les noeuds depuis lesquels le volume est accessible. C'est essentiel pour les volumes locaux et utile quand le stockage est physiquement attache a des noeuds specifiques.
+
+#! PV volume source types
+u: (<< [PV PersistentVolume "persistent volume"] [source type types] [volume volumes] >>)
+	PersistentVolumes support many volume source types: \n
+	- hostPath: mounts a file or directory from the host node's filesystem (single-node testing only) \n
+	- nfs: mounts an NFS (Network File System) share \n
+	- csi: uses a Container Storage Interface driver for extensible storage \n
+	- local: mounts a local storage device (disk, partition, or directory) with node affinity \n
+	- Cloud providers: awsElasticBlockStore, gcePersistentDisk, azureDisk, azureFile \n
+	Les PVs supportent plusieurs types de sources : hostPath, NFS, CSI, local, et les fournisseurs cloud (AWS EBS, GCE PD, Azure Disk/File).
+
+
+# =============================================================================
+# PersistentVolumeClaim (PVC)
+# =============================================================================
+
+topic: ~persistentvolumeclaim (PersistentVolumeClaim PVC claim revendication)
+
+#! what is a PersistentVolumeClaim
+u: (<< [what que qu] [is est] [a un une] PersistentVolumeClaim >>)
+	A PersistentVolumeClaim (PVC) is a request for storage by a user. It is similar to a Pod: Pods consume node resources and PVCs consume PV resources. PVCs can request specific size and access modes. Kubernetes binds a PVC to a matching PV automatically. \n
+	Un PersistentVolumeClaim (PVC) est une demande de stockage par un utilisateur. C'est similaire a un Pod : les Pods consomment des ressources de noeud et les PVCs consomment des ressources PV. Kubernetes lie automatiquement un PVC a un PV correspondant.
+
+#! tell me about PVC
+u: (<< [tell expliquer explain dire parler] [about de du sur] [PVC PersistentVolumeClaim "persistent volume claim"] >>)
+	A PersistentVolumeClaim (PVC) allows a Pod to request persistent storage without knowing the details of the underlying storage infrastructure. You specify how much storage you need and which access mode, and Kubernetes finds or provisions a suitable PV. \n
+	Un PersistentVolumeClaim (PVC) permet a un Pod de demander du stockage persistant sans connaitre les details de l'infrastructure de stockage sous-jacente.
+
+#! PVC resources requests storage
+u: (<< [PVC PersistentVolumeClaim "persistent volume claim"] [resource resources ressource ressources storage stockage request demande] >>)
+	In a PVC, the spec.resources.requests.storage field specifies the minimum amount of storage required, for example "5Gi". Kubernetes will bind the PVC to a PV that has at least this much capacity. You can also set limits on storage in the resources section. \n
+	Dans un PVC, le champ spec.resources.requests.storage specifie la quantite minimale de stockage requise, par exemple "5Gi". Kubernetes lie le PVC a un PV ayant au moins cette capacite.
+
+#! PVC storageClassName
+u: (<< [PVC PersistentVolumeClaim "persistent volume claim"] [storageClassName "storage class" "classe de stockage"] >>)
+	The storageClassName field in a PVC specifies which StorageClass to use. Only PVs with the same StorageClass can be bound to this PVC. If set to an empty string (""), the PVC binds only to PVs with no class. If omitted, the default StorageClass is used. \n
+	Le champ storageClassName dans un PVC specifie quelle StorageClass utiliser. Seuls les PVs ayant la meme StorageClass peuvent etre lies a ce PVC. Si omis, la StorageClass par defaut est utilisee.
+
+#! PVC selector
+u: (<< [PVC PersistentVolumeClaim "persistent volume claim"] [selector selecteur label labels] >>)
+	A PVC can use a selector field to filter PVs by labels. This allows you to bind a PVC to a specific PV using matchLabels or matchExpressions. Only PVs matching the selector and satisfying the other PVC requirements (size, access mode, storageClassName) will be considered for binding. \n
+	Un PVC peut utiliser un champ selector pour filtrer les PVs par labels. Cela permet de lier un PVC a un PV specifique en utilisant matchLabels ou matchExpressions.
+
+#! PVC dataSource and dataSourceRef
+u: (<< [PVC PersistentVolumeClaim "persistent volume claim"] [dataSource "data source" snapshot clone cloner] >>)
+	A PVC can specify a dataSource or dataSourceRef to create a volume from an existing source: \n
+	- Volume cloning: set dataSource to reference an existing PVC. The new volume is pre-populated with data from the source PVC. \n
+	- Volume snapshots: set dataSource to a VolumeSnapshot to restore from a point-in-time snapshot. \n
+	- dataSourceRef: like dataSource but supports cross-namespace references and custom resources. \n
+	Un PVC peut specifier dataSource ou dataSourceRef pour creer un volume a partir d'une source existante : clonage de volume (reference a un PVC existant) ou restauration depuis un VolumeSnapshot.
+
+
+# =============================================================================
+# StorageClass
+# =============================================================================
+
+topic: ~storageclass (StorageClass "storage class" "classe de stockage" provisioner provisionneur dynamique)
+
+#! what is a StorageClass
+u: (<< [what que qu] [is est] [a un une] StorageClass >>)
+	A StorageClass provides a way to describe different classes of storage available in a cluster. Different classes might map to quality-of-service levels, backup policies, or arbitrary policies determined by the cluster administrator. It enables dynamic provisioning of PersistentVolumes. \n
+	Une StorageClass permet de decrire les differentes classes de stockage disponibles dans un cluster. Differentes classes peuvent correspondre a des niveaux de qualite de service, des politiques de sauvegarde, etc. Elle permet le provisionnement dynamique des PersistentVolumes.
+
+#! tell me about StorageClass
+u: (<< [tell expliquer explain dire parler] [about de du sur] StorageClass >>)
+	A StorageClass defines how new PersistentVolumes are dynamically provisioned. Each StorageClass contains a provisioner, parameters, and a reclaimPolicy. When a PVC references a StorageClass, the provisioner automatically creates the PV. \n
+	Une StorageClass definit comment les nouveaux PersistentVolumes sont provisionnes dynamiquement. Chaque StorageClass contient un provisioner, des parametres, et une reclaimPolicy.
+
+#! StorageClass provisioner
+u: (<< StorageClass [provisioner provisionneur fournisseur] >>)
+	The provisioner field in a StorageClass determines which volume plugin is used for creating PersistentVolumes. Examples include: \n
+	- kubernetes.io/aws-ebs: for AWS Elastic Block Store volumes \n
+	- kubernetes.io/gce-pd: for Google Compute Engine persistent disks \n
+	- kubernetes.io/azure-disk: for Azure managed disks \n
+	- kubernetes.io/no-provisioner: for local volumes (no dynamic provisioning) \n
+	- CSI drivers: like ebs.csi.aws.com or pd.csi.storage.gke.io \n
+	Le champ provisioner determine quel plugin de volume est utilise pour creer les PVs. Exemples : aws-ebs, gce-pd, azure-disk, no-provisioner pour les volumes locaux, ou des pilotes CSI.
+
+#! StorageClass reclaim policy
+u: (<< StorageClass [reclaim recuperation] [policy politique] >>)
+	The reclaimPolicy in a StorageClass specifies what happens to dynamically provisioned PVs when their PVC is deleted. It can be set to: \n
+	- Delete (default): the PV and underlying storage are deleted when the PVC is removed \n
+	- Retain: the PV is kept for manual cleanup after PVC deletion \n
+	La reclaimPolicy dans une StorageClass specifie ce qui arrive aux PVs dynamiquement provisionnes quand leur PVC est supprime. Delete (par defaut) supprime le PV et le stockage. Retain conserve le PV pour un nettoyage manuel.
+
+#! StorageClass volumeBindingMode
+u: (<< StorageClass [volumeBindingMode binding bind "mode de liaison"] >>)
+	The volumeBindingMode field controls when volume binding and dynamic provisioning should occur: \n
+	- Immediate (default): binding and provisioning happen as soon as the PVC is created \n
+	- WaitForFirstConsumer: binding and provisioning are delayed until a Pod using the PVC is scheduled. This allows the volume to be created in the same topology zone as the Pod. \n
+	Le champ volumeBindingMode controle quand la liaison et le provisionnement se produisent. Immediate (par defaut) : des la creation du PVC. WaitForFirstConsumer : differe jusqu'a ce qu'un Pod utilisant le PVC soit planifie, ce qui permet de respecter la topologie.
+
+#! StorageClass allowVolumeExpansion
+u: (<< StorageClass [allowVolumeExpansion expansion expand agrandir agrandissement resize] >>)
+	When allowVolumeExpansion is set to true in a StorageClass, PVCs created from this class can be expanded by editing the PVC's spec.resources.requests.storage field to a larger value. The underlying storage provider must support volume expansion. Some providers may require a Pod restart to apply the resize. \n
+	Quand allowVolumeExpansion est true dans une StorageClass, les PVCs crees a partir de cette classe peuvent etre agrandis en augmentant la valeur de spec.resources.requests.storage. Le fournisseur de stockage sous-jacent doit supporter l'expansion de volume.
+
+
+# =============================================================================
+# CSIDriver
+# =============================================================================
+
+topic: ~csidriver (CSIDriver CSI "Container Storage Interface" pilote driver)
+
+#! what is a CSIDriver
+u: (<< [what que qu] [is est] [a un une] [CSIDriver CSI "Container Storage Interface"] >>)
+	A CSIDriver object in Kubernetes represents a Container Storage Interface (CSI) driver deployed on the cluster. CSI is a standard for exposing storage systems to containerized workloads. The CSIDriver resource provides metadata about the driver's capabilities to Kubernetes. \n
+	Un objet CSIDriver dans Kubernetes represente un pilote Container Storage Interface (CSI) deploye sur le cluster. CSI est un standard pour exposer des systemes de stockage aux workloads containerises. La ressource CSIDriver fournit des metadonnees sur les capacites du pilote.
+
+#! tell me about CSIDriver
+u: (<< [tell expliquer explain dire parler] [about de du sur] [CSIDriver CSI] >>)
+	CSIDriver is a cluster-scoped resource that advertises the capabilities of a CSI storage driver. It is created when a CSI driver is installed and tells Kubernetes how to interact with the driver, including whether volumes need to be attached, whether Pod info should be sent during mount, and how filesystem group policies are handled. \n
+	CSIDriver est une ressource au niveau du cluster qui annonce les capacites d'un pilote de stockage CSI. Elle est creee lors de l'installation du pilote et indique a Kubernetes comment interagir avec celui-ci.
+
+#! CSIDriver attachRequired and podInfoOnMount
+u: (<< [CSIDriver CSI] [attachRequired podInfoOnMount attach mount] >>)
+	The CSIDriver spec has two important boolean fields: \n
+	- attachRequired: if true (default), Kubernetes will call the CSI ControllerPublishVolume/ControllerUnpublishVolume operations to attach/detach volumes to nodes. Set to false for drivers that do not need an attach step (like NFS or secrets-based drivers). \n
+	- podInfoOnMount: if true, Kubernetes passes Pod information (name, UID, namespace) to the CSI NodePublishVolume call. Useful for drivers that need Pod identity to mount correctly. \n
+	Le spec du CSIDriver a deux champs booleens importants : attachRequired (si true, Kubernetes attache/detache les volumes aux noeuds) et podInfoOnMount (si true, les informations du Pod sont transmises au montage).
+
+#! CSIDriver fsGroupPolicy
+u: (<< [CSIDriver CSI] [fsGroupPolicy fsGroup "fs group" "groupe de fichiers"] >>)
+	The fsGroupPolicy field in CSIDriver controls how Kubernetes handles filesystem group ownership when mounting volumes. It can be set to: \n
+	- ReadWriteOnceWithFSType: Kubernetes changes ownership only if the volume's access mode is RWO and the volume has a defined fsType. This is the default. \n
+	- File: Kubernetes always attempts to change the ownership of the volume to match the Pod's fsGroup. \n
+	- None: Kubernetes will not modify volume ownership. The CSI driver or the storage backend is responsible for setting correct permissions. \n
+	Le champ fsGroupPolicy controle comment Kubernetes gere la propriete du groupe de fichiers : ReadWriteOnceWithFSType (defaut, modifie si RWO et fsType defini), File (modifie toujours), None (pas de modification par Kubernetes).

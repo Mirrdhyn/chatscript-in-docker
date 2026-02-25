@@ -1,0 +1,4 @@
+﻿~node.0.0  #! what is a node
+~node.1.0  #! node conditions
+~node.2.0  #! node taints and tolerations
+~node.3.0  #! node capacity and allocatable resources

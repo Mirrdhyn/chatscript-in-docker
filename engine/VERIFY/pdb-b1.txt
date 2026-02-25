@@ -1,0 +1,3 @@
+﻿~pdb.0.0  #! what is a pdb
+~pdb.1.0  #! pdb minAvailable vs maxUnavailable
+~pdb.2.0  #! pdb unhealthyPodEvictionPolicy

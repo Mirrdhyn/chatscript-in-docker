@@ -1,48 +1,213 @@
 # chatscript-in-docker
-Minimal ChatScript Engine ready to launch your bot
 
-You can also pull directly the Docker image from this [Docker Hub](https://hub.docker.com/r/dleclercq/chatscript-in-docker/) repo.
+Minimal [ChatScript 14.1](https://github.com/ChatScript/ChatScript) engine in Docker, bundled with **KubeBot** -- a bilingual (EN/FR) chatbot that combines small talk and a Kubernetes FAQ based on [kubespec.dev](https://kubespec.dev/).
 
-Based [ChatScript 9.8](https://github.com/ChatScript/ChatScript), this image has all core files to run your bot in English.
+## Quick Start
 
-# Build
-
-Building the image is as easy as cloning the repo and building using the Dockerfile.
-
-```
-$ git clone https://github.com/Mirrdhyn/chatscript-in-docker.git
-$ cd chatscript-in-docker
-$ docker build -t dleclercq/chatscript-in-docker:latest .
+```bash
+git clone https://github.com/Mirrdhyn/chatscript-in-docker.git
+cd chatscript-in-docker
+docker compose up --build
 ```
 
-# Kick-start
+The ChatScript server starts on port **1024**. The first build compiles the engine from source (~10s).
 
-To launch your bot, you have to mount your folder where you have all your top files and filesBuild to the bot data inside this image.
-Better an example than a long speech :
+## What's Inside
+
+KubeBot is a single unified bot that handles both casual conversation and Kubernetes questions. Topic routing is automatic -- ask about Pods and you get K8s answers, say hello and you get small talk.
+
+**Small talk topics**: greetings, mood, bot identity, weather, hobbies, thanks, opinions
+
+**Kubernetes FAQ topics** (~150 Q&A, based on kubespec.dev):
+- **Workloads**: Pod, Deployment, StatefulSet, DaemonSet, ReplicaSet, Job, CronJob
+- **Networking**: Service, Ingress, IngressClass, NetworkPolicy, EndpointSlice
+- **Storage**: PersistentVolume, PersistentVolumeClaim, StorageClass, CSIDriver
+- **Configuration**: ConfigMap, Secret, HPA, LimitRange, ResourceQuota, PodDisruptionBudget
+- **Access Control**: RBAC, ClusterRole, Role, RoleBinding, ServiceAccount
+- **Cluster**: Namespace, Node, Event
+- **Administration**: ValidatingWebhook, MutatingWebhook, ValidatingAdmissionPolicy, PriorityClass, RuntimeClass
+
+## Build
+
+The Dockerfile uses a multi-stage build: it compiles the ChatScript binary from the C++ source in `engine/SRC/`, then produces a minimal runtime image. No pre-built binary is needed.
+
+```bash
+docker build -t chatscript-bot .
+```
+
+## Compile the Engine Natively (optional)
+
+If you want to run ChatScript outside Docker (e.g. to rebuild topics or test locally), you need to compile the binary for your platform.
+
+### Prerequisites
+
+- `g++` (or `clang++` on macOS)
+- `make`
+- `libcurl` dev headers (`libcurl4-openssl-dev` on Debian/Ubuntu, `brew install curl` on macOS)
+
+### Linux
+
+```bash
+cd engine/SRC
+make clean server
+# Binary: ../BINARIES/ChatScript
+```
+
+### macOS
+
+```bash
+cd engine/SRC
+make clean standalone
+# Binary: ../BINARIES/ChatScript
+# You may need: codesign --sign - ../BINARIES/ChatScript
+```
+
+> **Note**: on macOS, compile the `standalone` target (not `server`). The `server` target uses `libev` which may require additional setup on macOS.
+
+### Rebuild Topics
+
+The pre-compiled topics are in `engine/TOPIC/`. If you modify the bot source files in `RAWDATA/BOT/`, you need to rebuild them:
+
+```bash
+# From the repo root (not engine/SRC/)
+mkdir -p engine/BINARIES engine/LOGS engine/USERS engine/TMP
+cd engine/BINARIES
+./ChatScript local build0=files0.txt    # Rebuild ontology
+./ChatScript local build1=filesBot.txt  # Rebuild bot topics
+```
+
+The compiled topics in `engine/TOPIC/BUILD0/` and `BUILD1/` are then ready for Docker.
+
+## Run
+
+### With docker compose
+
+```bash
+docker compose up -d
+```
+
+User data and logs are persisted in `./data/users/` and `./data/logs/`.
+
+### With docker run
+
+```bash
+docker run -d --name kubebot \
+  -p 1024:1024 \
+  -v $(pwd)/data/users:/opt/ChatScript/USERS \
+  -v $(pwd)/data/logs:/opt/ChatScript/LOGS \
+  chatscript-bot
+```
+
+## Query the Bot via TCP
+
+ChatScript uses a raw TCP protocol on port 1024. The message format is:
 
 ```
-$ docker run -t -i --name chatscript -p 1024:1024 -v C:\cs\MyBot\:/data/ChatScriptNLP/RAWDATA -v X:\MyBot\USERS\:/data/ChatScriptNLP/USERS -v X:\MyBot\LOGS\:/data/ChatScriptNLP/LOGS dleclercq/chatscript-in-docker:latest
+<username>\0<botname>\0<message>\0
 ```
 
-You can do this on Windows Docker as well. _Mine is working on my Windows laptop._
+where `\0` is a null byte. The server responds with the bot's reply as plain text.
 
-The option `name` is particulary useful to link your engine to another Docker like database or frontend.
+### Using netcat
 
-The option `p` is to plug my localhost port 1024 to the internal 1024 port of ChatScript server.
+```bash
+printf 'user1\0\0Hello\0' | nc localhost 1024
+printf 'user1\0\0What is a Pod?\0' | nc localhost 1024
+printf 'user1\0\0Quels sont les types de Service?\0' | nc localhost 1024
+```
 
-The option `v` is to mount my local code inside the `RAWDATA` folder where my bot will be running.
+### Using Python
 
-The two more options `v` are used to link `USERS` and `LOGS` files produced by the CS engine to your local machine. Using these options could be useful if you would like to save history and logs of your users to another server, a SAN for instance. You can scale up CS engine with Docker and Load Balancer (orchestrator) and use the same user logs.
+```python
+import socket
 
-The path inside this image is `/data/` where all ChatScript files are stored. You can now reflect this path to your files1.txt (for instance) to link your build bot to this Docker image.
+def ask_bot(message, user="user1", bot="", host="localhost", port=1024):
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect((host, port))
+        payload = f"{user}\0{bot}\0{message}\0"
+        s.sendall(payload.encode("utf-8"))
+        return s.recv(4096).decode("utf-8")
 
-# Connect clients
+print(ask_bot("Hello"))
+print(ask_bot("What is a Deployment?"))
+print(ask_bot("Comment configurer un Ingress?"))
+```
 
-When you are ready, you can now connect any ChatScript client, or send your packets to the socket. If, like me, you run the ChatScript.exe, you have just to add the option `client=localhost:1024` and you should have your engine responding to you.
-Easily now, you can `:build 0` and `:build MyBot` to begin a new conversation with your bot in Docker.
+### Using curl (via a TCP proxy)
 
-# Connect to CS Engine using bash
+ChatScript does not speak HTTP natively. If you need HTTP access, you can use a TCP-to-HTTP proxy like [socat](https://linux.die.net/man/1/socat) or write a thin wrapper.
 
-```$ docker exec -it chatscript /bin/bash```
+## Project Structure
 
-Then, you have a bash command line ready to change everything inside.
+```
+chatscript-in-docker/
+├── Dockerfile                 # Multi-stage: compile + runtime
+├── docker-compose.yml
+├── .dockerignore
+├── .gitignore
+├── LICENSE
+├── README.md
+├── RAWDATA/                   # Bot source files
+│   ├── files0.txt             # Build 0 manifest (ontology + worlddata)
+│   ├── filesBot.txt           # Build 1 manifest (bot topics)
+│   ├── ONTOLOGY/              # ChatScript ontology data
+│   ├── WORLDDATA/             # World knowledge facts
+│   ├── QUIBBLE/               # Fallback Eliza-like responses
+│   └── BOT/                   # KubeBot source
+│       ├── simplecontrol.top  # Main control flow
+│       ├── introductions.top  # Welcome messages
+│       ├── smalltalk.top      # Casual conversation
+│       ├── workloads.top      # K8s workloads FAQ
+│       ├── networking.top     # K8s networking FAQ
+│       ├── storage.top        # K8s storage FAQ
+│       ├── configuration.top  # K8s config FAQ
+│       ├── access_control.top # K8s RBAC FAQ
+│       ├── cluster.top        # K8s cluster FAQ
+│       ├── administration.top # K8s admin FAQ
+│       └── keywordless.top    # Fallback responses
+└── engine/                    # ChatScript 14.1 engine
+    ├── SRC/                   # C++ source (compiled during docker build)
+    ├── DICT/ENGLISH/          # English dictionary
+    ├── LIVEDATA/              # Runtime language data
+    └── TOPIC/                 # Pre-compiled topics
+        ├── BUILD0/            # Ontology + worlddata
+        └── BUILD1/            # Bot topics
+```
+
+## Create Your Own Bot
+
+1. Create a folder under `RAWDATA/` with your `.top` files (use `RAWDATA/BOT/` as reference)
+2. Create a `filesMyBot.txt` manifest listing your folders
+3. Compile topics locally (see [Rebuild Topics](#rebuild-topics))
+4. Rebuild: `docker build -t my-chatscript-bot .`
+
+See the [ChatScript documentation](https://github.com/ChatScript/ChatScript/tree/master/WIKI) for the full scripting reference.
+
+## Conversation Examples
+
+```
+user1: > Hello
+KubeBot: Hi there!
+
+user1: > What is a Pod?
+KubeBot: A Pod is the smallest deployable unit in Kubernetes. It represents
+one or more containers that share networking and storage.
+
+user1: > What are the Service types in Kubernetes?
+KubeBot: Kubernetes supports four Service types: ClusterIP (default, internal
+cluster IP only), NodePort (exposes on each node's IP at a static port),
+LoadBalancer (provisions an external load balancer), and ExternalName (maps
+to a DNS name via CNAME record).
+
+user1: > Comment fonctionne le RBAC?
+KubeBot: Le RBAC (controle d'acces base sur les roles) regule l'acces aux
+ressources Kubernetes en fonction des roles des utilisateurs ou des comptes
+de service.
+
+user1: > How are you?
+KubeBot: I'm doing great, thanks for asking!
+```
+
+## License
+
+MIT License - see [LICENSE](LICENSE).

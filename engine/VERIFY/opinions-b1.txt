@@ -1,0 +1,3 @@
+﻿~opinions.0.0  #! what do you think about kubernetes
+~opinions.1.0  #! what do you think about docker
+~opinions.2.0  #! do you like your job

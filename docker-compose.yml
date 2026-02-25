@@ -1,0 +1,9 @@
+services:
+  chatbot:
+    build: .
+    ports:
+      - "1024:1024"
+    volumes:
+      - ./data/users:/opt/ChatScript/USERS
+      - ./data/logs:/opt/ChatScript/LOGS
+    restart: unless-stopped

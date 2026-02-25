@@ -1,0 +1,4 @@
+﻿~validatingwebhook.0.0  #! what is a ValidatingWebhookConfiguration
+~validatingwebhook.1.0  #! ValidatingWebhookConfiguration clientConfig
+~validatingwebhook.2.0  #! ValidatingWebhookConfiguration rules
+~validatingwebhook.3.0  #! ValidatingWebhookConfiguration failurePolicy

@@ -1,0 +1,3 @@
+﻿~replicaset.0.0  #! what is a replicaset
+~replicaset.1.0  #! replicaset vs deployment
+~replicaset.2.0  #! when to use replicaset directly

@@ -1,0 +1,4 @@
+﻿~k8s_rolebinding.0.0  #! what is a ClusterRoleBinding
+~k8s_rolebinding.1.0  #! what is a RoleBinding
+~k8s_rolebinding.2.0  #! roleRef field apiGroup kind name
+~k8s_rolebinding.3.0  #! subjects field kind name namespace apiGroup

@@ -1,0 +1,8 @@
+﻿~deployment.0.0  #! what is a deployment
+~deployment.1.0  #! deployment spec replicas selector template
+~deployment.2.0  #! deployment strategy rolling update recreate
+~deployment.3.0  #! deployment maxSurge maxUnavailable
+~deployment.4.0  #! deployment progressDeadlineSeconds
+~deployment.5.0  #! deployment revisionHistoryLimit
+~deployment.6.0  #! how to rollback a deployment
+~deployment.7.0  #! deployment vs replicaset difference

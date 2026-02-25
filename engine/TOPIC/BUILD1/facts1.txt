@@ -1,0 +1,2 @@
+﻿3 ENGLISH
+( kubebot defaultbot defaultbot x00100000 )

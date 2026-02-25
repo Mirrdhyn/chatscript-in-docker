@@ -1,0 +1,3 @@
+﻿~limitrange.0.0  #! what is a limitrange
+~limitrange.1.0  #! limitrange default and defaultRequest
+~limitrange.2.0  #! limitrange min max resource limits

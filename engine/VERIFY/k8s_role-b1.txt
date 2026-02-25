@@ -1,0 +1,4 @@
+﻿~k8s_role.0.0  #! what is a ClusterRole
+~k8s_role.1.0  #! what is a Role
+~k8s_role.2.0  #! Role vs ClusterRole difference
+~k8s_role.3.0  #! Role rules apiGroups resources verbs
